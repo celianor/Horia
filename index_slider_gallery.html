@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horia Gallery</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 80%;
+        }
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .active {
+            display: block;
+        }
+        /* Fullscreen overlay */
+        #fullscreen-overlay {
+            position: fixed;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+        }
+        #fullscreen-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="slide"><img src="images/image1.png" onclick="openFullscreen(this.src)"></div><div class="slide"><img src="images/image2.png" onclick="openFullscreen(this.src)"></div><div class="slide"><img src="images/image3.png" onclick="openFullscreen(this.src)"></div><div class="slide"><img src="images/image4.png" onclick="openFullscreen(this.src)"></div><div class="slide"><img src="images/image5.png" onclick="openFullscreen(this.src)"></div>
+</div>
+
+<div id="fullscreen-overlay" onclick="closeFullscreen()">
+    <img id="fullscreen-image" src="">
+</div>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+        });
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add("active");
+    }
+
+    function openFullscreen(src) {
+        const overlay = document.getElementById("fullscreen-overlay");
+        const fullscreenImage = document.getElementById("fullscreen-image");
+        fullscreenImage.src = src;
+        overlay.style.display = "flex";
+    }
+
+    function closeFullscreen() {
+        document.getElementById("fullscreen-overlay").style.display = "none";
+    }
+
+    // Initialize
+    slides[slideIndex].classList.add("active");
+    setInterval(showSlides, 10000);
+</script>
+
+</body>
+</html>
