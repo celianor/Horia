@@ -1,172 +1,1480 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <title>ندای دوم | کتاب روشنی‌ها</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-       body {
-      font-family: "Tahoma", Arial, sans-serif;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1.5rem 2rem;
-      line-height: 1.7;
-      background-color: #fff;
-      color: #222;
-      direction: rtl;
-      text-align: right;
-      box-shadow: 0 0 20px rgba(0,0,0,0.12);
-      border-radius: 10px;
-    }
-    h1, h2 {
-      color: #2c3e50;
-      border-bottom: 3px solid #2980b9;
-      padding-bottom: 0.6rem;
-      margin-top: 2.5rem;
-      font-weight: 700;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 2rem 0;
-    }
-    nav {
-      margin-bottom: 2rem;
-      text-align: right;
-    }
-    nav a {
-      text-decoration: none;
-      background-color: #2980b9;
-      color: white;
-      padding: 0.6rem 1.4rem;
-      margin-left: 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-    nav a:hover {
-      background-color: #1c5980;
-    }
-    p {
-      margin-bottom: 1.3rem;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    ul {
-      margin-right: 1.8rem;
-      margin-bottom: 1.6rem;
-      list-style-position: inside;
-      font-size: 1rem;
-      color: #444;
-    }
-    blockquote {
-      font-style: italic;
-      color: #555;
-      border-right: 4px solid #2980b9;
-      padding-right: 1rem;
-      margin: 1.5rem 0;
-      background: #f9f9f9;
-      border-radius: 5px;
-    }
-  </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#17120b">
+
+<title>
+  ندای دوم | کتاب روشنی‌ها
+</title>
+
+
+<style>
+
+/* =====================================================
+   فونت‌ها
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
+
+
+/* =====================================================
+   رنگ‌ها
+===================================================== */
+
+:root {
+
+  --gold: #c19a4b;
+  --gold-light: #e0c47b;
+  --gold-dark: #806021;
+
+  --ink: #34291b;
+  --ink-light: #62513a;
+
+  --paper: #f8f0dc;
+  --paper-light: #fffaf0;
+
+  --night: #17120b;
+  --night-2: #282016;
+
+  --line: rgba(150,112,42,.45);
+
+}
+
+
+/* =====================================================
+   تنظیمات عمومی
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  color: var(--ink);
+
+  font-family:
+    "Vazirmatn",
+    Tahoma,
+    Arial,
+    sans-serif;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(224,196,123,.16),
+      transparent 35rem
+    ),
+
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(193,154,75,.08),
+      transparent 25rem
+    ),
+
+    linear-gradient(
+      135deg,
+      #100d08,
+      #21190f 50%,
+      #100d08
+    );
+
+}
+
+
+/* =====================================================
+   قاب اصلی کتاب
+===================================================== */
+
+.book {
+
+  width: min(
+    1000px,
+    calc(100% - 24px)
+  );
+
+  margin: 35px auto;
+
+  position: relative;
+
+  background:
+
+    linear-gradient(
+      rgba(248,240,220,.97),
+      rgba(248,240,220,.97)
+    ),
+
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 4px,
+      rgba(90,60,20,.025) 5px
+    );
+
+  box-shadow:
+
+    0 30px 90px
+    rgba(0,0,0,.45),
+
+    0 0 0 1px
+    rgba(193,154,75,.35);
+
+  overflow: hidden;
+
+}
+
+
+/* =====================================================
+   قاب طلایی داخلی
+===================================================== */
+
+.book::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 13px;
+
+  border: 1px solid
+  rgba(193,154,75,.55);
+
+  pointer-events: none;
+
+  z-index: 20;
+
+}
+
+
+.book::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 20px;
+
+  border: 1px solid
+  rgba(193,154,75,.22);
+
+  pointer-events: none;
+
+  z-index: 20;
+
+}
+
+
+/* =====================================================
+   سربرگ
+===================================================== */
+
+header {
+
+  position: relative;
+
+  padding:
+    85px
+    30px
+    70px;
+
+  text-align: center;
+
+  color: #f9efd6;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(193,154,75,.23),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,.04),
+      transparent 65%
+    ),
+
+    linear-gradient(
+      180deg,
+      #2a2115,
+      #151009
+    );
+
+}
+
+
+/* نور مرکزی */
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(224,196,123,.10),
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+}
+
+
+/* =====================================================
+   عنوان کوچک
+===================================================== */
+
+.eyebrow {
+
+  position: relative;
+
+  color:
+    var(--gold-light);
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size: 1.1rem;
+
+  letter-spacing: .22em;
+
+  margin-bottom: 15px;
+
+}
+
+
+/* =====================================================
+   عنوان اصلی
+===================================================== */
+
+h1 {
+
+  position: relative;
+
+  margin: 0;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size:
+    clamp(
+      3rem,
+      9vw,
+      5.5rem
+    );
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #f8eac6;
+
+  text-shadow:
+
+    0 2px 4px
+    rgba(0,0,0,.7),
+
+    0 0 35px
+    rgba(224,196,123,.18);
+
+}
+
+
+/* =====================================================
+   زیرعنوان
+===================================================== */
+
+.subtitle {
+
+  position: relative;
+
+  margin-top: 18px;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size:
+    clamp(
+      1.15rem,
+      3vw,
+      1.55rem
+    );
+
+  color:
+    #d6c294;
+
+}
+
+
+/* =====================================================
+   نقش تزئینی
+===================================================== */
+
+.ornament {
+
+  position: relative;
+
+  margin-top: 30px;
+
+  color:
+    var(--gold-light);
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size: 1.8rem;
+
+  letter-spacing: .5em;
+
+}
+
+
+/* =====================================================
+   نوار ناوبری
+===================================================== */
+
+nav {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f1e4c7,
+      #ead9b6
+    );
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+nav a {
+
+  display: inline-block;
+
+  padding:
+    7px 20px;
+
+  color:
+    var(--ink);
+
+  text-decoration: none;
+
+  font-size: .9rem;
+
+  border:
+    1px solid
+    rgba(128,96,33,.35);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,250,235,.45);
+
+  transition:
+    all .3s ease;
+
+}
+
+
+nav a:hover {
+
+  color: white;
+
+  background:
+    var(--gold);
+
+  box-shadow:
+    0 5px 18px
+    rgba(90,60,20,.2);
+
+}
+
+
+/* =====================================================
+   محتوای اصلی
+===================================================== */
+
+main {
+
+  padding:
+    60px
+    clamp(25px, 8vw, 95px)
+    80px;
+
+}
+
+
+/* =====================================================
+   عنوان فصل
+===================================================== */
+
+.chapter {
+
+  text-align: center;
+
+  margin-bottom: 55px;
+
+}
+
+
+.chapter-number {
+
+  font-family:
+    "Amiri",
+    serif;
+
+  color:
+    var(--gold-dark);
+
+  font-size: 1rem;
+
+  margin-bottom: 7px;
+
+}
+
+
+h2 {
+
+  margin: 0;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  color:
+    #4b3920;
+
+  font-size:
+    clamp(
+      1.8rem,
+      5vw,
+      2.7rem
+    );
+
+  line-height: 1.5;
+
+}
+
+
+/* خط تزئینی */
+
+.chapter-line {
+
+  position: relative;
+
+  width: 190px;
+
+  height: 1px;
+
+  margin:
+    22px
+    auto
+    0;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+}
+
+
+.chapter-line::before {
+
+  content: "◆";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: -11px;
+
+  transform:
+    translateX(-50%);
+
+  color:
+    var(--gold);
+
+  background:
+    var(--paper);
+
+  padding:
+    0 12px;
+
+  font-size: .8rem;
+
+}
+
+
+/* =====================================================
+   متن
+===================================================== */
+
+.prose {
+
+  max-width: 760px;
+
+  margin:
+    0 auto;
+
+}
+
+
+p {
+
+  margin:
+    0 0 30px;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size:
+    clamp(
+      1.15rem,
+      2.5vw,
+      1.4rem
+    );
+
+  line-height:
+    2.35;
+
+  text-align:
+    right;
+
+  color:
+    var(--ink);
+
+}
+
+
+/* =====================================================
+   آغاز ندا
+===================================================== */
+
+.opening {
+
+  position: relative;
+
+  padding:
+    30px
+    25px;
+
+  margin-bottom:
+    40px;
+
+  text-align:
+    center;
+
+  font-size:
+    clamp(
+      1.3rem,
+      3vw,
+      1.6rem
+    );
+
+  color:
+    #503d22;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(193,154,75,.10),
+      transparent
+    );
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+/* =====================================================
+   بخش‌های تأملی
+===================================================== */
+
+.reflection {
+
+  position: relative;
+
+  margin:
+    48px 0;
+
+  padding:
+    28px
+    32px;
+
+  border-right:
+    3px solid
+    var(--gold);
+
+  background:
+    rgba(193,154,75,.055);
+
+}
+
+
+/* =====================================================
+   ندای برجسته
+===================================================== */
+
+.emphasis {
+
+  position: relative;
+
+  margin:
+    55px 0;
+
+  padding:
+    35px
+    38px;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(193,154,75,.13),
+      transparent 75%
+    ),
+
+    rgba(193,154,75,.055);
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.emphasis::before {
+
+  content: "❈";
+
+  display: block;
+
+  text-align: center;
+
+  margin-bottom: 18px;
+
+  color:
+    var(--gold);
+
+  font-size:
+    1.6rem;
+
+}
+
+
+.emphasis p {
+
+  margin: 0;
+
+  text-align: center;
+
+  color:
+    #45341e;
+
+  font-size:
+    clamp(
+      1.2rem,
+      2.7vw,
+      1.5rem
+    );
+
+}
+
+
+/* =====================================================
+   پایان
+===================================================== */
+
+.closing {
+
+  position: relative;
+
+  margin-top:
+    65px;
+
+  padding:
+    50px
+    20px
+    30px;
+
+  text-align:
+    center;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+
+.closing-symbol {
+
+  color:
+    var(--gold);
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size:
+    2rem;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.closing p {
+
+  text-align:
+    center;
+
+  font-size:
+    clamp(
+      1.25rem,
+      3vw,
+      1.55rem
+    );
+
+  color:
+    #47351e;
+
+}
+
+
+/* =====================================================
+   پاورقی
+===================================================== */
+
+footer {
+
+  padding:
+    27px;
+
+  text-align:
+    center;
+
+  background:
+    linear-gradient(
+      180deg,
+      #21190f,
+      #130f09
+    );
+
+  color:
+    #bda978;
+
+  font-family:
+    "Amiri",
+    serif;
+
+  font-size:
+    .95rem;
+
+}
+
+
+/* =====================================================
+   تزئینات چهارگوشه
+===================================================== */
+
+.corner {
+
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  border-color:
+    var(--gold);
+
+  opacity: .55;
+
+  z-index: 21;
+
+}
+
+
+.corner.top-right {
+
+  top: 28px;
+  right: 28px;
+
+  border-top:
+    1px solid var(--gold);
+
+  border-right:
+    1px solid var(--gold);
+
+}
+
+
+.corner.top-left {
+
+  top: 28px;
+  left: 28px;
+
+  border-top:
+    1px solid var(--gold);
+
+  border-left:
+    1px solid var(--gold);
+
+}
+
+
+.corner.bottom-right {
+
+  bottom: 28px;
+  right: 28px;
+
+  border-bottom:
+    1px solid var(--gold);
+
+  border-right:
+    1px solid var(--gold);
+
+}
+
+
+.corner.bottom-left {
+
+  bottom: 28px;
+  left: 28px;
+
+  border-bottom:
+    1px solid var(--gold);
+
+  border-left:
+    1px solid var(--gold);
+
+}
+
+
+/* =====================================================
+   موبایل
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .book {
+
+    width:
+      calc(100% - 10px);
+
+    margin:
+      8px auto;
+
+  }
+
+
+  header {
+
+    padding:
+      65px
+      22px
+      55px;
+
+  }
+
+
+  main {
+
+    padding:
+      45px
+      22px
+      55px;
+
+  }
+
+
+  .book::before {
+
+    inset:
+      8px;
+
+  }
+
+
+  .book::after {
+
+    inset:
+      13px;
+
+  }
+
+
+  .corner {
+
+    width: 35px;
+    height: 35px;
+
+  }
+
+
+  .corner.top-right {
+
+    top: 17px;
+    right: 17px;
+
+  }
+
+
+  .corner.top-left {
+
+    top: 17px;
+    left: 17px;
+
+  }
+
+
+  .corner.bottom-right {
+
+    bottom: 17px;
+    right: 17px;
+
+  }
+
+
+  .corner.bottom-left {
+
+    bottom: 17px;
+    left: 17px;
+
+  }
+
+
+  p {
+
+    line-height:
+      2.15;
+
+    margin-bottom:
+      25px;
+
+  }
+
+
+  .emphasis {
+
+    padding:
+      28px
+      20px;
+
+  }
+
+
+  .reflection {
+
+    padding:
+      22px
+      20px;
+
+  }
+
+
+  nav {
+
+    padding:
+      15px;
+
+  }
+
+}
+
+
+/* =====================================================
+   چاپ
+===================================================== */
+
+@media print {
+
+  body {
+
+    background:
+      white;
+
+  }
+
+
+  .book {
+
+    width:
+      100%;
+
+    margin:
+      0;
+
+    box-shadow:
+      none;
+
+  }
+
+
+  nav {
+
+    display:
+      none;
+
+  }
+
+
+  header {
+
+    break-after:
+      avoid;
+
+  }
+
+
+  p {
+
+    font-size:
+      13pt;
+
+  }
+
+}
+
+</style>
+
 </head>
+
+
 <body>
 
 
-  <div class="nav-links">
-    <a href="../index.fa.html"><i class="fas fa-home"></i> خانه</a>
-    <a href="index.fa.html"><i class="fas fa-book-open"></i> کتاب روشنی‌ها</a>
-  </div>
+<article class="book">
 
-  <h1>کتاب روشنی‌ها | نداهای روشن‌کننده</h1>
-  <h2>ندای دوم: یاد ایام نخستین</h2>
 
-  <p>ای فرزند پنهانی‌ترین آغوش هستی،<br>
-  ای روییده در خاموشیِ ماقبل زمان،<br>
-  پیش از آن‌که زمین را بشناسی،<br>
-  و پیش از آن‌که آسمان را دریابی،<br>
-  در جایی بودی که نه نام داشت و نه زبان،<br>
-  و نه روزگار، دفتر شمارش خود را گشوده بود.</p>
+  <!-- گوشه‌های تزئینی -->
 
-  <p>در آن منزل نخستین،<br>
-  نه اختیار داشتی و نه آگاهی،<br>
-  چون ماهی در آب زلال بی‌پرسش،<br>
-  چون خواب نوزادی در آغوشی بی‌مرز.<br>
-  تو بودی،<br>
-  اما نه داننده، نه گزیننده،<br>
-  بل چون گلی که در دل خاک، رؤیای نور را هنوز به یاد نیاورده.</p>
+  <div class="corner top-right"></div>
 
-  <p>من، که نگاهبان تمامی ناپیدایی‌هایم،<br>
-  تو را در پرده‌ی رحمت، آرام نگاه داشتم،<br>
-  و بر هر جنبش جانت،<br>
-  آهنگی نوشتم که هیچ اهریمنی نتواند آن را خاموش کند.</p>
+  <div class="corner top-left"></div>
 
-  <p>آنگاه، چون وقت بیداری رسید،<br>
-  و دل تو در هوای دانستن تپید،<br>
-  تو را از پرده‌ی بی‌ارادگی بیرون آوردم،<br>
-  و به میدانِ اختیار فرستادم،<br>
-  تا چون نغمه‌سازی،<br>
-  با دستان خود، نوای خویش را بسرایی.</p>
+  <div class="corner bottom-right"></div>
 
-  <p>آری، ای عزیزترین نگاهِ من،<br>
-  تو را به جهانی آوردم که در آن،<br>
-  هر انتخاب، دانه‌ای‌ست که روزی خواهد رویید،<br>
-  و هر پندار، بادی‌ست که شاخسارِ آینده‌ات را خواهد لرزاند.</p>
+  <div class="corner bottom-left"></div>
 
-  <p>پیش از آمدنت، آری، بودی؛<br>
-  اما نه آن‌سان که اکنون هستی.</p>
 
-  <p>آنگاه، بر تو سلام گفتم،<br>
-  نه با زبانِ فرشتگان،<br>
-  بل با نخستین گریه‌ات،<br>
-  که نوای آغاز بود.</p>
 
-  <p>و با هر نفسی که کشیدی،<br>
-  ذره‌ای از خویشتنِ خویش را به یاد آوردی.</p>
+  <!-- =================================================
+       سربرگ
+  ================================================== -->
 
-  <p>تو را نیافریدم تا فراموش شوی،<br>
-  بل تا خویش را بیابی،<br>
-  نه در آیینهای خشک و سخنان پوسیده،<br>
-  بل در پویش راستین دل و در پرسشی که از ژرفای جانت برمی‌خیزد.</p>
+  <header>
 
-  <p>آیا نشنیده‌ای که تخم افتاده بر خاک،<br>
-  چون از خواب برمی‌خیزد،<br>
-  خود را نمی‌شناسد،<br>
-  مگر آنگاه که شکفته شود؟</p>
+    <div class="eyebrow">
+      کتاب روشنی‌ها
+    </div>
 
-  <p>تو نیز چنین بودی،<br>
-  و هنوز نیز، در راه شکفتنی.</p>
+    <h1>
+      ندای دوم
+    </h1>
 
-  <p>آن‌جا که در پیش بودی،<br>
-  نه پاداشی بود و نه کیفر،<br>
-  نه خطا و نه فضیلت،<br>
-  تنها مهبط آرامی بودی در لابه‌لای امواج بی‌رنگ.</p>
+    <div class="subtitle">
+      یاد ایام نخستین
+    </div>
 
-  <p>اما اکنون، ای روشن‌ترین پرسنده‌ی شب،<br>
-  دریافته‌ای که بودن، آگاهی‌ست،<br>
-  و آگاهی، مسئولیت.</p>
+    <div class="ornament">
+      ✦ ❈ ✦
+    </div>
 
-  <p>تو را از خواب نخستین برانگیختم،<br>
-  نه برای رنج،<br>
-  بل برای رشد.<br>
-  و رشد، جز با درد شناخت،<br>
-  و طعمِ اراده، حاصل نمی‌شود.</p>
+  </header>
 
-  <p>من خدایی‌ام که پرواز را بر تو نوشتم،<br>
-  نه قفسی را از وحشت؛<br>
-  آزادی را نوشتم،<br>
-  نه بهانه‌ای برای سقوط،<br>
-  بلکه آسمانی برای اوج‌گیری.</p>
 
-  <p>ای آن‌که از پرده‌های گذشته گذشتی،<br>
-  و به امروز رسیدی،<br>
-  بدان که آن زندگی نخست، بذر خاموشی بود،<br>
-  و این زندگی دوم، آفتاب بر آن بذر است.</p>
 
-  <p>از این‌جا،<br>
-  همه چیز به دست توست.</p>
-</p>
+  <!-- =================================================
+       ناوبری
+  ================================================== -->
+
+  <nav>
+
+    <a href="../index.fa.html">
+      ⌂ خانه
+    </a>
+
+    <a href="index.fa.html">
+      ☼ کتاب روشنی‌ها
+    </a>
+
+  </nav>
+
+
+
+  <!-- =================================================
+       متن کتاب
+  ================================================== -->
+
+  <main>
+
+
+    <section class="chapter">
+
+      <div class="chapter-number">
+        دومین ندا
+      </div>
+
+      <h2>
+        یاد ایام نخستین
+      </h2>
+
+      <div class="chapter-line"></div>
+
+    </section>
+
+
+
+    <div class="prose">
+
+
+      <!-- آغاز ندای دوم -->
+
+      <p class="opening">
+
+        ای فرزند پنهانی‌ترین آغوش هستی،<br>
+
+        ای روییده در خاموشیِ ماقبل زمان،<br>
+
+        پیش از آن‌که زمین را بشناسی،<br>
+
+        و پیش از آن‌که آسمان را دریابی،<br>
+
+        در جایی بودی که نه نام داشت و نه زبان،<br>
+
+        و نه روزگار، دفتر شمارش خود را گشوده بود.
+
+      </p>
+
+
+
+      <p>
+
+        در آن منزل نخستین،<br>
+
+        نه اختیار داشتی و نه آگاهی،<br>
+
+        چون ماهی در آب زلال بی‌پرسش،<br>
+
+        چون خواب نوزادی در آغوشی بی‌مرز.<br>
+
+        تو بودی،<br>
+
+        اما نه داننده، نه گزیننده،<br>
+
+        بل چون گلی که در دل خاک، رؤیای نور را هنوز به یاد نیاورده.
+
+      </p>
+
+
+
+      <p>
+
+        من، که نگاهبان تمامی ناپیدایی‌هایم،<br>
+
+        تو را در پرده‌ی رحمت، آرام نگاه داشتم،<br>
+
+        و بر هر جنبش جانت،<br>
+
+        آهنگی نوشتم که هیچ اهریمنی نتواند آن را خاموش کند.
+
+      </p>
+
+
+
+      <!-- بخش بیداری -->
+
+      <div class="emphasis">
+
+        <p>
+
+          آنگاه، چون وقت بیداری رسید،<br>
+
+          و دل تو در هوای دانستن تپید،<br>
+
+          تو را از پرده‌ی بی‌ارادگی بیرون آوردم،<br>
+
+          و به میدانِ اختیار فرستادم،<br>
+
+          تا چون نغمه‌سازی،<br>
+
+          با دستان خود، نوای خویش را بسرایی.
+
+        </p>
+
+      </div>
+
+
+
+      <p>
+
+        آری، ای عزیزترین نگاهِ من،<br>
+
+        تو را به جهانی آوردم که در آن،<br>
+
+        هر انتخاب، دانه‌ای‌ست که روزی خواهد رویید،<br>
+
+        و هر پندار، بادی‌ست که شاخسارِ آینده‌ات را خواهد لرزاند.
+
+      </p>
+
+
+
+      <p>
+
+        پیش از آمدنت، آری، بودی؛<br>
+
+        اما نه آن‌سان که اکنون هستی.
+
+      </p>
+
+
+
+      <p>
+
+        آنگاه، بر تو سلام گفتم،<br>
+
+        نه با زبانِ فرشتگان،<br>
+
+        بل با نخستین گریه‌ات،<br>
+
+        که نوای آغاز بود.
+
+      </p>
+
+
+
+      <p>
+
+        و با هر نفسی که کشیدی،<br>
+
+        ذره‌ای از خویشتنِ خویش را به یاد آوردی.
+
+      </p>
+
+
+
+      <p>
+
+        تو را نیافریدم تا فراموش شوی،<br>
+
+        بل تا خویش را بیابی،<br>
+
+        نه در آیینهای خشک و سخنان پوسیده،<br>
+
+        بل در پویش راستین دل و در پرسشی که از ژرفای جانت برمی‌خیزد.
+
+      </p>
+
+
+
+      <!-- تمثیل دانه -->
+
+      <div class="reflection">
+
+        <p>
+
+          آیا نشنیده‌ای که تخم افتاده بر خاک،<br>
+
+          چون از خواب برمی‌خیزد،<br>
+
+          خود را نمی‌شناسد،<br>
+
+          مگر آنگاه که شکفته شود؟
+
+        </p>
+
+        <p>
+
+          تو نیز چنین بودی،<br>
+
+          و هنوز نیز، در راه شکفتنی.
+
+        </p>
+
+      </div>
+
+
+
+      <p>
+
+        آن‌جا که در پیش بودی،<br>
+
+        نه پاداشی بود و نه کیفر،<br>
+
+        نه خطا و نه فضیلت،<br>
+
+        تنها مهبط آرامی بودی در لابه‌لای امواج بی‌رنگ.
+
+      </p>
+
+
+
+      <p>
+
+        اما اکنون، ای روشن‌ترین پرسنده‌ی شب،<br>
+
+        دریافته‌ای که بودن، آگاهی‌ست،<br>
+
+        و آگاهی، مسئولیت.
+
+      </p>
+
+
+
+      <p>
+
+        تو را از خواب نخستین برانگیختم،<br>
+
+        نه برای رنج،<br>
+
+        بل برای رشد.<br>
+
+        و رشد، جز با درد شناخت،<br>
+
+        و طعمِ اراده، حاصل نمی‌شود.
+
+      </p>
+
+
+
+      <!-- آزادی -->
+
+      <div class="emphasis">
+
+        <p>
+
+          من خدایی‌ام که پرواز را بر تو نوشتم،<br>
+
+          نه قفسی را از وحشت؛<br>
+
+          آزادی را نوشتم،<br>
+
+          نه بهانه‌ای برای سقوط،<br>
+
+          بلکه آسمانی برای اوج‌گیری.
+
+        </p>
+
+      </div>
+
+
+
+      <p>
+
+        ای آن‌که از پرده‌های گذشته گذشتی،<br>
+
+        و به امروز رسیدی،<br>
+
+        بدان که آن زندگی نخست، بذر خاموشی بود،<br>
+
+        و این زندگی دوم، آفتاب بر آن بذر است.
+
+      </p>
+
+
+
+      <!-- پایان -->
+
+      <div class="closing">
+
+        <div class="closing-symbol">
+          ✦
+        </div>
+
+        <p>
+
+          از این‌جا،<br>
+
+          همه چیز به دست توست.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =================================================
+       پاورقی
+  ================================================== -->
+
+  <footer>
+
+    کتاب روشنی‌ها
+    ·
+    ندای دوم
+
+  </footer>
+
+
+</article>
+
 
 </body>
-</html>
+
+  </html>
