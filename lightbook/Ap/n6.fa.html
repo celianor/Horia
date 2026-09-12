@@ -1,40 +1,1011 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>کتاب روشنی‌ها | ندای سوم</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>کتاب روشنی‌ها | ندای ششم</title>  <!-- فونت‌های فارسی -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">  <style>
+    :root {
+      --gold: #c19a4b;
+      --gold-light: #e0c47b;
+      --gold-dark: #806021;
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      --ink: #34291b;
+      --ink-light: #62513a;
 
-  <style>
-    body {
-      font-family: "Tahoma", "Arial", sans-serif;
-      line-height: 1.8;
-      background: #fffdfa;
-      color: #2b2b2b;
-      margin: 0;
-      padding: 1rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      direction: rtl;
-      text-align: justify;
+      --paper: #f8f0dc;
+      --paper-light: #fffaf0;
+
+      --night: #17120b;
+      --night-2: #282016;
+
+      --line: rgba(150, 112, 42, .45);
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(224, 196, 123, .16),
+          transparent 35rem
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(193, 154, 75, .08),
+          transparent 25rem
+        ),
+        linear-gradient(
+          135deg,
+          #100d08,
+          #21190f 50%,
+          #100d08
+        );
+
+      color: var(--ink);
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      padding: 35px 0;
+    }
+
+    /* ==============================
+       بدنه‌ی کتاب
+    ============================== */
+
+    .book {
+      width: min(1000px, calc(100% - 24px));
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(193, 154, 75, .07),
+          transparent 20rem
+        ),
+        linear-gradient(
+          180deg,
+          var(--paper-light),
+          var(--paper)
+        );
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, .55),
+        0 5px 20px rgba(0, 0, 0, .35);
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+
+      border: 1px solid rgba(193, 154, 75, .75);
+
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .book::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+
+      border: 1px solid rgba(193, 154, 75, .28);
+
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ==============================
+       گوشه‌های تزئینی
+    ============================== */
+
+    .corner {
+      position: absolute;
+
+      width: 45px;
+      height: 45px;
+
+      z-index: 12;
+      opacity: .8;
+    }
+
+    .corner::before,
+    .corner::after {
+      content: "";
+      position: absolute;
+      background: var(--gold);
+    }
+
+    .corner::before {
+      width: 100%;
+      height: 1px;
+    }
+
+    .corner::after {
+      width: 1px;
+      height: 100%;
+    }
+
+    .corner.tl {
+      top: 28px;
+      right: 28px;
+    }
+
+    .corner.tr {
+      top: 28px;
+      left: 28px;
+      transform: rotate(90deg);
+    }
+
+    .corner.bl {
+      bottom: 28px;
+      right: 28px;
+      transform: rotate(-90deg);
+    }
+
+    .corner.br {
+      bottom: 28px;
+      left: 28px;
+      transform: rotate(180deg);
+    }
+
+    /* ==============================
+       سربرگ
+    ============================== */
+
+    header {
+      position: relative;
+      text-align: center;
+
+      padding: 85px 30px 70px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(224, 196, 123, .14),
+          transparent 45%
+        ),
+        linear-gradient(
+          135deg,
+          var(--night),
+          var(--night-2),
+          var(--night)
+        );
+
+      color: var(--paper-light);
+    }
+
+    header::after {
+      content: "✦  ❈  ✦";
+
+      display: block;
+      margin-top: 28px;
+
+      color: var(--gold-light);
+
+      font-size: 1.25rem;
+      letter-spacing: .35rem;
+    }
+
+    .book-title {
+      margin: 0 0 14px;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+
+      color: var(--paper-light);
+
+      text-shadow:
+        0 0 15px rgba(224, 196, 123, .18),
+        0 4px 15px rgba(0, 0, 0, .55);
+    }
+
+    .book-subtitle {
+      margin: 0;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+
+      color: var(--gold-light);
+    }
+
+    .chapter-label {
+      margin-top: 22px;
+
+      font-family: "Vazirmatn", sans-serif;
+
+      font-size: .95rem;
+
+      color: rgba(255, 250, 240, .72);
+    }
+
+    /* ==============================
+       ناوبری
+    ============================== */
+
     .nav-links {
       display: flex;
-      justify-content: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
+
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+      gap: 12px;
+
+      padding: 18px 25px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(193, 154, 75, .13),
+          rgba(193, 154, 75, .04)
+        );
+
+      border-bottom: 1px solid var(--line);
     }
+
     .nav-links a {
-      color: #0b5394;
-      text-decoration: none;
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 9px 18px;
+
+      border: 1px solid rgba(193, 154, 75, .55);
+      border-radius: 30px;
+
+      background: rgba(255, 250, 240, .65);
+
+      color: var(--gold-dark);
+
+      font-size: .95rem;
       font-weight: 600;
-      transition: color 0.3s ease;
+
+      text-decoration: none;
+
+      transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+
+      background: var(--gold);
+      color: #fffaf0;
+
+      box-shadow:
+        0 5px 15px rgba(128, 96, 33, .25);
+    }
+
+    /* ==============================
+       محتوای اصلی
+    ============================== */
+
+    main {
+      padding:
+        65px
+        clamp(25px, 8vw, 95px)
+        85px;
+    }
+
+    .chapter-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .chapter-heading .small-title {
+      margin-bottom: 10px;
+
+      font-family: "Vazirmatn", sans-serif;
+
+      font-size: 1rem;
+      font-weight: 600;
+
+      color: var(--gold-dark);
+    }
+
+    .chapter-heading h1 {
+      margin: 0;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+
+      color: var(--ink);
+    }
+
+    .chapter-heading h2 {
+      margin: 8px 0 0;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 400;
+
+      color: var(--gold-dark);
+    }
+
+    .ornament-line {
       display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 14px;
+      margin: 25px auto 0;
+
+      color: var(--gold);
+    }
+
+    .ornament-line::before,
+    .ornament-line::after {
+      content: "";
+
+      width: min(150px, 22vw);
+      height: 1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          var(--line)
+        );
+    }
+
+    .ornament-line::after {
+      transform: rotate(180deg);
+    }
+
+    /* ==============================
+       متن اصلی
+    ============================== */
+
+    p {
+      margin: 0 0 1.45rem;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.18rem, 2.1vw, 1.42rem);
+
+      line-height: 2.35;
+
+      text-align: justify;
+
+      color: var(--ink);
+    }
+
+    /* ==============================
+       آغاز ندا
+    ============================== */
+
+    .opening {
+      margin: 0 auto 45px;
+
+      padding: 30px 25px;
+
+      text-align: center;
+
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(193, 154, 75, .09),
+          transparent
+        );
+    }
+
+    .opening p {
+      margin: 0;
+
+      text-align: center;
+
+      font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+
+      color: var(--gold-dark);
+    }
+
+    /* ==============================
+       بخش‌های برجسته
+    ============================== */
+
+    .emphasis {
+      position: relative;
+
+      margin: 45px 0;
+
+      padding: 30px 30px 26px;
+
+      text-align: center;
+
+      border-top: 1px solid rgba(193, 154, 75, .5);
+      border-bottom: 1px solid rgba(193, 154, 75, .5);
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(193, 154, 75, .12),
+          transparent 70%
+        );
+    }
+
+    .emphasis::before {
+      content: "❈";
+
+      display: block;
+
+      margin-bottom: 14px;
+
+      color: var(--gold);
+
+      font-size: 1.4rem;
+    }
+
+    .emphasis p {
+      margin-bottom: .8rem;
+
+      text-align: center;
+
+      color: var(--gold-dark);
+    }
+
+    /* ==============================
+       بخش تأمل
+    ============================== */
+
+    .reflection {
+      margin: 45px 0;
+
+      padding: 24px 28px;
+
+      border-right: 3px solid var(--gold);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(193, 154, 75, .025),
+          rgba(193, 154, 75, .10)
+        );
+
+      box-shadow:
+        inset -10px 0 25px rgba(193, 154, 75, .025);
+    }
+
+    .reflection p {
+      margin-bottom: .9rem;
+    }
+
+    /* ==============================
+       پایان ندا
+    ============================== */
+
+    .closing {
+      position: relative;
+
+      margin-top: 60px;
+      padding-top: 35px;
+
+      text-align: center;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .closing::before {
+      content: "✦";
+
+      display: block;
+
+      margin-bottom: 20px;
+
+      color: var(--gold);
+
+      font-size: 1.6rem;
+    }
+
+    .closing p {
+      margin: 0;
+
+      font-size: 1.45rem;
+
+      color: var(--gold-dark);
+
+      text-align: center;
+    }
+
+    /* ==============================
+       پابرگ
+    ============================== */
+
+    footer {
+      padding: 30px 20px 38px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--night),
+          var(--night-2),
+          var(--night)
+        );
+
+      color: rgba(255, 250, 240, .65);
+
+      font-family: "Amiri", serif;
+
+      font-size: 1rem;
+    }
+
+    footer .footer-symbol {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--gold-light);
+
+      font-size: 1.25rem;
+
+      letter-spacing: .35rem;
+    }
+
+    /* ==============================
+       موبایل
+    ============================== */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 12px 0;
+      }
+
+      .book {
+        width: calc(100% - 10px);
+      }
+
+      .book::before {
+        inset: 8px;
+      }
+
+      .book::after {
+        inset: 13px;
+      }
+
+      .corner {
+        width: 30px;
+        height: 30px;
+      }
+
+      .corner.tl {
+        top: 18px;
+        right: 18px;
+      }
+
+      .corner.tr {
+        top: 18px;
+        left: 18px;
+      }
+
+      .corner.bl {
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .corner.br {
+        bottom: 18px;
+        left: 18px;
+      }
+
+      header {
+        padding: 65px 20px 50px;
+      }
+
+      .nav-links {
+        padding: 15px 12px;
+      }
+
+      .nav-links a {
+        font-size: .85rem;
+        padding: 8px 13px;
+      }
+
+      main {
+        padding: 45px 22px 60px;
+      }
+
+      p {
+        text-align: right;
+        line-height: 2.2;
+      }
+
+      .opening {
+        padding: 23px 15px;
+      }
+
+      .emphasis {
+        padding: 25px 17px;
+      }
+
+      .reflection {
+        padding: 20px 18px;
+      }
+    }
+
+    /* ==============================
+       چاپ
+    ============================== */
+
+    @media print {
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .book {
+        width: 100%;
+        margin: 0;
+
+        box-shadow: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        break-after: avoid;
+      }
+
+      p {
+        color: #000;
+      }
+
+      footer {
+        break-before: avoid;
+      }
+    }
+  </style></head><body>  <div class="book"><!-- گوشه‌های تزئینی -->
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+
+<!-- ==========================
+     سربرگ
+=========================== -->
+
+<header>
+
+  <h1 class="book-title">
+    کتاب روشنی‌ها
+  </h1>
+
+  <p class="book-subtitle">
+    نداهای روشن‌کننده
+  </p>
+
+  <div class="chapter-label">
+    ندای ششم
+  </div>
+
+</header>
+
+
+<!-- ==========================
+     ناوبری
+=========================== -->
+
+<nav class="nav-links">
+
+  <a href="../index.fa.html">
+    ⌂ خانه
+  </a>
+
+  <a href="index.fa.html">
+    ❈ کتاب روشنی‌ها
+  </a>
+
+</nav>
+
+
+<!-- ==========================
+     محتوای ندا
+=========================== -->
+
+<main>
+
+  <div class="chapter-heading">
+
+    <div class="small-title">
+      ششمین ندا
+    </div>
+
+    <h1>
+      مهر، خرد و پیوند دل‌ها
+    </h1>
+
+    <h2>
+      آواز دل‌های روشن
+    </h2>
+
+    <div class="ornament-line">
+      ✦
+    </div>
+
+  </div>
+
+
+  <!-- آغاز ندا -->
+
+  <section class="opening">
+
+    <p>
+      ای آن‌که در جانت نسیمی از مهر من وزیدن گرفته،
+      <br>
+      بدان که نخستین نشانه‌ی من در دل تو، مهربانی‌ست.
+      <br>
+      مهربانی، ترحمی سست نیست،
+      <br>
+      بل بلندترین شکل خرد است.
+    </p>
+
+  </section>
+
+
+  <p>
+    مهربانی، نرم‌دلیِ بی‌ریشه نیست،
+    <br>
+    بلکه دانایی دل است،
+    <br>
+    که چونان درختی‌ست که از ریشه‌ی فهمِ هستی سیراب می‌شود.
+  </p>
+
+
+  <!-- مهر و آرامش -->
+
+  <section class="emphasis">
+
+    <p>
+      ای فرزند نور،
+      <br>
+      هرگاه به انسانی، لبخند بزنی،
+      <br>
+      دل مرا شاد می‌کنی.
+      <br><br>
+      و هر بار که دلی را آرام کنی،
+      <br>
+      جهان را از آشوبی می‌رهانی که دیده نمی‌شود،
+      <br>
+      اما زیربنای اندوه بسیاری است.
+    </p>
+
+  </section>
+
+
+  <p>
+    نگو: «چه می‌توانم کرد؟»
+    <br>
+    که قطره‌ی مهر، دریا را از نو می‌آفریند.
+    <br>
+    و هر دستی که از سر مهر گشوده شود،
+    <br>
+    دری است که به دروازه‌های روشنایی گشوده می‌شود.
+  </p>
+
+
+  <!-- شمع مهر -->
+
+  <section class="reflection">
+
+    <p>
+      تو را آفریدم تا چون شمع باشی،
+      <br>
+      که خود می‌سوزد تا برای دیگران روشنی بیاورد،
+      <br>
+      و نه چون مشعلی خاموش، که به ظلمت تن داده است.
+    </p>
+
+  </section>
+
+
+  <p>
+    مهربانی، از درون می‌جوشد،
+    <br>
+    نه از فرمان.
+    <br>
+    و آن‌کس که به مهر فرمان دهد،
+    <br>
+    جز صورت، چیزی نیافریده.
+    <br>
+    اما آن‌که مهر را با رفتار خود آموزد،
+    <br>
+    جهانی را به گرما مهمان کرده است.
+  </p>
+
+
+  <!-- پیوند دل‌ها -->
+
+  <section class="emphasis">
+
+    <p>
+      ای آن‌که در جست‌وجوی کمالی،
+      <br>
+      بدان که هیچ‌کس با تنها ماندن کامل نمی‌شود.
+      <br>
+      در پیوند دل‌هاست که جانِ آدمی رشد می‌یابد،
+      <br>
+      و من، خدا هستم و در میان دل‌های همدل خانه می‌کنم.
+    </p>
+
+  </section>
+
+
+  <!-- خرد جمعی -->
+
+  <section class="reflection">
+
+    <p>
+      خرد، آنگاه خرد است که هم‌دل باشد.
+      <br>
+      و اندیشه، آنگاه نور می‌تاباند که در جمع بتابد.
+      <br>
+      پس مشورت کن، گفت‌وگو کن، گوش بسپار.
+      <br>
+      که من، نوری را در سخن هر بنده‌ای نهاده‌ام،
+      <br>
+      و آن‌کس که تنها به صدای خود گوش دهد،
+      <br>
+      از نیمی از آفرینش بی‌نصیب می‌ماند.
+    </p>
+
+  </section>
+
+
+  <p>
+    هیچ قومی در سایه‌ی تک‌صدایی رشد نمی‌کند،
+    <br>
+    و هیچ امتی به نورِ خودخواهی درخشان نمی‌شود.
+    <br>
+    خرد جمعی، بارانی‌ست از چندین چشمه،
+    <br>
+    که چون گرد آید، زمین را بارور می‌سازد.
+  </p>
+
+
+  <!-- یاری به همنوع -->
+
+  <section class="emphasis">
+
+    <p>
+      کمک به همنوع، عبادت بی‌کلام است.
+      <br>
+      نه نیازی به نماز دارد، نه به ناز،
+      <br>
+      اما در آن، دل شسته می‌شود،
+      <br>
+      و جان رو به خدا می‌آورد،
+      <br>
+      بی‌آن‌که حتی نامی از او ببرد.
+    </p>
+
+  </section>
+
+
+  <p>
+    ای آن‌که دستی برای گرفتن داری،
+    <br>
+    بدان که تو را دست دادم تا ببخشی،
+    <br>
+    و دل دادم تا بفهمی که دیگری نیز، رنجی دارد،
+    <br>
+    که شاید لبخندش آن را پنهان کرده باشد.
+  </p>
+
+
+  <!-- نان و نور -->
+
+  <section class="reflection">
+
+    <p>
+      هرگاه انسانی را از سنگینی اندوهش رهانیدی،
+      <br>
+      در حقیقت، باری از دوش خودت نیز برداشته می‌شود.
+      <br>
+      و هر بار که نانی را دو نیمه کردی،
+      <br>
+      در آن میانه، نوری پنهان است،
+      <br>
+      که چون به تو بازگردد، زندگیت را دگرگون خواهد ساخت.
+    </p>
+
+  </section>
+
+
+  <!-- مهر در برهوت -->
+
+  <p>
+    مهر بورز، حتی اگر در برهوت باشی،
+    <br>
+    که هر بذر مهری، روزی از خاکی ناپیدا خواهد رویید.
+    <br>
+    و اگر از مهربانی خسته شدی،
+    <br>
+    بدان که تنها از مهر دور شده‌ای،
+    <br>
+    و تو خسته نیستی،
+    <br>
+    که مهر، خود خستگی را از تن به در می‌کند.
+  </p>
+
+
+  <!-- پایان ندا -->
+
+  <section class="closing">
+
+    <p>
+      ای فرزند محبوبم،
+      <br>
+      اگر خواستی به من نزدیک شوی،
+      <br>
+      در دل دیگری خانه بساز.
+      <br><br>
+      که خانه‌ی من در دل‌هاست،
+      <br>
+      و نه بر گنبدها و گلدسته‌ها.
+      <br><br>
+      و آن‌کس که دل دیگران را روشن کند،
+      <br>
+      دل من را روشن کرده است.
+    </p>
+
+  </section>
+
+</main>
+
+
+<!-- ==========================
+     پابرگ
+=========================== -->
+
+<footer>
+
+  <span class="footer-symbol">
+    ✦ ❈ ✦
+  </span>
+
+  کتاب روشنی‌ها
+
+  <br>
+
+  <small>
+    ندای ششم
+  </small>
+
+</footer>
+
+  </div></body>
+</html>      display: flex;
       align-items: center;
       gap: 0.4rem;
     }
