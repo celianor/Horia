@@ -2,112 +2,91 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ندا</title>
+  <title>نداهای روشن‌کننده | کتاب روشنی‌ها</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --gold: #c19a4b;
+      --gold-light: #e2c77f;
+      --gold-dark: #806021;
+
+      --ink: #34291b;
+      --ink-light: #65533a;
+
+      --paper: #f8f0dc;
+      --paper-light: #fffaf0;
+
+      --night: #151009;
+      --night-2: #2a2115;
+
+      --line: rgba(193, 154, 75, .45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #fffef5;
       margin: 0;
-      padding: 0;
-      color: #333;
+      min-height: 100vh;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(224, 199, 127, .17),
+          transparent 35rem
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(193, 154, 75, .08),
+          transparent 25rem
+        ),
+        linear-gradient(
+          135deg,
+          #0e0b07,
+          #21180d 50%,
+          #0e0b07
+        );
+
+      padding: 30px 0;
+      color: var(--ink);
     }
 
-    .lang-bar {
-      background-color: #c8e6c9;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: flex-start;
-      gap: 1rem;
-      border-bottom: 2px solid #a5d6a7;
-      direction: ltr; /* برای اینکه زبان‌ها از چپ به راست باشند */
+    /* =========================
+       قاب اصلی کتاب
+       ========================= */
+
+    .book {
+      width: min(1050px, calc(100% - 20px));
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(193, 154, 75, .07),
+          transparent 25rem
+        ),
+        linear-gradient(
+          180deg,
+          var(--paper-light),
+          var(--paper)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, .60),
+        0 5px 25px rgba(0, 0, 0, .35);
     }
 
-    .lang-bar a {
-      color: #2e7d32;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
+    /* قاب طلایی بیرونی */
 
-    .lang-bar a:hover {
-      color: #1b5e20;
-    }
-
-   /* تصویر بالای صفحه */
-    .banner {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 4px solid #a5d6a7;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      color: #4e342e;
-      margin: 0;
-    }
-
-    .links {
-      max-width: 700px;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 0 1rem;
-    }
-
-    .links a {
-      background-color: #fff8e1;
-      border: 1px solid #ffe082;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 1.1rem;
-      color: #5d4037;
-      transition: background 0.3s ease;
-    }
-
-    .links a:hover {
-      background-color: #ffecb3;
-    }
-  </style>
-</head>
-<body>
-
-  <nav class="lang-bar">
-    <a href="https://celianor.github.io/Horia/index.en.html">English</a>
-    <a href="https://celianor.github.io/Horia/index.fr.html">Français</a>
-    <a href="https://celianor.github.io/Horia/index.es.html">Español</a>
-    <a href="https://celianor.github.io/Horia/index.ar.html">العربية</a>
-    <a href="https://celianor.github.io/Horia/index.fa.html">فارسی</a>
-  </nav>
-
-  <!-- تصویر بنر -->
-  <img src="https://celianor.github.io/Horia/img/Ciel.jpg" alt="آسمان" class="banner">
-
-  <header>
-    <h1>نداهای روشن کننده</h1>
-  </header>
-
-  <section class="links">
-    <a href="n1.fa.html">ندای اول: آواز آغاز </a>
-    <a href="n2.fa.html">ندای دوم: ایام نخستین </a>
-    <a href="n3.fa.html">ندای سوم: اکنون تو، آینه‌ات</a>
-    <a href="n4.fa.html">ندای چهارم: آن‌سوی گذرگاه</a>
-    <a href="n5.fa.html">ندای پنجم: نیکی و بدی</a>
-    <a href="n6.fa.html">ندای ششم: مهر، خرد و پیوند دل‌ها</a>
-    <a href="n7.fa.html">ندای هفتم: آزادی، امانت سترگ</a>
- 
-
-</body>
-</html>
+    .book::
