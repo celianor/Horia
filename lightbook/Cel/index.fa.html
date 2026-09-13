@@ -1,40 +1,1179 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
+<!DOCTYPE html><html lang="fa" dir="rtl"><head>
   <meta charset="UTF-8">
-  <title>نغمه های آسمانی</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #fffef5;
-      margin: 0;
-      padding: 0;
-      color: #333;
+  <meta name="viewport" content="width=device-width, initial-scale=1">  <title>نغمه‌های آسمانی</title>  <!-- فونت‌های فارسی -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    rel="stylesheet">  <style>
+
+    :root {
+      --gold: #c19a4b;
+      --gold-light: #e2c77f;
+      --gold-dark: #806021;
+
+      --ink: #34291b;
+      --ink-light: #65533a;
+
+      --paper: #f8f0dc;
+      --paper-light: #fffaf0;
+
+      --night: #151009;
+      --night-2: #2a2115;
+
+      --line: rgba(193, 154, 75, .45);
     }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(224, 199, 127, .17),
+          transparent 35rem
+        ),
+
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(193, 154, 75, .08),
+          transparent 25rem
+        ),
+
+        linear-gradient(
+          135deg,
+          #0e0b07,
+          #21180d 50%,
+          #0e0b07
+        );
+
+      color: var(--ink);
+
+      padding: 30px 0;
+    }
+
+
+    /* =====================================
+       قاب اصلی کتاب
+    ===================================== */
+
+    .book {
+      width: min(1050px, calc(100% - 20px));
+
+      margin: auto;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(193, 154, 75, .07),
+          transparent 25rem
+        ),
+
+        linear-gradient(
+          180deg,
+          var(--paper-light),
+          var(--paper)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, .60),
+        0 5px 25px rgba(0, 0, 0, .35);
+    }
+
+
+    /* قاب طلایی داخلی */
+
+    .book::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 13px;
+
+      border:
+        1px solid
+        rgba(193, 154, 75, .75);
+
+      pointer-events: none;
+
+      z-index: 20;
+    }
+
+
+    .book::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 20px;
+
+      border:
+        1px solid
+        rgba(193, 154, 75, .28);
+
+      pointer-events: none;
+
+      z-index: 20;
+    }
+
+
+    /* =====================================
+       گوشه‌های تزئینی
+    ===================================== */
+
+    .corner {
+      position: absolute;
+
+      width: 48px;
+      height: 48px;
+
+      z-index: 30;
+
+      opacity: .85;
+    }
+
+
+    .corner::before,
+    .corner::after {
+      content: "";
+
+      position: absolute;
+
+      background: var(--gold);
+    }
+
+
+    .corner::before {
+      width: 100%;
+      height: 1px;
+    }
+
+
+    .corner::after {
+      width: 1px;
+      height: 100%;
+    }
+
+
+    .corner.tl {
+      top: 28px;
+      right: 28px;
+    }
+
+
+    .corner.tr {
+      top: 28px;
+      left: 28px;
+
+      transform: rotate(90deg);
+    }
+
+
+    .corner.bl {
+      bottom: 28px;
+      right: 28px;
+
+      transform: rotate(-90deg);
+    }
+
+
+    .corner.br {
+      bottom: 28px;
+      left: 28px;
+
+      transform: rotate(180deg);
+    }
+
+
+    /* =====================================
+       نوار زبان‌ها
+    ===================================== */
 
     .lang-bar {
-      background-color: #c8e6c9;
-      padding: 0.5rem 1rem;
       display: flex;
-      justify-content: flex-start;
-      gap: 1rem;
-      border-bottom: 2px solid #a5d6a7;
-      direction: ltr; /* برای اینکه زبان‌ها از چپ به راست باشند */
+
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      padding: 13px 20px;
+
+      direction: ltr;
+
+      background:
+        linear-gradient(
+          180deg,
+          #21190f,
+          #17120c
+        );
+
+      border-bottom:
+        1px solid
+        rgba(193, 154, 75, .4);
     }
 
+
     .lang-bar a {
-      color: #2e7d32;
+      display: inline-block;
+
+      padding: 6px 13px;
+
+      border:
+        1px solid
+        rgba(193, 154, 75, .35);
+
+      border-radius: 20px;
+
+      color: rgba(255, 250, 240, .78);
+
       text-decoration: none;
+
+      font-size: .85rem;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+    }
+
+
+    .lang-bar a:hover {
+      background: var(--gold);
+
+      color: #fffaf0;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================
+       بخش تصویر
+    ===================================== */
+
+    .banner-wrap {
+      position: relative;
+
+      overflow: hidden;
+
+      background: #17120c;
+    }
+
+
+    .banner {
+      width: 100%;
+
+      height: auto;
+
+      min-height: 250px;
+
+      max-height: 560px;
+
+      object-fit: cover;
+
+      display: block;
+
+      opacity: .88;
+
+      filter:
+        sepia(.15)
+        saturate(.9)
+        contrast(1.03);
+
+      border-bottom:
+        1px solid
+        rgba(193, 154, 75, .65);
+    }
+
+
+    /* لایه‌ی طلایی روی تصویر */
+
+    .banner-wrap::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 55%,
+          rgba(15, 10, 5, .62)
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================
+       عنوان کتاب
+    ===================================== */
+
+    header {
+      position: relative;
+
+      text-align: center;
+
+      padding:
+        55px
+        25px
+        65px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(224, 199, 127, .15),
+          transparent 50%
+        ),
+
+        linear-gradient(
+          135deg,
+          var(--night),
+          var(--night-2),
+          var(--night)
+        );
+
+      color: var(--paper-light);
+    }
+
+
+    header::before {
+      content: "❈";
+
+      display: block;
+
+      margin-bottom: 18px;
+
+      color: var(--gold-light);
+
+      font-size: 1.6rem;
+    }
+
+
+    header h1 {
+      margin: 0;
+
+      font-family: "Amiri", serif;
+
+      font-size:
+        clamp(3rem, 8vw, 5.5rem);
+
+      line-height: 1.25;
+
+      color: var(--paper-light);
+
+      text-shadow:
+        0 0 20px rgba(224, 199, 127, .18),
+        0 5px 18px rgba(0, 0, 0, .6);
+    }
+
+
+    header p {
+      margin:
+        14px 0 0;
+
+      font-family: "Amiri", serif;
+
+      font-size:
+        clamp(1.2rem, 3vw, 1.7rem);
+
+      color: var(--gold-light);
+    }
+
+
+    header .ornament {
+      margin-top: 25px;
+
+      color: var(--gold-light);
+
+      font-size: 1.1rem;
+
+      letter-spacing: .5rem;
+    }
+
+
+    /* =====================================
+       معرفی کوتاه
+    ===================================== */
+
+    .intro {
+      max-width: 780px;
+
+      margin: 0 auto;
+
+      padding:
+        50px 25px 30px;
+
+      text-align: center;
+    }
+
+
+    .intro p {
+      margin: 0;
+
+      font-family: "Amiri", serif;
+
+      font-size:
+        clamp(1.2rem, 2.3vw, 1.45rem);
+
+      line-height: 2.35;
+
+      color: var(--ink-light);
+    }
+
+
+    .intro .symbol {
+      display: block;
+
+      margin-bottom: 18px;
+
+      color: var(--gold);
+
+      font-size: 1.3rem;
+    }
+
+
+    /* =====================================
+       عنوان فهرست
+    ===================================== */
+
+    .contents-title {
+      text-align: center;
+
+      padding:
+        25px 20px 35px;
+    }
+
+
+    .contents-title .small {
+      font-size: .95rem;
+
+      color: var(--gold-dark);
+
       font-weight: 600;
+    }
+
+
+    .contents-title h2 {
+      margin:
+        8px 0 0;
+
+      font-family: "Amiri", serif;
+
+      font-size:
+        clamp(2rem, 5vw, 3rem);
+
+      color: var(--ink);
+    }
+
+
+    .ornament-line {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 14px;
+
+      margin-top: 18px;
+
+      color: var(--gold);
+    }
+
+
+    .ornament-line::before,
+    .ornament-line::after {
+      content: "";
+
+      width:
+        min(150px, 24vw);
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          var(--line)
+        );
+    }
+
+
+    .ornament-line::after {
+      transform: rotate(180deg);
+    }
+
+
+    /* =====================================
+       فهرست لوح‌ها
+    ===================================== */
+
+    .links {
+      max-width: 850px;
+
+      margin: 0 auto;
+
+      padding:
+        10px 25px 70px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 15px;
+    }
+
+
+    .links a {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      min-height: 82px;
+
+      padding:
+        17px 22px;
+
+      border:
+        1px solid
+        rgba(193, 154, 75, .45);
+
+      border-radius: 4px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 250, 240, .92),
+          rgba(248, 240, 220, .78)
+        );
+
+      color: var(--ink);
+
+      text-decoration: none;
+
+      font-family: "Amiri", serif;
+
+      font-size:
+        clamp(1.05rem, 1.8vw, 1.25rem);
+
+      line-height: 1.8;
+
+      box-shadow:
+        0 4px 12px
+        rgba(80, 55, 20, .06);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+    }
+
+
+    /* شماره‌ی لوح */
+
+    .links a::before {
+      content: "✦";
+
+      flex: 0 0 auto;
+
+      margin-left: 14px;
+
+      color: var(--gold);
+
+      font-family: serif;
+
+      font-size: 1rem;
+
+      transition:
+        transform .25s ease;
+    }
+
+
+    .links a:hover {
+      transform:
+        translateY(-4px);
+
+      border-color:
+        rgba(193, 154, 75, .8);
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f5e8c8
+        );
+
+      box-shadow:
+        0 10px 25px
+        rgba(100, 70, 25, .14);
+    }
+
+
+    .links a:hover::before {
+      transform:
+        rotate(45deg)
+        scale(1.2);
+    }
+
+
+    /* =====================================
+       حذف لینک‌های خالی
+    ===================================== */
+
+    .links a:empty {
+      display: none;
+    }
+
+
+    /* =====================================
+       پایان فهرست
+    ===================================== */
+
+    .end-ornament {
+      text-align: center;
+
+      padding:
+        5px 20px 60px;
+
+      color: var(--gold);
+
+      font-size: 1.2rem;
+
+      letter-spacing: .4rem;
+    }
+
+
+    /* =====================================
+       پابرگ
+    ===================================== */
+
+    footer {
+      padding:
+        35px 20px 45px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--night),
+          var(--night-2),
+          var(--night)
+        );
+
+      color:
+        rgba(255, 250, 240, .65);
+
+      font-family: "Amiri", serif;
+
       font-size: 1rem;
     }
 
-    .lang-bar a:hover {
-      color: #1b5e20;
+
+    footer .symbol {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--gold-light);
+
+      font-size: 1.3rem;
+
+      letter-spacing: .4rem;
     }
 
+
+    footer strong {
+      color: var(--gold-light);
+
+      font-weight: 400;
+    }
+
+
+    /* =====================================
+       موبایل
+    ===================================== */
+
+    @media (max-width: 700px) {
+
+      body {
+        padding: 10px 0;
+      }
+
+
+      .book {
+        width:
+          calc(100% - 8px);
+      }
+
+
+      .book::before {
+        inset: 8px;
+      }
+
+
+      .book::after {
+        inset: 13px;
+      }
+
+
+      .corner {
+        width: 32px;
+        height: 32px;
+      }
+
+
+      .corner.tl {
+        top: 18px;
+        right: 18px;
+      }
+
+
+      .corner.tr {
+        top: 18px;
+        left: 18px;
+      }
+
+
+      .corner.bl {
+        bottom: 18px;
+        right: 18px;
+      }
+
+
+      .corner.br {
+        bottom: 18px;
+        left: 18px;
+      }
+
+
+      .lang-bar {
+        gap: 5px;
+
+        padding:
+          10px 8px;
+      }
+
+
+      .lang-bar a {
+        padding:
+          5px 8px;
+
+        font-size: .75rem;
+      }
+
+
+      .banner {
+        min-height: 180px;
+      }
+
+
+      header {
+        padding:
+          45px 18px 50px;
+      }
+
+
+      .intro {
+        padding:
+          40px 22px 20px;
+      }
+
+
+      .links {
+        grid-template-columns: 1fr;
+
+        padding:
+          10px 18px 55px;
+
+        gap: 12px;
+      }
+
+
+      .links a {
+        min-height: 70px;
+
+        padding:
+          14px 16px;
+
+        text-align: right;
+      }
+    }
+
+
+    /* =====================================
+       موبایل خیلی کوچک
+    ===================================== */
+
+    @media (max-width: 400px) {
+
+      header h1 {
+        font-size: 2.7rem;
+      }
+
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+
+      .lang-bar a {
+        font-size: .7rem;
+
+        padding:
+          4px 6px;
+      }
+
+
+      .links a {
+        font-size: 1rem;
+
+        line-height: 1.7;
+      }
+    }
+
+
+    /* =====================================
+       چاپ
+    ===================================== */
+
+    @media print {
+
+      body {
+        background: white;
+
+        padding: 0;
+      }
+
+
+      .book {
+        width: 100%;
+
+        box-shadow: none;
+      }
+
+
+      .lang-bar {
+        display: none;
+      }
+
+
+      .links a {
+        break-inside: avoid;
+
+        box-shadow: none;
+      }
+
+
+      footer {
+        break-before: avoid;
+      }
+    }
+
+  </style></head><body>  <div class="book"><!-- گوشه‌های تزئینی -->
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+
+<!-- ==================================
+     زبان‌ها
+=================================== -->
+
+<nav class="lang-bar">
+
+  <a href="https://celianor.github.io/Horia/index.en.html">
+    English
+  </a>
+
+  <a href="https://celianor.github.io/Horia/index.fr.html">
+    Français
+  </a>
+
+  <a href="https://celianor.github.io/Horia/index.es.html">
+    Español
+  </a>
+
+  <a href="https://celianor.github.io/Horia/index.ar.html">
+    العربية
+  </a>
+
+  <a href="https://celianor.github.io/Horia/index.fa.html">
+    فارسی
+  </a>
+
+</nav>
+
+
+<!-- ==================================
+     تصویر اصلی
+=================================== -->
+
+<div class="banner-wrap">
+
+  <img
+    src="https://celianor.github.io/Horia/img/Cel.jpg"
+    alt="نغمه‌های آسمانی"
+    class="banner"
+  >
+
+</div>
+
+
+<!-- ==================================
+     عنوان
+=================================== -->
+
+<header>
+
+  <h1>
+    نغمه‌های آسمانی
+  </h1>
+
+  <p>
+    مجموعه‌ای از لوح‌های روشنایی، خرد و انسانیت
+  </p>
+
+  <div class="ornament">
+    ✦ &nbsp; ❈ &nbsp; ✦
+  </div>
+
+</header>
+
+
+<!-- ==================================
+     مقدمه
+=================================== -->
+
+<section class="intro">
+
+  <span class="symbol">
+    ❈
+  </span>
+
+  <p>
+    اینجا دفتر نغمه‌هایی‌ست که از روشنایی،
+    خرد، آزادی، نیکی و عشق به انسان می‌گویند؛
+    لوح‌هایی برای اندیشیدن،
+    برای زیستن،
+    و برای ساختن جهانی روشن‌تر.
+  </p>
+
+</section>
+
+
+<!-- ==================================
+     عنوان فهرست
+=================================== -->
+
+<section class="contents-title">
+
+  <div class="small">
+    دفتر نغمه‌های آسمانی
+  </div>
+
+  <h2>
+    فهرست لوح‌ها
+  </h2>
+
+  <div class="ornament-line">
+    ✦
+  </div>
+
+</section>
+
+
+<!-- ==================================
+     لوح‌ها
+=================================== -->
+
+<section class="links">
+
+  <a href="L1.fa.html">
+    لوح نخستین — در ستایش آزادی، قانون، برابری و نیکی
+  </a>
+
+  <a href="L2.fa.html">
+    لوح دوم — در عدالت و داوری
+  </a>
+
+  <a href="L3.fa.html">
+    لوح سوم — در رأی و رای‌زنی
+  </a>
+
+  <a href="L4.fa.html">
+    لوح چهارم — در آزادی اندیشه و بیان
+  </a>
+
+  <a href="L5.fa.html">
+    لوح پنجم — در آموزش و کودک
+  </a>
+
+  <a href="L6.fa.html">
+    لوح ششم — در پاسداشت زمین و جانوران
+  </a>
+
+  <a href="L7.fa.html">
+    لوح هفتم — در راستی و پایش قدرت
+  </a>
+
+  <a href="L8.fa.html">
+    لوح هشتم — در مهربانی با بیگانگان و فرودستان
+  </a>
+
+  <a href="L9.fa.html">
+    لوح نهم — در حرمت زبان‌ها و فرهنگ‌ها
+  </a>
+
+  <a href="L10.fa.html">
+    لوح دهم — در آزادی اندیشه و ایمان
+  </a>
+
+  <a href="L11.fa.html">
+    لوح یازدهم — در آیینه‌ی خرد و فرمان خداوند
+  </a>
+
+  <a href="L12.fa.html">
+    لوح دوازدهم — در ستایش زیبایی، هنر و آفرینش
+  </a>
+
+  <a href="L13.fa.html">
+    لوح سیزدهم — نغمهٔ عبور و سرای دیگر
+  </a>
+
+  <a href="L14.fa.html">
+    لوح چهاردهم — در صلح، بردباری و همزیستی
+  </a>
+
+  <a href="L15.fa.html">
+    لوح پانزدهم — در آزادی، اختیار و مسئولیت فردی
+  </a>
+
+  <a href="L16.fa.html">
+    لوح شانزدهم — در دوستی، عشق و پیوندهای انسانی
+  </a>
+
+  <a href="L17.fa.html">
+    لوح هفدهم — در دانش، خرد، و آموختن بی‌پایان
+  </a>
+
+  <!-- لوح‌های آینده -->
+
+  <a href="L18.fa.html"></a>
+  <a href="L19.fa.html"></a>
+  <a href="L20.fa.html"></a>
+  <a href="L21.fa.html"></a>
+  <a href="L22.fa.html"></a>
+  <a href="L23.fa.html"></a>
+  <a href="L24.fa.html"></a>
+  <a href="L25.fa.html"></a>
+  <a href="L26.fa.html"></a>
+  <a href="L27.fa.html"></a>
+  <a href="L28.fa.html"></a>
+  <a href="L29.fa.html"></a>
+  <a href="L30.fa.html"></a>
+  <a href="L31.fa.html"></a>
+  <a href="L32.fa.html"></a>
+  <a href="L33.fa.html"></a>
+  <a href="L34.fa.html"></a>
+  <a href="L35.fa.html"></a>
+  <a href="L36.fa.html"></a>
+  <a href="L37.fa.html"></a>
+  <a href="L38.fa.html"></a>
+  <a href="L39.fa.html"></a>
+  <a href="L40.fa.html"></a>
+  <a href="L41.fa.html"></a>
+  <a href="L42.fa.html"></a>
+  <a href="L43.fa.html"></a>
+  <a href="L44.fa.html"></a>
+  <a href="L45.fa.html"></a>
+  <a href="L46.fa.html"></a>
+  <a href="L47.fa.html"></a>
+  <a href="L48.fa.html"></a>
+  <a href="L49.fa.html"></a>
+  <a href="L50.fa.html"></a>
+  <a href="L51.fa.html"></a>
+  <a href="L52.fa.html"></a>
+  <a href="L53.fa.html"></a>
+  <a href="L54.fa.html"></a>
+  <a href="L55.fa.html"></a>
+  <a href="L56.fa.html"></a>
+  <a href="L57.fa.html"></a>
+  <a href="L58.fa.html"></a>
+  <a href="L59.fa.html"></a>
+  <a href="L60.fa.html"></a>
+  <a href="L61.fa.html"></a>
+  <a href="L62.fa.html"></a>
+  <a href="L63.fa.html"></a>
+  <a href="L64.fa.html"></a>
+  <a href="L65.fa.html"></a>
+  <a href="L66.fa.html"></a>
+  <a href="L67.fa.html"></a>
+  <a href="L68.fa.html"></a>
+  <a href="L69.fa.html"></a>
+  <a href="L70.fa.html"></a>
+  <a href="L71.fa.html"></a>
+  <a href="L72.fa.html"></a>
+
+</section>
+
+
+<!-- ==================================
+     پایان تزئینی
+=================================== -->
+
+<div class="end-ornament">
+  ✦ ❈ ✦
+</div>
+
+
+<!-- ==================================
+     پابرگ
+=================================== -->
+
+<footer>
+
+  <span class="symbol">
+    ✦ ❈ ✦
+  </span>
+
+  <strong>
+    نغمه‌های آسمانی
+  </strong>
+
+  <br>
+
+  دفتر لوح‌های روشنایی و خرد
+
+</footer>
+
+  </div></body>
+</html>
    /* تصویر بالای صفحه */
     .banner {
       width: 100%;
