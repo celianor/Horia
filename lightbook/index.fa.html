@@ -2,39 +2,187 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>سرون</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>سرون | کتاب نور</title>
+
+  <meta name="description" content="سرون — مجموعه‌ای از نداهای روشن‌کننده، بزم زندگی و نغمه‌های آسمانی">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #fffef5;
-      margin: 0;
-      padding: 0;
-      color: #333;
+    :root {
+      --cream: #fbf8ed;
+      --cream-dark: #f1ead5;
+      --gold: #b8944e;
+      --gold-light: #d8bd7a;
+      --gold-pale: #ead9a8;
+      --green: #536b52;
+      --green-dark: #344936;
+      --brown: #5a4635;
+      --text: #443c32;
+      --white-glass: rgba(255, 253, 244, 0.78);
+      --shadow: rgba(76, 59, 35, 0.14);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Vazirmatn", sans-serif;
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255, 241, 190, 0.65) 0%,
+          rgba(255, 250, 230, 0.35) 22%,
+          transparent 48%
+        ),
+        linear-gradient(
+          135deg,
+          #fffdf5 0%,
+          #f8f3df 48%,
+          #eee8d2 100%
+        );
+
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* نورهای لطیف پس‌زمینه */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    body::before {
+      width: 380px;
+      height: 380px;
+      top: 8%;
+      right: -180px;
+      background: rgba(216, 189, 122, 0.13);
+    }
+
+    body::after {
+      width: 300px;
+      height: 300px;
+      bottom: 5%;
+      left: -150px;
+      background: rgba(83, 107, 82, 0.10);
+    }
+
+    /* =========================
+       نوار زبان‌ها
+       ========================= */
+
     .lang-bar {
-      background-color: #c8e6c9;
-      padding: 0.5rem 1rem;
+      width: 100%;
+      min-height: 48px;
+
+      padding: 8px 20px;
+
       display: flex;
+      align-items: center;
       justify-content: flex-start;
-      gap: 1rem;
-      border-bottom: 2px solid #a5d6a7;
-      direction: ltr; /* برای اینکه زبان‌ها از چپ به راست باشند */
+      gap: 8px;
+
+      direction: ltr;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(62, 82, 62, 0.97),
+          rgba(76, 99, 74, 0.96),
+          rgba(62, 82, 62, 0.97)
+        );
+
+      border-bottom: 1px solid rgba(218, 190, 119, 0.7);
+      box-shadow: 0 3px 16px rgba(46, 55, 43, 0.15);
+    }
+
+    .lang-bar::before {
+      content: "✦";
+      color: #e4ca8b;
+      margin-right: 4px;
+      font-size: 0.9rem;
     }
 
     .lang-bar a {
-      color: #2e7d32;
+      color: #f7efd5;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
+
+      font-size: 0.82rem;
+      font-weight: 500;
+
+      padding: 5px 10px;
+      border-radius: 20px;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
     }
 
     .lang-bar a:hover {
-      color: #1b5e20;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.13);
+      transform: translateY(-1px);
     }
 
+    /* =========================
+       بنر
+       ========================= */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      background: #e8dfc6;
+      box-shadow: 0 8px 30px rgba(65, 51, 30, 0.13);
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      min-height: 180px;
+      max-height: 620px;
+
+      display: block;
+      object-fit: cover;
+
+      filter: saturate(0.92) contrast(0.96);
+    }
+
+    /* پرده‌ی نور روی تصویر */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255, 249, 220, 0.04) 25%,
+          rgba(
    /* تصویر بالای صفحه */
     .banner {
       width: 100%;
