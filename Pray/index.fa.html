@@ -1,413 +1,1995 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173b36">
-  <meta name="description" content="نیایش؛ مجموعه‌ای از دعاها و نیایش‌های آرامش‌بخش">
-  <title>نیایش | خلوتی با جان</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#123b35"
+  >
+
+  <meta
+    name="description"
+    content="نیایش؛ خلوتی آرام برای دل و جان"
+  >
+
+  <title>نیایش | به سوی روشنایی</title>
+
+
+  <!-- =========================
+       فونت‌ها
+       ========================= -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
 
   <style>
+
+    /* ==================================================
+       متغیرهای اصلی
+       ================================================== */
+
     :root {
-      --night: #102e2a;
-      --deep: #173b36;
-      --green: #2f6258;
-      --gold: #c7a35a;
-      --gold-soft: #e5cf9b;
-      --cream: #f7f1e4;
-      --paper: rgba(255, 252, 244, .92);
-      --ink: #263a35;
-      --muted: #71817b;
-      --line: rgba(89, 102, 94, .18);
-      --shadow: 0 20px 55px rgba(19, 47, 42, .14);
+
+      --green-dark: #0e302b;
+      --green: #17483f;
+      --green-light: #2f6659;
+
+      --gold: #c6a052;
+      --gold-light: #ead59e;
+      --gold-pale: #f3e7c5;
+
+      --cream: #f8f2e4;
+      --cream-dark: #eee5d0;
+
+      --text: #193b35;
+      --muted: #718078;
+
+      --white: #fffdf7;
+
+      --shadow:
+        0 20px 55px rgba(23, 56, 49, .16);
+
+      --shadow-hover:
+        0 25px 65px rgba(23, 56, 49, .25);
     }
 
-    * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    /* ==================================================
+       تنظیمات عمومی
+       ================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
+
       margin: 0;
+
       min-height: 100vh;
-      font-family: "Vazirmatn", sans-serif;
-      color: var(--ink);
+
+      font-family:
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      color: var(--text);
+
       background:
-        radial-gradient(circle at 15% 15%, rgba(199,163,90,.13), transparent 24rem),
-        radial-gradient(circle at 85% 30%, rgba(47,98,88,.12), transparent 26rem),
-        linear-gradient(145deg, #fbf7ed 0%, #f2eee2 48%, #edf2eb 100%);
+
+        radial-gradient(
+          circle at 50% 10%,
+          rgba(234,213,158,.22),
+          transparent 24rem
+        ),
+
+        radial-gradient(
+          circle at 10% 60%,
+          rgba(47,102,89,.10),
+          transparent 22rem
+        ),
+
+        linear-gradient(
+          145deg,
+          #faf6eb,
+          #f1ecde 50%,
+          #eaf0e9
+        );
+
       overflow-x: hidden;
     }
 
+
+    /* بافت بسیار ظریف */
     body::before {
+
       content: "";
+
       position: fixed;
+
       inset: 0;
+
       pointer-events: none;
-      opacity: .32;
+
+      opacity: .18;
+
       background-image:
-        radial-gradient(rgba(23,59,54,.10) .7px, transparent .7px);
-      background-size: 7px 7px;
-      mask-image: linear-gradient(to bottom, black, transparent 80%);
+
+        radial-gradient(
+          #17483f 0.6px,
+          transparent 0.6px
+        );
+
+      background-size: 8px 8px;
+
+      mask-image:
+        linear-gradient(
+          black,
+          transparent 85%
+        );
     }
 
-    /* نوار زبان */
+
+    /* ==================================================
+       نوار زبان
+       ================================================== */
+
     .lang-bar {
+
       position: sticky;
+
       top: 0;
-      z-index: 20;
+
+      z-index: 100;
+
       display: flex;
+
       justify-content: center;
+
+      align-items: center;
+
       flex-wrap: wrap;
-      gap: .45rem;
+
+      gap: .35rem;
+
       padding: .65rem 1rem;
-      background: rgba(16,46,42,.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229,207,155,.28);
-      box-shadow: 0 8px 25px rgba(16,46,42,.12);
+
+      background:
+        rgba(14,48,43,.96);
+
+      backdrop-filter:
+        blur(15px);
+
+      border-bottom:
+        1px solid
+        rgba(234,213,158,.4);
+
+      box-shadow:
+        0 8px 30px
+        rgba(14,48,43,.18);
     }
+
+
+    .lang-bar::before,
+    .lang-bar::after {
+
+      content: "❖";
+
+      color:
+        var(--gold);
+
+      font-size:
+        .9rem;
+
+      margin:
+        0 .6rem;
+    }
+
 
     .lang-bar a {
-      color: #f7f1e4;
+
+      color:
+        #f8f2e4;
+
       text-decoration: none;
-      font-size: .88rem;
-      font-weight: 500;
-      padding: .42rem .78rem;
-      border-radius: 999px;
-      transition: .25s ease;
+
+      padding:
+        .42rem .8rem;
+
+      border-radius:
+        999px;
+
+      font-size:
+        .84rem;
+
+      font-weight:
+        500;
+
+      transition:
+        all .3s ease;
     }
 
-    .lang-bar a:hover,
-    .lang-bar a.active {
-      color: var(--night);
-      background: var(--gold-soft);
-      transform: translateY(-1px);
+
+    .lang-bar a:hover {
+
+      color:
+        var(--green-dark);
+
+      background:
+        var(--gold-light);
+
+      transform:
+        translateY(-2px);
     }
+
+
+    .lang-bar a.active {
+
+      color:
+        var(--green-dark);
+
+      background:
+        linear-gradient(
+          135deg,
+          #f4df9f,
+          #c9a55a
+        );
+
+      box-shadow:
+        0 4px 15px
+        rgba(198,160,82,.25);
+    }
+
+
+    /* ==================================================
+       صفحه اصلی
+       ================================================== */
 
     main {
-      width: min(980px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 3.5rem 0 4rem;
+
+      width:
+        min(
+          1100px,
+          calc(100% - 2rem)
+        );
+
+      margin:
+        auto;
+
+      padding:
+        2.5rem 0 4rem;
     }
 
-    /* سربرگ */
-    .hero {
+
+    /* ==================================================
+       قاب اصلی
+       ================================================== */
+
+    .page-frame {
+
       position: relative;
-      overflow: hidden;
-      text-align: center;
-      color: #f8f2e6;
-      padding: 4.4rem 1.5rem 4rem;
-      border-radius: 34px;
+
+      border:
+        1px solid
+        rgba(198,160,82,.55);
+
+      border-radius:
+        42px;
+
+      padding:
+        1.1rem;
+
       background:
-        radial-gradient(circle at 50% 5%, rgba(229,207,155,.19), transparent 17rem),
-        linear-gradient(145deg, #102e2a, #1d4b43 65%, #28564d);
-      box-shadow: 0 28px 70px rgba(16,46,42,.24);
-      border: 1px solid rgba(229,207,155,.2);
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.45),
+          rgba(242,232,204,.30)
+        );
+
+      box-shadow:
+        0 30px 90px
+        rgba(27,60,53,.12);
     }
 
-    .hero::before,
-    .hero::after {
+
+    .page-frame::before {
+
       content: "";
+
       position: absolute;
-      border: 1px solid rgba(229,207,155,.22);
-      border-radius: 50%;
+
+      inset: .45rem;
+
+      border:
+        1px solid
+        rgba(198,160,82,.24);
+
+      border-radius:
+        35px;
+
       pointer-events: none;
     }
 
+
+    /* ==================================================
+       Hero
+       ================================================== */
+
+    .hero {
+
+      position: relative;
+
+      overflow: hidden;
+
+      min-height:
+        570px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      text-align:
+        center;
+
+      padding:
+        5rem 1.5rem 4rem;
+
+      border-radius:
+        32px;
+
+      color:
+        var(--white);
+
+      background:
+
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(247,226,160,.32),
+          transparent 15rem
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(70,119,101,.45),
+          transparent 25rem
+        ),
+
+        linear-gradient(
+          160deg,
+          #0d302b,
+          #17483f 55%,
+          #2d6154
+        );
+
+      box-shadow:
+        inset 0 0 100px
+        rgba(0,0,0,.18);
+    }
+
+
+    /* نور مرکزی */
+
     .hero::before {
-      width: 360px;
-      height: 360px;
-      top: -240px;
-      right: -120px;
+
+      content: "";
+
+      position: absolute;
+
+      width:
+        420px;
+
+      height:
+        420px;
+
+      border-radius:
+        50%;
+
+      top:
+        45px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,235,167,.30),
+          rgba(255,235,167,.08) 38%,
+          transparent 70%
+        );
+
+      filter:
+        blur(3px);
+
+      pointer-events:
+        none;
     }
 
-    .hero::after {
-      width: 280px;
-      height: 280px;
-      bottom: -210px;
-      left: -90px;
+
+    /* هلال */
+
+    .moon {
+
+      position: absolute;
+
+      top:
+        55px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      width:
+        75px;
+
+      height:
+        75px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--gold-light);
+
+      box-shadow:
+        0 0 40px
+        rgba(234,213,158,.35);
+
+      opacity:
+        .85;
     }
 
-    .ornament {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: .8rem;
-      color: var(--gold-soft);
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+
+    .moon::after {
+
+      content: "";
+
+      position: absolute;
+
+      top:
+        -9px;
+
+      right:
+        -15px;
+
+      width:
+        75px;
+
+      height:
+        75px;
+
+      border-radius:
+        50%;
+
+      background:
+        #17483f;
     }
 
-    .ornament::before,
-    .ornament::after {
-      content: "✦";
-      font-size: .65rem;
-      opacity: .85;
+
+    /* ستاره‌ها */
+
+    .stars {
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
     }
 
-    h1 {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      font-family: "Amiri", serif;
-      font-size: clamp(3rem, 8vw, 5.4rem);
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: -.04em;
-      text-shadow: 0 5px 24px rgba(0,0,0,.18);
+
+    .stars span {
+
+      position:
+        absolute;
+
+      color:
+        rgba(245,223,158,.85);
+
+      font-size:
+        .75rem;
     }
 
-    .subtitle {
-      position: relative;
-      z-index: 1;
-      max-width: 560px;
-      margin: 1.3rem auto 0;
-      color: rgba(248,242,230,.82);
-      font-size: 1rem;
-      line-height: 2;
-      font-weight: 300;
+
+    .stars span:nth-child(1) {
+      top: 15%;
+      right: 18%;
     }
 
-    .divider {
-      width: 110px;
-      height: 1px;
-      margin: 1.7rem auto 0;
-      background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+    .stars span:nth-child(2) {
+      top: 23%;
+      left: 17%;
+      font-size: .5rem;
     }
 
-    /* معرفی */
+    .stars span:nth-child(3) {
+      top: 32%;
+      right: 10%;
+      font-size: .45rem;
+    }
+
+    .stars span:nth-child(4) {
+      top: 12%;
+      left: 31%;
+      font-size: .45rem;
+    }
+
+    .stars span:nth-child(5) {
+      top: 30%;
+      left: 10%;
+    }
+
+
+    /* ==================================================
+       تزئینات Hero
+       ================================================== */
+
+    .hero-ornament {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      color:
+        var(--gold-light);
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.15rem;
+
+      margin-bottom:
+        1.2rem;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        1rem;
+    }
+
+
+    .hero-ornament::before,
+    .hero-ornament::after {
+
+      content: "◆";
+
+      font-size:
+        .65rem;
+
+      opacity:
+        .8;
+    }
+
+
+    /* عنوان */
+
+    .hero h1 {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      margin:
+        0;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        clamp(
+          4rem,
+          12vw,
+          7.5rem
+        );
+
+      line-height:
+        .9;
+
+      font-weight:
+        700;
+
+      color:
+        #fffaf0;
+
+      text-shadow:
+        0 5px 30px
+        rgba(0,0,0,.25);
+    }
+
+
+    .hero-line {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      width:
+        170px;
+
+      height:
+        1px;
+
+      margin:
+        2rem auto 1.7rem;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-light),
+          transparent
+        );
+    }
+
+
+    .hero-line::after {
+
+      content:
+        "❖";
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      color:
+        var(--gold-light);
+
+      background:
+        #17483f;
+
+      padding:
+        0 .6rem;
+
+      font-size:
+        .8rem;
+    }
+
+
+    .hero p {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        650px;
+
+      margin:
+        0;
+
+      font-size:
+        clamp(
+          1rem,
+          2vw,
+          1.18rem
+        );
+
+      line-height:
+        2.2;
+
+      color:
+        rgba(255,250,240,.88);
+
+      font-weight:
+        300;
+    }
+
+
+    /* ==================================================
+       مقدمه
+       ================================================== */
+
     .intro {
-      max-width: 760px;
-      margin: 2.2rem auto;
-      padding: 1.2rem 1.5rem;
-      text-align: center;
-      color: #52655f;
-      font-size: .95rem;
-      line-height: 2;
+
+      position:
+        relative;
+
+      max-width:
+        760px;
+
+      margin:
+        -45px auto 3rem;
+
+      padding:
+        1.7rem 2rem;
+
+      z-index:
+        5;
+
+      text-align:
+        center;
+
+      color:
+        var(--text);
+
+      background:
+        rgba(255,251,240,.94);
+
+      border:
+        1px solid
+        var(--gold);
+
+      border-radius:
+        25px;
+
+      box-shadow:
+        var(--shadow);
+
+      line-height:
+        2.1;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.18rem;
     }
 
-    /* کارت‌ها */
-    .links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.2rem;
+
+    .intro::before,
+    .intro::after {
+
+      content:
+        "❖";
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.1rem;
     }
+
+
+    .intro::before {
+      right: -10px;
+    }
+
+    .intro::after {
+      left: -10px;
+    }
+
+
+    /* ==================================================
+       عنوان بخش
+       ================================================== */
+
+    .section-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        1rem;
+
+      margin:
+        0 0 1.8rem;
+
+      color:
+        var(--green);
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.5rem;
+    }
+
+
+    .section-title::before,
+    .section-title::after {
+
+      content: "";
+
+      width:
+        80px;
+
+      height:
+        1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold)
+        );
+    }
+
+
+    .section-title::after {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          transparent
+        );
+    }
+
+
+    /* ==================================================
+       کارت‌های نیایش
+       ================================================== */
+
+    .links {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap:
+        1.2rem;
+
+      padding:
+        0 1rem;
+    }
+
 
     .links a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      min-height: 92px;
-      padding: 1.15rem 1.3rem;
-      color: var(--ink);
-      text-decoration: none;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(33,57,51,.06);
-      overflow: hidden;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+
+      position:
+        relative;
+
+      min-height:
+        125px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        1rem;
+
+      padding:
+        1.2rem 1.35rem;
+
+      text-decoration:
+        none;
+
+      color:
+        var(--text);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,253,247,.98),
+          rgba(247,240,222,.95)
+        );
+
+      border:
+        1px solid
+        rgba(198,160,82,.62);
+
+      border-radius:
+        25px;
+
+      box-shadow:
+        0 10px 30px
+        rgba(28,57,50,.08);
+
+      overflow:
+        hidden;
+
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
     }
+
+
+    /* قاب داخلی */
 
     .links a::before {
+
       content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: linear-gradient(to bottom, var(--gold), #e6d39e);
-      opacity: 0;
-      transition: .28s ease;
+
+      position:
+        absolute;
+
+      inset:
+        7px;
+
+      border:
+        1px solid
+        rgba(198,160,82,.20);
+
+      border-radius:
+        19px;
+
+      pointer-events:
+        none;
     }
+
+
+    /* نور Hover */
+
+    .links a::after {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        160px;
+
+      height:
+        160px;
+
+      top:
+        -90px;
+
+      left:
+        -90px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(234,213,158,.20);
+
+      transition:
+        .4s ease;
+    }
+
 
     .links a:hover {
-      transform: translateY(-5px);
-      border-color: rgba(199,163,90,.45);
-      box-shadow: var(--shadow);
+
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        var(--shadow-hover);
+
+      border-color:
+        var(--gold);
     }
 
-    .links a:hover::before { opacity: 1; }
+
+    .links a:hover::after {
+
+      transform:
+        scale(2);
+    }
+
+
+    /* ==================================================
+       شماره
+       ================================================== */
 
     .number {
-      flex: 0 0 44px;
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--green);
-      background: #edf2ea;
-      border: 1px solid rgba(47,98,88,.12);
-      font-family: "Amiri", serif;
-      font-size: 1.05rem;
-      transition: .28s ease;
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      flex:
+        0 0 52px;
+
+      width:
+        52px;
+
+      height:
+        52px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        50%;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.25rem;
+
+      color:
+        var(--cream);
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--green),
+          var(--green-dark)
+        );
+
+      border:
+        2px solid
+        var(--gold);
+
+      box-shadow:
+        0 4px 15px
+        rgba(23,72,63,.18);
+
+      transition:
+        .35s ease;
     }
+
 
     .links a:hover .number {
-      color: #fff;
-      background: var(--green);
-      transform: rotate(-8deg);
+
+      transform:
+        rotate(-8deg)
+        scale(1.08);
+
+      box-shadow:
+        0 5px 20px
+        rgba(198,160,82,.30);
     }
+
+
+    /* ==================================================
+       متن کارت
+       ================================================== */
 
     .link-title {
-      flex: 1;
-      font-family: "Amiri", serif;
-      font-size: 1.3rem;
-      font-weight: 700;
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      flex:
+        1;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        clamp(
+          1.15rem,
+          2.4vw,
+          1.45rem
+        );
+
+      font-weight:
+        700;
     }
+
+
+    /* ==================================================
+       فلش
+       ================================================== */
 
     .arrow {
-      color: var(--gold);
-      font-size: 1.15rem;
-      transition: transform .28s ease;
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      width:
+        32px;
+
+      height:
+        32px;
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.8rem;
+
+      transition:
+        .35s ease;
     }
 
-    .links a:hover .arrow { transform: translateX(-5px); }
 
-    /* خانه‌های خالی فعلاً نمایش داده نمی‌شوند */
-    .links a:empty,
-    .links a[href="P7.fa.html"]:empty,
-    .links a[href="P8.fa.html"]:empty,
-    .links a[href="P9.fa.html"]:empty,
-    .links a[href="P10.fa.html"]:empty,
-    .links a[href="P11.fa.html"]:empty {
-      display: none;
+    .links a:hover .arrow {
+
+      transform:
+        translateX(-7px);
+
+      color:
+        var(--green);
     }
+
+
+    /* ==================================================
+       گزینه‌های خالی آینده
+       ================================================== */
+
+    .future {
+
+      opacity:
+        .48;
+
+      border-style:
+        dashed !important;
+
+      box-shadow:
+        none !important;
+
+      min-height:
+        80px !important;
+    }
+
+
+    .future .number {
+
+      width:
+        40px;
+
+      height:
+        40px;
+
+      flex-basis:
+        40px;
+
+      background:
+        transparent;
+
+      color:
+        var(--green);
+
+      border:
+        1px solid
+        rgba(198,160,82,.6);
+    }
+
+
+    /* ==================================================
+       جداکننده پایانی
+       ================================================== */
+
+    .bottom-ornament {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        1rem;
+
+      margin:
+        3rem auto 1rem;
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.1rem;
+    }
+
+
+    .bottom-ornament::before,
+    .bottom-ornament::after {
+
+      content: "";
+
+      width:
+        120px;
+
+      height:
+        1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold)
+        );
+    }
+
+
+    .bottom-ornament::after {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          transparent
+        );
+    }
+
+
+    /* ==================================================
+       Footer
+       ================================================== */
 
     footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: var(--muted);
-      font-size: .8rem;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      margin-top:
+        3rem;
+
+      padding:
+        2.7rem 1rem;
+
+      text-align:
+        center;
+
+      color:
+        var(--gold-pale);
+
+      background:
+        linear-gradient(
+          160deg,
+          var(--green-dark),
+          var(--green)
+        );
+
+      border-radius:
+        30px;
+
+      border:
+        1px solid
+        rgba(198,160,82,.45);
+
+      box-shadow:
+        0 20px 55px
+        rgba(14,48,43,.18);
     }
 
-    footer .star {
-      display: block;
-      color: var(--gold);
-      margin-bottom: .65rem;
-      letter-spacing: .5rem;
+
+    footer::before {
+
+      content:
+        "❖";
+
+      position:
+        absolute;
+
+      top:
+        12px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        1rem;
     }
+
+
+    footer .stars {
+
+      display:
+        block;
+
+      margin-bottom:
+        .8rem;
+
+      letter-spacing:
+        .8rem;
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        .75rem;
+    }
+
+
+    footer p {
+
+      margin:
+        0;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.15rem;
+    }
+
+
+    /* ==================================================
+       نسخه موبایل
+       ================================================== */
 
     @media (max-width: 700px) {
+
       main {
-        width: min(100% - 1rem, 620px);
-        padding-top: 1.4rem;
+
+        width:
+          calc(100% - 1rem);
+
+        padding:
+          1rem 0 2rem;
       }
+
+
+      .page-frame {
+
+        padding:
+          .55rem;
+
+        border-radius:
+          27px;
+      }
+
+
+      .page-frame::before {
+
+        inset:
+          .3rem;
+
+        border-radius:
+          23px;
+      }
+
 
       .hero {
-        padding: 3.5rem 1.1rem 3.2rem;
-        border-radius: 25px;
+
+        min-height:
+          490px;
+
+        padding:
+          4rem 1rem 3rem;
+
+        border-radius:
+          22px;
       }
+
+
+      .hero h1 {
+
+        font-size:
+          4.4rem;
+      }
+
+
+      .hero p {
+
+        font-size:
+          .95rem;
+
+        line-height:
+          2;
+      }
+
+
+      .moon {
+
+        top:
+          42px;
+
+        width:
+          60px;
+
+        height:
+          60px;
+      }
+
+
+      .moon::after {
+
+        width:
+          60px;
+
+        height:
+          60px;
+      }
+
+
+      .intro {
+
+        margin:
+          -35px .7rem 2.5rem;
+
+        padding:
+          1.3rem 1rem;
+
+        font-size:
+          1.05rem;
+      }
+
 
       .links {
-        grid-template-columns: 1fr;
-        gap: .8rem;
+
+        grid-template-columns:
+          1fr;
+
+        padding:
+          0 .35rem;
+
+        gap:
+          .9rem;
       }
+
 
       .links a {
-        min-height: 82px;
-        border-radius: 17px;
+
+        min-height:
+          100px;
+
+        border-radius:
+          20px;
       }
 
-      .lang-bar {
-        gap: .2rem;
-        padding: .5rem .5rem;
+
+      .link-title {
+
+        font-size:
+          1.2rem;
       }
+
+
+      .number {
+
+        width:
+          46px;
+
+        height:
+          46px;
+
+        flex-basis:
+          46px;
+      }
+
+
+      .lang-bar::before,
+      .lang-bar::after {
+
+        display:
+          none;
+      }
+
 
       .lang-bar a {
-        font-size: .78rem;
-        padding: .35rem .55rem;
+
+        font-size:
+          .74rem;
+
+        padding:
+          .35rem .55rem;
+      }
+
+
+      footer {
+
+        border-radius:
+          22px;
+      }
+
+    }
+
+
+    /* ==================================================
+       دسترسی‌پذیری
+       ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation:
+          none !important;
+
+        transition:
+          none !important;
+      }
+
+      html {
+        scroll-behavior:
+          auto;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
   </style>
+
 </head>
+
 
 <body>
 
-  <nav class="lang-bar" aria-label="انتخاب زبان">
-    <a href="https://celianor.github.io/Horia/index.en.html">English</a>
-    <a href="https://celianor.github.io/Horia/index.fr.html">Français</a>
-    <a href="https://celianor.github.io/Horia/index.es.html">Español</a>
-    <a href="https://celianor.github.io/Horia/index.ar.html">العربية</a>
-    <a class="active" href="https://celianor.github.io/Horia/index.fa.html" aria-current="page">فارسی</a>
+
+  <!-- ==================================================
+       زبان‌ها
+       ================================================== -->
+
+  <nav
+    class="lang-bar"
+    aria-label="انتخاب زبان"
+  >
+
+    <a href="https://celianor.github.io/Horia/index.en.html">
+      English
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.fr.html">
+      Français
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.es.html">
+      Español
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.ar.html">
+      العربية
+    </a>
+
+    <a
+      href="https://celianor.github.io/Horia/index.fa.html"
+      class="active"
+      aria-current="page"
+    >
+      فارسی
+    </a>
+
   </nav>
 
+
+
+  <!-- ==================================================
+       محتوای اصلی
+       ================================================== -->
+
   <main>
-    <header class="hero">
-      <div class="ornament">به سوی آرامش</div>
-      <h1>نیایش</h1>
-      <div class="divider"></div>
-      <p class="subtitle">
-        خلوتی آرام برای شنیدن ندای درون،<br>
-        سپاسگزاری، امید و نزدیکی به روشنایی.
-      </p>
-    </header>
 
-    <p class="intro">
-      هر نیایش، لحظه‌ای مکث است؛ فرصتی برای آرام شدن،
-      نگاه کردن به درون و گشودن دل به سوی مهربانی.
-    </p>
+    <div class="page-frame">
 
-    <section class="links" aria-label="فهرست نیایش‌ها">
-      <a href="P1.fa.html">
-        <span class="number">۱</span>
-        <span class="link-title">غنچهٔ لبخند</span>
-        <span class="arrow">‹</span>
-      </a>
 
-      <a href="P2.fa.html">
-        <span class="number">۲</span>
-        <span class="link-title">ندای درون جان</span>
-        <span class="arrow">‹</span>
-      </a>
+      <!-- ==================================================
+           بخش اصلی
+           ================================================== -->
 
-      <a href="P3.fa.html">
-        <span class="number">۳</span>
-        <span class="link-title">نیایش بامداد</span>
-        <span class="arrow">‹</span>
-      </a>
+      <header class="hero">
 
-      <a href="P4.fa.html">
-        <span class="number">۴</span>
-        <span class="link-title">نیایش شامگاه</span>
-        <span class="arrow">‹</span>
-      </a>
 
-      <a href="P5.fa.html">
-        <span class="number">۵</span>
-        <span class="link-title">نیایشِ بارانِ مهربانی</span>
-        <span class="arrow">‹</span>
-      </a>
+        <!-- ماه -->
+        <div class="moon"></div>
 
-      <a href="P6.fa.html">
-        <span class="number">۶</span>
-        <span class="link-title">دعای بیداری و پایداری</span>
-        <span class="arrow">‹</span>
-      </a>
 
-      <!-- نیایش‌های آینده را می‌توانید به همین شکل اضافه کنید -->
-      <a href="P7.fa.html"></a>
-      <a href="P8.fa.html"></a>
-      <a href="P9.fa.html"></a>
-      <a href="P10.fa.html"></a>
-      <a href="P11.fa.html"></a>
-    </section>
+        <!-- ستاره‌ها -->
+        <div class="stars">
 
-    <footer>
-      <span class="star">✦ ✧ ✦</span>
-      با دل آرام، به سوی روشنایی
-    </footer>
+          <span>✦</span>
+          <span>✧</span>
+          <span>✦</span>
+          <span>✧</span>
+          <span>✦</span>
+
+        </div>
+
+
+        <div class="hero-ornament">
+          به سوی آرامش
+        </div>
+
+
+        <h1>
+          نیایش
+        </h1>
+
+
+        <div class="hero-line"></div>
+
+
+        <p>
+
+          خلوتی آرام برای شنیدن ندای درون،
+          <br>
+
+          سپاسگزاری، امید و نزدیکی به روشنایی.
+
+        </p>
+
+
+      </header>
+
+
+
+      <!-- ==================================================
+           مقدمه
+           ================================================== -->
+
+      <div class="intro">
+
+        هر نیایش، لحظه‌ای مکث است؛
+        فرصتی برای آرام شدن،
+        نگاه کردن به درون
+        و گشودن دل به سوی مهربانی.
+
+      </div>
+
+
+
+      <!-- ==================================================
+           عنوان فهرست
+           ================================================== -->
+
+      <div class="section-title">
+
+        <span>
+          راه‌های نیایش
+        </span>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           فهرست نیایش‌ها
+           ================================================== -->
+
+      <section
+        class="links"
+        aria-label="فهرست نیایش‌ها"
+      >
+
+
+        <!-- ۱ -->
+
+        <a href="P1.fa.html">
+
+          <span class="number">
+            ۱
+          </span>
+
+          <span class="link-title">
+            غنچهٔ لبخند
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ۲ -->
+
+        <a href="P2.fa.html">
+
+          <span class="number">
+            ۲
+          </span>
+
+          <span class="link-title">
+            ندای درون جان
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ۳ -->
+
+        <a href="P3.fa.html">
+
+          <span class="number">
+            ۳
+          </span>
+
+          <span class="link-title">
+            نیایش بامداد
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ۴ -->
+
+        <a href="P4.fa.html">
+
+          <span class="number">
+            ۴
+          </span>
+
+          <span class="link-title">
+            نیایش شامگاه
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ۵ -->
+
+        <a href="P5.fa.html">
+
+          <span class="number">
+            ۵
+          </span>
+
+          <span class="link-title">
+            نیایشِ بارانِ مهربانی
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ۶ -->
+
+        <a href="P6.fa.html">
+
+          <span class="number">
+            ۶
+          </span>
+
+          <span class="link-title">
+            دعای بیداری و پایداری
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <!-- ==================================================
+             موارد آینده
+             برای اضافه کردن متن فقط link-title را تغییر دهید
+             ================================================== -->
+
+        <a
+          href="P7.fa.html"
+          class="future"
+        >
+
+          <span class="number">
+            ۷
+          </span>
+
+          <span class="link-title">
+            نیایش هفتم
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <a
+          href="P8.fa.html"
+          class="future"
+        >
+
+          <span class="number">
+            ۸
+          </span>
+
+          <span class="link-title">
+            نیایش هشتم
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <a
+          href="P9.fa.html"
+          class="future"
+        >
+
+          <span class="number">
+            ۹
+          </span>
+
+          <span class="link-title">
+            نیایش نهم
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <a
+          href="P10.fa.html"
+          class="future"
+        >
+
+          <span class="number">
+            ۱۰
+          </span>
+
+          <span class="link-title">
+            نیایش دهم
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+
+        <a
+          href="P11.fa.html"
+          class="future"
+        >
+
+          <span class="number">
+            ۱۱
+          </span>
+
+          <span class="link-title">
+            نیایش یازدهم
+          </span>
+
+          <span class="arrow">
+            ‹
+          </span>
+
+        </a>
+
+
+      </section>
+
+
+
+      <!-- تزئین پایانی -->
+
+      <div class="bottom-ornament">
+        ❖
+      </div>
+
+
+
+      <!-- ==================================================
+           Footer
+           ================================================== -->
+
+      <footer>
+
+        <span class="stars">
+          ✦ ✦ ✦
+        </span>
+
+        <p>
+          با دل آرام، به سوی روشنایی
+        </p>
+
+      </footer>
+
+
+    </div>
+
   </main>
 
+
 </body>
-</html>
+          </html> 
