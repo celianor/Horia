@@ -1,128 +1,212 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#08091f"
+  >
+
+  <meta
+    name="description"
+    content="چگونه به آیین هوریا بپیوندیم؟ راهی ساده، روشن و بی‌واسطه"
+  >
+
   <title>چگونه به آیین هوریا بپیوندیم؟</title>
+
+  <!-- فونت‌ها -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
+
+    /* =========================================================
+       متغیرهای اصلی
+       ========================================================= */
+
+    :root {
+
+      --deep-1: #050619;
+      --deep-2: #0a0d29;
+      --deep-3: #17143d;
+      --deep-4: #282052;
+
+      --purple: #7668c9;
+      --purple-light: #bdb4ef;
+
+      --gold: #dfbf61;
+      --gold-light: #fff1b5;
+
+      --cream: #fffdf7;
+      --paper: #f8f5ef;
+
+      --text: #443b4e;
+      --muted: #776d81;
+
+      --border:
+        rgba(223,191,97,.25);
+
+      --shadow:
+        0 30px 90px
+        rgba(3,5,25,.30);
+
+    }
+
+
+    /* =========================================================
+       پایه
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
-      font-family: "Vazirmatn", sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      padding: 2em;
-      line-height: 1.9;
-      max-width: 750px;
-      margin: auto;
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      font-family:
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      color:
+        var(--text);
+
+      line-height:
+        2;
+
+      background:
+
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(118,104,201,.42),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 12% 35%,
+          rgba(223,191,97,.10),
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 88% 50%,
+          rgba(189,180,239,.10),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          180deg,
+          var(--deep-1) 0%,
+          var(--deep-2) 30%,
+          var(--deep-3) 58%,
+          var(--deep-4) 74%,
+          #ebe6f0 100%
+        );
+
+      overflow-x:
+        hidden;
+
     }
-    h1 {
-      text-align: center;
-      font-size: 1.8em;
-      color: #2a2a2a;
+
+
+    /* =========================================================
+       آسمان پس‌زمینه
+       ========================================================= */
+
+    .cosmos {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -10;
+
+      pointer-events: none;
+
+      overflow: hidden;
+
     }
-    section {
-      margin-bottom: 2em;
+
+
+    .stars {
+
+      position: absolute;
+
+      inset: -20%;
+
+      opacity: .48;
+
+      background-image:
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.95) 0 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(223,191,97,.75) 0 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.55) 0 1px,
+          transparent 1.5px
+        );
+
+      background-size:
+        137px 151px,
+        211px 197px,
+        89px 113px;
+
+      background-position:
+        12px 25px,
+        51px 71px,
+        7px 48px;
+
+      animation:
+        starMove 45s linear infinite;
+
     }
-    .icon {
-      font-size: 1.5em;
-      margin-left: 0.3em;
-      color: #555;
-    }
-    hr {
-      border: none;
-      border-top: 1px dashed #ccc;
-      margin: 2em 0;
-    }
-    ul {
-      padding-right: 1.2em;
-    }
-    li {
-      margin-bottom: 0.5em;
-    }
-    blockquote {
-      margin: 1em 0;
-      padding: 1em;
-      background-color: #f0f0f0;
-      border-right: 5px solid #999;
-    }
-  </style>
-</head>
-<body>
 
-<h1>🕊️ چگونه به آیین هوریا بپیوندیم؟</h1>
 
-<section>
-  <p><span class="icon">❤️</span><strong>اگر این باورها در دل شما جوانه زده‌اند…</strong></p>
-  <p>
-    اگر در دل خود حس می‌کنید که شایسته‌ی دوست داشته شدن هستید،<br>
-    اگر همنوعان خود را دوست دارید و می‌خواهید جهان را جای بهتری کنید،<br>
-    اگر به درستکاری واقعی، به آزادی دل و وجدان، و به احترام متقابل انسان‌ها باور دارید،<br>
-    اگر دل‌تان می‌خواهد زندگی‌تان معنا داشته باشد و در روشنایی و شرافت زندگی کنید…<br>
-    شاید وقت آن رسیده باشد که هوریا را بشناسید؛<br>
-    دینی نو، برای انسان نو،<br>
-    دینی که از درون شما آغاز می‌شود.
-  </p>
-</section>
+    @keyframes starMove {
 
-<hr>
+      from {
+        transform:
+          translate3d(0,0,0);
+      }
 
-<section>
-  <p><span class="icon">✨</span><strong>راهی ساده، روشن، بی‌واسطه</strong></p>
-  <p>
-    در آیین هوریا، گرویدن از راه روشنایی درون ممکن است، نه از طریق تشریفات یا واسطه‌ها.<br>
-    هر انسانی که با خرد و دل خود هورا را خدای یگانه بداند و به ستون‌های سه‌گانه‌ی هوریا ایمان آورد، یک هورین کامل است.<br>
-    هیچ نیازی به واسطه، گواهی‌نامه یا مناسک اجباری نیست.<br>
-    تنها شرط، آگاهی، آزادی، و صداقت است.
-  </p>
-</section>
-
-<hr>
-
-<section>
-  <p><span class="icon">🌿</span><strong>برای پیوستن، کافی‌ست:</strong></p>
-  <ul>
-    <li>هورا را خدای یگانه و سرچشمه‌ی زندگی بدانید،</li>
-    <li>به آزادی، شرافت، و روشنایی به‌عنوان سه ستون آیین هوریا پایبند باشید،</li>
-    <li>و با وجدان خویش در مسیر مهر، معنا و زندگی، قدم بردارید.</li>
-  </ul>
-</section>
-
-<hr>
-
-<section>
-  <p><span class="icon">🗣️</span><strong>گفتار آیین‌پذیری:</strong></p>
-  <blockquote>
-    من، با خردم و با دل و جان،<br>
-    هورا را خدای یگانه می‌دانم و آیین هوریا را می‌پذیرم.<br>
-    آزادی – شرافت – روشنایی<br>
-    هورام، هورام، هورام
-  </blockquote>
-</section>
-
-<hr>
-
-<section>
-  <p><span class="icon">🌱</span><strong>زندگی نو، منش نو</strong></p>
-  <p>
-    با گفتن این گفتار، زندگی تازه‌ای آغاز می‌شود.<br>
-    از این پس، یک هورین می‌کوشد:
-  </p>
-  <ul>
-    <li>با مهربانی رفتار کند،</li>
-    <li>با لبخند و احترام به دیگران نزدیک شود،</li>
-    <li>به آزادی خویش و آزادی دیگران وفادار بماند،</li>
-    <li>و در زندگی جمعی، به رأی عمومی و حقوق انسان‌ها احترام بگذارد.</li>
-  </ul>
-  <p>
-    هوریا یعنی زیستن با روشنایی درون،<br>
-    یعنی دوست داشتن زندگی و انسان،<br>
-    یعنی بیدار ماندن، آزاد ماندن، و شریف ماندن.
-  </p>
-</section>
-<nav>
-    <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
-    <span></span>
-    <a href="https://celianor.github.io/Horia/Rit/index.fa.html"> صفحه قبل</a>
-  </nav>
-
-</body>
-</html>
+      to {
+        transform:
+          translate3d
