@@ -2,95 +2,49 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <meta
-    name="theme-color"
-    content="#24143f"
-  >
-
-  <meta
-    name="description"
-    content="آیین‌های هوریایی؛ مجموعه‌ای از آیین‌های فردی و جمعی برای زندگی آگاهانه"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24143f">
 
   <title>آیین‌های هوریایی</title>
 
-
-  <!-- ==============================
-       فونت‌ها
-       ============================== -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-
   <style>
 
-    /* ==========================================
-       رنگ‌ها
-       ========================================== */
-
     :root {
-
       --purple-deep: #24143f;
-
       --purple-dark: #321b54;
-
       --purple: #513276;
-
       --purple-light: #76539a;
-
       --purple-soft: #eee5f7;
 
       --gold: #c9a24d;
-
       --gold-light: #ead49a;
-
       --gold-pale: #f5e9c4;
 
       --cream: #fbf7ee;
-
       --cream-dark: #f0e8d8;
-
       --white: #fffdf8;
 
       --text: #332441;
-
       --muted: #766c7d;
 
-      --border:
-        rgba(201,162,77,.42);
+      --border: rgba(201,162,77,.42);
 
       --shadow:
-        0 18px 50px
-        rgba(48,27,75,.13);
+        0 18px 50px rgba(48,27,75,.13);
 
       --shadow-hover:
-        0 25px 65px
-        rgba(48,27,75,.23);
+        0 25px 65px rgba(48,27,75,.23);
     }
 
-
-    /* ==========================================
-       تنظیمات عمومی
-       ========================================== */
 
     * {
       box-sizing: border-box;
@@ -103,9 +57,7 @@
 
 
     body {
-
       margin: 0;
-
       min-height: 100vh;
 
       font-family:
@@ -113,13 +65,10 @@
         Tahoma,
         sans-serif;
 
-      color:
-        var(--text);
-
+      color: var(--text);
       direction: rtl;
 
       background:
-
         radial-gradient(
           circle at 50% 0%,
           rgba(201,162,77,.16),
@@ -145,67 +94,49 @@
           #eee8f2 100%
         );
 
-      overflow-x:
-        hidden;
+      overflow-x: hidden;
     }
 
 
-    /* بافت بسیار ظریف */
-
     body::before {
-
       content: "";
 
       position: fixed;
-
       inset: 0;
 
       pointer-events: none;
-
       opacity: .16;
 
       background-image:
-
         radial-gradient(
           var(--purple) .55px,
           transparent .55px
         );
 
-      background-size:
-        8px 8px;
+      background-size: 8px 8px;
     }
 
 
-    /* ==========================================
+    /* =====================================
        نوار زبان
-       ========================================== */
+       ===================================== */
 
     .lang-bar {
-
       position: sticky;
-
       top: 0;
-
       z-index: 100;
 
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       flex-wrap: wrap;
 
       gap: .35rem;
+      padding: .65rem 1rem;
 
-      padding:
-        .65rem 1rem;
+      background: rgba(36,20,63,.96);
 
-      background:
-        rgba(36,20,63,.96);
-
-      backdrop-filter:
-        blur(16px);
+      backdrop-filter: blur(16px);
 
       border-bottom:
         1px solid
@@ -219,63 +150,42 @@
 
     .lang-bar::before,
     .lang-bar::after {
+      content: "✦";
 
-      content:
-        "✦";
+      color: var(--gold-light);
+      font-size: .75rem;
 
-      color:
-        var(--gold-light);
-
-      font-size:
-        .75rem;
-
-      margin:
-        0 .55rem;
+      margin: 0 .55rem;
     }
 
 
     .lang-bar a {
+      color: #f8f0df;
 
-      color:
-        #f8f0df;
+      text-decoration: none;
 
-      text-decoration:
-        none;
+      font-size: .84rem;
+      font-weight: 500;
 
-      font-size:
-        .84rem;
+      padding: .42rem .78rem;
 
-      font-weight:
-        500;
+      border-radius: 999px;
 
-      padding:
-        .42rem .78rem;
-
-      border-radius:
-        999px;
-
-      transition:
-        all .3s ease;
+      transition: all .3s ease;
     }
 
 
     .lang-bar a:hover {
+      color: var(--purple-deep);
 
-      color:
-        var(--purple-deep);
+      background: var(--gold-light);
 
-      background:
-        var(--gold-light);
-
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
 
     .lang-bar a.active {
-
-      color:
-        var(--purple-deep);
+      color: var(--purple-deep);
 
       background:
         linear-gradient(
@@ -290,44 +200,34 @@
     }
 
 
-    /* ==========================================
+    /* =====================================
        محتوای اصلی
-       ========================================== */
+       ===================================== */
 
     main {
-
       width:
         min(
           1050px,
           calc(100% - 2rem)
         );
 
-      margin:
-        auto;
+      margin: auto;
 
       padding:
         2.5rem 0 4rem;
     }
 
 
-    /* ==========================================
-       قاب اصلی
-       ========================================== */
-
     .page-frame {
+      position: relative;
 
-      position:
-        relative;
-
-      padding:
-        1rem;
+      padding: 1rem;
 
       border:
         1px solid
         var(--border);
 
-      border-radius:
-        38px;
+      border-radius: 38px;
 
       background:
         linear-gradient(
@@ -343,68 +243,46 @@
 
 
     .page-frame::before {
-
       content: "";
 
-      position:
-        absolute;
-
-      inset:
-        .45rem;
+      position: absolute;
+      inset: .45rem;
 
       border:
         1px solid
         rgba(201,162,77,.23);
 
-      border-radius:
-        31px;
+      border-radius: 31px;
 
-      pointer-events:
-        none;
+      pointer-events: none;
     }
 
 
-    /* ==========================================
+    /* =====================================
        سربرگ
-       ========================================== */
+       ===================================== */
 
     .hero {
+      position: relative;
+      overflow: hidden;
 
-      position:
-        relative;
+      min-height: 390px;
 
-      overflow:
-        hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      min-height:
-        390px;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      justify-content:
-        center;
-
-      align-items:
-        center;
-
-      text-align:
-        center;
+      text-align: center;
 
       padding:
         4.5rem 1.5rem 4rem;
 
-      border-radius:
-        29px;
+      border-radius: 29px;
 
-      color:
-        var(--white);
+      color: var(--white);
 
       background:
-
         radial-gradient(
           circle at 50% 30%,
           rgba(234,212,154,.20),
@@ -430,35 +308,21 @@
     }
 
 
-    /* هاله نور */
-
     .hero::before {
-
       content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
-      width:
-        430px;
+      width: 430px;
+      height: 430px;
 
-      height:
-        430px;
-
-      left:
-        50%;
-
-      top:
-        50%;
+      left: 50%;
+      top: 50%;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translate(-50%,-50%);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         radial-gradient(
@@ -468,58 +332,38 @@
           transparent 70%
         );
 
-      pointer-events:
-        none;
+      pointer-events: none;
     }
 
-
-    /* قاب طلایی بالای سربرگ */
 
     .hero::after {
+      content: "✦";
 
-      content:
-        "✦";
+      position: absolute;
 
-      position:
-        absolute;
+      top: 25px;
+      left: 50%;
 
-      top:
-        25px;
+      transform: translateX(-50%);
 
-      left:
-        50%;
+      color: var(--gold-light);
 
-      transform:
-        translateX(-50%);
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        1.2rem;
+      font-size: 1.2rem;
     }
 
 
-    /* ==========================================
-       نماد شبدر سه پر
-       ========================================== */
+    /* =====================================
+       شبدر سه پر
+       ===================================== */
 
     .clover {
+      position: relative;
+      z-index: 3;
 
-      position:
-        relative;
+      width: 68px;
+      height: 68px;
 
-      z-index:
-        3;
-
-      width:
-        68px;
-
-      height:
-        68px;
-
-      margin-bottom:
-        1rem;
+      margin-bottom: 1rem;
 
       filter:
         drop-shadow(
@@ -533,60 +377,38 @@
 
 
     .clover svg {
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      overflow:
-        visible;
+      width: 100%;
+      height: 100%;
     }
 
 
-    .clover path,
-    .clover circle {
-
-      fill:
-        url(#goldGradient);
-
-      stroke:
-        #f5df9e;
-
-      stroke-width:
-        1.4;
+    .clover path {
+      fill: url(#goldGradient);
+      stroke: #f5df9e;
+      stroke-width: 1.4;
     }
 
 
     @keyframes gentleFloat {
-
-      0%, 100% {
-        transform:
-          translateY(0);
+      0%,100% {
+        transform: translateY(0);
       }
 
       50% {
-        transform:
-          translateY(-5px);
+        transform: translateY(-5px);
       }
     }
 
 
-    /* ==========================================
-       عنوان
-       ========================================== */
+    /* =====================================
+       عنوان اصلی
+       ===================================== */
 
     .hero h1 {
+      position: relative;
+      z-index: 3;
 
-      position:
-        relative;
-
-      z-index:
-        3;
-
-      margin:
-        0;
+      margin: 0;
 
       font-family:
         "Amiri",
@@ -599,14 +421,10 @@
           5rem
         );
 
-      line-height:
-        1;
+      line-height: 1;
+      font-weight: 700;
 
-      font-weight:
-        700;
-
-      color:
-        #fffaf0;
+      color: #fffaf0;
 
       text-shadow:
         0 5px 25px
@@ -615,21 +433,13 @@
 
 
     .hero-line {
+      position: relative;
+      z-index: 3;
 
-      position:
-        relative;
+      width: 160px;
+      height: 1px;
 
-      z-index:
-        3;
-
-      width:
-        160px;
-
-      height:
-        1px;
-
-      margin:
-        1.5rem auto;
+      margin: 1.5rem auto;
 
       background:
         linear-gradient(
@@ -642,104 +452,247 @@
 
 
     .hero-line::after {
+      content: "❖";
 
-      content:
-        "❖";
+      position: absolute;
 
-      position:
-        absolute;
-
-      left:
-        50%;
-
-      top:
-        50%;
+      left: 50%;
+      top: 50%;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translate(-50%,-50%);
 
-      color:
-        var(--gold-light);
+      color: var(--gold-light);
 
-      background:
-        #3c205d;
+      background: #3c205d;
 
-      padding:
-        0 .55rem;
+      padding: 0 .55rem;
 
-      font-size:
-        .7rem;
+      font-size: .7rem;
     }
 
 
     .hero p {
+      position: relative;
+      z-index: 3;
 
-      position:
-        relative;
+      max-width: 680px;
 
-      z-index:
-        3;
-
-      max-width:
-        680px;
-
-      margin:
-        0;
+      margin: 0;
 
       font-family:
         "Amiri",
         serif;
 
-      font-size:
-        1.2rem;
+      font-size: 1.2rem;
 
-      line-height:
-        2;
+      line-height: 2;
 
       color:
         rgba(255,250,240,.88);
     }
 
 
-    /* ==========================================
-       معرفی
-       ========================================== */
+    /* =====================================
+       کارت «چگونه بپیوندیم»
+       ===================================== */
 
-    .intro {
+    .join-box {
+      position: relative;
+      z-index: 10;
 
-      position:
-        relative;
-
-      z-index:
-        5;
-
-      max-width:
-        790px;
+      max-width: 760px;
 
       margin:
-        -35px auto 3rem;
+        -32px auto 3rem;
+
+      padding: 0 1rem;
+    }
+
+
+    .join-link {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 1rem;
+
+      min-height: 78px;
 
       padding:
-        1.6rem 2.2rem;
+        1rem 1.5rem;
 
-      text-align:
-        center;
+      color: #fffaf0;
+
+      text-decoration: none;
+
+      text-align: center;
 
       font-family:
         "Amiri",
         serif;
 
-      font-size:
-        1.16rem;
+      font-size: 1.25rem;
+      font-weight: 700;
 
-      line-height:
-        2.1;
+      border:
+        1px solid
+        rgba(234,212,154,.75);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4b2d6c,
+          #321b54
+        );
+
+      box-shadow:
+        0 15px 40px
+        rgba(36,20,63,.22),
+
+        inset 0 1px 0
+        rgba(255,255,255,.13);
+
+      transition:
+        all .35s ease;
+
+      overflow: hidden;
+    }
+
+
+    .join-link::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 5px;
+
+      border:
+        1px solid
+        rgba(234,212,154,.22);
+
+      border-radius: 15px;
+
+      pointer-events: none;
+    }
+
+
+    .join-link::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      top: -75px;
+      left: -45px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(234,212,154,.10);
+    }
+
+
+    .join-link:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--gold-light);
+
+      box-shadow:
+        0 22px 50px
+        rgba(36,20,63,.30);
+    }
+
+
+    .join-symbol {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 45px;
+      height: 45px;
+
+      flex: 0 0 45px;
 
       color:
-        var(--text);
+        var(--gold-light);
+
+      border:
+        1px solid
+        rgba(234,212,154,.55);
+
+      border-radius: 50%;
+
+      background:
+        rgba(201,162,77,.10);
+
+      font-size: 1.1rem;
+    }
+
+
+    .join-text {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .join-subtitle {
+      display: block;
+
+      margin-top: .15rem;
+
+      font-family:
+        "Vazirmatn",
+        sans-serif;
+
+      font-size: .73rem;
+      font-weight: 400;
+
+      color:
+        rgba(245,233,196,.68);
+    }
+
+
+    /* =====================================
+       مقدمه
+       ===================================== */
+
+    .intro {
+      position: relative;
+      z-index: 5;
+
+      max-width: 790px;
+
+      margin:
+        0 auto 3rem;
+
+      padding:
+        1.6rem 2.2rem;
+
+      text-align: center;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size: 1.16rem;
+
+      line-height: 2.1;
+
+      color: var(--text);
 
       background:
         rgba(255,252,245,.96);
@@ -748,8 +701,7 @@
         1px solid
         var(--gold);
 
-      border-radius:
-        23px;
+      border-radius: 23px;
 
       box-shadow:
         var(--shadow);
@@ -758,65 +710,42 @@
 
     .intro::before,
     .intro::after {
+      content: "✦";
 
-      content:
-        "☘";
+      position: absolute;
 
-      position:
-        absolute;
-
-      top:
-        50%;
+      top: 50%;
 
       transform:
         translateY(-50%);
 
-      color:
-        var(--gold);
+      color: var(--gold);
 
-      font-size:
-        1.2rem;
-
-      /*
-        فونت معمولاً ☘ را به صورت
-        ایموجی نمایش می‌دهد؛ بنابراین
-        فقط به عنوان تزئین کوچک استفاده شده.
-      */
+      font-size: 1.1rem;
     }
 
 
     .intro::before {
-      right:
-        -12px;
+      right: 20px;
     }
 
 
     .intro::after {
-      left:
-        -12px;
-      transform:
-        translateY(-50%)
-        scaleX(-1);
+      left: 20px;
     }
 
 
-    /* ==========================================
-       عنوان بخش
-       ========================================== */
+    /* =====================================
+       عنوان بخش‌ها
+       ===================================== */
 
     .section-title {
+      display: flex;
 
-      display:
-        flex;
+      align-items: center;
+      justify-content: center;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      gap:
-        1rem;
+      gap: 1rem;
 
       margin:
         0 0 1.8rem;
@@ -828,59 +757,40 @@
         "Amiri",
         serif;
 
-      font-size:
-        1.65rem;
-
-      font-weight:
-        700;
+      font-size: 1.65rem;
+      font-weight: 700;
     }
 
 
     .section-title::before,
     .section-title::after {
+      content: "❖";
 
-      content:
-        "❖";
+      color: var(--gold);
 
-      color:
-        var(--gold);
-
-      font-size:
-        .85rem;
+      font-size: .85rem;
     }
 
-
-    /* ==========================================
-       بخش‌ها
-       ========================================== */
 
     .section {
-
-      margin-top:
-        3.5rem;
+      margin-top: 3.5rem;
     }
 
 
-    /* ==========================================
+    /* =====================================
        کارت آیین
-       ========================================== */
+       ===================================== */
 
     .ritual {
+      position: relative;
+      overflow: hidden;
 
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      margin-bottom:
-        1.1rem;
+      margin-bottom: 1.1rem;
 
       padding:
         1.45rem 1.5rem 1.5rem;
 
-      border-radius:
-        22px;
+      border-radius: 22px;
 
       border:
         1px solid
@@ -904,24 +814,16 @@
     }
 
 
-    /* نوار طلایی */
-
     .ritual::before {
-
       content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
       top: 0;
-
       right: 0;
 
-      width:
-        5px;
-
-      height:
-        100%;
+      width: 5px;
+      height: 100%;
 
       background:
         linear-gradient(
@@ -933,27 +835,18 @@
     }
 
 
-    /* هاله تزئینی */
-
     .ritual::after {
+      content: "✦";
 
-      content:
-        "✦";
+      position: absolute;
 
-      position:
-        absolute;
-
-      left:
-        20px;
-
-      bottom:
-        8px;
+      left: 20px;
+      bottom: 8px;
 
       color:
         rgba(201,162,77,.16);
 
-      font-size:
-        3rem;
+      font-size: 3rem;
 
       font-family:
         "Amiri",
@@ -962,7 +855,6 @@
 
 
     .ritual:hover {
-
       transform:
         translateY(-5px);
 
@@ -974,20 +866,13 @@
     }
 
 
-    /* ==========================================
-       عنوان آیین
-       ========================================== */
-
     .ritual h3 {
-
-      position:
-        relative;
+      position: relative;
 
       margin:
         0 0 .55rem;
 
-      padding-right:
-        1.1rem;
+      padding-right: 1.1rem;
 
       color:
         var(--purple-dark);
@@ -996,56 +881,37 @@
         "Amiri",
         serif;
 
-      font-size:
-        1.45rem;
-
-      font-weight:
-        700;
+      font-size: 1.45rem;
+      font-weight: 700;
     }
 
 
     .ritual h3::before {
+      content: "❖";
 
-      content:
-        "❖";
+      position: absolute;
 
-      position:
-        absolute;
-
-      right:
-        0;
-
-      top:
-        50%;
+      right: 0;
+      top: 50%;
 
       transform:
         translateY(-50%);
 
-      color:
-        var(--gold);
+      color: var(--gold);
 
-      font-size:
-        .55rem;
+      font-size: .55rem;
     }
 
 
-    /* ==========================================
-       تاریخ
-       ========================================== */
-
     .date {
+      display: inline-block;
 
-      display:
-        inline-block;
-
-      margin-bottom:
-        .7rem;
+      margin-bottom: .7rem;
 
       padding:
         .3rem .8rem;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       color:
         var(--purple);
@@ -1057,82 +923,47 @@
         1px solid
         rgba(81,50,118,.14);
 
-      font-size:
-        .84rem;
-
-      font-weight:
-        500;
+      font-size: .84rem;
+      font-weight: 500;
     }
 
-
-    /* ==========================================
-       متن
-       ========================================== */
 
     .ritual p {
+      position: relative;
+      z-index: 2;
 
-      position:
-        relative;
+      margin: 0;
 
-      z-index:
-        2;
+      line-height: 2;
 
-      margin:
-        0;
+      color: #5b5160;
 
-      line-height:
-        2;
-
-      color:
-        #5b5160;
-
-      font-size:
-        .96rem;
+      font-size: .96rem;
     }
 
 
-    /* ==========================================
-       لینک‌های داخل آیین
-       ========================================== */
-
     .ritual ul {
+      position: relative;
+      z-index: 3;
 
-      position:
-        relative;
+      display: flex;
+      flex-wrap: wrap;
 
-      z-index:
-        3;
+      gap: .65rem;
 
-      display:
-        flex;
+      list-style: none;
 
-      flex-wrap:
-        wrap;
-
-      gap:
-        .65rem;
-
-      list-style:
-        none;
-
-      padding:
-        0;
-
-      margin:
-        1.1rem 0 0;
+      padding: 0;
+      margin: 1.1rem 0 0;
     }
 
 
     .ritual li a {
+      display: inline-flex;
 
-      display:
-        inline-flex;
+      align-items: center;
 
-      align-items:
-        center;
-
-      gap:
-        .35rem;
+      gap: .35rem;
 
       padding:
         .55rem .9rem;
@@ -1140,8 +971,7 @@
       color:
         var(--purple-dark);
 
-      text-decoration:
-        none;
+      text-decoration: none;
 
       background:
         #f3edf8;
@@ -1150,21 +980,16 @@
         1px solid
         rgba(81,50,118,.18);
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      font-size:
-        .88rem;
+      font-size: .88rem;
 
-      transition:
-        all .28s ease;
+      transition: all .28s ease;
     }
 
 
     .ritual li a:hover {
-
-      color:
-        #fff;
+      color: #fff;
 
       background:
         var(--purple);
@@ -1181,93 +1006,33 @@
     }
 
 
-    /* ==========================================
-       شبدر تزئینی کنار عنوان آیین
-       ========================================== */
-
-    .ritual-icon {
-
-      float:
-        left;
-
-      width:
-        45px;
-
-      height:
-        45px;
-
-      margin:
-        0 0 .5rem 0;
-
-      opacity:
-        .95;
-    }
-
-
-    .ritual-icon svg {
-
-      width:
-        100%;
-
-      height:
-        100%;
-    }
-
-
-    .ritual-icon path,
-    .ritual-icon circle {
-
-      fill:
-        url(#goldGradientSmall);
-
-      stroke:
-        #d9ba69;
-
-      stroke-width:
-        1.2;
-    }
-
-
-    /* ==========================================
+    /* =====================================
        تزئین بین بخش‌ها
-       ========================================== */
+       ===================================== */
 
     .section-ornament {
+      display: flex;
 
-      display:
-        flex;
+      align-items: center;
+      justify-content: center;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      gap:
-        .8rem;
+      gap: .8rem;
 
       margin:
         3rem auto 0;
 
-      color:
-        var(--gold);
+      color: var(--gold);
 
-      font-size:
-        .9rem;
+      font-size: .9rem;
     }
 
 
     .section-ornament::before,
     .section-ornament::after {
+      content: "";
 
-      content:
-        "";
-
-      width:
-        100px;
-
-      height:
-        1px;
+      width: 100px;
+      height: 1px;
 
       background:
         linear-gradient(
@@ -1279,7 +1044,6 @@
 
 
     .section-ornament::after {
-
       background:
         linear-gradient(
           90deg,
@@ -1289,29 +1053,22 @@
     }
 
 
-    /* ==========================================
+    /* =====================================
        Footer
-       ========================================== */
+       ===================================== */
 
     footer {
+      position: relative;
+      overflow: hidden;
 
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      margin-top:
-        3rem;
+      margin-top: 3rem;
 
       padding:
         3rem 1rem 2.5rem;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--gold-pale);
+      color: var(--gold-pale);
 
       background:
         linear-gradient(
@@ -1325,8 +1082,7 @@
         1px solid
         rgba(201,162,77,.45);
 
-      border-radius:
-        28px;
+      border-radius: 28px;
 
       box-shadow:
         0 20px 55px
@@ -1334,128 +1090,41 @@
     }
 
 
-    footer::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      width:
-        350px;
-
-      height:
-        150px;
-
-      left:
-        50%;
-
-      bottom:
-        -110px;
-
-      transform:
-        translateX(-50%);
-
-      border-radius:
-        50%;
-
-      border:
-        1px solid
-        rgba(234,212,154,.18);
-    }
-
-
-    footer .footer-clover {
-
-      width:
-        45px;
-
-      height:
-        45px;
-
-      margin:
-        0 auto .8rem;
-
-      position:
-        relative;
-
-      z-index:
-        2;
-    }
-
-
-    footer .footer-clover svg {
-
-      width:
-        100%;
-
-      height:
-        100%;
-    }
-
-
-    footer .footer-clover path,
-    footer .footer-clover circle {
-
-      fill:
-        url(#goldGradientFooter);
-
-      stroke:
-        #f0d98f;
-
-      stroke-width:
-        1.2;
-    }
-
-
     footer p {
+      position: relative;
+      z-index: 2;
 
-      position:
-        relative;
-
-      z-index:
-        2;
-
-      margin:
-        0;
+      margin: 0;
 
       font-family:
         "Amiri",
         serif;
 
-      font-size:
-        1.15rem;
+      font-size: 1.15rem;
 
-      color:
-        var(--gold-pale);
+      color: var(--gold-pale);
     }
 
 
     footer small {
+      display: block;
 
-      display:
-        block;
-
-      margin-top:
-        .7rem;
+      margin-top: .7rem;
 
       color:
         rgba(245,233,196,.62);
 
-      font-size:
-        .75rem;
+      font-size: .75rem;
     }
 
 
-    /* ==========================================
+    /* =====================================
        موبایل
-       ========================================== */
+       ===================================== */
 
     @media (max-width: 700px) {
 
       main {
-
         width:
           calc(100% - 1rem);
 
@@ -1465,177 +1134,145 @@
 
 
       .page-frame {
-
-        padding:
-          .55rem;
-
-        border-radius:
-          28px;
+        padding: .55rem;
+        border-radius: 28px;
       }
 
 
       .page-frame::before {
-
-        inset:
-          .3rem;
-
-        border-radius:
-          23px;
+        inset: .3rem;
+        border-radius: 23px;
       }
 
 
       .hero {
-
-        min-height:
-          360px;
+        min-height: 360px;
 
         padding:
           3.5rem 1rem 3rem;
 
-        border-radius:
-          23px;
+        border-radius: 23px;
       }
 
 
       .hero h1 {
-
-        font-size:
-          4rem;
+        font-size: 4rem;
       }
 
 
       .hero p {
-
-        font-size:
-          1rem;
-
-        line-height:
-          2;
+        font-size: 1rem;
+        line-height: 2;
       }
 
 
       .clover {
+        width: 55px;
+        height: 55px;
+      }
 
-        width:
-          55px;
 
-        height:
-          55px;
+      .join-box {
+        margin-top: -28px;
+      }
+
+
+      .join-link {
+        min-height: 72px;
+
+        padding:
+          .8rem 1rem;
+
+        font-size: 1.05rem;
+      }
+
+
+      .join-symbol {
+        width: 38px;
+        height: 38px;
+
+        flex-basis: 38px;
+
+        font-size: .9rem;
+      }
+
+
+      .join-subtitle {
+        font-size: .67rem;
       }
 
 
       .intro {
-
         margin:
-          -28px .5rem 2.5rem;
+          0 .5rem 2.5rem;
 
         padding:
           1.25rem 1rem;
 
-        font-size:
-          1.02rem;
+        font-size: 1.02rem;
       }
 
 
       .section {
-
-        margin-top:
-          2.8rem;
+        margin-top: 2.8rem;
       }
 
 
       .section-title {
-
-        font-size:
-          1.4rem;
+        font-size: 1.4rem;
       }
 
 
       .ritual {
-
         padding:
           1.25rem 1.15rem;
       }
 
 
       .ritual h3 {
-
-        font-size:
-          1.3rem;
+        font-size: 1.3rem;
       }
 
 
       .ritual p {
-
-        font-size:
-          .92rem;
-
-        line-height:
-          2;
-      }
-
-
-      .ritual-icon {
-
-        width:
-          38px;
-
-        height:
-          38px;
+        font-size: .92rem;
+        line-height: 2;
       }
 
 
       .lang-bar {
-
-        gap:
-          .15rem;
-
-        padding:
-          .5rem .35rem;
+        gap: .15rem;
+        padding: .5rem .35rem;
       }
 
 
       .lang-bar::before,
       .lang-bar::after {
-
-        display:
-          none;
+        display: none;
       }
 
 
       .lang-bar a {
-
-        font-size:
-          .72rem;
-
-        padding:
-          .35rem .5rem;
+        font-size: .72rem;
+        padding: .35rem .5rem;
       }
 
     }
 
 
-    /* ==========================================
-       کاهش انیمیشن
-       ========================================== */
-
     @media (prefers-reduced-motion: reduce) {
 
       html {
-        scroll-behavior:
-          auto;
+        scroll-behavior: auto;
       }
 
       *,
       *::before,
       *::after {
-
-        animation:
-          none !important;
-
-        transition:
-          none !important;
+        animation: none !important;
+        transition: none !important;
       }
+
     }
 
   </style>
@@ -1646,9 +1283,9 @@
 <body>
 
 
-  <!-- =====================================================
+  <!-- =====================================
        نوار زبان
-       ===================================================== -->
+       ===================================== -->
 
   <nav
     class="lang-bar"
@@ -1683,9 +1320,9 @@
 
 
 
-  <!-- =====================================================
-       SVG گرادیان‌های طلایی
-       ===================================================== -->
+  <!-- =====================================
+       گرادیان‌های طلایی SVG
+       ===================================== -->
 
   <svg
     width="0"
@@ -1721,58 +1358,6 @@
 
       </linearGradient>
 
-
-      <linearGradient
-        id="goldGradientSmall"
-        x1="0%"
-        y1="0%"
-        x2="100%"
-        y2="100%"
-      >
-
-        <stop
-          offset="0%"
-          stop-color="#f3df9a"
-        />
-
-        <stop
-          offset="50%"
-          stop-color="#c6a04b"
-        />
-
-        <stop
-          offset="100%"
-          stop-color="#e7ca78"
-        />
-
-      </linearGradient>
-
-
-      <linearGradient
-        id="goldGradientFooter"
-        x1="0%"
-        y1="0%"
-        x2="100%"
-        y2="100%"
-      >
-
-        <stop
-          offset="0%"
-          stop-color="#f7e4a0"
-        />
-
-        <stop
-          offset="50%"
-          stop-color="#c8a14c"
-        />
-
-        <stop
-          offset="100%"
-          stop-color="#f0d486"
-        />
-
-      </linearGradient>
-
     </defs>
 
   </svg>
@@ -1784,14 +1369,11 @@
     <div class="page-frame">
 
 
-      <!-- =================================================
+      <!-- =====================================
            سربرگ
-           ================================================= -->
+           ===================================== -->
 
       <header class="hero">
-
-
-        <!-- شبدر سه پر طلایی -->
 
         <div
           class="clover"
@@ -1859,7 +1441,6 @@
         </div>
 
 
-
         <h1>
           آیین‌های هوریایی
         </h1>
@@ -1878,9 +1459,44 @@
 
 
 
-      <!-- =================================================
+      <!-- =====================================
+           لینک پیوستن به آیین هوریا
+           ===================================== -->
+
+      <div class="join-box">
+
+        <a
+          class="join-link"
+          href="https://celianor.github.io/Horia/Rit/1.fa.html"
+        >
+
+          <span
+            class="join-symbol"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+
+
+          <span class="join-text">
+
+            چگونه به آیین هوریا بپیوندیم؟
+
+            <span class="join-subtitle">
+              آشنایی با راه و شیوهٔ پیوستن
+            </span>
+
+          </span>
+
+        </a>
+
+      </div>
+
+
+
+      <!-- =====================================
            مقدمه
-           ================================================= -->
+           ===================================== -->
 
       <div class="intro">
 
@@ -1892,9 +1508,9 @@
 
 
 
-      <!-- =================================================
+      <!-- =====================================
            آیین‌های فردی
-           ================================================= -->
+           ===================================== -->
 
       <section class="section">
 
@@ -1903,74 +1519,17 @@
         </div>
 
 
-
-        <!-- بامداد و شامگاه -->
-
         <article class="ritual">
-
-          <div class="ritual-icon">
-
-            <svg
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="
-                  M50 49
-                  C29 48 24 29 33 18
-                  C40 9 51 12 56 20
-                  C61 28 57 42 50 49
-                  Z
-                "
-              />
-
-              <path
-                d="
-                  M53 51
-                  C61 29 80 28 88 38
-                  C94 46 89 57 80 60
-                  C70 63 58 58 53 51
-                  Z
-                "
-              />
-
-              <path
-                d="
-                  M47 51
-                  C38 60 20 63 13 54
-                  C7 46 12 36 21 33
-                  C31 30 42 38 47 51
-                  Z
-                "
-              />
-
-              <path
-                d="
-                  M50 48
-                  C50 62 50 73 44 86
-                  C43 89 48 91 50 87
-                  C54 76 55 64 52 51
-                  Z
-                "
-              />
-
-            </svg>
-
-          </div>
-
 
           <h3>
             نیایش بامدادی و شامگاهی
           </h3>
-
 
           <p>
             روز را با آرامش درون آغاز کن
             و شب را با آگاهی به پایان برسان،
             در گفت‌وگویی آرام و با صدای خوش با هورا.
           </p>
-
 
           <ul>
 
@@ -1992,8 +1551,6 @@
 
 
 
-        <!-- لبخند -->
-
         <article class="ritual">
 
           <h3>
@@ -2009,8 +1566,6 @@
 
 
 
-        <!-- خوش رویی -->
-
         <article class="ritual">
 
           <h3>
@@ -2025,8 +1580,6 @@
         </article>
 
 
-
-        <!-- یاری -->
 
         <article class="ritual">
 
@@ -2051,9 +1604,9 @@
 
 
 
-      <!-- =================================================
+      <!-- =====================================
            آیین‌های جمعی
-           ================================================= -->
+           ===================================== -->
 
       <section class="section">
 
@@ -2061,9 +1614,6 @@
           آیین‌های جمعی
         </div>
 
-
-
-        <!-- روز مهربانی -->
 
         <article class="ritual">
 
@@ -2084,8 +1634,6 @@
 
 
 
-        <!-- پنجه آغاز -->
-
         <article class="ritual">
 
           <h3>
@@ -2104,8 +1652,6 @@
         </article>
 
 
-
-        <!-- روز طبیعت -->
 
         <article class="ritual">
 
@@ -2126,8 +1672,6 @@
 
 
 
-        <!-- تنهایی -->
-
         <article class="ritual">
 
           <h3>
@@ -2146,8 +1690,6 @@
         </article>
 
 
-
-        <!-- جشن گل -->
 
         <article class="ritual">
 
@@ -2168,8 +1710,6 @@
 
 
 
-        <!-- مهرورزی -->
-
         <article class="ritual">
 
           <h3>
@@ -2188,8 +1728,6 @@
         </article>
 
 
-
-        <!-- هنر -->
 
         <article class="ritual">
 
@@ -2212,71 +1750,15 @@
 
 
 
-      <!-- =================================================
+      <!-- =====================================
            Footer
-           ================================================= -->
+           ===================================== -->
 
       <footer>
-
-        <div
-          class="footer-clover"
-          aria-hidden="true"
-        >
-
-          <svg
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-
-            <path
-              d="
-                M50 49
-                C29 48 24 29 33 18
-                C40 9 51 12 56 20
-                C61 28 57 42 50 49
-                Z
-              "
-            />
-
-            <path
-              d="
-                M53 51
-                C61 29 80 28 88 38
-                C94 46 89 57 80 60
-                C70 63 58 58 53 51
-                Z
-              "
-            />
-
-            <path
-              d="
-                M47 51
-                C38 60 20 63 13 54
-                C7 46 12 36 21 33
-                C31 30 42 38 47 51
-                Z
-              "
-            />
-
-            <path
-              d="
-                M50 48
-                C50 62 50 73 44 86
-                C43 89 48 91 50 87
-                C54 76 55 64 52 51
-                Z
-              "
-            />
-
-          </svg>
-
-        </div>
-
 
         <p>
           با دل آرام، به سوی روشنایی
         </p>
-
 
         <small>
           آیین‌های هوریایی
@@ -2291,4 +1773,4 @@
 
 
 </body>
-            </html>
+</html>
