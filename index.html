@@ -4,106 +4,837 @@
   <meta charset="UTF-8" />
   <title>Welcome to Horia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Welcome to Horia — a home for kindness, wisdom, freedom, and light."
+  />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --gold: #c5a86a;
+      --gold-light: #e5d5a8;
+      --cream: #faf7ef;
+      --text: #40504d;
+      --glass: rgba(255, 255, 255, 0.48);
+      --glass-border: rgba(255, 255, 255, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #a8e6cf, #dcedc1);
-      color: #2e7d32;
+      color: var(--text);
       text-align: center;
-      padding: 20px;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% -5%,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(238, 241, 232, 0.85) 25%,
+          transparent 58%
+        ),
+        radial-gradient(
+          circle at 5% 65%,
+          rgba(221, 234, 226, 0.65),
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 95% 85%,
+          rgba(237, 225, 197, 0.6),
+          transparent 38%
+        ),
+        linear-gradient(
+          180deg,
+          #eef3ed 0%,
+          #f8f5ec 50%,
+          #f2eee3 100%
+        );
     }
 
-    .header-image-container {
-      max-width: 900px;
-      margin: 0 auto 40px;
-      border-radius: 20px;
+
+    /* =========================================
+       فضای نورانی اطراف صفحه
+    ========================================= */
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: -2;
+      animation: breathingLight 14s ease-in-out infinite;
+    }
+
+    body::before {
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 250, 220, 0.72);
+    }
+
+    body::after {
+      right: -220px;
+      bottom: -150px;
+      background: rgba(214, 225, 217, 0.55);
+      animation-delay: -6s;
+    }
+
+    @keyframes breathingLight {
+      0%, 100% {
+        opacity: 0.45;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.13);
+      }
+    }
+
+
+    /* =========================================
+       ذرات نور
+    ========================================= */
+
+    .light-particles {
+      position: fixed;
+      inset: 0;
       overflow: hidden;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-      border: 4px solid #a5d6a7;
-      filter: brightness(1.05) contrast(1.1) saturate(1.2) sepia(10%);
-      transition: filter 0.5s ease;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .header-image-container:hover {
-      filter: brightness(1.1) contrast(1.2) saturate(1.4) sepia(20%);
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(190, 160, 95, 0.48);
+      box-shadow:
+        0 0 8px rgba(190, 160, 95, 0.45),
+        0 0 18px rgba(255, 255, 255, 0.65);
+
+      animation:
+        floatParticle 9s ease-in-out infinite,
+        glowParticle 4s ease-in-out infinite;
     }
 
-    .header-image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .particle:nth-child(1) {
+      left: 12%;
+      top: 18%;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      left: 25%;
+      top: 68%;
+      animation-delay: -3s;
+    }
+
+    .particle:nth-child(3) {
+      left: 76%;
+      top: 23%;
+      animation-delay: -5s;
+    }
+
+    .particle:nth-child(4) {
+      left: 88%;
+      top: 62%;
+      animation-delay: -2s;
+    }
+
+    .particle:nth-child(5) {
+      left: 61%;
+      top: 83%;
+      animation-delay: -7s;
+    }
+
+    .particle:nth-child(6) {
+      left: 38%;
+      top: 31%;
+      animation-delay: -4s;
+    }
+
+    .particle:nth-child(7) {
+      left: 8%;
+      top: 82%;
+      animation-delay: -6s;
+    }
+
+    .particle:nth-child(8) {
+      left: 93%;
+      top: 38%;
+      animation-delay: -1s;
+    }
+
+    @keyframes floatParticle {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-28px) translateX(10px);
+      }
+    }
+
+    @keyframes glowParticle {
+      0%, 100% {
+        opacity: 0.18;
+        transform: scale(0.65);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.45);
+      }
+    }
+
+
+    /* =========================================
+       محتوای اصلی
+    ========================================= */
+
+    .page {
+      width: min(100%, 1050px);
+      margin: 0 auto;
+      padding: 65px 24px 80px;
+    }
+
+
+    /* =========================================
+       عنوان
+    ========================================= */
+
+    .welcome {
+      opacity: 0;
+      animation: reveal 1.4s ease forwards;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      margin: 0;
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      font-weight: 500;
+      letter-spacing: 0.025em;
+      line-height: 0.95;
+
+      color: #405752;
+
+      text-shadow:
+        0 2px 25px rgba(255, 255, 255, 0.8);
     }
 
-    p {
-      font-size: 1.3rem;
-      max-width: 400px;
-      margin: 0 auto 40px;
-      font-weight: 500;
+    .title-line {
+      width: 90px;
+      height: 1px;
+      margin: 25px auto 20px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
     }
+
+    .symbol {
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 9px;
+      margin-left: 9px;
+      opacity: 0.8;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin: 18px auto 45px;
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      line-height: 1.7;
+      font-weight: 500;
+
+      color: #596965;
+    }
+
+
+    /* =========================================
+       تصویر اصلی
+    ========================================= */
+
+    .image-area {
+      position: relative;
+      width: min(900px, 100%);
+      margin: 0 auto 48px;
+
+      opacity: 0;
+      animation: imageReveal 1.7s ease 0.25s forwards;
+    }
+
+    .image-glow {
+      position: absolute;
+      inset: 8%;
+      border-radius: 35px;
+
+      background: rgba(255, 244, 207, 0.75);
+      filter: blur(45px);
+
+      opacity: 0.65;
+      z-index: -1;
+
+      animation: imageBreath 8s ease-in-out infinite;
+    }
+
+    .header-image-container {
+      position: relative;
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      padding: 8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.8),
+          rgba(215,205,176,0.38),
+          rgba(255,255,255,0.72)
+        );
+
+      box-shadow:
+        0 25px 70px rgba(57, 66, 59, 0.17),
+        0 5px 18px rgba(50, 50, 40, 0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.75);
+    }
+
+    .image-inner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 23px;
+    }
+
+    .header-image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+
+      transition:
+        transform 1.5s ease,
+        filter 1.5s ease;
+
+      filter:
+        brightness(1.05)
+        contrast(1.02)
+        saturate(0.88);
+    }
+
+    .image-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.12),
+          transparent 28%,
+          transparent 72%,
+          rgba(45,60,52,0.08)
+        );
+
+      pointer-events: none;
+    }
+
+    .header-image-container:hover img {
+      transform: scale(1.025);
+
+      filter:
+        brightness(1.08)
+        contrast(1.03)
+        saturate(0.98);
+    }
+
+    @keyframes imageReveal {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes imageBreath {
+      0%, 100% {
+        transform: scale(0.96);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: scale(1.04);
+        opacity: 0.7;
+      }
+    }
+
+
+    /* =========================================
+       متن زیر تصویر
+    ========================================= */
+
+    .message {
+      max-width: 650px;
+      margin: 0 auto 45px;
+
+      padding: 25px 30px;
+
+      background: rgba(255,255,255,0.32);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 22px;
+
+      box-shadow:
+        0 10px 35px rgba(70,70,55,0.04);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      opacity: 0;
+      animation: reveal 1.4s ease 0.8s forwards;
+    }
+
+    .message p {
+      margin: 0;
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      line-height: 1.65;
+      font-weight: 500;
+
+      color: #536460;
+    }
+
+    .message .small-symbol {
+      display: block;
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 8px;
+      letter-spacing: 7px;
+    }
+
+
+    /* =========================================
+       انتخاب زبان
+    ========================================= */
 
     .language-selector {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 600px;
+      width: min(760px, 100%);
       margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+
+      opacity: 0;
+      animation: reveal 1.4s ease 1.1s forwards;
     }
 
     .lang-btn {
-      flex: 1 1 120px;
-      padding: 15px 0;
-      border-radius: 12px;
-      background-color: #81c784;
-      color: white;
-      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 60px;
+      padding: 12px 18px;
+
+      border-radius: 18px;
+
+      color: #52635f;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.7),
+          rgba(224,231,224,0.54)
+        );
+
+      border: 1px solid rgba(255,255,255,0.7);
+
+      box-shadow:
+        0 8px 25px rgba(65,75,68,0.07),
+        inset 0 1px 0 rgba(255,255,255,0.75);
+
+      font-size: 0.95rem;
+      font-weight: 500;
       text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      user-select: none;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+    }
+
+    .lang-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.55),
+          transparent
+        );
+
+      transform: skewX(-20deg);
+      transition: left 0.65s ease;
     }
 
     .lang-btn:hover {
-      background-color: #66bb6a;
-      transform: scale(1.05);
+      transform: translateY(-5px);
+
+      color: #3e5651;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.88),
+          rgba(221,232,224,0.72)
+        );
+
+      box-shadow:
+        0 15px 35px rgba(60,75,68,0.12),
+        0 0 0 1px rgba(195,170,110,0.12);
+    }
+
+    .lang-btn:hover::before {
+      left: 130%;
+    }
+
+    .lang-btn:active {
+      transform: translateY(-1px);
+    }
+
+
+    /* =========================================
+       جمله‌ی پایانی
+    ========================================= */
+
+    .closing {
+      margin-top: 65px;
+
+      color: #8a877b;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+
+      opacity: 0;
+      animation: reveal 1.5s ease 1.5s forwards;
+    }
+
+    .closing::before {
+      content: "✦";
+      display: block;
+      color: var(--gold);
+      margin-bottom: 13px;
+      font-size: 13px;
+    }
+
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================================
+       موبایل
+    ========================================= */
+
+    @media (max-width: 700px) {
+
+      .page {
+        padding: 45px 16px 55px;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      .intro {
+        margin-bottom: 32px;
+        font-size: 1.25rem;
+      }
+
+      .header-image-container {
+        padding: 5px;
+        border-radius: 22px;
+      }
+
+      .image-inner {
+        border-radius: 17px;
+      }
+
+      .message {
+        padding: 20px 18px;
+        margin-bottom: 30px;
+      }
+
+      .message p {
+        font-size: 1.3rem;
+      }
+
+      .language-selector {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .lang-btn {
+        min-height: 55px;
+        border-radius: 15px;
+        font-size: 0.88rem;
+      }
+
+      .closing {
+        margin-top: 45px;
+      }
+    }
+
+
+    @media (max-width: 400px) {
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .language-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-btn {
+        min-height: 52px;
+      }
+    }
+
+
+    /* =========================================
+       احترام به تنظیمات کاهش حرکت
+    ========================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .welcome,
+      .image-area,
+      .message,
+      .language-selector,
+      .closing {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VQWD8WE2Q7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-VQWD8WE2Q7">
+  </script>
 
-  gtag('config', 'G-VQWD8WE2Q7');
-</script>
-  </head>
-  <body>
-  <h1>Welcome to Horia</h1>
-  <div class="header-image-container">
-    <img src="https://celianor.github.io/Horia/img/H.jpg" alt="Horia">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-VQWD8WE2Q7');
+  </script>
+
+</head>
+
+
+<body>
+
+  <!-- ذرات نور -->
+  <div class="light-particles" aria-hidden="true">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
   </div>
 
- 
-  <p>A home for kindness, wisdom, freedom, and light.</p>
 
-  <div class="language-selector">
-    <a href="index.en.html" class="lang-btn" lang="en" hreflang="en">English</a>
-    <a href="index.fr.html" class="lang-btn" lang="fr" hreflang="fr">Français</a>
-    <a href="index.es.html" class="lang-btn" lang="es" hreflang="es">Español</a>
-    <a href="index.ar.html" class="lang-btn" lang="ar" hreflang="ar">العربية</a>
-    <a href="index.fa.html" class="lang-btn" lang="fa" hreflang="fa">فارسی</a>
-    <a href="https://celianor.github.io/Horia/contact.en.html" class="lang-btn" lang="en" hreflang="en">Contact</a>
-  </div>
+  <main class="page">
+
+    <!-- عنوان -->
+    <section class="welcome">
+
+      <h1>Welcome to Horia</h1>
+
+      <div class="title-line"></div>
+
+      <div class="symbol">✦ ✦ ✦</div>
+
+      <div class="intro">
+        A quiet place where the light within us
+        can meet the light around us.
+      </div>
+
+    </section>
+
+
+    <!-- تصویر -->
+    <section class="image-area">
+
+      <div class="image-glow"></div>
+
+      <div class="header-image-container">
+
+        <div class="image-inner">
+
+          <img
+            src="https://celianor.github.io/Horia/img/H.jpg"
+            alt="Horia"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- پیام -->
+    <section class="message">
+
+      <span class="small-symbol">✦</span>
+
+      <p>
+        A home for kindness, wisdom, freedom, and light.
+      </p>
+
+    </section>
+
+
+    <!-- زبان‌ها -->
+    <nav
+      class="language-selector"
+      aria-label="Language selection"
+    >
+
+      <a
+        href="index.en.html"
+        class="lang-btn"
+        lang="en"
+        hreflang="en"
+      >
+        English
+      </a>
+
+      <a
+        href="index.fr.html"
+        class="lang-btn"
+        lang="fr"
+        hreflang="fr"
+      >
+        Français
+      </a>
+
+      <a
+        href="index.es.html"
+        class="lang-btn"
+        lang="es"
+        hreflang="es"
+      >
+        Español
+      </a>
+
+      <a
+        href="index.ar.html"
+        class="lang-btn"
+        lang="ar"
+        hreflang="ar"
+      >
+        العربية
+      </a>
+
+      <a
+        href="index.fa.html"
+        class="lang-btn"
+        lang="fa"
+        hreflang="fa"
+      >
+        فارسی
+      </a>
+
+      <a
+        href="https://celianor.github.io/Horia/contact.en.html"
+        class="lang-btn"
+        lang="en"
+        hreflang="en"
+      >
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- پایان -->
+    <div class="closing">
+      May every path lead us a little closer to the light.
+    </div>
+
+  </main>
 
 </body>
-</html>
+  </html>
