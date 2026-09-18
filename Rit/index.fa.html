@@ -1,165 +1,2294 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#24143f"
+  >
+
+  <meta
+    name="description"
+    content="آیین‌های هوریایی؛ مجموعه‌ای از آیین‌های فردی و جمعی برای زندگی آگاهانه"
+  >
+
   <title>آیین‌های هوریایی</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+
+
+  <!-- ==============================
+       فونت‌ها
+       ============================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
-    * { box-sizing: border-box; }
+
+    /* ==========================================
+       رنگ‌ها
+       ========================================== */
+
+    :root {
+
+      --purple-deep: #24143f;
+
+      --purple-dark: #321b54;
+
+      --purple: #513276;
+
+      --purple-light: #76539a;
+
+      --purple-soft: #eee5f7;
+
+      --gold: #c9a24d;
+
+      --gold-light: #ead49a;
+
+      --gold-pale: #f5e9c4;
+
+      --cream: #fbf7ee;
+
+      --cream-dark: #f0e8d8;
+
+      --white: #fffdf8;
+
+      --text: #332441;
+
+      --muted: #766c7d;
+
+      --border:
+        rgba(201,162,77,.42);
+
+      --shadow:
+        0 18px 50px
+        rgba(48,27,75,.13);
+
+      --shadow-hover:
+        0 25px 65px
+        rgba(48,27,75,.23);
+    }
+
+
+    /* ==========================================
+       تنظیمات عمومی
+       ========================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #f9fff9;
-      margin: 0; padding: 0;
-      color: #333;
-      text-align: right;
-      direction: rtl;
-    }
-    .lang-bar {
-      background-color: #c8e6c9;
-      padding: 0.5rem 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      border-bottom: 2px solid #a5d6a7;
-    }
-    .lang-bar a {
-      color: #2e7d32;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      font-size: 1rem;
-    }
-    .lang-bar a:hover {
-      color: #1b5e20;
-    }
-    main {
-      margin: 2rem auto;
-      max-width: 700px;
-      padding: 1rem;
-    }
-    h1, h2 {
-      color: #2e7d32;
-      text-align: center;
-    }
-    .section {
-      margin-top: 3rem;
-    }
-    .ritual {
-      background-color: #e8f5e9;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .ritual h3 {
-      margin-top: 0;
-      color: #1b5e20;
-      font-size: 1.2rem;
-    }
-    .ritual .date {
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 0.4rem;
-    }
-    .ritual p {
+
       margin: 0;
-      line-height: 1.7;
+
+      min-height: 100vh;
+
+      font-family:
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      color:
+        var(--text);
+
+      direction: rtl;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(201,162,77,.16),
+          transparent 24rem
+        ),
+
+        radial-gradient(
+          circle at 5% 45%,
+          rgba(81,50,118,.10),
+          transparent 25rem
+        ),
+
+        radial-gradient(
+          circle at 95% 75%,
+          rgba(118,83,154,.08),
+          transparent 25rem
+        ),
+
+        linear-gradient(
+          145deg,
+          #fcf8f0 0%,
+          #f5efe4 48%,
+          #eee8f2 100%
+        );
+
+      overflow-x:
+        hidden;
     }
+
+
+    /* بافت بسیار ظریف */
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: .16;
+
+      background-image:
+
+        radial-gradient(
+          var(--purple) .55px,
+          transparent .55px
+        );
+
+      background-size:
+        8px 8px;
+    }
+
+
+    /* ==========================================
+       نوار زبان
+       ========================================== */
+
+    .lang-bar {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: .35rem;
+
+      padding:
+        .65rem 1rem;
+
+      background:
+        rgba(36,20,63,.96);
+
+      backdrop-filter:
+        blur(16px);
+
+      border-bottom:
+        1px solid
+        rgba(234,212,154,.35);
+
+      box-shadow:
+        0 8px 30px
+        rgba(36,20,63,.18);
+    }
+
+
+    .lang-bar::before,
+    .lang-bar::after {
+
+      content:
+        "✦";
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        .75rem;
+
+      margin:
+        0 .55rem;
+    }
+
+
+    .lang-bar a {
+
+      color:
+        #f8f0df;
+
+      text-decoration:
+        none;
+
+      font-size:
+        .84rem;
+
+      font-weight:
+        500;
+
+      padding:
+        .42rem .78rem;
+
+      border-radius:
+        999px;
+
+      transition:
+        all .3s ease;
+    }
+
+
+    .lang-bar a:hover {
+
+      color:
+        var(--purple-deep);
+
+      background:
+        var(--gold-light);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    .lang-bar a.active {
+
+      color:
+        var(--purple-deep);
+
+      background:
+        linear-gradient(
+          135deg,
+          #f1dda2,
+          #c49b43
+        );
+
+      box-shadow:
+        0 4px 18px
+        rgba(201,162,77,.3);
+    }
+
+
+    /* ==========================================
+       محتوای اصلی
+       ========================================== */
+
+    main {
+
+      width:
+        min(
+          1050px,
+          calc(100% - 2rem)
+        );
+
+      margin:
+        auto;
+
+      padding:
+        2.5rem 0 4rem;
+    }
+
+
+    /* ==========================================
+       قاب اصلی
+       ========================================== */
+
+    .page-frame {
+
+      position:
+        relative;
+
+      padding:
+        1rem;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius:
+        38px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.52),
+          rgba(239,229,215,.38)
+        );
+
+      box-shadow:
+        0 30px 90px
+        rgba(44,25,66,.12);
+    }
+
+
+    .page-frame::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      inset:
+        .45rem;
+
+      border:
+        1px solid
+        rgba(201,162,77,.23);
+
+      border-radius:
+        31px;
+
+      pointer-events:
+        none;
+    }
+
+
+    /* ==========================================
+       سربرگ
+       ========================================== */
+
+    .hero {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      min-height:
+        390px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      text-align:
+        center;
+
+      padding:
+        4.5rem 1.5rem 4rem;
+
+      border-radius:
+        29px;
+
+      color:
+        var(--white);
+
+      background:
+
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(234,212,154,.20),
+          transparent 16rem
+        ),
+
+        radial-gradient(
+          circle at 10% 100%,
+          rgba(118,83,154,.34),
+          transparent 22rem
+        ),
+
+        linear-gradient(
+          145deg,
+          #24143f,
+          #3c205d 55%,
+          #513276
+        );
+
+      box-shadow:
+        inset 0 0 100px
+        rgba(0,0,0,.17);
+    }
+
+
+    /* هاله نور */
+
+    .hero::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        430px;
+
+      height:
+        430px;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      border-radius:
+        50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(245,224,160,.20),
+          rgba(245,224,160,.07) 38%,
+          transparent 70%
+        );
+
+      pointer-events:
+        none;
+    }
+
+
+    /* قاب طلایی بالای سربرگ */
+
+    .hero::after {
+
+      content:
+        "✦";
+
+      position:
+        absolute;
+
+      top:
+        25px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        1.2rem;
+    }
+
+
+    /* ==========================================
+       نماد شبدر سه پر
+       ========================================== */
+
+    .clover {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      width:
+        68px;
+
+      height:
+        68px;
+
+      margin-bottom:
+        1rem;
+
+      filter:
+        drop-shadow(
+          0 5px 12px
+          rgba(0,0,0,.20)
+        );
+
+      animation:
+        gentleFloat 5s ease-in-out infinite;
+    }
+
+
+    .clover svg {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      overflow:
+        visible;
+    }
+
+
+    .clover path,
+    .clover circle {
+
+      fill:
+        url(#goldGradient);
+
+      stroke:
+        #f5df9e;
+
+      stroke-width:
+        1.4;
+    }
+
+
+    @keyframes gentleFloat {
+
+      0%, 100% {
+        transform:
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateY(-5px);
+      }
+    }
+
+
+    /* ==========================================
+       عنوان
+       ========================================== */
+
+    .hero h1 {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      margin:
+        0;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        clamp(
+          2.8rem,
+          7vw,
+          5rem
+        );
+
+      line-height:
+        1;
+
+      font-weight:
+        700;
+
+      color:
+        #fffaf0;
+
+      text-shadow:
+        0 5px 25px
+        rgba(0,0,0,.25);
+    }
+
+
+    .hero-line {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      width:
+        160px;
+
+      height:
+        1px;
+
+      margin:
+        1.5rem auto;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-light),
+          transparent
+        );
+    }
+
+
+    .hero-line::after {
+
+      content:
+        "❖";
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      color:
+        var(--gold-light);
+
+      background:
+        #3c205d;
+
+      padding:
+        0 .55rem;
+
+      font-size:
+        .7rem;
+    }
+
+
+    .hero p {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      max-width:
+        680px;
+
+      margin:
+        0;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.2rem;
+
+      line-height:
+        2;
+
+      color:
+        rgba(255,250,240,.88);
+    }
+
+
+    /* ==========================================
+       معرفی
+       ========================================== */
+
+    .intro {
+
+      position:
+        relative;
+
+      z-index:
+        5;
+
+      max-width:
+        790px;
+
+      margin:
+        -35px auto 3rem;
+
+      padding:
+        1.6rem 2.2rem;
+
+      text-align:
+        center;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.16rem;
+
+      line-height:
+        2.1;
+
+      color:
+        var(--text);
+
+      background:
+        rgba(255,252,245,.96);
+
+      border:
+        1px solid
+        var(--gold);
+
+      border-radius:
+        23px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .intro::before,
+    .intro::after {
+
+      content:
+        "☘";
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.2rem;
+
+      /*
+        فونت معمولاً ☘ را به صورت
+        ایموجی نمایش می‌دهد؛ بنابراین
+        فقط به عنوان تزئین کوچک استفاده شده.
+      */
+    }
+
+
+    .intro::before {
+      right:
+        -12px;
+    }
+
+
+    .intro::after {
+      left:
+        -12px;
+      transform:
+        translateY(-50%)
+        scaleX(-1);
+    }
+
+
+    /* ==========================================
+       عنوان بخش
+       ========================================== */
+
+    .section-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        1rem;
+
+      margin:
+        0 0 1.8rem;
+
+      color:
+        var(--purple-dark);
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.65rem;
+
+      font-weight:
+        700;
+    }
+
+
+    .section-title::before,
+    .section-title::after {
+
+      content:
+        "❖";
+
+      color:
+        var(--gold);
+
+      font-size:
+        .85rem;
+    }
+
+
+    /* ==========================================
+       بخش‌ها
+       ========================================== */
+
+    .section {
+
+      margin-top:
+        3.5rem;
+    }
+
+
+    /* ==========================================
+       کارت آیین
+       ========================================== */
+
+    .ritual {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      margin-bottom:
+        1.1rem;
+
+      padding:
+        1.45rem 1.5rem 1.5rem;
+
+      border-radius:
+        22px;
+
+      border:
+        1px solid
+        rgba(201,162,77,.34);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,253,247,.98),
+          rgba(246,239,226,.95)
+        );
+
+      box-shadow:
+        0 9px 28px
+        rgba(48,27,75,.07);
+
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+    }
+
+
+    /* نوار طلایی */
+
+    .ritual::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      top: 0;
+
+      right: 0;
+
+      width:
+        5px;
+
+      height:
+        100%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          var(--gold-light),
+          var(--gold),
+          var(--gold-light)
+        );
+    }
+
+
+    /* هاله تزئینی */
+
+    .ritual::after {
+
+      content:
+        "✦";
+
+      position:
+        absolute;
+
+      left:
+        20px;
+
+      bottom:
+        8px;
+
+      color:
+        rgba(201,162,77,.16);
+
+      font-size:
+        3rem;
+
+      font-family:
+        "Amiri",
+        serif;
+    }
+
+
+    .ritual:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        var(--shadow-hover);
+
+      border-color:
+        rgba(201,162,77,.68);
+    }
+
+
+    /* ==========================================
+       عنوان آیین
+       ========================================== */
+
+    .ritual h3 {
+
+      position:
+        relative;
+
+      margin:
+        0 0 .55rem;
+
+      padding-right:
+        1.1rem;
+
+      color:
+        var(--purple-dark);
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.45rem;
+
+      font-weight:
+        700;
+    }
+
+
+    .ritual h3::before {
+
+      content:
+        "❖";
+
+      position:
+        absolute;
+
+      right:
+        0;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        .55rem;
+    }
+
+
+    /* ==========================================
+       تاریخ
+       ========================================== */
+
+    .date {
+
+      display:
+        inline-block;
+
+      margin-bottom:
+        .7rem;
+
+      padding:
+        .3rem .8rem;
+
+      border-radius:
+        999px;
+
+      color:
+        var(--purple);
+
+      background:
+        var(--purple-soft);
+
+      border:
+        1px solid
+        rgba(81,50,118,.14);
+
+      font-size:
+        .84rem;
+
+      font-weight:
+        500;
+    }
+
+
+    /* ==========================================
+       متن
+       ========================================== */
+
+    .ritual p {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      margin:
+        0;
+
+      line-height:
+        2;
+
+      color:
+        #5b5160;
+
+      font-size:
+        .96rem;
+    }
+
+
+    /* ==========================================
+       لینک‌های داخل آیین
+       ========================================== */
+
+    .ritual ul {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        .65rem;
+
+      list-style:
+        none;
+
+      padding:
+        0;
+
+      margin:
+        1.1rem 0 0;
+    }
+
+
+    .ritual li a {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        .35rem;
+
+      padding:
+        .55rem .9rem;
+
+      color:
+        var(--purple-dark);
+
+      text-decoration:
+        none;
+
+      background:
+        #f3edf8;
+
+      border:
+        1px solid
+        rgba(81,50,118,.18);
+
+      border-radius:
+        12px;
+
+      font-size:
+        .88rem;
+
+      transition:
+        all .28s ease;
+    }
+
+
+    .ritual li a:hover {
+
+      color:
+        #fff;
+
+      background:
+        var(--purple);
+
+      border-color:
+        var(--purple);
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 5px 15px
+        rgba(81,50,118,.18);
+    }
+
+
+    /* ==========================================
+       شبدر تزئینی کنار عنوان آیین
+       ========================================== */
+
+    .ritual-icon {
+
+      float:
+        left;
+
+      width:
+        45px;
+
+      height:
+        45px;
+
+      margin:
+        0 0 .5rem 0;
+
+      opacity:
+        .95;
+    }
+
+
+    .ritual-icon svg {
+
+      width:
+        100%;
+
+      height:
+        100%;
+    }
+
+
+    .ritual-icon path,
+    .ritual-icon circle {
+
+      fill:
+        url(#goldGradientSmall);
+
+      stroke:
+        #d9ba69;
+
+      stroke-width:
+        1.2;
+    }
+
+
+    /* ==========================================
+       تزئین بین بخش‌ها
+       ========================================== */
+
+    .section-ornament {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        .8rem;
+
+      margin:
+        3rem auto 0;
+
+      color:
+        var(--gold);
+
+      font-size:
+        .9rem;
+    }
+
+
+    .section-ornament::before,
+    .section-ornament::after {
+
+      content:
+        "";
+
+      width:
+        100px;
+
+      height:
+        1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold)
+        );
+    }
+
+
+    .section-ornament::after {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          transparent
+        );
+    }
+
+
+    /* ==========================================
+       Footer
+       ========================================== */
+
+    footer {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      margin-top:
+        3rem;
+
+      padding:
+        3rem 1rem 2.5rem;
+
+      text-align:
+        center;
+
+      color:
+        var(--gold-pale);
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--purple-deep),
+          var(--purple-dark),
+          var(--purple)
+        );
+
+      border:
+        1px solid
+        rgba(201,162,77,.45);
+
+      border-radius:
+        28px;
+
+      box-shadow:
+        0 20px 55px
+        rgba(36,20,63,.18);
+    }
+
+
+    footer::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        350px;
+
+      height:
+        150px;
+
+      left:
+        50%;
+
+      bottom:
+        -110px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(234,212,154,.18);
+    }
+
+
+    footer .footer-clover {
+
+      width:
+        45px;
+
+      height:
+        45px;
+
+      margin:
+        0 auto .8rem;
+
+      position:
+        relative;
+
+      z-index:
+        2;
+    }
+
+
+    footer .footer-clover svg {
+
+      width:
+        100%;
+
+      height:
+        100%;
+    }
+
+
+    footer .footer-clover path,
+    footer .footer-clover circle {
+
+      fill:
+        url(#goldGradientFooter);
+
+      stroke:
+        #f0d98f;
+
+      stroke-width:
+        1.2;
+    }
+
+
+    footer p {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      margin:
+        0;
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size:
+        1.15rem;
+
+      color:
+        var(--gold-pale);
+    }
+
+
+    footer small {
+
+      display:
+        block;
+
+      margin-top:
+        .7rem;
+
+      color:
+        rgba(245,233,196,.62);
+
+      font-size:
+        .75rem;
+    }
+
+
+    /* ==========================================
+       موبایل
+       ========================================== */
+
+    @media (max-width: 700px) {
+
+      main {
+
+        width:
+          calc(100% - 1rem);
+
+        padding:
+          1rem 0 2rem;
+      }
+
+
+      .page-frame {
+
+        padding:
+          .55rem;
+
+        border-radius:
+          28px;
+      }
+
+
+      .page-frame::before {
+
+        inset:
+          .3rem;
+
+        border-radius:
+          23px;
+      }
+
+
+      .hero {
+
+        min-height:
+          360px;
+
+        padding:
+          3.5rem 1rem 3rem;
+
+        border-radius:
+          23px;
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          4rem;
+      }
+
+
+      .hero p {
+
+        font-size:
+          1rem;
+
+        line-height:
+          2;
+      }
+
+
+      .clover {
+
+        width:
+          55px;
+
+        height:
+          55px;
+      }
+
+
+      .intro {
+
+        margin:
+          -28px .5rem 2.5rem;
+
+        padding:
+          1.25rem 1rem;
+
+        font-size:
+          1.02rem;
+      }
+
+
+      .section {
+
+        margin-top:
+          2.8rem;
+      }
+
+
+      .section-title {
+
+        font-size:
+          1.4rem;
+      }
+
+
+      .ritual {
+
+        padding:
+          1.25rem 1.15rem;
+      }
+
+
+      .ritual h3 {
+
+        font-size:
+          1.3rem;
+      }
+
+
+      .ritual p {
+
+        font-size:
+          .92rem;
+
+        line-height:
+          2;
+      }
+
+
+      .ritual-icon {
+
+        width:
+          38px;
+
+        height:
+          38px;
+      }
+
+
+      .lang-bar {
+
+        gap:
+          .15rem;
+
+        padding:
+          .5rem .35rem;
+      }
+
+
+      .lang-bar::before,
+      .lang-bar::after {
+
+        display:
+          none;
+      }
+
+
+      .lang-bar a {
+
+        font-size:
+          .72rem;
+
+        padding:
+          .35rem .5rem;
+      }
+
+    }
+
+
+    /* ==========================================
+       کاهش انیمیشن
+       ========================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+
+        animation:
+          none !important;
+
+        transition:
+          none !important;
+      }
+    }
+
   </style>
+
 </head>
+
+
 <body>
-  <nav class="lang-bar">
-    <a href="https://celianor.github.io/Horia/index.en.html">English</a>
-    <a href="https://celianor.github.io/Horia/index.fr.html">Français</a>
-    <a href="https://celianor.github.io/Horia/index.es.html">Español</a>
-    <a href="https://celianor.github.io/Horia/index.ar.html">العربية</a>
-    <a href="https://celianor.github.io/Horia/index.fa.html">فارسی</a>
+
+
+  <!-- =====================================================
+       نوار زبان
+       ===================================================== -->
+
+  <nav
+    class="lang-bar"
+    aria-label="انتخاب زبان"
+  >
+
+    <a href="https://celianor.github.io/Horia/index.en.html">
+      English
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.fr.html">
+      Français
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.es.html">
+      Español
+    </a>
+
+    <a href="https://celianor.github.io/Horia/index.ar.html">
+      العربية
+    </a>
+
+    <a
+      href="https://celianor.github.io/Horia/index.fa.html"
+      class="active"
+      aria-current="page"
+    >
+      فارسی
+    </a>
+
   </nav>
 
+
+
+  <!-- =====================================================
+       SVG گرادیان‌های طلایی
+       ===================================================== -->
+
+  <svg
+    width="0"
+    height="0"
+    style="position:absolute"
+    aria-hidden="true"
+  >
+
+    <defs>
+
+      <linearGradient
+        id="goldGradient"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="100%"
+      >
+
+        <stop
+          offset="0%"
+          stop-color="#f5e5a8"
+        />
+
+        <stop
+          offset="45%"
+          stop-color="#c9a24d"
+        />
+
+        <stop
+          offset="100%"
+          stop-color="#efd58b"
+        />
+
+      </linearGradient>
+
+
+      <linearGradient
+        id="goldGradientSmall"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="100%"
+      >
+
+        <stop
+          offset="0%"
+          stop-color="#f3df9a"
+        />
+
+        <stop
+          offset="50%"
+          stop-color="#c6a04b"
+        />
+
+        <stop
+          offset="100%"
+          stop-color="#e7ca78"
+        />
+
+      </linearGradient>
+
+
+      <linearGradient
+        id="goldGradientFooter"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="100%"
+      >
+
+        <stop
+          offset="0%"
+          stop-color="#f7e4a0"
+        />
+
+        <stop
+          offset="50%"
+          stop-color="#c8a14c"
+        />
+
+        <stop
+          offset="100%"
+          stop-color="#f0d486"
+        />
+
+      </linearGradient>
+
+    </defs>
+
+  </svg>
+
+
+
   <main>
-    <h1>آیین‌های هوریایی</h1>
 
-<ul>
-  <li><a href="https://celianor.github.io/Horia/Rit/1.fa.html">چگونه به آیین هوریا بپیوندیم؟
- </a></li>
-   </ul>
-    
-    <div class="section">
-      <h2>آیین‌های فردی</h2>
+    <div class="page-frame">
 
-      <div class="ritual">
-        <h3>نیایش بامدادی و شامگاهی</h3>
-        <p>روز را با آرامش درون آغاز کن و شب را با آگاهی به پایان برسان، در گفت‌وگویی آرام و با صدای خوش با هورا.</p>
-   <ul>
-  <li><a href="../Pray/P3.fa.html#morning-prayer">🌅 نیایش بامداد</a></li>
-  <li><a href="../Pray/P4.fa.html#evening-prayer">🌇 نیایش شامگاه</a></li>
-   </ul>
+
+      <!-- =================================================
+           سربرگ
+           ================================================= -->
+
+      <header class="hero">
+
+
+        <!-- شبدر سه پر طلایی -->
+
+        <div
+          class="clover"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <!-- برگ بالا -->
+
+            <path
+              d="
+                M50 49
+                C29 48 24 29 33 18
+                C40 9 51 12 56 20
+                C61 28 57 42 50 49
+                Z
+              "
+            />
+
+
+            <!-- برگ راست -->
+
+            <path
+              d="
+                M53 51
+                C61 29 80 28 88 38
+                C94 46 89 57 80 60
+                C70 63 58 58 53 51
+                Z
+              "
+            />
+
+
+            <!-- برگ چپ -->
+
+            <path
+              d="
+                M47 51
+                C38 60 20 63 13 54
+                C7 46 12 36 21 33
+                C31 30 42 38 47 51
+                Z
+              "
+            />
+
+
+            <!-- ساقه -->
+
+            <path
+              d="
+                M50 48
+                C50 62 50 73 44 86
+                C43 89 48 91 50 87
+                C54 76 55 64 52 51
+                Z
+              "
+            />
+
+          </svg>
+
+        </div>
+
+
+
+        <h1>
+          آیین‌های هوریایی
+        </h1>
+
+
+        <div class="hero-line"></div>
+
+
+        <p>
+          راه‌هایی برای زیستن آگاهانه،
+          <br>
+          مهربانی، آرامش و پیوند با جهان.
+        </p>
+
+      </header>
+
+
+
+      <!-- =================================================
+           مقدمه
+           ================================================= -->
+
+      <div class="intro">
+
+        آیین، لحظه‌ای برای مکث است؛
+        فرصتی برای بازگشت به خویشتن،
+        نیکی به دیگران و هماهنگ شدن با زندگی.
+
       </div>
 
-      <div class="ritual">
-        <h3>لبخند روزانه</h3>
-        <p>تلاش آگاهانه برای لبخند زدن به دیگران، حتی در دشوارترین لحظات.</p>
+
+
+      <!-- =================================================
+           آیین‌های فردی
+           ================================================= -->
+
+      <section class="section">
+
+        <div class="section-title">
+          آیین‌های فردی
+        </div>
+
+
+
+        <!-- بامداد و شامگاه -->
+
+        <article class="ritual">
+
+          <div class="ritual-icon">
+
+            <svg
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+
+              <path
+                d="
+                  M50 49
+                  C29 48 24 29 33 18
+                  C40 9 51 12 56 20
+                  C61 28 57 42 50 49
+                  Z
+                "
+              />
+
+              <path
+                d="
+                  M53 51
+                  C61 29 80 28 88 38
+                  C94 46 89 57 80 60
+                  C70 63 58 58 53 51
+                  Z
+                "
+              />
+
+              <path
+                d="
+                  M47 51
+                  C38 60 20 63 13 54
+                  C7 46 12 36 21 33
+                  C31 30 42 38 47 51
+                  Z
+                "
+              />
+
+              <path
+                d="
+                  M50 48
+                  C50 62 50 73 44 86
+                  C43 89 48 91 50 87
+                  C54 76 55 64 52 51
+                  Z
+                "
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3>
+            نیایش بامدادی و شامگاهی
+          </h3>
+
+
+          <p>
+            روز را با آرامش درون آغاز کن
+            و شب را با آگاهی به پایان برسان،
+            در گفت‌وگویی آرام و با صدای خوش با هورا.
+          </p>
+
+
+          <ul>
+
+            <li>
+              <a href="../Pray/P3.fa.html#morning-prayer">
+                🌅 نیایش بامداد
+              </a>
+            </li>
+
+            <li>
+              <a href="../Pray/P4.fa.html#evening-prayer">
+                🌇 نیایش شامگاه
+              </a>
+            </li>
+
+          </ul>
+
+        </article>
+
+
+
+        <!-- لبخند -->
+
+        <article class="ritual">
+
+          <h3>
+            لبخند روزانه
+          </h3>
+
+          <p>
+            تلاش آگاهانه برای لبخند زدن به دیگران،
+            حتی در دشوارترین لحظات.
+          </p>
+
+        </article>
+
+
+
+        <!-- خوش رویی -->
+
+        <article class="ritual">
+
+          <h3>
+            خوش‌رویی
+          </h3>
+
+          <p>
+            برخورد محترمانه، صمیمی و گرم با اطرافیان،
+            به‌ویژه در برابر بی‌مهری‌ها.
+          </p>
+
+        </article>
+
+
+
+        <!-- یاری -->
+
+        <article class="ritual">
+
+          <h3>
+            یاری به همنوع
+          </h3>
+
+          <p>
+            کمک آگاهانه و بی‌منت به دیگران،
+            حتی با ساده‌ترین اعمال کوچک روزمره.
+          </p>
+
+        </article>
+
+      </section>
+
+
+
+      <div class="section-ornament">
+        ❖
       </div>
 
-      <div class="ritual">
-        <h3>خوش‌رویی</h3>
-        <p>برخورد محترمانه، صمیمی و گرم با اطرافیان، به‌ویژه در برابر بی‌مهری‌ها.</p>
-      </div>
 
-      <div class="ritual">
-        <h3>یاری به همنوع</h3>
-        <p>کمک آگاهانه و بی‌منت به دیگران، حتی با ساده‌ترین اعمال کوچک روزمره.</p>
-      </div>
+
+      <!-- =================================================
+           آیین‌های جمعی
+           ================================================= -->
+
+      <section class="section">
+
+        <div class="section-title">
+          آیین‌های جمعی
+        </div>
+
+
+
+        <!-- روز مهربانی -->
+
+        <article class="ritual">
+
+          <h3>
+            روز مهربانی
+          </h3>
+
+          <div class="date">
+            یکشنبه اول اکتبر
+          </div>
+
+          <p>
+            یادآوری مهربانی و همبستگی،
+            با تمرکز بر نیکوکاری عمومی.
+          </p>
+
+        </article>
+
+
+
+        <!-- پنجه آغاز -->
+
+        <article class="ritual">
+
+          <h3>
+            پنجه‌ی آغاز
+          </h3>
+
+          <div class="date">
+            ۸ تا ۱۲ فوریه
+          </div>
+
+          <p>
+            پنج روز بازسازی درونی،
+            آغاز دوباره و اندیشیدن به زیست آگاهانه.
+          </p>
+
+        </article>
+
+
+
+        <!-- روز طبیعت -->
+
+        <article class="ritual">
+
+          <h3>
+            روز طبیعت
+          </h3>
+
+          <div class="date">
+            ۲۱ مارس
+          </div>
+
+          <p>
+            بزرگداشت مادر زمین
+            و بازگشت نمادین به ریشه‌های زیستی.
+          </p>
+
+        </article>
+
+
+
+        <!-- تنهایی -->
+
+        <article class="ritual">
+
+          <h3>
+            تنهایی و آرامش
+          </h3>
+
+          <div class="date">
+            یک تا سه روز در سال (انتخابی)
+          </div>
+
+          <p>
+            خلوت شخصی در طبیعت برای مراقبه،
+            بازیابی و توازن روان.
+          </p>
+
+        </article>
+
+
+
+        <!-- جشن گل -->
+
+        <article class="ritual">
+
+          <h3>
+            جشن گل
+          </h3>
+
+          <div class="date">
+            ۱۵ تا ۲۰ آوریل
+          </div>
+
+          <p>
+            پاسداشت زیبایی،
+            دوستی و شکوفایی بهاری.
+          </p>
+
+        </article>
+
+
+
+        <!-- مهرورزی -->
+
+        <article class="ritual">
+
+          <h3>
+            جشن مهرورزی به نزدیکان
+          </h3>
+
+          <div class="date">
+            یکشنبه اول ژوئن
+          </div>
+
+          <p>
+            روز دیدار و نیکی به خانواده،
+            دوستان، همسایگان و همکاران.
+          </p>
+
+        </article>
+
+
+
+        <!-- هنر -->
+
+        <article class="ritual">
+
+          <h3>
+            جشن هنر
+          </h3>
+
+          <div class="date">
+            جمعه اول نوامبر
+          </div>
+
+          <p>
+            زمان آفرینش، نمایش و درک هنر،
+            به‌عنوان زبان پیوند انسان با جهان.
+          </p>
+
+        </article>
+
+      </section>
+
+
+
+      <!-- =================================================
+           Footer
+           ================================================= -->
+
+      <footer>
+
+        <div
+          class="footer-clover"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <path
+              d="
+                M50 49
+                C29 48 24 29 33 18
+                C40 9 51 12 56 20
+                C61 28 57 42 50 49
+                Z
+              "
+            />
+
+            <path
+              d="
+                M53 51
+                C61 29 80 28 88 38
+                C94 46 89 57 80 60
+                C70 63 58 58 53 51
+                Z
+              "
+            />
+
+            <path
+              d="
+                M47 51
+                C38 60 20 63 13 54
+                C7 46 12 36 21 33
+                C31 30 42 38 47 51
+                Z
+              "
+            />
+
+            <path
+              d="
+                M50 48
+                C50 62 50 73 44 86
+                C43 89 48 91 50 87
+                C54 76 55 64 52 51
+                Z
+              "
+            />
+
+          </svg>
+
+        </div>
+
+
+        <p>
+          با دل آرام، به سوی روشنایی
+        </p>
+
+
+        <small>
+          آیین‌های هوریایی
+        </small>
+
+      </footer>
+
+
     </div>
 
-    <div class="section">
-      <h2>آیین‌های جمعی</h2>
-
-      <div class="ritual">
-        <h3>روز مهربانی</h3>
-        <div class="date">یکشنبه اول اکتبر</div>
-        <p>یادآوری مهربانی و همبستگی، با تمرکز بر نیکوکاری عمومی.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>پنجه‌ی آغاز</h3>
-        <div class="date">۸ تا ۱۲ فوریه</div>
-        <p>پنج روز بازسازی درونی، آغاز دوباره و اندیشیدن به زیست آگاهانه.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>روز طبیعت</h3>
-        <div class="date">۲۱ مارس</div>
-        <p>بزرگداشت مادر زمین و بازگشت نمادین به ریشه‌های زیستی.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>تنهایی و آرامش</h3>
-        <div class="date">یک تا سه روز در سال (انتخابی)</div>
-        <p>خلوت شخصی در طبیعت برای مراقبه، بازیابی و توازن روان.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>جشن گل</h3>
-        <div class="date">۱۵ تا ۲۰ آوریل</div>
-        <p>پاسداشت زیبایی، دوستی و شکوفایی بهاری.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>جشن مهرورزی به نزدیکان</h3>
-        <div class="date">یکشنبه اول ژوئن</div>
-        <p>روز دیدار و نیکی به خانواده، دوستان، همسایگان و همکاران.</p>
-      </div>
-
-      <div class="ritual">
-        <h3>جشن هنر</h3>
-        <div class="date">جمعه اول نوامبر</div>
-        <p>زمان آفرینش، نمایش و درک هنر، به‌عنوان زبان پیوند انسان با جهان.</p>
-      </div>
-    </div>
   </main>
+
+
 </body>
-</html>
+                </html>
