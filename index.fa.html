@@ -60,15 +60,11 @@
       --gold: #e7c66e;
       --gold-light: #fff0b4;
 
-      --moon: #fffbe8;
-
       --white: #fffdf8;
       --cream: #faf7ef;
 
       --text: #40384d;
       --text-light: #70677c;
-
-      --glass: rgba(255,255,255,.78);
 
       --shadow:
         0 30px 90px
@@ -143,7 +139,7 @@
 
 
     /* =========================================================
-       آسمان
+       آسمان و ستاره‌های پس‌زمینه
        ========================================================= */
 
     .cosmos {
@@ -160,8 +156,6 @@
 
     }
 
-
-    /* ستاره‌ها */
 
     .stars,
     .stars::before,
@@ -483,7 +477,7 @@
       color: var(--white);
 
       padding:
-        115px 30px
+        75px 30px
         85px;
 
       border:
@@ -515,89 +509,111 @@
 
 
     /* =========================================================
-       ماه
+       شبدر سه‌پر
        ========================================================= */
 
-    .moon {
-
-      position: absolute;
-
-      width: 235px;
-      height: 235px;
-
-      top: -105px;
-
-      left: 50%;
-
-      transform:
-        translateX(-50%);
-
-      border-radius: 50%;
-
-      background:
-        var(--moon);
-
-      box-shadow:
-
-        0 0 30px
-        rgba(255,251,232,.60),
-
-        0 0 85px
-        rgba(231,198,110,.25),
-
-        0 0 160px
-        rgba(231,198,110,.12);
-
-    }
-
-
-    .moon::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 205px;
-      height: 205px;
-
-      top: 13px;
-      left: 42px;
-
-      border-radius: 50%;
-
-      background:
-        var(--night-2);
-
-    }
-
-
-    /* =========================================================
-       ستاره طلایی بالای عنوان
-       ========================================================= */
-
-    .celestial-symbol {
+    .clover-symbol {
 
       position: relative;
 
       z-index: 3;
 
-      color:
-        var(--gold-light);
+      width: 150px;
+      height: 150px;
+
+      margin:
+        -20px auto 15px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
       font-family:
-        "Amiri",
         Georgia,
+        "Times New Roman",
         serif;
 
-      font-size:
-        2rem;
+      font-size: 8rem;
 
-      margin-bottom:
-        15px;
+      line-height: 1;
+
+      color: #fffbea;
 
       text-shadow:
-        0 0 25px
-        rgba(231,198,110,.5);
+
+        0 0 15px
+        rgba(231,198,110,.75),
+
+        0 0 40px
+        rgba(231,198,110,.45),
+
+        0 0 90px
+        rgba(118,104,201,.35);
+
+      filter:
+        drop-shadow(
+          0 0 18px
+          rgba(231,198,110,.45)
+        );
+
+      animation:
+        cloverGlow 5s ease-in-out infinite;
+
+    }
+
+
+    /* هالهٔ نور پشت شبدر */
+
+    .clover-symbol::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 125px;
+      height: 125px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(231,198,110,.22),
+          rgba(118,104,201,.09) 45%,
+          transparent 72%
+        );
+
+      filter: blur(13px);
+
+      z-index: -1;
+
+    }
+
+
+    @keyframes cloverGlow {
+
+      0%,
+      100% {
+
+        transform:
+          scale(1);
+
+        opacity:
+          .90;
+
+      }
+
+      50% {
+
+        transform:
+          scale(1.06);
+
+        opacity:
+          1;
+
+      }
 
     }
 
@@ -925,8 +941,6 @@
     }
 
 
-    /* نقش تزئینی */
-
     .content::before {
 
       content:
@@ -1105,11 +1119,11 @@
 
       border-top:
         1px solid
-        var(--line);
+        rgba(231,198,110,.28);
 
       border-bottom:
         1px solid
-        var(--line);
+        rgba(231,198,110,.28);
 
     }
 
@@ -1427,7 +1441,7 @@
       .hero {
 
         padding:
-          90px 18px
+          65px 18px
           58px;
 
         border-radius:
@@ -1436,33 +1450,30 @@
       }
 
 
-      .moon {
+      .clover-symbol {
 
         width:
-          185px;
+          120px;
 
         height:
-          185px;
+          120px;
 
-        top:
-          -82px;
+        margin:
+          -10px auto 10px;
+
+        font-size:
+          6.5rem;
 
       }
 
 
-      .moon::after {
+      .clover-symbol::before {
 
         width:
-          162px;
+          105px;
 
         height:
-          162px;
-
-        top:
-          11px;
-
-        left:
-          34px;
+          105px;
 
       }
 
@@ -1587,7 +1598,7 @@
 
 
     /* =========================================================
-       چاپ
+       حالت چاپ
        ========================================================= */
 
     @media print {
@@ -1662,6 +1673,7 @@
   </div>
 
 
+
   <!-- =========================================================
        انتخاب زبان
        ========================================================= -->
@@ -1699,30 +1711,39 @@
 
 
     <!-- =======================================================
-         دروازهٔ آسمانی هوریا
+         سرصفحه هوریا
          ======================================================= -->
 
     <header class="hero">
 
-      <div class="moon"></div>
 
-      <div class="celestial-symbol">
-        ✦
+      <!-- نماد اصلی هوریا: شبدر سه‌پر -->
+
+      <div
+        class="clover-symbol"
+        aria-label="شبدر سه‌پر"
+      >
+        ☘
       </div>
+
 
       <h1>
         هوریا
       </h1>
 
+
       <div class="hero-title">
         خانهٔ عشق و خرد
       </div>
+
 
       <p class="hero-motto">
         سرایی برای مهر، خرد، آزادی و روشنایی
       </p>
 
+
       <div class="gold-line"></div>
+
 
     </header>
 
@@ -1739,6 +1760,7 @@
         aria-label="منوی اصلی"
       >
 
+
         <a href="lightbook/index.fa.html">
 
           <span class="icon">
@@ -1750,6 +1772,7 @@
           </span>
 
         </a>
+
 
 
         <a href="Pray/index.fa.html">
@@ -1765,6 +1788,7 @@
         </a>
 
 
+
         <a href="Rit/index.fa.html">
 
           <span class="icon">
@@ -1776,6 +1800,7 @@
           </span>
 
         </a>
+
 
 
         <a href="lit/index.fa.html">
@@ -1791,6 +1816,7 @@
         </a>
 
 
+
         <a href="music.html">
 
           <span class="icon">
@@ -1802,6 +1828,7 @@
           </span>
 
         </a>
+
 
 
         <a href="Story/index.fa.html">
@@ -1817,6 +1844,7 @@
         </a>
 
 
+
         <a href="contact.fa.html">
 
           <span class="icon">
@@ -1829,6 +1857,7 @@
 
         </a>
 
+
       </nav>
 
     </section>
@@ -1836,7 +1865,7 @@
 
 
     <!-- =======================================================
-         متن معرفی هوریا
+         محتوای اصلی
          ======================================================= -->
 
     <article class="content">
@@ -1845,7 +1874,7 @@
       <header class="section-heading">
 
         <span class="symbol">
-          ✧
+          ☘
         </span>
 
         <h2>
@@ -1902,7 +1931,7 @@
 
 
       <!-- =====================================================
-           اصول
+           اصول هوریا
            ===================================================== -->
 
       <ol class="principles">
@@ -1921,6 +1950,7 @@
         </li>
 
 
+
         <li>
 
           <span class="icon">
@@ -1932,6 +1962,7 @@
           </span>
 
         </li>
+
 
 
         <li>
@@ -1947,6 +1978,7 @@
         </li>
 
 
+
         <li>
 
           <span class="icon">
@@ -1958,6 +1990,7 @@
           </span>
 
         </li>
+
 
 
         <li>
@@ -2006,7 +2039,7 @@
       <div class="closing">
 
         <span class="closing-symbol">
-          ❈
+          ☘
         </span>
 
         <div>
