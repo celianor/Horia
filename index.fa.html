@@ -1,337 +1,2046 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>هوریا - خانه عشق و خرد</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts: Amiri for spiritual titles & Vazirmatn for body -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#080a24"
+  >
+
+  <meta
+    name="description"
+    content="هوریا — خانهٔ عشق و خرد؛ سرایی برای مهر، خرد، آزادی و روشنایی"
+  >
+
+  <title>هوریا | خانهٔ عشق و خرد</title>
+
+
+  <!-- =========================
+       فونت‌ها
+       ========================= -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
+
+    /* =========================================================
+       متغیرهای اصلی
+       ========================================================= */
+
     :root {
-      --bg-dark: #080c16;
-      --gold-primary: #f3d082;
-      --gold-secondary: #c5a059;
-      --gold-glow: rgba(243, 208, 130, 0.25);
-      --glass-bg: rgba(15, 23, 42, 0.65);
-      --glass-border: rgba(243, 208, 130, 0.25);
-      --text-light: #f1f5f9;
-      --text-muted: #cbd5e1;
+
+      --night-1: #050719;
+      --night-2: #0b0f2b;
+      --night-3: #171541;
+      --night-4: #28205b;
+
+      --violet: #7668c9;
+      --violet-light: #b8adf0;
+
+      --gold: #e7c66e;
+      --gold-light: #fff0b4;
+
+      --moon: #fffbe8;
+
+      --white: #fffdf8;
+      --cream: #faf7ef;
+
+      --text: #40384d;
+      --text-light: #70677c;
+
+      --glass: rgba(255,255,255,.78);
+
+      --shadow:
+        0 30px 90px
+        rgba(2,5,25,.30);
+
     }
+
+
+    /* =========================================================
+       تنظیمات پایه
+       ========================================================= */
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      background: radial-gradient(circle at 50% 10%, #1a233a 0%, #080c16 80%);
-      background-attachment: fixed;
-      color: var(--text-light);
-      line-height: 1.9;
-      overflow-x: hidden;
+
+      margin: 0;
+
       min-height: 100vh;
-      position: relative;
+
+      direction: rtl;
+
+      font-family:
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      color: var(--text);
+
+      line-height: 2;
+
+      overflow-x: hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(118,104,201,.40),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 10% 30%,
+          rgba(231,198,110,.10),
+          transparent 23%
+        ),
+
+        radial-gradient(
+          circle at 90% 35%,
+          rgba(184,173,240,.12),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          180deg,
+          var(--night-1) 0%,
+          var(--night-2) 28%,
+          var(--night-3) 55%,
+          var(--night-4) 72%,
+          #e9e3f1 100%
+        );
+
     }
 
-    /* Celestial Glow Elements */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+
+    /* =========================================================
+       آسمان
+       ========================================================= */
+
+    .cosmos {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -10;
+
+      overflow: hidden;
+
       pointer-events: none;
-      z-index: 0;
+
     }
 
-    /* Language Navigation Bar */
-    .lang-bar {
-      background: rgba(8, 12, 22, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.8rem 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--glass-border);
+
+    /* ستاره‌ها */
+
+    .stars,
+    .stars::before,
+    .stars::after {
+
+      position: absolute;
+
+      inset: -20%;
+
+      content: "";
+
+      background-image:
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.90) 0 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(231,198,110,.80) 0 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.55) 0 1px,
+          transparent 1.5px
+        );
+
+      background-size:
+        137px 151px,
+        211px 197px,
+        89px 113px;
+
+      background-position:
+        12px 25px,
+        51px 71px,
+        7px 48px;
+
+      opacity: .48;
+
     }
+
+
+    .stars::before {
+
+      transform: scale(1.25);
+
+      opacity: .22;
+
+      animation:
+        starDrift 35s linear infinite;
+
+    }
+
+
+    .stars::after {
+
+      transform: scale(1.5);
+
+      opacity: .14;
+
+      animation:
+        starDriftReverse 50s linear infinite;
+
+    }
+
+
+    @keyframes starDrift {
+
+      from {
+        transform:
+          translate3d(0,0,0)
+          scale(1.25);
+      }
+
+      to {
+        transform:
+          translate3d(-80px,45px,0)
+          scale(1.25);
+      }
+
+    }
+
+
+    @keyframes starDriftReverse {
+
+      from {
+        transform:
+          translate3d(0,0,0)
+          scale(1.5);
+      }
+
+      to {
+        transform:
+          translate3d(65px,-35px,0)
+          scale(1.5);
+      }
+
+    }
+
+
+    /* =========================================================
+       سحابی‌های نور
+       ========================================================= */
+
+    .nebula {
+
+      position: absolute;
+
+      width: 720px;
+      height: 720px;
+
+      border-radius: 50%;
+
+      filter: blur(55px);
+
+      opacity: .18;
+
+      background:
+        radial-gradient(
+          circle,
+          #7668c9,
+          transparent 68%
+        );
+
+      top: -430px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+    }
+
+
+    .nebula.two {
+
+      width: 520px;
+      height: 520px;
+
+      top: 25%;
+
+      left: -280px;
+
+      opacity: .10;
+
+    }
+
+
+    .nebula.three {
+
+      width: 520px;
+      height: 520px;
+
+      top: 35%;
+
+      right: -280px;
+
+      left: auto;
+
+      opacity: .10;
+
+    }
+
+
+    /* =========================================================
+       هاله نور
+       ========================================================= */
+
+    .aurora {
+
+      position: absolute;
+
+      width: 100%;
+      height: 45%;
+
+      top: 0;
+      left: 0;
+
+      background:
+
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(231,198,110,.13),
+          transparent 55%
+        );
+
+      filter: blur(20px);
+
+    }
+
+
+    /* =========================================================
+       نوار زبان‌ها
+       ========================================================= */
+
+    .lang-bar {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      padding: 12px 16px;
+
+      background:
+        rgba(5,7,25,.72);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      border-bottom:
+        1px solid
+        rgba(231,198,110,.22);
+
+      box-shadow:
+        0 8px 35px
+        rgba(0,0,0,.16);
+
+    }
+
 
     .lang-bar a {
-      color: var(--text-muted);
+
+      color: #eeeaff;
+
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.9rem;
-      border-radius: 20px;
-      border: 1px solid transparent;
-      transition: all 0.4s ease;
+
+      font-size: .82rem;
+
+      font-weight: 600;
+
+      padding:
+        6px 14px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      transition:
+        all .3s ease;
+
     }
+
 
     .lang-bar a:hover {
-      color: var(--gold-primary);
-      border-color: var(--gold-secondary);
-      background: rgba(243, 208, 130, 0.08);
-      box-shadow: 0 0 12px var(--gold-glow);
+
+      color:
+        var(--gold-light);
+
+      background:
+        rgba(231,198,110,.13);
+
+      border-color:
+        rgba(231,198,110,.45);
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 5px 18px
+        rgba(231,198,110,.12);
+
     }
 
-    /* Main Container */
+
+    /* =========================================================
+       کانتینر
+       ========================================================= */
+
     main {
-      max-width: 920px;
-      margin: 3rem auto;
-      padding: 3rem 2.5rem;
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 24px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
-                  0 0 30px rgba(243, 208, 130, 0.05);
+
+      width:
+        min(
+          1080px,
+          calc(100% - 28px)
+        );
+
+      margin:
+        46px auto 70px;
+
+    }
+
+
+    /* =========================================================
+       قهرمان / Hero
+       ========================================================= */
+
+    .hero {
+
       position: relative;
-      z-index: 1;
-    }
 
-    /* Headings & Celestial Styling */
-    h1 {
-      font-family: 'Amiri', serif;
+      overflow: hidden;
+
       text-align: center;
-      font-size: 2.6rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ffffff 20%, var(--gold-primary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 20px rgba(243, 208, 130, 0.2);
+
+      color: var(--white);
+
+      padding:
+        115px 30px
+        85px;
+
+      border:
+        1px solid
+        rgba(231,198,110,.20);
+
+      border-radius:
+        45px 45px 0 0;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(231,198,110,.18),
+          transparent 22%
+        ),
+
+        linear-gradient(
+          145deg,
+          rgba(5,7,25,.96),
+          rgba(25,20,67,.94),
+          rgba(42,32,91,.92)
+        );
+
+      box-shadow:
+        var(--shadow);
+
     }
 
-    p.subtext {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 300;
-      color: var(--gold-primary);
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.5px;
-      opacity: 0.9;
+
+    /* =========================================================
+       ماه
+       ========================================================= */
+
+    .moon {
+
+      position: absolute;
+
+      width: 235px;
+      height: 235px;
+
+      top: -105px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        var(--moon);
+
+      box-shadow:
+
+        0 0 30px
+        rgba(255,251,232,.60),
+
+        0 0 85px
+        rgba(231,198,110,.25),
+
+        0 0 160px
+        rgba(231,198,110,.12);
+
     }
 
-    /* Menu Links Grid */
+
+    .moon::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 205px;
+      height: 205px;
+
+      top: 13px;
+      left: 42px;
+
+      border-radius: 50%;
+
+      background:
+        var(--night-2);
+
+    }
+
+
+    /* =========================================================
+       ستاره طلایی بالای عنوان
+       ========================================================= */
+
+    .celestial-symbol {
+
+      position: relative;
+
+      z-index: 3;
+
+      color:
+        var(--gold-light);
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        2rem;
+
+      margin-bottom:
+        15px;
+
+      text-shadow:
+        0 0 25px
+        rgba(231,198,110,.5);
+
+    }
+
+
+    /* =========================================================
+       عنوان
+       ========================================================= */
+
+    .hero h1 {
+
+      position: relative;
+
+      z-index: 3;
+
+      margin: 0;
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3.4rem,
+          10vw,
+          6.8rem
+        );
+
+      line-height:
+        1.1;
+
+      font-weight:
+        700;
+
+      color:
+        #fffbea;
+
+      text-shadow:
+
+        0 5px 35px
+        rgba(231,198,110,.26),
+
+        0 0 80px
+        rgba(118,104,201,.18);
+
+    }
+
+
+    .hero-title {
+
+      position: relative;
+
+      z-index: 3;
+
+      margin:
+        15px 0 0;
+
+      color:
+        #dcd4f1;
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1.35rem,
+          3vw,
+          1.85rem
+        );
+
+    }
+
+
+    .hero-motto {
+
+      position: relative;
+
+      z-index: 3;
+
+      max-width:
+        700px;
+
+      margin:
+        20px auto 0;
+
+      color:
+        #eeeaff;
+
+      font-size:
+        1rem;
+
+    }
+
+
+    .gold-line {
+
+      width:
+        min(380px,80%);
+
+      height:
+        1px;
+
+      margin:
+        30px auto 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+
+      box-shadow:
+        0 0 10px
+        rgba(231,198,110,.30);
+
+    }
+
+
+    /* =========================================================
+       منوی اصلی
+       ========================================================= */
+
+    .menu-shell {
+
+      padding:
+        30px;
+
+      background:
+        rgba(255,253,248,.86);
+
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      border-left:
+        1px solid
+        rgba(231,198,110,.20);
+
+      border-right:
+        1px solid
+        rgba(231,198,110,.20);
+
+      box-shadow:
+        0 20px 65px
+        rgba(20,12,45,.13);
+
+    }
+
+
     .main-menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap:
+        15px;
+
     }
+
 
     .main-menu a {
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-light);
-      text-decoration: none;
-      padding: 0.9rem 0.5rem;
-      border-radius: 16px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      min-height:
+        90px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      color:
+        #352d49;
+
+      text-decoration:
+        none;
+
+      padding:
+        15px;
+
+      border:
+        1px solid
+        rgba(118,104,201,.14);
+
+      border-radius:
+        20px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.97),
+          rgba(245,240,252,.91)
+        );
+
+      box-shadow:
+        0 10px 28px
+        rgba(56,39,89,.08);
+
+      font-weight:
+        700;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
     }
 
-    .main-menu a span.icon {
-      font-size: 1.4rem;
-      transition: transform 0.4s ease;
+
+    .main-menu a::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        140px;
+
+      height:
+        140px;
+
+      top:
+        -90px;
+
+      right:
+        -70px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(231,198,110,.13);
+
+      transition:
+        transform .4s ease;
+
     }
+
 
     .main-menu a:hover {
-      background: linear-gradient(135deg, rgba(243, 208, 130, 0.15), rgba(197, 160, 89, 0.05));
-      border-color: var(--gold-primary);
-      color: var(--gold-primary);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--gold-glow);
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(231,198,110,.55);
+
+      box-shadow:
+        0 20px 38px
+        rgba(56,39,89,.15);
+
     }
 
-    .main-menu a:hover span.icon {
-      transform: scale(1.15);
+
+    .main-menu a:hover::before {
+
+      transform:
+        scale(1.6);
+
     }
 
-    /* Divider & Subheader */
-    .divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 2.5rem 0;
+
+    .main-menu .icon {
+
+      position:
+        relative;
+
+      font-size:
+        1.4rem;
+
     }
 
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-    }
 
-    .divider span {
-      padding: 0 1rem;
-      color: var(--gold-secondary);
-      font-size: 0.9rem;
-    }
+    /* =========================================================
+       محتوای اصلی
+       ========================================================= */
 
-    .subheader {
-      text-align: center;
-      font-family: 'Amiri', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--gold-primary);
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    /* Content Area */
     .content {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      text-align: justify;
+
+      position:
+        relative;
+
+      padding:
+        65px
+        clamp(22px,7vw,90px)
+        75px;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(255,253,248,.97),
+          rgba(248,244,250,.95)
+        );
+
+      box-shadow:
+        var(--shadow);
+
+      border-radius:
+        0 0 45px 45px;
+
     }
+
+
+    /* نقش تزئینی */
+
+    .content::before {
+
+      content:
+        "✦";
+
+      position:
+        absolute;
+
+      top:
+        25px;
+
+      left:
+        35px;
+
+      color:
+        rgba(118,104,201,.07);
+
+      font-size:
+        130px;
+
+      line-height:
+        1;
+
+    }
+
+
+    /* =========================================================
+       عنوان بخش
+       ========================================================= */
+
+    .section-heading {
+
+      text-align:
+        center;
+
+      margin-bottom:
+        48px;
+
+    }
+
+
+    .section-heading .symbol {
+
+      display:
+        block;
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.6rem;
+
+      margin-bottom:
+        8px;
+
+      text-shadow:
+        0 0 15px
+        rgba(231,198,110,.25);
+
+    }
+
+
+    .section-heading h2 {
+
+      margin:
+        0;
+
+      color:
+        #3b3153;
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          2.1rem,
+          5vw,
+          3.2rem
+        );
+
+    }
+
+
+    .section-heading p {
+
+      margin:
+        10px auto 0;
+
+      color:
+        var(--text-light);
+
+    }
+
+
+    /* =========================================================
+       متن
+       ========================================================= */
 
     .content p {
-      margin-bottom: 1.5rem;
-      font-weight: 300;
+
+      font-size:
+        1.06rem;
+
+      color:
+        #51495d;
+
+      line-height:
+        2.35;
+
     }
 
-    .content ol {
-      list-style: none;
-      margin: 2rem 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+
+    .intro {
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        1.4rem !important;
+
+      line-height:
+        2.25 !important;
+
+      text-align:
+        center;
+
+      color:
+        #4c425b !important;
+
     }
 
-    .content li {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 1rem 1.2rem;
-      border-radius: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--text-light);
-      transition: all 0.3s ease;
+
+    /* =========================================================
+       نقل قول مرکزی
+       ========================================================= */
+
+    .quote {
+
+      position:
+        relative;
+
+      margin:
+        42px 0;
+
+      padding:
+        32px;
+
+      text-align:
+        center;
+
+      color:
+        #4b3c68;
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        1.45rem;
+
+      line-height:
+        2;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(118,104,201,.07),
+          rgba(231,198,110,.10)
+        );
+
+      border-top:
+        1px solid
+        var(--line);
+
+      border-bottom:
+        1px solid
+        var(--line);
+
     }
 
-    .content li:hover {
-      background: rgba(243, 208, 130, 0.05);
-      border-color: rgba(243, 208, 130, 0.2);
-      transform: translateX(-4px);
+
+    .quote::before {
+
+      content:
+        "❈";
+
+      display:
+        block;
+
+      color:
+        var(--gold);
+
+      font-size:
+        1.5rem;
+
+      margin-bottom:
+        4px;
+
     }
 
-    .content li span.icon {
-      font-size: 1.3rem;
-      background: rgba(243, 208, 130, 0.1);
-      padding: 0.4rem;
-      border-radius: 10px;
-      display: inline-flex;
+
+    /* =========================================================
+       اصول هوریا
+       ========================================================= */
+
+    .principles {
+
+      list-style:
+        none;
+
+      padding:
+        0;
+
+      margin:
+        35px 0;
+
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+
+    .principles li {
+
+      position:
+        relative;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        17px;
+
+      margin-bottom:
+        15px;
+
+      padding:
+        19px 21px;
+
+      border-radius:
+        18px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      border:
+        1px solid
+        rgba(118,104,201,.11);
+
+      box-shadow:
+        0 8px 22px
+        rgba(44,30,70,.055);
+
+      color:
+        #41384e;
+
+      font-weight:
+        600;
+
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease;
+
+    }
+
+
+    .principles li:hover {
+
+      transform:
+        translateX(-6px);
+
+      box-shadow:
+        0 15px 30px
+        rgba(44,30,70,.11);
+
+    }
+
+
+    .principles .icon {
+
+      flex:
+        0 0 47px;
+
+      width:
+        47px;
+
+      height:
+        47px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        50%;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          #f9f1d5,
+          #eee5ff
+        );
+
+      box-shadow:
+
+        inset 0 0 0 1px
+        rgba(231,198,110,.28),
+
+        0 4px 12px
+        rgba(80,60,110,.08);
+
+      font-size:
+        1.2rem;
+
+    }
+
+
+    /* =========================================================
+       پایان
+       ========================================================= */
+
+    .closing {
+
+      margin-top:
+        55px;
+
+      text-align:
+        center;
+
+      color:
+        #655578;
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        1.25rem;
+
+    }
+
+
+    .closing-symbol {
+
+      display:
+        block;
+
+      color:
+        var(--gold);
+
+      font-size:
+        2rem;
+
+      margin-bottom:
+        5px;
+
+      text-shadow:
+        0 0 18px
+        rgba(231,198,110,.30);
+
+    }
+
+
+    /* =========================================================
+       فوتر
+       ========================================================= */
+
+    footer {
+
+      margin-top:
+        18px;
+
+      padding:
+        30px 20px;
+
+      text-align:
+        center;
+
+      color:
+        #dcd5ee;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          #080a24,
+          #211944
+        );
+
+      border:
+        1px solid
+        rgba(231,198,110,.14);
+
+      border-radius:
+        25px;
+
+      box-shadow:
+        0 18px 45px
+        rgba(5,7,27,.20);
+
+    }
+
+
+    footer strong {
+
+      display:
+        block;
+
+      color:
+        var(--gold-light);
+
+      font-family:
+        "Amiri",
+        Georgia,
+        serif;
+
+      font-size:
+        1.45rem;
+
+      margin-bottom:
+        5px;
+
+    }
+
+
+    footer span {
+
+      font-size:
+        .85rem;
+
+      color:
+        #aaa1c4;
+
+    }
+
+
+    /* =========================================================
+       موبایل
+       ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .main-menu {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
       main {
-        margin: 1.5rem 1rem;
-        padding: 2rem 1.5rem;
+
+        width:
+          calc(100% - 16px);
+
+        margin:
+          18px auto 40px;
+
       }
 
-      h1 {
-        font-size: 2.1rem;
+
+      .lang-bar {
+
+        gap:
+          5px;
+
+        padding:
+          9px;
+
       }
+
+
+      .lang-bar a {
+
+        font-size:
+          .74rem;
+
+        padding:
+          5px 9px;
+
+      }
+
+
+      .hero {
+
+        padding:
+          90px 18px
+          58px;
+
+        border-radius:
+          28px 28px 0 0;
+
+      }
+
+
+      .moon {
+
+        width:
+          185px;
+
+        height:
+          185px;
+
+        top:
+          -82px;
+
+      }
+
+
+      .moon::after {
+
+        width:
+          162px;
+
+        height:
+          162px;
+
+        top:
+          11px;
+
+        left:
+          34px;
+
+      }
+
+
+      .menu-shell {
+
+        padding:
+          15px;
+
+      }
+
 
       .main-menu {
-        grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns:
+          1fr;
+
       }
+
+
+      .main-menu a {
+
+        min-height:
+          70px;
+
+      }
+
+
+      .content {
+
+        padding:
+          48px 20px
+          55px;
+
+        border-radius:
+          0 0 28px 28px;
+
+      }
+
+
+      .content p {
+
+        text-align:
+          justify;
+
+      }
+
+
+      .intro {
+
+        text-align:
+          center !important;
+
+        font-size:
+          1.2rem !important;
+
+      }
+
+
+      .quote {
+
+        padding:
+          24px 15px;
+
+        font-size:
+          1.2rem;
+
+      }
+
+
+      .principles li {
+
+        align-items:
+          flex-start;
+
+      }
+
+
+      .principles .icon {
+
+        flex-basis:
+          42px;
+
+        width:
+          42px;
+
+        height:
+          42px;
+
+      }
+
     }
 
-    @media (max-width: 480px) {
-      .main-menu {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* =========================================================
+       کاهش حرکت برای کاربران حساس
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
       }
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .01ms !important;
+
+      }
+
     }
+
+
+    /* =========================================================
+       چاپ
+       ========================================================= */
+
+    @media print {
+
+      body {
+
+        background:
+          white;
+
+      }
+
+
+      .cosmos,
+      .lang-bar {
+
+        display:
+          none;
+
+      }
+
+
+      main {
+
+        width:
+          100%;
+
+        margin:
+          0;
+
+      }
+
+
+      .hero,
+      .menu-shell,
+      .content,
+      footer {
+
+        box-shadow:
+          none;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
 
-  <!-- Language Switcher -->
-  <nav class="lang-bar">
-    <a href="index.en.html">English</a>
-    <a href="index.fr.html">Français</a>
-    <a href="index.es.html">Español</a>
-    <a href="index.ar.html">العربية</a>
-    <a href="index.fa.html">فارسی</a>
+
+  <!-- =========================================================
+       آسمان پس‌زمینه
+       ========================================================= -->
+
+  <div
+    class="cosmos"
+    aria-hidden="true"
+  >
+
+    <div class="stars"></div>
+
+    <div class="nebula"></div>
+
+    <div class="nebula two"></div>
+
+    <div class="nebula three"></div>
+
+    <div class="aurora"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       انتخاب زبان
+       ========================================================= -->
+
+  <nav
+    class="lang-bar"
+    aria-label="انتخاب زبان"
+  >
+
+    <a href="index.en.html">
+      English
+    </a>
+
+    <a href="index.fr.html">
+      Français
+    </a>
+
+    <a href="index.es.html">
+      Español
+    </a>
+
+    <a href="index.ar.html">
+      العربية
+    </a>
+
+    <a href="index.fa.html">
+      فارسی
+    </a>
+
   </nav>
 
-  <!-- Main Celestial Container -->
+
+
   <main>
-    <h1>دین عشق و خرد</h1>
-    <p class="subtext">سرایی برای مهر، خرد، آزادی و روشنایی</p>
 
-    <!-- Main Navigation Menu -->
-    <div class="main-menu">
-      <a href="lightbook/index.fa.html"><span class="icon">📖</span> سرون</a>
-      <a href="Pray/index.fa.html"><span class="icon">🙏</span> نیایش</a>
-      <a href="Rit/index.fa.html"><span class="icon">🕊️</span> آیین‌ها</a>
-      <a href="lit/index.fa.html"><span class="icon">📝</span> نوشته‌ها</a>
-      <a href="music.html"><span class="icon">🎶</span> موسیقی</a>
-      <a href="Story/index.fa.html"><span class="icon">📚</span> داستان</a>
-      <a href="contact.fa.html"><span class="icon">📩</span> تماس</a>
-    </div>
 
-    <div class="divider"><span>✧ ✦ ✧</span></div>
+    <!-- =======================================================
+         دروازهٔ آسمانی هوریا
+         ======================================================= -->
 
-    <div class="subheader">
-      راهی به‌سوی خرد، مهر، آزادی و گامی به سوی روشنایی
-    </div>
+    <header class="hero">
 
-    <h1 style="font-size: 2rem; margin-bottom: 1.5rem;">به هوریا خوش آمدید</h1>
+      <div class="moon"></div>
 
-    <div class="content">
+      <div class="celestial-symbol">
+        ✦
+      </div>
+
+      <h1>
+        هوریا
+      </h1>
+
+      <div class="hero-title">
+        خانهٔ عشق و خرد
+      </div>
+
+      <p class="hero-motto">
+        سرایی برای مهر، خرد، آزادی و روشنایی
+      </p>
+
+      <div class="gold-line"></div>
+
+    </header>
+
+
+
+    <!-- =======================================================
+         منوی اصلی
+         ======================================================= -->
+
+    <section class="menu-shell">
+
+      <nav
+        class="main-menu"
+        aria-label="منوی اصلی"
+      >
+
+        <a href="lightbook/index.fa.html">
+
+          <span class="icon">
+            📖
+          </span>
+
+          <span>
+            سرون
+          </span>
+
+        </a>
+
+
+        <a href="Pray/index.fa.html">
+
+          <span class="icon">
+            🙏
+          </span>
+
+          <span>
+            نیایش
+          </span>
+
+        </a>
+
+
+        <a href="Rit/index.fa.html">
+
+          <span class="icon">
+            🕊️
+          </span>
+
+          <span>
+            آیین‌ها
+          </span>
+
+        </a>
+
+
+        <a href="lit/index.fa.html">
+
+          <span class="icon">
+            📝
+          </span>
+
+          <span>
+            نوشته‌ها
+          </span>
+
+        </a>
+
+
+        <a href="music.html">
+
+          <span class="icon">
+            🎶
+          </span>
+
+          <span>
+            موسیقی
+          </span>
+
+        </a>
+
+
+        <a href="Story/index.fa.html">
+
+          <span class="icon">
+            📚
+          </span>
+
+          <span>
+            داستان
+          </span>
+
+        </a>
+
+
+        <a href="contact.fa.html">
+
+          <span class="icon">
+            📩
+          </span>
+
+          <span>
+            تماس
+          </span>
+
+        </a>
+
+      </nav>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         متن معرفی هوریا
+         ======================================================= -->
+
+    <article class="content">
+
+
+      <header class="section-heading">
+
+        <span class="symbol">
+          ✧
+        </span>
+
+        <h2>
+          به هوریا خوش آمدید
+        </h2>
+
+        <p>
+          راهی به‌سوی خرد، مهر، آزادی و گامی به سوی روشنایی
+        </p>
+
+      </header>
+
+
+
+      <p class="intro">
+
+        دین هوریا بر آن است که پلی معنوی و فرهنگی میان
+        میراث عرفانی بشر و آرمان‌های نوین انسانی بنا نهد.
+
+      </p>
+
+
+
+      <div class="quote">
+
+        راهی به‌سوی خرد،
+        مهر،
+        آزادی
+        و روشنایی.
+
+      </div>
+
+
+
       <p>
-        دین هوریا بر آن است که پلی معنوی و فرهنگی میان میراث عرفانی بشر و آرمان‌های نوین انسانی بنا نهد.
-      </p>
-      <p>
-        در جهان امروز، که نیاز به آزادی فردی، خرد جمعی، صلح پایدار و همزیستی با طبیعت بیش از همیشه احساس می‌شود،
-        هوریا کوشیده است با بهره‌گیری از زبان و ساختارهای آشنا در ادیان سنتی، پیامی نو، سازنده و جهانی را در دل انسان‌ها بیدار کند.
-      </p>
-      
-      <p style="color: var(--gold-primary); font-weight: 500;">
-        هدف نهایی هوریا، تحقق اصول زیر از راه اقناع درونی و تجربه‌ی معنوی است:
+
+        در جهان امروز، که نیاز به آزادی فردی،
+        خرد جمعی، صلح پایدار و همزیستی با طبیعت
+        بیش از همیشه احساس می‌شود، هوریا کوشیده است
+        با بهره‌گیری از زبان و ساختارهای آشنا در ادیان سنتی،
+        پیامی نو، سازنده و جهانی را در دل انسان‌ها بیدار کند.
+
       </p>
 
-      <ol>
-        <li><span class="icon">🌱</span> آزادی فردی بر بنیاد مسئولیت وجدانی</li>
-        <li><span class="icon">🧠</span> خرد جمعی و مشارکت همدلانه</li>
-        <li><span class="icon">✌️</span> صلح‌طلبی و همزیستی جهانی</li>
-        <li><span class="icon">🌍</span> پاسداری از طبیعت به‌مثابه پیکر مادر هستی</li>
-        <li><span class="icon">🤝</span> برابری و کرامت ذاتی انسان‌ها بدون هیچ تمایزی</li>
+
+
+      <p>
+
+        هدف نهایی هوریا، تحقق اصول زیر
+        از راه اقناع درونی و تجربه‌ی معنوی است:
+
+      </p>
+
+
+
+      <!-- =====================================================
+           اصول
+           ===================================================== -->
+
+      <ol class="principles">
+
+
+        <li>
+
+          <span class="icon">
+            🌱
+          </span>
+
+          <span>
+            آزادی فردی بر بنیاد مسئولیت وجدانی
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <span class="icon">
+            🧠
+          </span>
+
+          <span>
+            خرد جمعی و مشارکت همدلانه
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <span class="icon">
+            ✌️
+          </span>
+
+          <span>
+            صلح‌طلبی و همزیستی جهانی
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <span class="icon">
+            🌍
+          </span>
+
+          <span>
+            پاسداری از طبیعت به‌مثابه پیکر مادر هستی
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <span class="icon">
+            🤝
+          </span>
+
+          <span>
+            برابری و کرامت ذاتی انسان‌ها بدون هیچ تمایزی
+          </span>
+
+        </li>
+
+
       </ol>
 
+
+
       <p>
-        هوریا باور دارد که دین، اگر به‌درستی بازسازی شود، می‌تواند نه ابزار سلطه، بلکه زبانی برای بیداری و همدلی جهانی باشد.
-        از این رو، این آیین از عناصر ساختاری ادیان (نیایش، آیین‌ها، نمادها، تقویم‌های مقدس، و مفاهیم متعالی) بهره می‌گیرد،
-        اما آن‌ها را در خدمت آزادی و آگاهی انسان بازآفرینی می‌کند.
+
+        هوریا باور دارد که دین، اگر به‌درستی بازسازی شود،
+        می‌تواند نه ابزار سلطه، بلکه زبانی برای بیداری
+        و همدلی جهانی باشد.
+
       </p>
-    </div>
+
+
+
+      <p>
+
+        از این رو، این آیین از عناصر ساختاری ادیان
+        (نیایش، آیین‌ها، نمادها، تقویم‌های مقدس،
+        و مفاهیم متعالی) بهره می‌گیرد،
+        اما آن‌ها را در خدمت آزادی و آگاهی انسان
+        بازآفرینی می‌کند.
+
+      </p>
+
+
+
+      <!-- =====================================================
+           پایان معنوی
+           ===================================================== -->
+
+      <div class="closing">
+
+        <span class="closing-symbol">
+          ❈
+        </span>
+
+        <div>
+          باشد که خرد، چراغ راه باشد
+          و مهر، روشناییِ دل‌ها.
+        </div>
+
+      </div>
+
+
+    </article>
+
+
+
+    <!-- =======================================================
+         پاورقی
+         ======================================================= -->
+
+    <footer>
+
+      <strong>
+        هوریا
+      </strong>
+
+      <span>
+        خانه‌ای برای عشق، خرد، آزادی و روشنایی
+      </span>
+
+    </footer>
+
+
   </main>
 
+
 </body>
-</html>
+
+  </html>
