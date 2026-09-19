@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>لوح هجدهم – در هنر، آفرینش و زیبایی</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --gold: #c19a4b;
+      --gold-light: #e2c77f;
+      --gold-dark: #806021;
+
+      --ink: #34291b;
+      --ink-light: #65533a;
+
+      --paper: #f8f0dc;
+      --paper-light: #fffaf0;
+
+      --night: #151009;
+      --night-2: #2a2115;
+
+      --line: rgba(193, 154, 75, .45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--ink);
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(224, 199, 127, .17),
+          transparent 35rem
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(193, 154, 75, .08),
+          transparent 25rem
+        ),
+        linear-gradient(
+          135deg,
+          #0e0b07,
+          #21180d 50%,
+          #0e0b07
+        );
+
+      padding: 30px 0;
+    }
+
+    /* =========================
+       کتاب
+       ========================= */
+
+    .book {
+      width: min(1000px, calc(100% - 24px));
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(193, 154, 75, .07),
+          transparent 25rem
+        ),
+        linear-gradient(
+          180deg,
+          var(--paper-light),
+          var(--paper)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, .60),
+        0 5px 25px rgba(0, 0, 0, .35);
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+
+      border: 1px solid rgba(193, 154, 75, .75);
+
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .book::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+
+      border: 1px solid rgba(193, 154, 75, .28);
+
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* =========================
+       گوشه‌های تزئینی
+       ========================= */
+
+    .corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+
+      z-index: 21;
+      pointer-events: none;
+    }
+
+    .corner::before,
+    .corner::after {
+      content: "";
+      position: absolute;
+      background: var(--gold);
+    }
+
+    .corner::before {
+      width: 48px;
+      height: 1px;
+    }
+
+    .corner::after {
+      width: 1px;
+      height: 48px;
+    }
+
+    .corner.tl {
+      top: 28px;
+      right: 28px;
+    }
+
+    .corner.tr {
+      top: 28px;
+      left: 28px;
+      transform: rotate(90deg);
+    }
+
+    .corner.bl {
+      bottom: 28px;
+      right: 28px;
+      transform: rotate(-90deg);
+    }
+
+    .corner.br {
+      bottom: 28px;
+      left: 28px;
+      transform: rotate(180deg);
+    }
+
+    /* =========================
+       سربرگ
+       ========================= */
+
+    header {
+      position: relative;
+
+      text-align: center;
+
+      padding: 85px 30px 70px;
+
+      color: #fff8e7;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(193, 154, 75, .20),
+          transparent 30rem
+        ),
+        linear-gradient(
+          180deg,
+          #171109,
+          #241a0e
+        );
+
+      border-bottom: 1px solid rgba(193, 154, 75, .55);
+    }
+
+    header::before {
+      content: "❈";
+
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 1.7rem;
+
+      margin-bottom: 15px;
+    }
+
+    .book-name {
+      font-family: "Vazirmatn", sans-serif;
+
+      font-size: .9rem;
+
+      color: var(--gold-light);
+
+      letter-spacing: 3px;
+
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      margin: 0;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(2.7rem, 7vw, 5rem);
+
+      font-weight: 700;
+
+      color: #fff8e7;
+
+      line-height: 1.35;
+
+      text-shadow:
+        0 3px 12px rgba(0, 0, 0, .65),
+        0 0 25px rgba(193, 154, 75, .15);
+    }
+
+    header h2 {
+      margin: 18px 0 0;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+
+      font-weight: 400;
+
+      color: var(--gold-light);
+
+      line-height: 2;
+    }
+
+    .ornament {
+      margin-top: 28px;
+
+      color: var(--gold);
+
+      font-size: 1.35rem;
+
+      letter-spacing: 8px;
+    }
+
+    /* =========================
+       مقدمه
+       ========================= */
+
+    .opening {
+      max-width: 800px;
+
+      margin: auto;
+
+      padding: 55px 30px 25px;
+
+      text-align: center;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.3rem, 3vw, 1.55rem);
+
+      line-height: 2.45;
+
+      color: var(--ink);
+    }
+
+    .opening .invocation {
+      display: block;
+
+      margin-bottom: 18px;
+
+      color: var(--gold-dark);
+
+      font-size: 1.7rem;
+
+      font-weight: 700;
+    }
+
+    /* =========================
+       بدنه
+       ========================= */
+
+    .content {
+      max-width: 800px;
+
+      margin: auto;
+
+      padding: 10px 30px 35px;
+    }
+
+    .section {
+      margin: 0 0 38px;
+    }
+
+    .section p {
+      margin: 0 0 20px;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+
+      line-height: 2.45;
+
+      text-align: right;
+
+      color: var(--ink);
+    }
+
+    /* =========================
+       خطاب‌های ای انسان
+       ========================= */
+
+    .call {
+      position: relative;
+
+      margin: 48px 0 25px;
+
+      padding: 17px 25px;
+
+      text-align: center;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+
+      font-weight: 700;
+
+      color: var(--gold-dark);
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .call::before {
+      content: "✦";
+
+      position: absolute;
+
+      top: -14px;
+      right: 50%;
+
+      transform: translateX(50%);
+
+      padding: 0 12px;
+
+      background: var(--paper-light);
+
+      color: var(--gold);
+
+      font-size: 1.1rem;
+    }
+
+    /* =========================
+       جملات برجسته
+       ========================= */
+
+    .emphasis {
+      position: relative;
+
+      margin: 40px 0;
+
+      padding: 28px 30px;
+
+      text-align: center;
+
+      font-family: "Amiri", serif;
+
+      font-size: clamp(1.3rem, 2.8vw, 1.55rem);
+
+      line-height: 2.4;
+
+      color: #46351f;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(193, 154, 75, .07),
+          rgba(255, 250, 240, .72),
+          rgba(193, 154, 75, .07)
+        );
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      box-shadow:
+        inset 0 0 30px rgba(193, 154, 75, .035);
+    }
+
+    .emphasis::before {
+      content: "❖";
+
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--gold);
+
+      font-size: 1rem;
+    }
+
+    /* =========================
+       بخش تأمل
+       ========================= */
+
+    .reflection {
+      position: relative;
+
+      margin: 45px 0;
+
+      padding: 30px 30px 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(193, 154, 75, .09),
+          rgba(255, 250, 240, .6)
+        );
+
+      border-right: 3px solid var(--gold);
+
+      box-shadow:
+        0 8px 25px rgba(67, 48, 20, .07);
+    }
+
+    .reflection p {
+      margin: 0;
+
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+
+      line-height: 2.45;
+
+      text-align: center;
+    }
+
+    /* =========================
+       سه‌گانه
+       ========================= */
+
+    .triad {
+      margin: 45px 0;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 12px;
+    }
+
+    .triad-item {
+      padding: 20px 14px;
+
+      text-align: center;
+
+      font-family: "Amiri", serif;
+
+      font-size: 1.15rem;
+
+      line-height: 1.9;
+
+      color: var(--ink);
+
+      border: 1px solid rgba(193, 154, 75, .45);
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf0,
+          #f5e8cb
+        );
+
+      box-shadow:
+        0 5px 15px rgba(67, 48, 20, .06);
+    }
+
+    .triad-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--gold-dark);
+
+      font-size: 1.3rem;
+    }
+
+    /* =========================
+       پایان لوح
+       ========================= */
+
+    .closing {
+      position: relative;
+
+      margin-top: 55px;
+
+      padding: 42px 30px 45px;
+
+      text-align: center;
+
+      font-family: "Amiri", serif;
+
+      color: #fff4d4;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(193, 154, 75, .18),
+          transparent 20rem
+        ),
+        linear-gradient(
+          180deg,
+          #2a2115,
+          #171109
+        );
+
+      border-top: 1px solid rgba(193, 154, 75, .55);
+      border-bottom: 1px solid rgba(193, 154, 75, .55);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, .12);
+    }
+
+    .closing::before {
+      content: "✦ ❈ ✦";
+
+      display: block;
+
+      margin-bottom: 22px;
+
+      color: var(--gold-light);
+
+      font-size: 1.25rem;
+
+      letter-spacing: 7px;
+    }
+
+    .closing p {
+      margin: 0;
+
+      font-size: clamp(1.3rem, 3vw, 1.65rem);
+
+      line-height: 2.5;
+
+      color: #fff4d4;
+    }
+
+    .closing .last-line {
+      margin-top: 25px;
+
+      color: var(--gold-light);
+
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+
+      font-weight: 700;
+    }
+
+    /* =========================
+       لینک‌های بازگشت
+       ========================= */
+
+    .back-links {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      padding: 35px 20px 40px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(193, 154, 75, .05),
+          rgba(193, 154, 75, .10)
+        );
+
+      border-top: 1px solid rgba(193, 154, 75, .30);
+    }
+
+    .back-links a {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 190px;
+
+      padding: 11px 22px;
+
+      color: var(--ink);
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffaf0,
+          #f3e5c5
+        );
+
+      border: 1px solid rgba(193, 154, 75, .65);
+
+      border-radius: 3px;
+
+      font-family: "Amiri", serif;
+
+      font-size: 1.12rem;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 5px 15px rgba(67, 48, 20, .08);
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .back-links a:hover {
+      transform: translateY(-3px);
+
+      background:
+        linear-gradient(
+          145deg,
+          #fffdf6,
+          #f0dfb9
+        );
+
+      border-color: var(--gold);
+
+      box-shadow:
+        0 9px 20px rgba(67, 48, 20, .14);
+    }
+
+    /* =========================
+       پاورقی
+       ========================= */
+
+    footer {
+      padding: 28px 20px 35px;
+
+      text-align: center;
+
+      color: #ead9ad;
+
+      background:
+        linear-gradient(
+          180deg,
+          #241a0e,
+          #151009
+        );
+    }
+
+    footer::before {
+      content: "❈";
+
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--gold);
+
+      font-size: 1.2rem;
+    }
+
+    footer strong {
+      display: block;
+
+      font-family: "Amiri", serif;
+
+      font-size: 1.25rem;
+
+      color: #fff4d4;
+    }
+
+    footer small {
+      display: block;
+
+      margin-top: 7px;
+
+      color: #bda879;
+
+      font-size: .82rem;
+    }
+
+    /* =========================
+       موبایل
+       ========================= */
+
+    @media (max-width: 700px) {
+
+      body {
+        padding: 10px 0;
+      }
+
+      .book {
+        width: calc(100% - 8px);
+      }
+
+      .book::before {
+        inset: 8px;
+      }
+
+      .book::after {
+        inset: 13px;
+      }
+
+      .corner {
+        width: 32px;
+        height: 32px;
+      }
+
+      .corner::before {
+        width: 32px;
+      }
+
+      .corner::after {
+        height: 32px;
+      }
+
+      .corner.tl {
+        top: 18px;
+        right: 18px;
+      }
+
+      .corner.tr {
+        top: 18px;
+        left: 18px;
+      }
+
+      .corner.bl {
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .corner.br {
+        bottom: 18px;
+        left: 18px;
+      }
+
+      header {
+        padding: 60px 20px 55px;
+      }
+
+      header h1 {
+        font-size: clamp(2.35rem, 11vw, 4rem);
+      }
+
+      header h2 {
+        font-size: 1.15rem;
+      }
+
+      .opening {
+        padding: 42px 22px 20px;
+
+        font-size: 1.2rem;
+
+        line-height: 2.35;
+      }
+
+      .content {
+        padding:
+          5px 20px 35px;
+      }
+
+      .section p {
+        font-size: 1.15rem;
+
+        line-height: 2.4;
+      }
+
+      .call {
+        margin-top: 40px;
+
+        font-size: 1.45rem;
+
+        padding:
+          15px;
+      }
+
+      .emphasis {
+        padding:
+          24px 18px;
+
+        font-size: 1.2rem;
+
+        line-height: 2.35;
+      }
+
+      .reflection {
+        padding:
+          24px 18px;
+
+        margin: 35px 0;
+      }
+
+      .reflection p {
+        font-size: 1.15rem;
+      }
+
+      .triad {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin: 35px 0;
+      }
+
+      .triad-item {
+        padding: 16px;
+      }
+
+      .closing {
+        padding:
+          35px 20px 38px;
+      }
+
+      .closing p {
+        font-size: 1.2rem;
+
+        line-height: 2.35;
+      }
+
+      .closing .last-line {
+        font-size: 1.45rem;
+      }
+
+      .back-links {
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding:
+          30px 18px 35px;
+      }
+
+      .back-links a {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* =========================
+       موبایل خیلی کوچک
+       ========================= */
+
+    @media (max-width: 400px) {
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header h2 {
+        font-size: 1rem;
+      }
+
+      .section p {
+        font-size: 1.08rem;
+      }
+
+      .emphasis {
+        font-size: 1.12rem;
+      }
+    }
+
+    /* =========================
+       چاپ
+       ========================= */
+
+    @media print {
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .book {
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .book::before,
+      .book::after,
+      .corner {
+        display: none;
+      }
+
+      header {
+        color: #222;
+        background: white;
+      }
+
+      header h1 {
+        color: #222;
+        text-shadow: none;
+      }
+
+      header h2 {
+        color: #555;
+      }
+
+      .emphasis,
+      .reflection,
+      .triad-item {
+        box-shadow: none;
+      }
+
+      .closing {
+        color: #222;
+        background: white;
+      }
+
+      .closing p,
+      .closing .last-line {
+        color: #222;
+      }
+
+      .back-links {
+        display: none;
+      }
+
+      footer {
+        color: #333;
+        background: white;
+      }
+
+      footer strong,
+      footer small {
+        color: #333;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="book">
+
+    <!-- گوشه‌های تزئینی -->
+
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+
+    <!-- =========================
+         سرلوح
+         ========================= -->
+
+    <header>
+
+      <div class="book-name">
+        کتاب روشنی‌ها
+      </div>
+
+      <h1>
+        لوح هجدهم
+      </h1>
+
+      <h2>
+        در هنر، آفرینش و زیبایی
+      </h2>
+
+      <div class="ornament">
+        ✦ ❈ ✦
+      </div>
+
+    </header>
+
+
+    <!-- =========================
+         آغاز لوح
+         ========================= -->
+
+    <section class="opening">
+
+      <span class="invocation">
+        ای انسان،
+      </span>
+
+      تو را از سنگ نیافریدم تا سخت بمانی،
+      و از گل نساختم تا یک صورت بمانی.
+      تو را روان کردم چون آب،
+      تا راه بجویی،
+      و هر روز خویش را از نو بیابی.
+
+    </section>
+
+
+    <!-- =========================
+         متن اصلی
+         ========================= -->
+
+    <article class="content">
+
+
+      <section class="section">
+
+        <p>
+          تو را آفریدم تا بیافرینی؛
+          که هر که صنعِ مرا دید،
+          از صانع نشان جست،
+          و هر که آفرینش تو دید،
+          مرا در تو شناخت.
+        </p>
+
+        <p>
+          هرگاه قلم بر صفحه نهادی
+          و از نیست، هستی آوردی،
+          دستت در دست من بود.
+        </p>
+
+        <p>
+          هرگاه نغمه‌ای برآوردی
+          و دلی را از غم برهاندی،
+          نفَست از نفَسِ من بود.
+        </p>
+
+        <p>
+          هرگاه در خلوتِ رنج
+          چیزی ساختی که جز تو نمی‌توانست ساخت،
+          بدان که رنجت بی‌ثمر نبود؛
+          که زر در آتش پخته شود
+          و دل در بلا.
+        </p>
+
+      </section>
+
+
+      <!-- هنر -->
+
+      <div class="call">
+        ای انسان،
+      </div>
+
+      <section class="section">
+
+        <p>
+          هنر آن نیست که چشم را خیره کند؛
+          آن است که دل را بیدار کند.
+        </p>
+
+        <p>
+          نه آن که خلق را به تحسین آورد؛
+          آن که جان را به تأمل آورد.
+        </p>
+
+        <p>
+          نه آن که نامت را بلند کند؛
+          آن که همّتت را بلند کند.
+        </p>
+
+      </section>
+
+
+      <div class="emphasis">
+
+        نقشی که پرده از زشتی بردارد، هنر است؛
+        <br>
+
+        نغمه‌ای که امید را زنده کند، هنر است؛
+        <br>
+
+        سخنی که چراغی در شب افروزد، هنر است.
+
+      </div>
+
+
+      <div class="reflection">
+
+        <p>
+          چه سود از چراغی که خود روشن است
+          و راهی را روشن نمی‌کند؟
+        </p>
+
+      </div>
+
+
+      <!-- زیبایی -->
+
+      <div class="call">
+        ای انسان،
+      </div>
+
+      <section class="section">
+
+        <p>
+          زیبایی را در صورت مجوی که صورت فانی است؛
+          در معنی بجوی که معنی باقی است.
+        </p>
+
+        <p>
+          گل پرپر شود و بویش بماند؛
+          آواز خاموش شود و اثرش بماند؛
+          تن پیر شود و جان اگر زیباست، جوان بماند.
+        </p>
+
+        <p>
+          زیبایی را به بندِ قالب مکش؛
+          که آب را اگر در مشت گیری، می‌گریزد،
+          و اگر رهایش کنی، سیرابت می‌کند.
+        </p>
+
+      </section>
+
+
+      <div class="emphasis">
+
+        هرجا حقیقتی دیدی، زیبایی آنجاست؛
+        <br>
+
+        هرجا محبتی دیدی، جمال آنجاست؛
+        <br>
+
+        هرجا امیدی افروخته شد،
+        من آنجا بوده‌ام.
+
+      </div>
+
+
+      <!-- جهان به مثابه بوم -->
+
+      <div class="call">
+        ای انسان،
+      </div>
+
+      <section class="section">
+
+        <p>
+          جهان بوم توست
+          و روزگار رنگ تو.
+        </p>
+
+        <p>
+          هر روز خطی بر این صفحه می‌کشی؛
+          نیک بنویس،
+          که پاک‌کردنِ خطِ روزگار آسان نیست.
+        </p>
+
+      </section>
+
+
+      <div class="triad">
+
+        <div class="triad-item">
+
+          <strong>
+            اگر نمی‌توانی
+          </strong>
+
+          جهان را روشن کنی،
+          چراغ دلی را روشن کن.
+
+        </div>
+
+
+        <div class="triad-item">
+
+          <strong>
+            اگر نمی‌توانی
+          </strong>
+
+          شعر بگویی،
+          سخن راست بگو.
+
+        </div>
+
+
+        <div class="triad-item">
+
+          <strong>
+            اگر هیچ نتوانی
+          </strong>
+
+          نیکی کن؛
+          که نیکی خود هنری است.
+
+        </div>
+
+      </div>
+
+
+      <section class="section">
+
+        <p>
+          اگر قصری نمی‌توانی ساخت،
+          خانه‌ای را آباد کن.
+        </p>
+
+        <p>
+          اگر جهان را نمی‌توانی روشن کرد،
+          چراغ دلی را روشن کن.
+        </p>
+
+        <p>
+          اگر شعر نمی‌توانی گفت،
+          سخن راست بگو.
+        </p>
+
+        <p>
+          و اگر هیچ نتوانی،
+          نیکی کن؛
+          که نیکی خود هنری است
+          بی‌دفتر و دیوان،
+          بی‌نام و نشان.
+        </p>
+
+      </section>
+
+
+      <!-- فروتنی در آفرینش -->
+
+      <div class="call">
+        ای انسان،
+      </div>
+
+      <section class="section">
+
+        <p>
+          در آفرینش، مغرور مباش؛
+          که تو دانه می‌کاری،
+          اما باران نمی‌آوری.
+        </p>
+
+        <p>
+          چراغ می‌افروزی،
+          اما خورشید نمی‌آفرینی.
+        </p>
+
+        <p>
+          نقش می‌زنی،
+          اما جان نمی‌بخشی.
+        </p>
+
+      </section>
+
+
+      <div class="reflection">
+
+        <p>
+          پس اگر چیزی زیبا آفریدی،
+          شکر کن، نه فخر؛
+          که دست تو وسیله بود
+          و فیض از جای دیگر.
+        </p>
+
+      </div>
+
+
+      <section class="section">
+
+        <p>
+          آفریننده باش و فروتن،
+          توانگر باش و بخشنده،
+          زیبا باش و بی‌ریا.
+        </p>
+
+      </section>
+
+
+      <!-- هنر، عشق و حقیقت -->
+
+      <div class="emphasis">
+
+        هنر اگر بی‌عشق باشد، صنعت است؛
+        <br>
+
+        و زیبایی اگر بی‌حقیقت باشد، زینت است؛
+        <br>
+
+        و آفرینش اگر بی‌معنی باشد، بازی است.
+
+      </div>
+
+
+      <section class="section">
+
+        <p>
+          اما چون دست و دل یکی شوند،
+          و هنر با حقیقت آشتی کند،
+          هر نقش، ذکر شود،
+          هر نغمه، دعا شود،
+          و هر آفرینش، عبادت.
+        </p>
+
+      </section>
+
+
+      <!-- نشان آفریننده -->
+
+      <div class="call">
+        ای انسان،
+      </div>
+
+      <section class="section">
+
+        <p>
+          مرا در نامِ خود مجوی؛
+          در نیکوییِ خود بجوی.
+        </p>
+
+        <p>
+          هرجا دستی چیزی را از نیست به هست آورد،
+          هرجا دلی در دلِ دیگری امید افکند،
+          هرجا انسانی در شبِ دیگری چراغی شد،
+          آنجا نشان من است.
+        </p>
+
+      </section>
+
+
+      <div class="reflection">
+
+        <p>
+          پس بیافرین،
+          اما برای خویش نه؛
+          <br>
+
+          ببخش،
+          اما برای نام نه؛
+          <br>
+
+          زیبا کن،
+          اما برای تحسین نه.
+        </p>
+
+      </div>
+
+
+      <section class="section">
+
+        <p>
+          که آنچه برای مردم کنی، می‌ماند؛
+          و آنچه برای خویش کنی، می‌گذرد.
+        </p>
+
+      </section>
+
+
+      <!-- پایان حکمت -->
+
+      <div class="emphasis">
+
+        و بدان:
+
+        <br><br>
+
+        هنر، چون دل را بیدار کند، عبادت است؛
+
+        <br>
+
+        زیبایی، چون حقیقت را بنماید، هدایت است؛
+
+        <br>
+
+        و آفرینش، چون از عشق برخیزد،
+        عبادتِ خاموشِ جان است.
+
+      </div>
+
+
+      <!-- فرمان پایانی -->
+
+      <div class="closing">
+
+        <p>
+          پس جهان را اندکی زیباتر از آن‌که یافتی،
+          و دل‌ها را اندکی روشن‌تر از آن‌که دیدی،
+          به آیندگان بسپار.
+        </p>
+
+        <p class="last-line">
+
+          این است هنرِ آدمی،
+          <br>
+          و این است شکرِ آفرینش.
+
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =========================
+         لینک‌های بازگشت
+         ========================= -->
+
+    <nav class="back-links" aria-label="بازگشت">
+
+      <a href="https://celianor.github.io/Horia/index.fa.html">
+        ⌂ بازگشت به خانه
+      </a>
+
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+        ← بازگشت به صفحهٔ قبلی
+      </a>
+
+    </nav>
+
+
+    <!-- =========================
+         پاورقی
+         ========================= -->
+
+    <footer>
+
+      <strong>
+        لوح هجدهم
+      </strong>
+
+      <small>
+        در هنر، آفرینش و زیبایی
+      </small>
+
+    </footer>
+
+  </main>
+
+</body>
+  </html>
