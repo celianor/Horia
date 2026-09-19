@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>لوح نوزدهم – در مرگ، رهایی و بازگشت به سوی من</title>
+
+  <meta name="description"
+        content="لوح نوزدهم – در مرگ، رهایی و بازگشت به سوی من">
+
+  <style>
+    :root {
+      --ink: #292724;
+      --soft-ink: #504a43;
+      --muted: #7b746b;
+      --gold: #a98242;
+      --gold-light: #d8c29a;
+      --gold-pale: #eee4d1;
+      --paper: #ffffff;
+      --ivory: #faf8f3;
+      --line: #e7dfd1;
+      --shadow: rgba(65, 52, 32, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+
+      background: #ffffff;
+      color: var(--ink);
+
+      font-family:
+        "Vazirmatn",
+        "Noto Naskh Arabic",
+        "Noto Sans Arabic",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+      line-height: 2.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* صفحه */
+    .page {
+      min-height: 100vh;
+      padding: 30px 16px 60px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(216, 194, 154, 0.15),
+          transparent 34%
+        ),
+        #ffffff;
+    }
+
+    /* نوار ناوبری */
+    .navigation {
+      width: min(920px, 100%);
+      margin: 0 auto 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .navigation a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 105px;
+      padding: 8px 19px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.95);
+
+      color: #625b51;
+      font-size: 0.88rem;
+
+      transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .navigation a:hover {
+      color: var(--gold);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(80, 60, 30, 0.08);
+    }
+
+    /* قاب اصلی */
+    .tablet {
+      width: min(920px, 100%);
+      margin: 0 auto;
+
+      background: var(--paper);
+
+      border: 1px solid var(--line);
+      border-radius: 26px;
+
+      box-shadow:
+        0 22px 60px var(--shadow),
+        0 2px 8px rgba(60, 45, 25, 0.04);
+
+      overflow: hidden;
+    }
+
+    /* سربرگ */
+    .hero {
+      position: relative;
+
+      padding: 68px 25px 48px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(250, 248, 243, 0.98),
+          #ffffff
+        );
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "✦";
+
+      position: absolute;
+      top: 38px;
+
+      color: var(--gold-light);
+      font-size: 1rem;
+    }
+
+    .hero::before {
+      right: 24%;
+    }
+
+    .hero::after {
+      left: 24%;
+    }
+
+    .tablet-number {
+      margin: 0 0 12px;
+
+      color: var(--gold);
+
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+
+      color: #302d29;
+
+      font-family:
+        "Noto Naskh Arabic",
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      font-size: clamp(1.7rem, 4vw, 2.55rem);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .ornament {
+      width: 180px;
+      margin: 24px auto 0;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(
+        to left,
+        transparent,
+        var(--gold-light)
+      );
+    }
+
+    .ornament-line:last-child {
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold-light)
+      );
+    }
+
+    /* متن */
+    .content {
+      padding:
+        55px
+        clamp(22px, 7vw, 78px)
+        65px;
+    }
+
+    .section {
+      margin: 0 0 48px;
+    }
+
+    .section::before {
+      content: "✦";
+
+      display: block;
+
+      margin: 0 auto 28px;
+
+      text-align: center;
+
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .section:first-child::before {
+      display: none;
+    }
+
+    p {
+      margin: 0 0 27px;
+
+      font-size: clamp(1rem, 1.45vw, 1.09rem);
+    }
+
+    .opening {
+      color: #403b35;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    /* پاراگراف‌های مهم */
+    .passage {
+      color: var(--soft-ink);
+    }
+
+    /* بخش‌های شاعرانه */
+    .poetic {
+      margin: 38px auto;
+
+      padding: 23px 26px;
+
+      max-width: 760px;
+
+      border-right: 2px solid var(--gold-light);
+      border-radius: 5px 15px 15px 5px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(250, 248, 243, 0.20),
+          var(--ivory)
+        );
+
+      color: #39342e;
+    }
+
+    .poetic p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* تأکیدهای میانی */
+    .emphasis {
+      margin: 40px auto;
+
+      max-width: 700px;
+
+      text-align: center;
+
+      color: #554938;
+
+      font-family:
+        "Noto Naskh Arabic",
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      font-size: 1.08rem;
+      line-height: 2.55;
+    }
+
+    /* بخش‌های پایانی */
+    .final-verse {
+      margin: 52px auto 0;
+
+      padding: 34px 25px;
+
+      max-width: 760px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #faf8f3,
+          #ffffff
+        );
+
+      border: 1px solid var(--line);
+      border-radius: 19px;
+
+      color: #3f392f;
+
+      font-family:
+        "Noto Naskh Arabic",
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      font-size: 1.12rem;
+      line-height: 2.65;
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .final-verse strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* آخرین عبارت */
+    .last-word {
+      margin-top: 46px;
+
+      padding: 38px 25px;
+
+      text-align: center;
+
+      background: var(--ivory);
+
+      border-top: 1px solid var(--gold-pale);
+      border-bottom: 1px solid var(--gold-pale);
+
+      color: #39342e;
+
+      font-family:
+        "Noto Naskh Arabic",
+        "Vazirmatn",
+        Tahoma,
+        sans-serif;
+
+      font-size: 1.08rem;
+      line-height: 2.7;
+    }
+
+    .last-word strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* پاورقی */
+    footer {
+      width: min(920px, 100%);
+      margin: 25px auto 0;
+
+      text-align: center;
+
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer .star {
+      color: var(--gold-light);
+      padding: 0 9px;
+    }
+
+    /* موبایل */
+    @media (max-width: 600px) {
+
+      .page {
+        padding: 18px 9px 40px;
+      }
+
+      .navigation a {
+        min-width: 88px;
+        padding: 7px 13px;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        padding: 54px 18px 39px;
+      }
+
+      .hero::before {
+        right: 12%;
+      }
+
+      .hero::after {
+        left: 12%;
+      }
+
+      .content {
+        padding: 40px 20px 48px;
+      }
+
+      .poetic {
+        padding: 18px 18px;
+      }
+
+      .final-verse,
+      .last-word {
+        padding: 28px 18px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+    }
+
+    /* چاپ */
+    @media print {
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        padding: 0;
+      }
+
+      .navigation,
+      footer {
+        display: none;
+      }
+
+      .tablet {
+        border: none;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- ناوبری -->
+  <nav class="navigation" aria-label="ناوبری">
+
+    <a href="https://celianor.github.io/Horia/index.fa.html">
+      خانه
+    </a>
+
+    <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+      بازگشت
+    </a>
+
+  </nav>
+
+
+  <!-- لوح -->
+  <article class="tablet">
+
+    <!-- عنوان -->
+    <header class="hero">
+
+      <p class="tablet-number">
+        لوح نوزدهم
+      </p>
+
+      <h1>
+        در مرگ، رهایی و بازگشت به سوی من
+      </h1>
+
+      <div class="ornament" aria-hidden="true">
+        <span class="ornament-line"></span>
+        ✦
+        <span class="ornament-line"></span>
+      </div>
+
+    </header>
+
+
+    <!-- متن -->
+    <main class="content">
+
+      <section class="section">
+
+        <div class="poetic">
+
+          <p>
+            از مرگ مگریز؛ که مرگ دشمنِ تو نیست، دروازه‌ی رفتن است و موعدِ رسیدن؛
+            گسستنِ بندی است و گشودنِ راهی.
+          </p>
+
+          <p>
+            مرگ، قابله‌ی جان است؛ تو را از تنگنای خاک می‌رهاند و به فراخنای افلاک می‌رساند؛
+            پرده‌ای است میان تو و حقیقت، که چون ساعتِ رفتن رسد، کنار رود و آنچه پنهان بود،
+            آشکار شود.
+          </p>
+
+          <p>
+            مرا در آن سوی مرگ مجوی؛ که من در همین‌جا با توأم.
+            آن‌گاه که چشم از جهان فروبندی، چشمِ جان بگشایی؛
+            و آنچه امروز نهان می‌بینی، فردا عیان خواهی دید.
+          </p>
+
+          <p>
+            این جهان، سراچه‌ی اقامت نیست؛ رباطِ کاروان است و منزلِ کار.
+            آمدنت برای ماندن نبود، برای رفتن بود؛ و رفتنت برای مردن نیست، برای زادن است.
+          </p>
+
+          <p>
+            مرگ، پایانِ دفتر نیست؛ ورقِ دیگرِ دفتر است.
+            سطری بسته می‌شود تا سطری گشوده شود؛
+            شمعی فرو می‌میرد تا چراغی افروخته شود.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <p class="passage">
+          از مرگ مپرس که چه روز خواهد آمد؛ از خویش بپرس که آن روز، چه خواهی بود.
+          از رفتن مترس؛ از ناآمادگی بترس. که مرگ چیزی بر تو نمی‌افزاید؛
+          آنچه هستی، آشکار می‌سازد.
+        </p>
+
+        <p class="passage">
+          مرگ، آینه‌ی زندگی است؛ هرچه کاشته‌ای، درو خواهی کرد؛
+          و هرچه ساخته‌ای، با خود خواهی برد. در آن روز، نه نام می‌ماند و نه ننگ؛
+          نه مال می‌ماند و نه جاه؛ آنچه می‌ماند، دل است و آنچه در دل نشانده‌ای.
+        </p>
+
+        <div class="emphasis">
+          اگر دلت به نور خو گرفته باشد، مرگ طلوع است؛
+          و اگر در تاریکی زیسته باشی، همان طلوع، چشمت را خواهد آزرد.
+        </div>
+
+        <p class="passage">
+          مرگ، پرده‌برداشتن است؛ حقیقت را آشکار کردن و باطن را پدیدار کردن.
+        </p>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="poetic">
+
+          <p>
+            پس چراغِ جان خویش را روشن بدار؛ دل را از کینه بشوی،
+            زبان را از دروغ بپیرای، و دست را به مهر بیارای.
+            که آن سوی پرده، زر و زیور نمی‌ماند؛ نام و نشان نمی‌ماند؛
+            تنها جان می‌ماند و آنچه در جان نشانده‌ای.
+          </p>
+
+          <p>
+            این جهان، مدرسه‌ی جان است و هر روزش درسی؛ هر رنج، هشداری؛
+            هر دیدار، پیامی؛ هر جدایی، پرده‌ای؛ و هر پایان، آغازی.
+          </p>
+
+          <p>
+            پس سبک‌بار زی؛ که رهروِ راهِ دور، بارِ بسیار برنمی‌گیرد.
+            دل از فانی برگیر و به باقی بسپار؛ دیده از خاک بردار و به افلاک بدوز؛
+            که آن‌که دل در خاک بندد، از آسمان بازماند، و آن‌که روی به نور آرد،
+            به روشنایی رسد.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <p class="passage">
+          و چون ساعتِ رفتن رسد، مترس؛ که آن ساعت، ساعتِ گم‌شدن نیست،
+          ساعتِ یافتن است؛ ساعتِ خاموشی نیست، ساعتِ شنیدن است؛
+          ساعتِ فراق نیست، ساعتِ رسیدن است.
+        </p>
+
+        <div class="emphasis">
+          چنان برو که قطره به دریا پیوندد، پرنده به آسمان برآید،
+          و شعله به خورشید بپیوندد؛ سبک‌بار از خاک، دل‌سپرده به افلاک؛
+          رها از خویش، پیوسته به دوست.
+        </div>
+
+        <p class="passage">
+          تو را از خاک برگرفتم تا از خاک برآیی و به افلاک بازآیی.
+          تن را به خاک بسپار، که خاک امانتِ زمین است؛
+          و جان را به من سپار، که جان امانتِ آسمان است.
+        </p>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="poetic">
+
+          <p>
+            آنچه از خاک در تو بود، به خاک بازگردد؛
+            و آنچه از نور در تو نهاده بودم، به نور بازآید.
+            تو فرزندِ خاکی، اما خاک همه‌ی تو نیست؛
+            ریشه‌ات در زمین است و رویت به آسمان؛
+            پیکرت از خاک است و جانت از نور.
+          </p>
+
+          <p>
+            خاک از تو دست خواهد شست و افلاک تو را در بر خواهد گرفت؛
+            زمین امانتِ خویش بازخواهد ستاند و آسمان امانتِ خویش بازخواهد پذیرفت.
+          </p>
+
+          <p>
+            پس چون آخرین گام را بر خاک نهادی، مپندار که راه به پایان رسیده است؛
+            پای از منزلِ خاک بیرون می‌نهی تا قدم در راهِ افلاک نهی؛
+            از زمین به آسمان، از سایه به آفتاب، از کثرت به وحدت.
+          </p>
+
+        </div>
+
+        <div class="emphasis">
+          مرگ، آخرین پله نیست؛ نخستین پله‌ی عروج است.<br>
+          فرودِ تن است و فرازِ جان؛ خاموشیِ خاک است و بیداریِ نور؛
+          بسته‌شدنِ دری است و گشوده‌شدنِ درهای بی‌کران.
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <p class="passage">
+          و چون از خاک برآیی، افلاک را غریب مبین؛ که راهِ تو از زمین آغاز شد،
+          اما برای آسمان بود. ریشه در خاک داشتی تا قامت به آسمان کشی؛
+          در زمین نشستی تا در افلاک برخیزی.
+        </p>
+
+        <p class="passage">
+          پس برو؛ نه چنان‌که گویی می‌روی، بلکه چنان‌که گویی فراخوانده می‌شوی؛
+          نه چنان‌که چیزی را از دست می‌دهی، بلکه چنان‌که پرده‌ای از پیشِ چشمت کنار می‌رود؛
+          نه چنان‌که خاموش می‌شوی، بلکه چنان‌که چراغی از چراغی فروزان‌تر می‌گردد.
+        </p>
+
+        <p class="passage">
+          و چون آخرین ذره‌ی خاک از دامانِ جانت فرو ریزد، نورِ نخستینت را بازخواهی شناخت؛
+          همان نوری که پیش از خاک با تو بود و پس از خاک نیز با تو خواهد ماند.
+        </p>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="poetic">
+
+          <p>
+            من تو را از خاک برآوردم، اما برای خاک نیافریدم؛
+            در زمین نشاندمت، اما مقصدت زمین نبود؛
+            چراغت در شب افروختم، تا روزِ خویش را بیابی؛
+            و بال در جانت نهادم، تا روزی از مرزِ خاک بگذری
+            و در آسمانِ من پرواز کنی.
+          </p>
+
+          <p>
+            خاک، آغازِ راهِ تو بود؛ آسمان، فراخنای راهِ تو؛
+            و من، مقصدِ راهِ تو.
+          </p>
+
+          <p>
+            پس مرگ را پایان مخوان؛ که پایانِ راه نیست، آغازِ پرواز است؛
+            فرودِ تن است و فرازِ جان؛ خاموشیِ خاک است و بیداریِ نور؛
+            بسته‌شدنِ یک در است و گشوده‌شدنِ هزار در.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <p class="passage">
+          آن‌گاه که خاک، پیکرت را در آغوش گیرد، آسمان، جانت را به سوی خویش خوانَد؛
+          زمین، امانتِ خویش بازستاند، و افلاک، امانتِ خویش بازپذیرد.
+        </p>
+
+        <div class="emphasis">
+          از خاک برآی و به افلاک رو؛ از سایه برآی و به آفتاب رس؛
+          از کثرت برآی و به وحدت پیوند؛ از خویش برآی و به دوست رس.
+        </div>
+
+        <p class="passage">
+          بارِ خاک فرو نه و بالِ افلاک بگشا؛ از تنگنای زمین برآی
+          و در فراخنای آسمان درآی؛ از بندِ تن بره و به آزادیِ جان رس؛
+          از پرده بگذر و به دیدار رس.
+        </p>
+
+        <p class="passage">
+          و چون از آسمان نیز بگذری، بدان که آسمان آخرین منزل نیست؛
+          پس از هر آسمان، آسمانی است؛ پس از هر نور، نوری است؛
+          پس از هر دیدار، دیداری است؛ تا راه همه نور شود و نور همه حضور شود.
+        </p>
+
+      </section>
+
+
+      <section class="section">
+
+        <p class="passage">
+          آن‌گاه نه خاک می‌ماند و نه افلاک؛ نه رفتن می‌ماند و نه رسیدن؛
+          نه فاصله می‌ماند و نه فراق؛ که تن به خاک بازگشته،
+          جان به نور پیوسته، دل به دوست رسیده است.
+        </p>
+
+        <div class="final-verse">
+
+          <p>و این است بازگشت:</p>
+
+          <p>
+            <strong>
+              از خاک برآمدن،<br>
+              به افلاک رسیدن؛<br>
+              از سایه گذشتن،<br>
+              به آفتاب رسیدن؛<br>
+              از کثرت رستن،<br>
+              به وحدت پیوستن؛<br>
+              از خویش گذشتن،<br>
+              به دوست رسیدن.
+            </strong>
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="final-verse">
+
+          <p>و آن‌گاه:</p>
+
+          <p>
+            <strong>
+              تن به خاک بازگردد،<br>
+              جان به نور برآید؛<br>
+              دل از خویش رها شود،<br>
+              و جان به جانان رسد.
+            </strong>
+          </p>
+
+        </div>
+
+        <div class="emphasis">
+          آنجا نه مرگ ماند و نه بیم؛<br>
+          نه راه ماند و نه گام؛<br>
+          نه پرده ماند و نه نگاه؛<br>
+          که تو رسیده‌ای، و من آشکار شده‌ام.
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="last-word">
+
+          <p>و این است پایانِ راه:</p>
+
+          <p>
+            <strong>
+              خاک به اصل بازگردد؛<br>
+              نور به نور پیوندد؛<br>
+              جان به جانان رسد؛<br>
+              و دوست در دوست محو شود.
+            </strong>
+          </p>
+
+          <p>
+            نه پایانِ بودن، که آغازِ دیدن؛<br>
+            نه خاموشیِ جان، که بیداریِ جان؛<br>
+            نه گسستنِ راه، که پیوستنِ راه؛<br>
+            نه دوریِ دوست، که حضورِ دوست.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </article>
+
+
+  <!-- پاورقی -->
+  <footer>
+    <span class="star">✦</span>
+    لوح نوزدهم · در مرگ، رهایی و بازگشت به سوی من
+    <span class="star">✦</span>
+  </footer>
+
+</div>
+
+</body>
+  </html>
