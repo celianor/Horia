@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لوح بیست‌ویکم | در آزادی و اختیار آدمی</title>
+
+    <meta name="description"
+          content="لوح بیست‌ویکم؛ در آزادی و اختیار و حق گزینش آدمی">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600&display=swap');
+
+        :root {
+            --paper: #f3ead7;
+            --paper-light: #faf5e9;
+            --ink: #30291f;
+            --muted: #756957;
+            --gold: #a78343;
+            --gold-soft: #c7aa70;
+            --border: rgba(135, 105, 54, 0.35);
+            --shadow: rgba(46, 36, 23, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(190, 159, 94, 0.18),
+                    transparent 32rem
+                ),
+                linear-gradient(
+                    135deg,
+                    #e7dac0 0%,
+                    #f3ead7 48%,
+                    #e5d6b8 100%
+                );
+            color: var(--ink);
+            font-family: "Amiri", serif;
+            line-height: 2.35;
+        }
+
+        /* نوار پیمایش */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(48, 41, 31, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(199, 170, 112, 0.35);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .navigation {
+            max-width: 920px;
+            margin: auto;
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+        }
+
+        .nav-link {
+            color: #eadcbf;
+            text-decoration: none;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 0.88rem;
+            padding: 7px 13px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            transition: 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff8e8;
+            border-color: rgba(199, 170, 112, 0.55);
+            background: rgba(199, 170, 112, 0.08);
+        }
+
+        .nav-title {
+            color: var(--gold-soft);
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* صفحه */
+
+        .page {
+            width: min(920px, calc(100% - 28px));
+            margin: 55px auto 80px;
+            padding: 65px clamp(25px, 6vw, 80px) 85px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 8%,
+                    rgba(167, 131, 67, 0.07),
+                    transparent 26rem
+                ),
+                var(--paper);
+
+            border: 1px solid var(--border);
+            box-shadow:
+                0 22px 70px var(--shadow),
+                inset 0 0 80px rgba(126, 91, 38, 0.05);
+
+            position: relative;
+        }
+
+        /* حاشیهٔ داخلی */
+
+        .page::before {
+            content: "";
+            position: absolute;
+            inset: 15px;
+            border: 1px solid rgba(167, 131, 67, 0.18);
+            pointer-events: none;
+        }
+
+        /* سرآغاز */
+
+        .opening {
+            text-align: center;
+            margin-bottom: 65px;
+            position: relative;
+        }
+
+        .opening-symbol {
+            color: var(--gold);
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .opening h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            color: #403324;
+            letter-spacing: -0.02em;
+        }
+
+        .opening h2 {
+            margin: 10px 0 22px;
+            font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .opening-line {
+            width: 150px;
+            height: 1px;
+            margin: 25px auto;
+            background: linear-gradient(
+                to left,
+                transparent,
+                var(--gold),
+                transparent
+            );
+        }
+
+        .opening-note {
+            color: #806e54;
+            font-size: 0.95rem;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        /* متن */
+
+        article {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            margin: 0 0 47px;
+        }
+
+        .section p {
+            margin: 0 0 19px;
+            font-size: clamp(1.08rem, 2vw, 1.22rem);
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .invocation {
+            color: #765625;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 18px !important;
+        }
+
+        .emphasis {
+            margin: 27px auto !important;
+            padding: 18px 24px;
+            max-width: 650px;
+            text-align: center !important;
+            color: #684d22;
+            font-weight: 700;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .verse {
+            margin: 30px auto;
+            text-align: center;
+            color: #57472f;
+            font-size: 1.25rem;
+            line-height: 2.5;
+        }
+
+        /* جداکننده */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 55px auto;
+            color: var(--gold);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            width: 85px;
+            background: linear-gradient(
+                to left,
+                transparent,
+                var(--border)
+            );
+        }
+
+        .divider::after {
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--border)
+            );
+        }
+
+        .divider span {
+            font-size: 1.1rem;
+        }
+
+        /* پایان */
+
+        .closing {
+            margin-top: 70px;
+            padding-top: 42px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .closing-symbol {
+            color: var(--gold);
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            margin: 5px 0;
+            font-size: 1.3rem;
+            color: #58472f;
+        }
+
+        .closing strong {
+            display: block;
+            margin-top: 22px;
+            color: #705321;
+            font-size: 1.45rem;
+        }
+
+        /* دکمهٔ بازگشت به بالا */
+
+        .back-top {
+            display: inline-flex;
+            margin-top: 35px;
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--muted);
+            text-decoration: none;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 0.8rem;
+            transition: 0.25s ease;
+        }
+
+        .back-top:hover {
+            color: var(--ink);
+            background: rgba(167, 131, 67, 0.08);
+        }
+
+        /* واکنش‌گرا */
+
+        @media (max-width: 600px) {
+
+            .topbar {
+                position: relative;
+            }
+
+            .navigation {
+                min-height: 52px;
+                padding: 0 10px;
+            }
+
+            .nav-title {
+                display: none;
+            }
+
+            .page {
+                width: calc(100% - 14px);
+                margin: 20px auto 35px;
+                padding: 45px 22px 55px;
+            }
+
+            .page::before {
+                inset: 9px;
+            }
+
+            .opening {
+                margin-bottom: 45px;
+            }
+
+            .section {
+                margin-bottom: 37px;
+            }
+
+            .section p {
+                text-align: right;
+                line-height: 2.3;
+            }
+
+            .emphasis {
+                padding: 15px 10px;
+            }
+
+            .divider {
+                margin: 40px auto;
+            }
+
+            .divider::before,
+            .divider::after {
+                width: 45px;
+            }
+        }
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            .topbar,
+            .back-top {
+                display: none;
+            }
+
+            .page {
+                margin: 0;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- نوار ناوبری -->
+    <header class="topbar">
+        <nav class="navigation" aria-label="ناوبری اصلی">
+
+            <a class="nav-link"
+               href="index.html"
+               aria-label=" https://celianor.github.io/Horia/index.fa.html ">
+                ⌂ خانه
+            </a>
+
+            <span class="nav-title">
+                لوح‌های جان
+            </span>
+
+            <a class="nav-link"
+               href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html"
+               aria-label="بازگشت به صفحهٔ پیشین">
+                بازگشت ↩
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- متن لوح -->
+    <main class="page">
+
+        <header class="opening">
+
+            <div class="opening-symbol">✦</div>
+
+            <h1>لوح بیست‌ویکم</h1>
+
+            <h2>
+                در آزادی و اختیار و حق گزینش آدمی
+            </h2>
+
+            <div class="opening-line"></div>
+
+            <div class="opening-note">
+                در باب آزادی، اختیار، انتخاب و پاسخِ آدمی
+            </div>
+
+        </header>
+
+
+        <article>
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    تو را از خاک سرشتم و سرِّ اختیار در سرشتت نوشتم؛
+                    چشم دادم تا ببینی، گوش دادم تا بشنوی،
+                    دل دادم تا بیندیشی، و ارادت دادم تا برگزینی.
+                </p>
+
+                <p>
+                    راه‌ها گشودم و قدم از تو نستاندم؛
+                    درها باز نهادم و کلید به دست تو سپردم؛
+                    چراغ برافروختم و رفتن را به تو واگذاشتم.
+                </p>
+
+                <p>
+                    که اگر اختیار نبودی، آری و نه یکسان بود؛
+                    و اگر گزینش نبودی، طاعت و عصیان هم‌بها بود؛
+                    و آن‌که راهِ گزیدن ندارد،
+                    آزادی او را نشاید و نام آزاده بر او ننشیند.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    آزادی آن نیست که هرچه خواهی بکنی
+                    و هر دری که بینی بشکنی؛
+                    آزادی آن است که حقِ خواستن از تو نستانند
+                    و درِ جانت به دست دیگری نبندند.
+                </p>
+
+                <p>
+                    این حق را کسی به تو نبخشیده است
+                    تا کسی بتواند از تو بازستاند.
+                </p>
+
+                <p>
+                    نَفَس را به عاریت نداده‌اند
+                    که فردا بازخواهند؛
+                    و اختیار را به امانتِ دیگری نسپرده‌اند
+                    که دیگری صاحب آن شود.
+                </p>
+
+                <p>
+                    من در تو نهادم؛
+                    چنان‌که جان نهادم،
+                    و چنان‌که راز عشق در تو گشودم.
+                </p>
+
+                <p>
+                    اگر گفتی «آری»، آریِ تو از آنِ توست؛
+                    و اگر گفتی «نه»، نهِ تو نیز از آنِ توست.
+                </p>
+
+                <p class="emphasis">
+                    که آریِ بی‌نه، آری نیست؛<br>
+                    و پذیرفتنِ بی‌توانِ نپذیرفتن، پذیرفتن نیست؛<br>
+                    و اختیاری که مجالِ خلاف در آن نباشد،<br>
+                    اسارتی است آراسته به جامهٔ اختیار.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    راه را نشانت دادم، اما به راهت نکشاندم؛
+                    حجت را روشن کردم، اما گردنت را به زنجیر نبستم؛
+                    نیکی را شناساندم، اما به زور به نیکی نراندم.
+                </p>
+
+                <p>
+                    که نیکی به جبر، تن را ببرد و دل را نبرد؛
+                    صورتش نیکو نماید و سیرتش تهی بماند.
+                </p>
+
+                <p>
+                    نیکی آن است که دل با قدم همراه شود
+                    و دست و دل یک سخن گویند.
+                </p>
+
+                <p>
+                    محبت را به تازیانه نتوان نشاند
+                    و مهمان را به چوب بر در نتوان خواند.
+                </p>
+
+                <p>
+                    دل خانه‌ای لطیف است
+                    و درِ آن از اندرون گشاده شود.
+                </p>
+
+                <p>
+                    هر که به زور درِ دل بشکند،
+                    در نگشوده، خانه ویران کرده است؛
+                    که شکستن فتح نیست
+                    و اجبار محبت نیست.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    حقیقت را از پرسش چه باک؟
+                </p>
+
+                <p>
+                    آفتاب از نگاه چشم نگریزد
+                    و دریا از پرسش تشنه نهراسد.
+                </p>
+
+                <p>
+                    آن‌که از سؤال ترسد،
+                    هنوز در سرای یقین منزل نگرفته است.
+                </p>
+
+                <p>
+                    پس اگر ندانی، بپرس؛
+                    اگر شک آید، بیندیش؛
+                    اگر روشن شد، بپذیر؛
+                    و اگر هنوز دلت گواهی نداده است،
+                    شتاب مکن در سر فرود آوردن.
+                </p>
+
+                <p class="emphasis">
+                    که ایمانِ بی‌بصیرت، عادت است؛<br>
+                    و اطاعتِ بی‌آگاهی، عادتِ بندگان.
+                </p>
+
+                <p>
+                    من سایه‌ای نمی‌خواهم
+                    که هر جا فرمان رفت، برود
+                    و هر جا فرمان ایستاد، بایستد.
+                </p>
+
+                <p>
+                    آدمی می‌خواهم:
+                    چشم‌گشاده، دل‌آگاه، خردمند و آزاده؛
+                    ببیند و بسنجد،
+                    بشنود و بیندیشد،
+                    و آنگاه برگزیند.
+                </p>
+
+                <p class="verse">
+                    که گزینشِ آگاهانه،<br>
+                    از آدمی آدمی سازد.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    آزادی حق توست؛
+                    اما حق را حسابی است
+                    و اختیار را کتابی.
+                </p>
+
+                <p>
+                    اختیار تو را از پاسخ‌گویی معاف نکند،
+                    بل تو را به پاسخ‌گویی خوانَد.
+                </p>
+
+                <p class="emphasis">
+                    هر که را دست گشاده‌تر،<br>
+                    دامنِ پاسخ درازتر.
+                </p>
+
+                <p>
+                    تو دانه می‌کاری و من باران می‌فرستم؛
+                    تو قصد می‌کنی و جهان پاسخ خویش می‌دهد؛
+                    تو راهی برمی‌گزینی
+                    و آن راه، اندک‌اندک، تو را برمی‌گزیند.
+                </p>
+
+                <p>
+                    هر که خار کارد، پای خویش خراشد؛
+                    و هر که گل نشاند، اگر دیر، بوی گل یابد.
+                </p>
+
+                <p>
+                    هر که کینه پراکند، تلخی درود؛
+                    و هر که مهر پاشد،
+                    اگرچه دیر، سایه‌ای از مهر بیابد.
+                </p>
+
+                <p class="verse">
+                    انتخاب از توست<br>
+                    و پیامد نیز با تو.
+                </p>
+
+                <p>
+                    این دو را از یکدیگر جدا مکن.
+                    آزادی دشمنِ پاسخ نیست؛
+                    پاسخ، سایهٔ آزادی است.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    اگر خطا کردی، مگو راه بسته است؛
+                    که درِ بازگشت را نبسته‌ام.
+                </p>
+
+                <p>
+                    اگر امروز دیدی که دیروز خطا رفتی،
+                    امروز نیز دستِ اختیار در دست توست.
+                </p>
+
+                <p>
+                    رفتن بسیار است و برگشتن اندک؛
+                    قدم نهادن آسان و قدم پس نهادن دل می‌خواهد.
+                </p>
+
+                <p>
+                    بازگشت شکست اختیار نیست؛
+                    گاه بلندترین نشان اختیار است.
+                </p>
+
+                <p>
+                    کیست آزاده‌تر از آن‌که بر رأی دیروز خویش بشورد
+                    و پیشِ حقیقت، خویشتن را نو کند؟
+                </p>
+
+                <p>
+                    آن‌که خطا دید و بازنگشت،
+                    بندهٔ دیروز خویش است؛
+                    و آن‌که دید و برگشت،
+                    اگرچه دیر، آزادِ امروز خویش.
+                </p>
+
+                <p class="verse">
+                    خوشا دلی که از اعتراف نلرزد<br>
+                    و خوشا جانی که از بازگشت شرم نکند.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    تو تنها راه برنمی‌گزینی؛
+                    خویشتن را نیز برمی‌سازی.
+                </p>
+
+                <p>
+                    هر «آری» که بر زبان رانی،
+                    مهمانی به سرای جان درآوری؛
+                    و هر «نه» که گویی،
+                    مهمانی را از خانه برانی.
+                </p>
+
+                <p>
+                    دل آهسته‌آهسته صورتِ آن گیرد
+                    که بسیار با او نشیند.
+                </p>
+
+                <p>
+                    آب اگر در گلزار ماند، بوی گل گیرد؛
+                    و اگر در مرداب بماند، بوی مرداب.
+                </p>
+
+                <p>
+                    دل نیز چنین است.
+                    هرچه بسیار بینی، رنگ آن پذیری؛
+                    هرچه بسیار خواهی، شبیه آن شوی؛
+                    و هرچه بسیار برگزینی،
+                    سرانجام پاره‌ای از تو گردد.
+                </p>
+
+                <p>
+                    پس نیک بنگر با دل خویش چه می‌کنی؛
+                    که دل کودکِ خاموشِ توست
+                    و هرچه آموزی، همان پرورد.
+                </p>
+
+                <p>
+                    و نیک بنگر عمر را به که می‌سپاری؛
+                    که عمر مهمانی است بی‌خبر
+                    و چون برخیزد، باز ننشیند.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    آزادی را با هوس یکی مگیر.
+                </p>
+
+                <p>
+                    آن‌که هرچه خواهش گفت، کرد، آزاد نیست؛
+                    بندهٔ خواهش خویش است.
+                </p>
+
+                <p>
+                    آن‌که خشمش فرمان دهد، اسیر خشم است؛
+                    آن‌که شهوتش براند، اسیر شهوت؛
+                    و آن‌که کینه‌اش راند، اسیر کینه.
+                </p>
+
+                <p>
+                    آزاد آن نیست که هیچ بند ندارد؛
+                    آزاد آن است که بند بر گردن او فرمان نراند.
+                </p>
+
+                <p>
+                    اختیار را به تو دادم
+                    تا بر خویشتن نیز اختیار داشته باشی.
+                </p>
+
+                <p>
+                    چون خشم گوید: «بزن»،
+                    دست نگه داری؛
+                    چون خواهش گوید: «بستان»،
+                    دست بگشایی؛
+                    چون کینه گوید: «کین بخواه»،
+                    درِ بخشایش باز کنی؛
+                    و چون نفس گوید: «منم»،
+                    بگویی: «دیگری نیز هست.»
+                </p>
+
+                <p class="emphasis">
+                    این است آزادگی:<br><br>
+                    توانستن و نکردن؛<br>
+                    قدرت داشتن و ستم نکردن؛<br>
+                    توانِ گرفتن و بخشیدن؛<br>
+                    توانِ گفتن و گاه خاموش ماندن.
+                </p>
+
+                <p>
+                    که مرد آن نیست که هرچه تواند، کند؛
+                    مرد آن است که بسیار تواند
+                    و جز آنچه شایسته است، نکند.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    آزادی تو را مرزی است؛
+                    نه از آن‌که آزادی اندک است،
+                    بل از آن‌که دیگری نیز آدمی است.
+                </p>
+
+                <p>
+                    تو حق داری و او نیز؛
+                    تو دل داری و او نیز؛
+                    تو زبان داری و او نیز؛
+                    تو اختیار داری و او نیز.
+                </p>
+
+                <p>
+                    پس به نام خیر، اختیارش مستان؛
+                    به نام حقیقت، زبانش مبند؛
+                    به نام محبت، دلش مجبور مکن؛
+                    و به نام من، بر گردن هیچ آدمی زنجیر منه.
+                </p>
+
+                <p>
+                    من تو را آزاد خواستم،
+                    نه آن‌که دیگری را اسیر سازی.
+                </p>
+
+                <p class="emphasis">
+                    چه سود از آزادی<br>
+                    که از آزادیِ دیگری بکاهد؟
+                </p>
+
+                <p>
+                    آن‌کس که بر پای دیگری زنجیر نهد،
+                    اگر هزار بار نام آزادی برد،
+                    هنوز زنجیرِ خویش بر گردن دارد.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای دوست!</p>
+
+                <p>
+                    هر شیرینی نعمت نیست
+                    و هر تلخی مصیبت نیست.
+                </p>
+
+                <p>
+                    بسا رنجی که در آغاز رنج بود
+                    و در انجام، راهِ نجات شد؛
+                    و بسا لذتی که در ابتدا نوش نمود
+                    و در انتها دام و آتش شد.
+                </p>
+
+                <p>
+                    پس هر میل را فرمان مبر
+                    و هر ترس را دلیل مشمار.
+                </p>
+
+                <p>
+                    در سرای دل، صداها بسیار است:
+                    یکی از خشم خیزد،
+                    یکی از خواهش،
+                    یکی از ترس،
+                    یکی از عادت؛
+                    و گاه ندایی از ژرفای جان برآید.
+                </p>
+
+                <p>
+                    همه صداها حق نیستند.
+                    اندکی خاموش شو
+                    تا ندای روشن‌تر بشنوی.
+                </p>
+
+                <p>
+                    غبار هوس از آینهٔ دل بزدای؛
+                    که آینه چون غبار گیرد،
+                    ماه را کژ نماید
+                    و خورشید را تیره پندارد.
+                </p>
+
+                <p class="emphasis">
+                    گاه بزرگ‌ترین آزادی،<br>
+                    رهایی از خویشتنِ ناآگاه است؛<br>
+                    و بزرگ‌ترین فتح، فتحِ نفس.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    همه چیز در دست تو نیست.
+                </p>
+
+                <p>
+                    باران را تو نبارانی،
+                    اما زیر باران می‌توانی خویشتن باشی؛
+                    باد را تو نرانی،
+                    اما بادبان خویش می‌توانی گردانی؛
+                    رنج را همیشه نتوانی راند،
+                    اما پاسخ خویش به رنج،
+                    بسیاری وقت، از آنِ توست.
+                </p>
+
+                <p>
+                    جهان همه فرمان‌بردار تو نیست؛
+                    اما خویشتنِ تو تا بسیار در دست توست.
+                </p>
+
+                <p class="emphasis">
+                    میان آنچه بر تو رود<br>
+                    و آنچه از تو آید،<br>
+                    خانه‌ای است که نامش اختیار.
+                </p>
+
+                <p>
+                    پس بر آنچه از تو نیست، دل میازار؛
+                    و آنچه از توست، به غفلت مسپار.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    از تو بی‌خطایی نخواستم؛
+                    بیداری خواستم.
+                </p>
+
+                <p>
+                    نگفتم هرگز نیفتی؛
+                    گفتم افتادن را پایان خویش ندانی.
+                </p>
+
+                <p>
+                    نگفتم هرگز شک نکنی؛
+                    گفتم شک را خانهٔ ابدی نسازی.
+                </p>
+
+                <p>
+                    نگفتم تا پایان عمر بر باور دیروز بمانی.
+                </p>
+
+                <p>
+                    اگر امروز حق را روشن‌تر دیدی،
+                    از دیروز خویش شرم مدار.
+                    مگر کودک دیروز،
+                    پدرِ امروز خویش نیست؟
+                </p>
+
+                <p>
+                    آدمی هر بامداد
+                    باید چیزی از خویشتن دیروز بکاهد
+                    و چیزی از حقیقت بر خویش بیفزاید.
+                </p>
+
+                <p>
+                    بازگشت به حق شکست نیست؛
+                    شکست آن است که حق را ببینی
+                    و از بیم مردم پشت بدان کنی.
+                </p>
+
+                <p>
+                    چه بسیار کسان که از بیم دگرگونی
+                    در خطای خویش پیر شدند؛
+                    و چه اندک‌اند آنان که چون حقیقت را دیدند،
+                    خویشتن را برای حقیقت نو کردند.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    آزادی حق توست؛
+                    اختیار شأن تو؛
+                    انتخاب کار تو؛
+                    و پاسخ، عهد تو.
+                </p>
+
+                <p>
+                    تو را به راه نکشاندم؛
+                    راه را نشانت دادم.
+                </p>
+
+                <p>
+                    تو را به گزینش وادار نکردم؛
+                    حق گزینش را نگاه داشتم.
+                </p>
+
+                <p>
+                    تو را از خطا مصون نکردم؛
+                    راه بازگشت را بر تو نبستم.
+                </p>
+
+                <p>
+                    پس اگر لغزیدی، برخیز؛
+                    اگر گم شدی، بجوی؛
+                    اگر خسته شدی، اندکی بیاسای؛
+                    و اگر دانستی که خطا رفته‌ای، بازگرد.
+                </p>
+
+                <p>
+                    زمین هنوز زیر پای توست؛
+                    آسمان هنوز بر سر تو؛
+                    درِ رحمت هنوز گشوده؛
+                    و فرصتِ گزینش هنوز باقی.
+                </p>
+
+                <p class="verse">
+                    مگو: «دیر شد.»<br>
+                    تا نفس باقی است، راه باقی است؛<br>
+                    و تا راه باقی است، بازگشت ممکن است.
+                </p>
+
+            </section>
+
+
+            <div class="divider"><span>❈</span></div>
+
+
+            <section class="section">
+
+                <p class="invocation">ای آدمی!</p>
+
+                <p>
+                    بذر در دست توست.
+                </p>
+
+                <p>
+                    هرچه کاری، در انتظار همان باش.
+                </p>
+
+                <p>
+                    نه از زمین شکایت کن که چرا خار رویاند،
+                    چون خار در او نهاده‌ای؛
+                    و نه از باغ گله کن که چرا گل نداد،
+                    چون بذر گل بر زمینش نکاشته‌ای.
+                </p>
+
+                <p>
+                    من باران می‌فرستم؛
+                    فصل می‌آورم؛
+                    زمین را زنده می‌دارم؛
+                    اما دانه را تو می‌کاری.
+                </p>
+
+                <p class="emphasis">
+                    پس نیکو برگزین،<br>
+                    آزادانه بگزین،<br>
+                    و به عاقبت بیندیش.
+                </p>
+
+                <p class="verse">
+                    بذر از توست؛<br>
+                    کِشت از توست؛<br>
+                    زمین میدان توست؛<br>
+                    و ثمر، پاسخِ انتخاب تو.
+                </p>
+
+            </section>
+
+
+            <section class="section">
+
+                <p>
+                    و بدان که هر انتخاب،
+                    نامه‌ای است که به دست خویش می‌نویسی؛
+                    و هر قدم، سطری است از کتاب جانت.
+                </p>
+
+                <p>
+                    پس کتاب خویش را به دست غفلت مسپار.
+                </p>
+
+                <p>
+                    اگر می‌توانی، نیکی کن؛
+                    اگر نمی‌توانی، ستم مکن.
+                </p>
+
+                <p>
+                    اگر نمی‌دانی، بپرس؛
+                    اگر دانستی، فروتن باش.
+                </p>
+
+                <p>
+                    اگر خطا کردی، بازگرد؛
+                    اگر به حق رسیدی، مغرور مشو.
+                </p>
+
+                <p class="emphasis">
+                    آزاد باش، اما آزاده باش؛<br>
+                    مختار باش، اما پاسخ‌گو باش؛<br>
+                    برگزین، اما به چشم باز؛<br>
+                    و راه رو، اما دل از حقیقت برمگردان.
+                </p>
+
+                <p>
+                    که آزادی عطیه است؛
+                    اختیار امانت؛
+                    انتخاب آزمون؛
+                    و پاسخ، عهدِ آن امانت.
+                </p>
+
+            </section>
+
+
+            <!-- پایان -->
+
+            <footer class="closing">
+
+                <div class="closing-symbol">✦</div>
+
+                <p>
+                    خوشا انسانی که امانت اختیار را
+                    در راه هوس ضایع نکند
+                    و برای به بند کشیدن دیگری به کار نبرد؛
+                    بل از آن پلی سازد
+                    برای رهایی از نادانی، کینه، ترس و نفس.
+                </p>
+
+                <strong>
+                    این است آزادی؛<br>
+                    و این است آزادگی.
+                </strong>
+
+                <p>
+                    هر که خویشتن را از بند خویش رهانید،
+                    اگرچه در تنگنای جهان باشد، آزاد است؛
+                    و هر که بر خویشتن امیر نشد،
+                    اگرچه بر هزار تن امیر باشد، هنوز بنده است.
+                </p>
+
+                <p class="verse">
+                    پس ای آدمی،<br>
+                    قدم از تو، راه از تو، گزینش از تو؛<br>
+                    و من، در هر راهی که به سوی حق بازگردی،<br>
+                    درِ رحمت را بر تو بسته نمی‌گذارم.
+                </p>
+
+                <a class="back-top" href="#top">
+                    بازگشت به آغاز لوح ↑
+                </a>
+
+            </footer>
+
+        </article>
+
+    </main>
+
+</body>
+  </html>
