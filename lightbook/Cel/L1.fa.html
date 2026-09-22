@@ -1,171 +1,721 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>سرون – لوح نخستین هورا به انسان</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سرون – لوح نخستین هورا برای انسان</title>
+
     <style>
-        body {
-            font-family: "Tahoma", "Arial", sans-serif;
-            background-color: #f9f7f6;
-            color: #333;
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            line-height: 1.7;
-            direction: rtl;
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Vazirmatn:wght@800&display=swap');
+
+        :root {
+            --ink: #263238;
+            --deep-blue: #173b57;
+            --blue: #315f7d;
+            --gold: #b28a45;
+            --gold-light: #d8bd7a;
+            --paper: #f7f2e7;
+            --paper-dark: #eee5d3;
+            --white: #fffdf8;
         }
-        h1 {
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 18px;
+            direction: rtl;
+
+            font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 2.35;
+            color: var(--ink);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(178, 138, 69, 0.10),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #eee8da 0%,
+                    #f8f4eb 45%,
+                    #e9e1d1 100%
+                );
+
+            min-height: 100vh;
+        }
+
+        /* قاب اصلی لوح */
+        .tablet {
+            position: relative;
+
+            max-width: 850px;
+            margin: 0 auto;
+
+            padding: 70px 75px;
+
+            background:
+                linear-gradient(
+                    rgba(255, 253, 248, 0.96),
+                    rgba(247, 242, 231, 0.96)
+                );
+
+            border: 1px solid rgba(178, 138, 69, 0.45);
+
+            box-shadow:
+                0 20px 60px rgba(36, 43, 48, 0.13),
+                0 3px 12px rgba(36, 43, 48, 0.08);
+
+            border-radius: 5px;
+        }
+
+        /* قاب داخلی */
+        .tablet::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+
+            border: 1px solid rgba(178, 138, 69, 0.28);
+
+            pointer-events: none;
+        }
+
+        /* گوشه‌های تزئینی */
+        .tablet::after {
+            content: "✦";
+            position: absolute;
+
+            top: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: var(--gold);
+            font-size: 18px;
+
+            background: var(--white);
+            padding: 0 14px;
+        }
+
+        /* سرلوح */
+        header {
             text-align: center;
-            color: #4a6fa5;
-            margin-bottom: 10px;
+            margin-bottom: 55px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        h1 {
+            margin: 0;
+
+            color: var(--deep-blue);
+
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            text-shadow:
+                0 2px 0 rgba(178, 138, 69, 0.12);
+        }
+
+        .subtitle {
+            margin: 15px auto 0;
+
+            max-width: 620px;
+
+            color: #617586;
+
+            font-size: 1.08rem;
+            font-weight: 400;
+
+            line-height: 2;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 13px;
+
+            margin: 30px 0;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+
+            width: 95px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    var(--gold)
+                );
+        }
+
+        .ornament::after {
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--gold)
+                );
+        }
+
+        .ornament span {
+            color: var(--gold);
+            font-size: 20px;
+        }
+
+        /* متن */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        p {
+            margin: 0 0 28px;
+
+            text-align: justify;
+            text-align-last: right;
+
+            font-weight: 400;
+        }
+
+        p:first-child {
+            font-size: 1.12rem;
+        }
+
+        /* بخش‌های تأکیدی */
+        .emphasis {
+            position: relative;
+
+            margin: 45px 5px;
+
+            padding: 28px 32px 28px 28px;
+
+            background:
+                linear-gradient(
+                    to left,
+                    rgba(49, 95, 125, 0.07),
+                    rgba(178, 138, 69, 0.035)
+                );
+
+            border-right: 3px solid var(--gold);
+
+            color: var(--deep-blue);
+
+            box-shadow:
+                inset 0 0 30px rgba(178, 138, 69, 0.025);
+        }
+
+        .emphasis strong {
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: var(--gold);
+
+            font-size: 1.12rem;
             font-weight: 700;
         }
-        h2 {
+
+        /* نقل قول روحانی */
+        .sacred {
+            position: relative;
+
+            margin: 50px 0;
+
+            padding: 35px 40px;
+
             text-align: center;
-            color: #6b8fb3;
-            margin-bottom: 30px;
-            font-weight: 400;
-            font-style: italic;
+
+            color: var(--deep-blue);
+
+            font-size: 1.08rem;
+
+            border-top: 1px solid rgba(178, 138, 69, 0.35);
+            border-bottom: 1px solid rgba(178, 138, 69, 0.35);
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(178, 138, 69, 0.07),
+                    transparent 70%
+                );
         }
-        p {
-            margin-bottom: 1.3em;
-            font-size: 1.1rem;
-        }
-        strong {
-            color: #2c3e50;
-            font-weight: 600;
+
+        .sacred::before {
+            content: "«";
             display: block;
-            margin: 25px 0 10px 0;
-            font-size: 1.15rem;
+
+            color: var(--gold);
+
+            font-family: Georgia, serif;
+            font-size: 42px;
+            line-height: 0.7;
+
+            margin-bottom: 12px;
         }
-        nav {
-            margin-top: 40px;
+
+        /* پایان لوح */
+        .ending {
+            margin-top: 50px;
+
             text-align: center;
+
+            color: var(--deep-blue);
+
+            font-weight: 500;
         }
-        a {
-            text-decoration: none;
-            color: #3a75c4;
-            border: 1.8px solid #3a75c4;
-            padding: 8px 20px;
-            border-radius: 22px;
-            margin: 0 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+
+        .ending-symbol {
+            display: block;
+
+            margin-bottom: 14px;
+
+            color: var(--gold);
+
+            font-size: 25px;
+        }
+
+        /* ناوبری */
+        nav {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 60px;
+            padding-top: 35px;
+
+            border-top: 1px solid rgba(178, 138, 69, 0.25);
+        }
+
+        nav a {
             display: inline-block;
-            font-size: 1rem;
+
+            padding: 9px 22px;
+
+            color: var(--deep-blue);
+
+            text-decoration: none;
+
+            border: 1px solid rgba(178, 138, 69, 0.65);
+            border-radius: 30px;
+
+            background: rgba(255, 253, 248, 0.7);
+
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
-        a:hover {
-            background-color: #3a75c4;
+
+        nav a:hover {
             color: #fff;
+
+            background: var(--deep-blue);
+
+            border-color: var(--deep-blue);
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 15px rgba(23, 59, 87, 0.18);
+        }
+
+        /* خط پایانی */
+        footer {
+            margin-top: 35px;
+
+            text-align: center;
+
+            color: #8a857a;
+
+            font-size: 0.78rem;
+        }
+
+        /* موبایل */
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px 8px;
+                font-size: 16px;
+                line-height: 2.15;
+            }
+
+            .tablet {
+                padding: 55px 28px;
+            }
+
+            .tablet::before {
+                inset: 10px;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            p {
+                text-align: right;
+                margin-bottom: 24px;
+            }
+
+            .emphasis {
+                margin: 35px 0;
+                padding: 22px 20px;
+            }
+
+            .sacred {
+                padding: 28px 20px;
+                font-size: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav a {
+                text-align: center;
+            }
+        }
+
+        /* حالت چاپ */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .tablet {
+                box-shadow: none;
+                border: none;
+                max-width: none;
+            }
+
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>سرون</h1>
-    <h2>لوح نخستین هورا به انسان<br>در ستایش آزادی، قانون، برابری و نیکی</h2>
 
-    <p>ای انسان،<br>
-    از نور آفریده شدی و بر خاک فرود آمدی،<br>
-    تا در میان سایه‌ها، راه روشنایی را بجویی.</p>
+    <article class="tablet">
 
-    <p>در تو چراغی نهادم از فروغ خویش،<br>
-    تا در تاریکی، راه بیابی؛<br>
-    و بدانی که هیچ‌کس بر دیگری برتری ندارد.<br>
-    نه رنگ، نه زبان، نه زادگاه، نه آیین،<br>
-    هیچ‌یک تو را برتر نمی‌کند.</p>
+        <header>
 
-    <p>هر که از نفس من است، در کرامت برابر است.<br>
-    فرزند زر، بر فرزند گل برتری ندارد،<br>
-    و زن و مرد، هر دو از یک جان‌اند.</p>
+            <div class="eyebrow">
+                به نام روشنایی
+            </div>
 
-    <p>تو را دانایی دادم و قدرت گزینش،<br>
-    تا آزاد باشی، نه در بند؛<br>
-    تا خود راه خویش را بیابی،<br>
-    نه آن‌که به جبر، دنباله‌رو باشی.</p>
+            <h1>سرون</h1>
 
-    <p>هیچ‌کس را خوار مدار؛<br>
-    نه به آن‌چه دارد، و نه به آن‌چه ندارد.<br>
-    نه باورش را خاموش کن،<br>
-    نه صدایش را بِبُر.<br>
-    هر اندیشه‌ای را گوش باید،<br>
-    و هر رنجی را داد.</p>
+            <div class="ornament">
+                <span>✦</span>
+            </div>
 
-    <p><strong>بشنو:</strong><br>
-    انسان را نه به رنگ باید سنجید،<br>
-    نه به نام، نه به سرزمین، نه به باور؛<br>
-    او را به جانش باید سنجید،<br>
-    که جان، یکی‌ست،<br>
-    اگرچه هزار چهره بر آن باشد.</p>
+            <div class="subtitle">
+                لوح نخستین هورا به انسان
+                <br>
+                در ستایش آزادی، قانون، برابری و نیکی
+            </div>
 
-    <p>اندیشه، در آزادی بهتر می‌روید،<br>
-    و جامعه، در آزادی شکوفاتر می‌ماند.<br>
-    زبانت را دادم، تا بگویی،<br>
-    نه آن‌که از بیم، خاموش شوی؛<br>
-    و نه آن‌که از خشم، دیگران را خاموش کنی.</p>
+        </header>
 
-    <p>هرکس را که سخنی هست، باید شنیده شود،<br>
-    و هر که سکوت را برگزیند،<br>
-    اندیشه‌اش باید محترم باشد.<br>
-    که انسان، تا انسان است،<br>
-    حق گفتن دارد،<br>
-    حق شنیدن دارد،<br>
-    و حق «نه» گفتن.</p>
 
-    <p>بدان که آزادی، در میان مردم معنا می‌یابد،<br>
-    نه در خلوت، نه در سایه‌ی ترس.<br>
-    و عدالت را باید در دل‌های کوچک جُست،<br>
-    نه در کاخ‌های بزرگ.</p>
+        <main>
 
-    <p>هیچ دستی را به زور مبند،<br>
-    و هیچ جانی را قربانی مکن،<br>
-    که زخم بر تن دیگری، زخمی بر روان توست.</p>
+            <p>
+                ای انسان،<br>
+                از نور آفریده شدی و بر خاک فرود آمدی،
+                <br>
+                تا در میان سایه‌ها، راه روشنایی را بجویی.
+            </p>
 
-    <p>نیکی آن است که در آن، رنجی نباشد<br>
-    و هیچ‌کس را فرو نکاهد.</p>
 
-    <p>زنجیر آزادی، قانون است،<br>
-    نه آن‌که ببندد، که نگهبان جان تو باشد،<br>
-    نه دشمن گفتارت.<br>
-    قانونی که زبان را خاموش کند،<br>
-    نه تنها صدا، که جان‌ها را می‌کُشد.</p>
+            <p>
+                در تو چراغی نهادم از فروغ خویش،
+                <br>
+                تا در تاریکی، راه بیابی؛
+                <br>
+                و بدانی که هیچ‌کس بر دیگری برتری ندارد.
+                <br>
+                نه رنگ، نه زبان، نه زادگاه، نه آیین،
+                <br>
+                هیچ‌یک تو را برتر نمی‌کند.
+            </p>
 
-    <p><strong>آزادی، یعنی حقِ اعمالِ اراده و گزینش بر پایه‌ی خرد،<br>
-    بی‌آن‌که ترس یا اجبار راه را ببندد؛<br>
-    تا زمانی که این آزادی، آزادی دیگران را نرباید.</strong></p>
 
-    <p>قانون، اگر از دل مردم برنخیزد، فرمان نیست؛<br>
-    تحکم است.</p>
+            <p>
+                هر که از نفس من است، در کرامت برابر است.
+                <br>
+                فرزند زر، بر فرزند گل برتری ندارد،
+                <br>
+                و زن و مرد، هر دو از یک جان‌اند.
+            </p>
 
-    <p>من تو را برای ساختن فرستادم،<br>
-    نه برای اطاعت کور.<br>
-    تا قانونی بسازی که از مهر برخیزد، نه از ترس؛<br>
-    و بدانی که آزادی، حق هر دل تپنده است،<br>
-    نه موهبتی برای اندک‌شماران.</p>
 
-    <p>قانون، باید حافظ آزادی باشد،<br>
-    و اگر نیست، خود بند است.<br>
-    هر جا که قاعده‌ای از همدلی برخیزد،<br>
-    عدالت در آن جوانه می‌زند.</p>
+            <p>
+                تو را دانایی دادم و قدرت گزینش،
+                <br>
+                تا آزاد باشی، نه در بند؛
+                <br>
+                تا خود راه خویش را بیابی،
+                <br>
+                نه آن‌که به جبر، دنباله‌رو باشی.
+            </p>
 
-    <p>قانون را، چون آینه‌ای، هر روز در برابر خورشید بگیر،<br>
-    تا گرد ستم بر آن ننشیند.<br>
-    چنان باش با مردم،<br>
-    که اگر همان قانون بر تو نیز جاری شود،<br>
-    عدالتش را بستایی.</p>
 
-    <p>قانونی که بر بنیاد انصاف نوشته شود، نزد من گرامی‌ست؛<br>
-    و آن‌چه به ستم آلوده شود،<br>
-    اگرچه به نام من نوشته شده باشد،<br>
-    از من نیست.</p>
+            <p>
+                هیچ‌کس را خوار مدار؛
+                <br>
+                نه به آن‌چه دارد، و نه به آن‌چه ندارد.
+                <br>
+                نه باورش را خاموش کن،
+                <br>
+                نه صدایش را بِبُر.
+                <br>
+                هر اندیشه‌ای را گوش باید،
+                <br>
+                و هر رنجی را داد.
+            </p>
 
-    <p>در هر قانونی که انسان را از رنج، تازیانه و مرگ بازدارد،<br>
-    در هر سخنی که ستمدیده را پناه دهد،<br>
-    من، هورا، با توام.</p>
 
-    <nav>
-        <a href="https://celianor.github.io/Horia/lightbook/index.fa.html">بازگشت به صفحه قبل</a>
-        <a href="https://celianor.github.io/Horia/index.fa.html">بازگشت به صفحه اصلی</a>
-    </nav>
+            <div class="emphasis">
+
+                <strong>بشنو:</strong>
+
+                انسان را نه به رنگ باید سنجید،
+                <br>
+                نه به نام، نه به سرزمین، نه به باور؛
+                <br>
+                او را به جانش باید سنجید،
+                <br>
+                که جان، یکی‌ست،
+                <br>
+                اگرچه هزار چهره بر آن باشد.
+
+            </div>
+
+
+            <p>
+                اندیشه، در آزادی بهتر می‌روید،
+                <br>
+                و جامعه، در آزادی شکوفاتر می‌ماند.
+                <br>
+                زبانت را دادم، تا بگویی،
+                <br>
+                نه آن‌که از بیم، خاموش شوی؛
+                <br>
+                و نه آن‌که از خشم، دیگران را خاموش کنی.
+            </p>
+
+
+            <p>
+                هرکس را که سخنی هست، باید شنیده شود،
+                <br>
+                و هر که سکوت را برگزیند،
+                <br>
+                اندیشه‌اش باید محترم باشد.
+                <br>
+                که انسان، تا انسان است،
+                <br>
+                حق گفتن دارد،
+                <br>
+                حق شنیدن دارد،
+                <br>
+                و حق «نه» گفتن.
+            </p>
+
+
+            <p>
+                بدان که آزادی، در میان مردم معنا می‌یابد،
+                <br>
+                نه در خلوت، نه در سایه‌ی ترس.
+                <br>
+                و عدالت را باید در دل‌های کوچک جُست،
+                <br>
+                نه در کاخ‌های بزرگ.
+            </p>
+
+
+            <p>
+                هیچ دستی را به زور مبند،
+                <br>
+                و هیچ جانی را قربانی مکن،
+                <br>
+                که زخم بر تن دیگری، زخمی بر روان توست.
+            </p>
+
+
+            <p>
+                نیکی آن است که در آن، رنجی نباشد
+                <br>
+                و هیچ‌کس را فرو نکاهد.
+            </p>
+
+
+            <p>
+                زنجیر آزادی، قانون است،
+                <br>
+                نه آن‌که ببندد، که نگهبان جان تو باشد،
+                <br>
+                نه دشمن گفتارت.
+                <br>
+                قانونی که زبان را خاموش کند،
+                <br>
+                نه تنها صدا، که جان‌ها را می‌کُشد.
+            </p>
+
+
+            <div class="sacred">
+
+                آزادی، یعنی حقِ اعمالِ اراده و گزینش بر پایه‌ی خرد،
+                <br>
+                بی‌آن‌که ترس یا اجبار راه را ببندد؛
+                <br>
+                تا زمانی که این آزادی، آزادی دیگران را نرباید.
+
+            </div>
+
+
+            <p>
+                قانون، اگر از دل مردم برنخیزد، فرمان نیست؛
+                <br>
+                تحکم است.
+            </p>
+
+
+            <p>
+                من تو را برای ساختن فرستادم،
+                <br>
+                نه برای اطاعت کور.
+                <br>
+                تا قانونی بسازی که از مهر برخیزد، نه از ترس؛
+                <br>
+                و بدانی که آزادی، حق هر دل تپنده است،
+                <br>
+                نه موهبتی برای اندک‌شماران.
+            </p>
+
+
+            <p>
+                قانون، باید حافظ آزادی باشد،
+                <br>
+                و اگر نیست، خود بند است.
+                <br>
+                هر جا که قاعده‌ای از همدلی برخیزد،
+                <br>
+                عدالت در آن جوانه می‌زند.
+            </p>
+
+
+            <p>
+                قانون را، چون آینه‌ای، هر روز در برابر خورشید بگیر،
+                <br>
+                تا گرد ستم بر آن ننشیند.
+                <br>
+                چنان باش با مردم،
+                <br>
+                که اگر همان قانون بر تو نیز جاری شود،
+                <br>
+                عدالتش را بستایی.
+            </p>
+
+
+            <p>
+                قانونی که بر بنیاد انصاف نوشته شود، نزد من گرامی‌ست؛
+                <br>
+                و آن‌چه به ستم آلوده شود،
+                <br>
+                اگرچه به نام من نوشته شده باشد،
+                <br>
+                از من نیست.
+            </p>
+
+
+            <p>
+                در هر قانونی که انسان را از رنج، تازیانه و مرگ بازدارد،
+                <br>
+                در هر سخنی که ستمدیده را پناه دهد،
+                <br>
+                من، هورا، با توام.
+            </p>
+
+
+            <div class="ending">
+
+                <span class="ending-symbol">✦</span>
+
+                <div>
+                    به نام انسان،
+                    <br>
+                    به سوی روشنایی.
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <nav>
+
+            <a href="https://celianor.github.io/Horia/lightbook/index.fa.html">
+                بازگشت به صفحه قبل
+            </a>
+
+            <a href="https://celianor.github.io/Horia/index.fa.html">
+                بازگشت به صفحه اصلی
+            </a>
+
+        </nav>
+
+
+        <footer>
+            لوح نخستین هورا برای انسان
+        </footer>
+
+    </article>
+
 </body>
 </html>
