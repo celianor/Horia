@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لوح بیست و دوم | در دادگری و برابریِ جان‌ها</title>
+
+    <meta name="description"
+          content="لوح بیست و دوم؛ در دادگری و برابری جان‌ها">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --night: #07120f;
+            --deep: #0b1d18;
+            --green: #12372d;
+            --green-soft: #1b4b3d;
+            --gold: #d6b76a;
+            --gold-light: #f1dda0;
+            --cream: #f4ecd5;
+            --text: #e9e1cb;
+            --muted: #a9b19f;
+            --glass: rgba(18, 47, 39, .58);
+            --border: rgba(214, 183, 106, .24);
+            --shadow: rgba(0, 0, 0, .38);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 50% -10%, rgba(214,183,106,.14), transparent 34%),
+                radial-gradient(circle at 10% 40%, rgba(39,103,81,.18), transparent 30%),
+                linear-gradient(145deg, var(--night), var(--deep) 48%, #071511);
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            line-height: 2.35;
+            overflow-x: hidden;
+        }
+
+        /* --------------------------
+           آسمان و ستارگان
+        -------------------------- */
+
+        .sky {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            opacity: .45;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        .star:nth-child(1) { top: 8%; left: 13%; animation-delay: .5s; }
+        .star:nth-child(2) { top: 17%; left: 74%; animation-delay: 1.2s; }
+        .star:nth-child(3) { top: 31%; left: 87%; animation-delay: 2s; }
+        .star:nth-child(4) { top: 44%; left: 8%; animation-delay: 1.7s; }
+        .star:nth-child(5) { top: 58%; left: 92%; animation-delay: .8s; }
+        .star:nth-child(6) { top: 72%; left: 19%; animation-delay: 2.4s; }
+        .star:nth-child(7) { top: 81%; left: 78%; animation-delay: 1.1s; }
+        .star:nth-child(8) { top: 91%; left: 43%; animation-delay: 3s; }
+        .star:nth-child(9) { top: 25%; left: 48%; animation-delay: .3s; }
+        .star:nth-child(10) { top: 67%; left: 61%; animation-delay: 1.9s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: .9; transform: scale(1.7); }
+        }
+
+        .glow {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: rgba(214,183,106,.055);
+            filter: blur(50px);
+            pointer-events: none;
+            z-index: -1;
+            animation: drift 16s infinite alternate ease-in-out;
+        }
+
+        .glow.one {
+            top: 5%;
+            right: -170px;
+        }
+
+        .glow.two {
+            bottom: 10%;
+            left: -190px;
+            animation-delay: -7s;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(-25px) translateX(0); }
+            to { transform: translateY(30px) translateX(35px); }
+        }
+
+        /* --------------------------
+           نوار پیشرفت
+        -------------------------- */
+
+        .progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,.04);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            box-shadow: 0 0 14px rgba(214,183,106,.7);
+        }
+
+        /* --------------------------
+           ناوبری
+        -------------------------- */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(5, 19, 15, .72);
+            border-bottom: 1px solid rgba(214,183,106,.1);
+        }
+
+        .nav-inner {
+            width: min(1100px, calc(100% - 32px));
+            margin: auto;
+            min-height: 66px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-family: "Amiri", serif;
+            font-size: 1.2rem;
+            letter-spacing: .02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: var(--muted);
+            border: 1px solid transparent;
+            padding: 7px 14px;
+            border-radius: 999px;
+            transition: .3s ease;
+            font-size: .88rem;
+        }
+
+        .nav-btn:hover {
+            color: var(--gold-light);
+            border-color: var(--border);
+            background: rgba(214,183,106,.06);
+            transform: translateY(-1px);
+        }
+
+        /* --------------------------
+           هدر
+        -------------------------- */
+
+        .hero {
+            width: min(1000px, calc(100% - 32px));
+            margin: 0 auto;
+            min-height: 76vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 0 70px;
+        }
+
+        .seal {
+            width: 88px;
+            height: 88px;
+            border: 1px solid rgba(214,183,106,.48);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            color: var(--gold-light);
+            font-family: "Amiri", serif;
+            font-size: 1.7rem;
+            box-shadow:
+                0 0 35px rgba(214,183,106,.08),
+                inset 0 0 24px rgba(214,183,106,.05);
+            animation: breathe 5s infinite ease-in-out;
+        }
+
+        .seal::before,
+        .seal::after {
+            content: "";
+            position: absolute;
+            inset: -9px;
+            border: 1px solid rgba(214,183,106,.09);
+            border-radius: 50%;
+        }
+
+        .seal::after {
+            inset: -17px;
+            border-color: rgba(214,183,106,.045);
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 35px rgba(214,183,106,.08);
+            }
+            50% {
+                transform: scale(1.035);
+                box-shadow: 0 0 50px rgba(214,183,106,.15);
+            }
+        }
+
+        .chapter-number {
+            color: var(--gold);
+            font-size: .92rem;
+            letter-spacing: .18em;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: "Amiri", Georgia, serif;
+            color: var(--cream);
+            font-size: clamp(2.7rem, 7vw, 5.5rem);
+            line-height: 1.2;
+            font-weight: 400;
+            text-shadow: 0 3px 30px rgba(0,0,0,.35);
+        }
+
+        .subtitle {
+            margin-top: 22px;
+            color: var(--muted);
+            font-family: "Amiri", serif;
+            font-size: clamp(1.1rem, 2vw, 1.45rem);
+        }
+
+        .ornament {
+            margin: 34px 0 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: .5em;
+        }
+
+        /* --------------------------
+           متن
+        -------------------------- */
+
+        main {
+            width: min(850px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        .tablet {
+            position: relative;
+            padding: 55px clamp(22px, 6vw, 75px);
+            margin-bottom: 70px;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(22,57,47,.62),
+                    rgba(8,29,23,.72)
+                );
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.25),
+                inset 0 1px 0 rgba(255,255,255,.025);
+            backdrop-filter: blur(10px);
+        }
+
+        .tablet::before {
+            content: "✦";
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            color: rgba(214,183,106,.3);
+            font-size: 1rem;
+        }
+
+        .tablet::after {
+            content: "✦";
+            position: absolute;
+            bottom: 24px;
+            left: 30px;
+            color: rgba(214,183,106,.3);
+            font-size: 1rem;
+        }
+
+        .opening {
+            text-align: center;
+            font-family: "Amiri", serif;
+            font-size: clamp(1.45rem, 3vw, 1.9rem);
+            color: var(--gold-light);
+            line-height: 2.25;
+            margin-bottom: 45px;
+        }
+
+        .section {
+            margin: 45px 0;
+        }
+
+        p {
+            font-family: "Amiri", serif;
+            font-size: clamp(1.2rem, 2.1vw, 1.46rem);
+            line-height: 2.35;
+            color: var(--text);
+            margin: 0 0 24px;
+            text-align: justify;
+            text-align-last: right;
+        }
+
+        .emphasis {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .verse {
+            margin: 38px -10px;
+            padding: 25px 28px;
+            border-right: 2px solid var(--gold);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(214,183,106,.055)
+            );
+            color: #eee3c3;
+        }
+
+        .verse p {
+            margin: 0;
+        }
+
+        .question {
+            text-align: center;
+            padding: 30px 15px;
+            margin: 48px 0;
+            color: var(--gold-light);
+            font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+            font-family: "Amiri", serif;
+        }
+
+        .question::before {
+            content: "❖";
+            display: block;
+            color: var(--gold);
+            font-size: .8rem;
+            margin-bottom: 12px;
+        }
+
+        .closing {
+            margin-top: 55px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .closing p {
+            text-align: center;
+            color: var(--gold-light);
+        }
+
+        /* --------------------------
+           پایان و دکمه‌ها
+        -------------------------- */
+
+        .end-ornament {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.3rem;
+            letter-spacing: .6em;
+            margin: 65px 0 20px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 25px 0 70px;
+        }
+
+        .action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(18,55,45,.45);
+            color: var(--text);
+            text-decoration: none;
+            transition: .3s ease;
+            font-size: .9rem;
+        }
+
+        .action:hover {
+            color: var(--gold-light);
+            background: rgba(214,183,106,.09);
+            border-color: rgba(214,183,106,.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 55px;
+            border-top: 1px solid rgba(214,183,106,.08);
+            color: #768176;
+            font-size: .8rem;
+        }
+
+        /* --------------------------
+           دکمه بازگشت به بالا
+        -------------------------- */
+
+        .top {
+            position: fixed;
+            left: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--gold-light);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            background: rgba(6,25,20,.82);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(15px);
+            pointer-events: none;
+            transition: .35s ease;
+            z-index: 90;
+        }
+
+        .top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* --------------------------
+           واکنش‌گرایی
+        -------------------------- */
+
+        @media (max-width: 650px) {
+
+            .nav-inner {
+                min-height: 58px;
+            }
+
+            .brand {
+                font-size: 1rem;
+            }
+
+            .nav-btn {
+                padding: 6px 9px;
+                font-size: .78rem;
+            }
+
+            .hero {
+                min-height: 68vh;
+                padding-top: 80px;
+            }
+
+            .seal {
+                width: 72px;
+                height: 72px;
+                font-size: 1.35rem;
+            }
+
+            .tablet {
+                padding: 40px 20px;
+                border-radius: 20px;
+            }
+
+            p {
+                text-align: right;
+                font-size: 1.2rem;
+                line-height: 2.3;
+            }
+
+            .verse {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 20px 17px;
+            }
+
+            .top {
+                left: 14px;
+                bottom: 14px;
+            }
+        }
+
+        /* --------------------------
+           حالت کاهش حرکت
+        -------------------------- */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- آسمان -->
+    <div class="sky" aria-hidden="true">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+    </div>
+
+    <!-- نوار پیشرفت -->
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- ناوبری -->
+    <nav>
+        <div class="nav-inner">
+
+            <a class="brand" href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+                دفترِ لوح‌ها
+            </a>
+
+            <div class="nav-links">
+                <a class="nav-btn" href="https://celianor.github.io/Horia/index.fa.html">
+                    خانه
+                </a>
+
+                <a class="nav-btn" href="https://celianor.github.io/Horia/lightbook/index.fa.html">
+                    ← بازگشت
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- هدر -->
+    <header class="hero">
+
+        <div class="seal">
+            ✦
+        </div>
+
+        <div class="chapter-number">
+            لَوْحِ بیست و دوم
+        </div>
+
+        <h1>
+            در دادگری و برابریِ جان‌ها
+        </h1>
+
+        <div class="subtitle">
+            میزانِ حق، آنجاست که خواهشِ خویش را فرو نهی.
+        </div>
+
+        <div class="ornament">
+            ــ ✦ ــ
+        </div>
+
+    </header>
+
+    <!-- متن اصلی -->
+    <main>
+
+        <article class="tablet">
+
+            <div class="opening">
+                ای جان، دانی که داد، نه راست‌داشتنِ ترازوست؛
+                <br>
+                بلکه راست‌داشتنِ شرفِ آن، آرزوست.
+            </div>
+
+            <section class="section">
+
+                <p>
+                    آن‌که درستی را به زبان شناخته و به هنگامِ سود،
+                    در مصافِ نفس با انصاف شرف را باخته،
+                    سود را از زیان نشناخته،
+                    ترازو به دست دارد و میزان ز کف انداخته.
+                </p>
+
+                <p>
+                    بسا ترازو که در بازار راست است و در سینه کژ و کاست؛
+                    بسا زبان که در وصفِ داد شیواست و در معاملهٔ خویش بی‌پرواست.
+                </p>
+
+            </section>
+
+            <section class="verse">
+
+                <p>
+                    خواهشِ تو را با مصلحت چه کار،
+                    که میانِ مصلحت و خواهش، فاصله بسیار؛
+                    <br>
+                    آز را تدبیر منام،
+                    که تدبیر بیدار است و آز ناهشیار؛
+                    <br>
+                    آز، نیاز است و تدبیر، نماز.
+                </p>
+
+            </section>
+
+            <div class="question">
+                آز از جنس خاک است و تدبیر از افلاک
+            </div>
+
+            <section class="section">
+
+                <p>
+                    درستی به نامِ تو، نه دگرگون بشود،
+                    و راستی به سودِ تو خم نشود؛
+                    آفتاب را به خواهشِ درویش،
+                    چه توان که از مدارِ خویش برگردانده شود؟
+                </p>
+
+                <p>
+                    ای جان،
+                    همهٔ آدمیان را از یک خاک سرشتم و به یک دم زنده کردم؛
+                    پس در گوهرِ جان، این و آن را امتیازی نیست؛
+                    جهان را ز خواستِ داد آکنده کردم،
+                    چنان‌که در قطراتِ باران، یکی را بر دیگری فخر و نازی نیست.
+                </p>
+
+                <p>
+                    توانگر نه به زر است عزیز،
+                    و توانا را نه از ناتوانی گریز؛
+                    که مال، گذراست و وبال،
+                    و جاه، ابتلاست و خیال.
+                </p>
+
+                <p>
+                    هر که دستش فرازتر،
+                    باید که دلش با دیگران انبازتر؛
+                    که بلندیِ دست، اگر دستگیرِ افتاده نشود،
+                    مایهٔ آزار است، نه بایستهٔ افتخار.
+                </p>
+
+            </section>
+
+            <section class="verse">
+
+                <p>
+                    درختِ پُربار، سر فرود آرد،
+                    نه آنکه بر درختانِ بی‌بار نازد؛
+                    چراغِ بلند، راهِ رهگذران روشن کند،
+                    نه آنکه بر تاریک‌راهان بتازد.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <p>
+                    اگر مالی افزون دادم،
+                    بخششِ افزون خواستم؛
+                    اگر قدرتی سپردم،
+                    انصافِ افزون طلبیدم.
+                </p>
+
+                <p>
+                    توانایی را دلیلِ برتری مپندار؛
+                    که سیل نیز بر همه‌چیز چیره شود،
+                    و چیرگی‌اش جز ویرانی و آوار نباشد.
+                </p>
+
+                <p>
+                    مردمان را به جامه و جایگاه مسنج؛
+                    به آن هنگام بنگر که می‌توانست بستاند و نستاند،
+                    می‌توانست بشکند و درگذشت،
+                    توانِ گرفتن داشت و بخشید و گذشت،
+                    که شمشیر را به بُرندگی نستایند،
+                    آنگاه که در نیام ماند؛
+                    مرد را نیز به توانستن نستایند،
+                    بلکه به توانستن و نکردن.
+                </p>
+
+            </section>
+
+            <div class="question">
+                داد، بی‌رحمی نیست،
+                <br>
+                و بخشایش، وانهادنِ داد نیست.
+            </div>
+
+            <section class="section">
+
+                <p>
+                    نه چندان سخت‌گیر که دلی بگریزد،
+                    نه چندان سست که داد، با بیداد درآمیزد.
+                </p>
+
+                <p>
+                    گاه داد در بخشیدن است و گاه در بازداشتن؛
+                    گاه در گفتن است و گاه در خاموش ماندن.
+                </p>
+
+                <p>
+                    مردمان را به مال مسنج؛
+                    که چه بسیار گمنام که نامشان نزدِ من سایهٔ رحمت است،
+                    و چه بسیار نام‌آور که در میزانِ من مایهٔ محنت است.
+                </p>
+
+            </section>
+
+            <section class="verse">
+
+                <p>
+                    بسا گوهر که در خاک است پنهان،
+                    و بسا مینای سبک که بر تاج است درخشان.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <p>
+                    تو را به سنجیدنِ بندگان نگماشتم؛
+                    به راست‌داشتنِ خویش فریضه‌ات داشتم.
+                </p>
+
+                <p>
+                    اگر میانِ سودِ خود و سهمِ دیگری درماندی،
+                    بدان که میدانِ آزمون را نیک بخواندی.
+                </p>
+
+            </section>
+
+            <div class="question">
+
+                اگر راست به زیانِ تو بود،
+                <br>
+                باز آن را راست دانی؟
+                <br><br>
+
+                اگر انصاف چیزی از تو بکاهد،
+                <br>
+                باز همین نماز بخوانی؟
+                <br><br>
+
+                اگر گذشت، غرورِ تو بشکند،
+                <br>
+                باز توانی که در راه بمانی؟
+
+            </div>
+
+            <section class="section">
+
+                <p>
+                    آزادی آن نیست که هرچه خواهی کنی؛
+                    آزادی آن است که برخلافِ خواهش،
+                    بر حق بایستی.
+                </p>
+
+                <p>
+                    بسیارند آزاد‌نمایان که بندهٔ نفس‌اند،
+                    و بسیارند دربند‌افتادگان که دل از بند رسته
+                    و از آزادگی آکنده‌اند.
+                </p>
+
+                <p>
+                    مرغِ در قفس، گاه آزادتر از شاهینِ بی‌بند است؛
+                    چون جانش از قفس رسته و پرهای آزش به کمند است.
+                </p>
+
+            </section>
+
+            <section class="verse">
+
+                <p>
+                    پس اگر آزادی خواهی،
+                    <br>
+                    نخست از خویشتن آزاد شو:
+                    <br><br>
+
+                    از آزِ دیده‌شدن،
+                    <br>
+                    از بیمِ فروافتادن،
+                    <br>
+                    از خواهشِ برتر نشستن.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <p>
+                    اگر بر مسندی نشستی،
+                    نشاید که بپویی راه را از سر مستی؛
+                    که مسند از آنِ تو نیست،
+                    از آنِ مردم است و راستی،
+                    و قدرت، امانت است،
+                    نه مایهٔ خودآرایی و کاستی.
+                </p>
+
+                <p>
+                    اگر مالی به دستت آمد،
+                    بدان که دستِ تو گذرگاهِ نعمت است،
+                    نه زندانِ آن.
+                </p>
+
+                <p>
+                    اگر دلی به تو سپردند،
+                    ملکِ خویش مپندار؛
+                    که دل امانت است، نه غنیمت.
+                </p>
+
+                <p>
+                    و اگر دستِ بالا یافتی،
+                    همان دم را غنیمت شمار؛
+                    که قدرت، پیش از دیگران،
+                    صاحبِ خود را می‌آزماید.
+                </p>
+
+            </section>
+
+            <section class="verse">
+
+                <p>
+                    توانگری به دل است، نه به مال؛
+                    که بسا درویشِ برون که توانگرِ درون است،
+                    و بسا توانگرِ مفتون که درویشِ مجنون است.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <p>
+                    روزی آید که پرده‌ها فروافتد و نام‌ها بی‌معنا گردد؛
+                    آن روز، نه آنچه داشتی به کار آید،
+                    آنچه کردی به کار آید؛
+                    نه آنکه بر چند تن فرمان راندی،
+                    آنکه دلِ چند تن نیازردی.
+                </p>
+
+                <p>
+                    میزان را از امروز راست دار، که فردا دیر است؛
+                    حق را آنگاه نگاه دار که به زیانِ توست؛
+                    و انصاف را آنگاه به‌جا آور
+                    که سودت در خلافِ آن است.
+                </p>
+
+            </section>
+
+            <div class="question">
+
+                که یک حق، به بهایِ فروگذاشتنِ خویش،
+                <br>
+                از هزار بتِ زرین برای بزرگ‌داشتنِ خویش،
+                <br>
+                سنگین‌تر است.
+
+            </div>
+
+            <section class="section closing">
+
+                <p>
+                    پس ای جان،
+                    <br>
+                    داد این است که حق را،
+                    اگرچه بر ضدِّ تو باشد، حق بدانی؛
+                </p>
+
+                <p>
+                    آزادی این است که خواهشِ خویش را،
+                    در برابرِ حق، فرو نهی؛
+                </p>
+
+                <p>
+                    و کرامت این است که میانِ خود و راستی،
+                    خویشتن را واگذاری.
+                </p>
+
+                <p class="emphasis">
+                    خوشا آن دل که از خویش سبک است و از راستی گران؛
+                    <br>
+                    خوشا آن دست که می‌توانست و نگرفت؛
+                    <br>
+                    خوشا آن جان که خود را در ترازو کم نهاد،
+                    <br>
+                    تا حق را تمام بنهد.
+                </p>
+
+            </section>
+
+        </article>
+
+        <div class="end-ornament">
+            ✦ ــ ✦ ــ ✦
+        </div>
+
+        <!-- دکمه‌های ناوبری -->
+        <div class="actions">
+
+            <a class="action" href="index.html">
+                ⌂ &nbsp; خانه
+            </a>
+
+            <a class="action" href="javascript:history.back()">
+                ← &nbsp; بازگشت
+            </a>
+
+            <a class="action" href="#top">
+                ↑ &nbsp; ابتدای لوح
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        لوح بیست و دوم · در دادگری و برابریِ جان‌ها
+    </footer>
+
+    <!-- بازگشت شناور به بالا -->
+    <a class="top" id="topButton" href="#top" aria-label="بازگشت به ابتدای صفحه">
+        ↑
+    </a>
+
+    <script>
+
+        /* --------------------------
+           نوار پیشرفت مطالعه
+        -------------------------- */
+
+        const progressBar = document.getElementById("progressBar");
+
+        function updateProgress() {
+
+            const scrollTop = window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            const progress =
+                documentHeight > 0
+                    ? (scrollTop / documentHeight) * 100
+                    : 0;
+
+            progressBar.style.width = progress + "%";
+        }
+
+        window.addEventListener("scroll", updateProgress, {
+            passive: true
+        });
+
+
+        /* --------------------------
+           نمایش دکمه بازگشت به بالا
+        -------------------------- */
+
+        const topButton = document.getElementById("topButton");
+
+        function toggleTopButton() {
+
+            if (window.scrollY > 500) {
+                topButton.classList.add("visible");
+            } else {
+                topButton.classList.remove("visible");
+            }
+        }
+
+        window.addEventListener("scroll", toggleTopButton, {
+            passive: true
+        });
+
+
+        /* --------------------------
+           حرکت بسیار ملایم نور
+        -------------------------- */
+
+        document.addEventListener("mousemove", (event) => {
+
+            const x = (event.clientX / window.innerWidth - 0.5) * 20;
+            const y = (event.clientY / window.innerHeight - 0.5) * 20;
+
+            document.querySelector(".glow.one").style.transform =
+                `translate(${x}px, ${y}px)`;
+
+        });
+
+    </script>
+
+</body>
+  </html>
