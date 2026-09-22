@@ -1,1354 +1,1299 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>آوازِ آزادی؛ حکایتِ اراده و کرامتِ انسان</title>
-
-  <meta name="description"
-        content="آواز آزادی؛ حکایت اراده و کرامت انسان — روایتی شاعرانه درباره آزادی، انتخاب، عشق، مسئولیت و حرمت اراده.">
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
-
-    :root {
-      --night: #101827;
-      --night-soft: #182438;
-      --gold: #d8b56a;
-      --gold-light: #f1dca3;
-      --cream: #f7f1e5;
-      --paper: #fffdf8;
-      --ink: #29313d;
-      --muted: #687080;
-      --line: rgba(216, 181, 106, 0.28);
-      --shadow: 0 25px 70px rgba(16, 24, 39, 0.16);
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    html {
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 15% 10%, rgba(216,181,106,.12), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(126,151,181,.13), transparent 30%),
-        linear-gradient(135deg, #f2ecdf, #fbf8f0 48%, #eee8dc);
-      font-family: "Vazirmatn", Tahoma, sans-serif;
-      line-height: 2.25;
-    }
-
-    /* ------------------------------
-       نوار بالایی
-    ------------------------------ */
-
-    .topbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-
-      height: 68px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(16, 24, 39, .88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(216,181,106,.22);
-      box-shadow: 0 8px 30px rgba(0,0,0,.12);
-    }
-
-    .nav {
-      width: min(1180px, 92%);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      color: var(--gold-light);
-      text-decoration: none;
-      font-family: "Amiri", serif;
-      font-size: 1.25rem;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-links a {
-      color: #f8f1df;
-      text-decoration: none;
-      padding: 7px 13px;
-      border-radius: 999px;
-      font-size: .88rem;
-      transition: .25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-light);
-      background: rgba(216,181,106,.1);
-    }
-
-    /* ------------------------------
-       قهرمان
-    ------------------------------ */
-
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      padding: 150px 20px 110px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-
-      color: white;
-      background:
-        radial-gradient(circle at 50% 35%,
-          rgba(216,181,106,.22),
-          transparent 22%),
-        radial-gradient(circle at 20% 80%,
-          rgba(100,130,165,.22),
-          transparent 30%),
-        linear-gradient(145deg,
-          #0b1220,
-          #162237 55%,
-          #0c1422);
-    }
-
-    .stars {
-      position: absolute;
-      inset: 0;
-      opacity: .55;
-      pointer-events: none;
-
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(216,181,106,.55) 1px, transparent 1.5px);
-
-      background-size: 83px 83px, 137px 137px;
-      background-position: 15px 20px, 50px 70px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(900px, 94%);
-      text-align: center;
-    }
-
-    .eyebrow {
-      color: var(--gold-light);
-      font-size: .9rem;
-      letter-spacing: .18em;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-family: "Amiri", serif;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 1.05;
-      font-weight: 700;
-      color: #fff9ea;
-
-      text-shadow:
-        0 4px 35px rgba(216,181,106,.18);
-    }
-
-    .hero h2 {
-      margin: 20px 0 0;
-      color: var(--gold-light);
-      font-family: "Amiri", serif;
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-weight: 400;
-    }
-
-    .hero-line {
-      width: 110px;
-      height: 1px;
-      margin: 38px auto 28px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--gold),
-        transparent
-      );
-    }
-
-    .hero-intro {
-      max-width: 680px;
-      margin: auto;
-      color: rgba(255,255,255,.78);
-      font-size: 1.05rem;
-      line-height: 2.25;
-    }
-
-    /* ------------------------------
-       دکمه‌ها
-    ------------------------------ */
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 35px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      min-width: 135px;
-      padding: 10px 20px;
-
-      border-radius: 999px;
-      text-decoration: none;
-
-      font-size: .9rem;
-      transition: .25s ease;
-    }
-
-    .button-primary {
-      color: #172131;
-      background: linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold)
-      );
-      box-shadow: 0 8px 25px rgba(216,181,106,.18);
-    }
-
-    .button-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 13px 32px rgba(216,181,106,.25);
-    }
-
-    .button-outline {
-      color: #f9f2e0;
-      border: 1px solid rgba(216,181,106,.5);
-      background: rgba(255,255,255,.03);
-    }
-
-    .button-outline:hover {
-      background: rgba(216,181,106,.1);
-      color: var(--gold-light);
-    }
-
-    /* ------------------------------
-       فهرست
-    ------------------------------ */
-
-    .contents {
-      width: min(900px, 92%);
-      margin: -45px auto 70px;
-      position: relative;
-      z-index: 5;
-
-      background: rgba(255,253,248,.92);
-      border: 1px solid rgba(216,181,106,.25);
-      border-radius: 24px;
-      padding: 28px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .contents-title {
-      margin: 0 0 18px;
-      text-align: center;
-      font-family: "Amiri", serif;
-      font-size: 1.6rem;
-      color: var(--night);
-    }
-
-    .contents-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .contents a {
-      color: var(--ink);
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 12px;
-      transition: .2s ease;
-    }
-
-    .contents a:hover {
-      color: #82662c;
-      background: rgba(216,181,106,.1);
-    }
-
-    /* ------------------------------
-       متن اصلی
-    ------------------------------ */
-
-    main {
-      width: min(920px, 92%);
-      margin: auto;
-    }
-
-    article {
-      background:
-        linear-gradient(
-          rgba(255,253,248,.96),
-          rgba(255,253,248,.96)
-        );
-      border-radius: 30px;
-      padding: clamp(30px, 6vw, 75px);
-
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(216,181,106,.18);
-    }
-
-    .section {
-      scroll-margin-top: 90px;
-      margin-bottom: 95px;
-    }
-
-    .section:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-title {
-      position: relative;
-      margin: 0 0 35px;
-      padding-bottom: 18px;
-
-      text-align: center;
-      font-family: "Amiri", serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      color: var(--night);
-    }
-
-    .section-title::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 50%;
-      transform: translateX(50%);
-
-      width: 80px;
-      height: 1px;
-
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          var(--gold),
-          transparent
-        );
-    }
-
-    p {
-      margin: 0 0 25px;
-      font-size: 1.03rem;
-    }
-
-    .opening {
-      font-family: "Amiri", serif;
-      font-size: 1.35rem;
-      line-height: 2.35;
-      color: #3b4350;
-    }
-
-    .verse {
-      margin: 38px 0;
-      padding: 28px 30px;
-
-      border-right: 3px solid var(--gold);
-      border-radius: 15px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(216,181,106,.09),
-          rgba(216,181,106,.025)
-        );
-
-      font-family: "Amiri", serif;
-      font-size: 1.25rem;
-      line-height: 2.3;
-      color: #333b48;
-    }
-
-    .verse strong {
-      color: #765a25;
-    }
-
-    .emphasis {
-      margin: 45px 0;
-
-      text-align: center;
-
-      font-family: "Amiri", serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      line-height: 2;
-
-      color: #6d5424;
-    }
-
-    .dialogue {
-      padding: 25px 28px;
-      margin: 35px 0;
-
-      background: rgba(236,231,218,.38);
-      border-radius: 18px;
-
-      font-family: "Amiri", serif;
-      font-size: 1.15rem;
-    }
-
-    .final {
-      margin-top: 80px;
-      padding-top: 55px;
-
-      border-top: 1px solid var(--line);
-
-      text-align: center;
-    }
-
-    .final p {
-      font-family: "Amiri", serif;
-      font-size: 1.35rem;
-    }
-
-    .final-quote {
-      margin-top: 45px;
-
-      font-family: "Amiri", serif;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      line-height: 1.8;
-      color: #735823;
-    }
-
-    /* ------------------------------
-       فوتر
-    ------------------------------ */
-
-    footer {
-      margin-top: 90px;
-      padding: 65px 20px;
-
-      text-align: center;
-
-      color: rgba(255,255,255,.72);
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(216,181,106,.1),
-          transparent 35%
-        ),
-        #101827;
-    }
-
-    footer .symbol {
-      color: var(--gold-light);
-      font-family: "Amiri", serif;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    footer p {
-      font-size: .9rem;
-      margin: 5px;
-    }
-
-    /* ------------------------------
-       دکمه بازگشت به بالا
-    ------------------------------ */
-
-    .back-top {
-      position: fixed;
-      left: 22px;
-      bottom: 22px;
-      z-index: 999;
-
-      width: 46px;
-      height: 46px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      color: #182131;
-      background: var(--gold-light);
-
-      text-decoration: none;
-      font-size: 1.2rem;
-
-      box-shadow: 0 10px 25px rgba(0,0,0,.16);
-
-      transition: .25s ease;
-    }
-
-    .back-top:hover {
-      transform: translateY(-4px);
-      background: #f6e6b6;
-    }
-
-    /* ------------------------------
-       موبایل
-    ------------------------------ */
-
-    @media (max-width: 700px) {
-
-      .topbar {
-        height: 60px;
-      }
-
-      .brand {
-        font-size: 1rem;
-      }
-
-      .nav-links a {
-        padding: 6px 9px;
-        font-size: .78rem;
-      }
-
-      .nav-links a:nth-child(2) {
-        display: none;
-      }
-
-      .hero {
-        min-height: 86vh;
-        padding-top: 120px;
-      }
-
-      .contents-grid {
-        grid-template-columns: 1fr;
-      }
-
-      article {
-        padding: 30px 22px;
-        border-radius: 20px;
-      }
-
-      p {
-        font-size: .98rem;
-      }
-
-      .verse {
-        padding: 20px;
-        font-size: 1.12rem;
-      }
-
-      .dialogue {
-        padding: 20px;
-      }
-    }
-
-    /* ------------------------------
-       چاپ
-    ------------------------------ */
-
-    @media print {
-
-      .topbar,
-      .back-top,
-      .actions,
-      .contents {
-        display: none;
-      }
-
-      body {
-        background: white;
-      }
-
-      article {
-        box-shadow: none;
-        border: none;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 40px 20px;
-        background: white;
-        color: black;
-      }
-
-      .hero h1,
-      .hero h2,
-      .hero-intro {
-        color: black;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آوازِ آزادی؛ حرمتِ اراده</title>
+
+    <meta name="description"
+          content="آواز آزادی؛ حرمت اراده — روایتی ادبی درباره آزادی، اراده فردی، احترام، همدلی و کرامت انسان.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #f5f0e6;
+            --paper: #fffdf8;
+            --ink: #302d28;
+            --muted: #746e63;
+            --gold: #ad8950;
+            --gold-light: #d8bd8a;
+            --green: #526858;
+            --green-dark: #35483b;
+            --line: rgba(125, 101, 62, .22);
+            --shadow: 0 20px 60px rgba(58, 47, 30, .10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(216, 189, 138, .18), transparent 28%),
+                radial-gradient(circle at 85% 85%, rgba(82, 104, 88, .12), transparent 30%),
+                var(--bg);
+            font-family: "Vazirmatn", sans-serif;
+            line-height: 2.35;
+        }
+
+        /* نوار ناوبری */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(14px);
+            background: rgba(255, 253, 248, .88);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            width: min(1100px, 92%);
+            margin: auto;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--green-dark);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: -.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 7px 13px;
+            border-radius: 999px;
+            transition: .25s ease;
+            font-size: .9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-dark);
+            background: rgba(82, 104, 88, .09);
+        }
+
+        /* جلد */
+        .hero {
+            width: min(1000px, 92%);
+            margin: 65px auto 45px;
+            padding: 75px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.78), rgba(255,250,239,.94));
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "✦";
+            position: absolute;
+            color: var(--gold-light);
+            font-size: 34px;
+            opacity: .65;
+        }
+
+        .hero::before {
+            top: 25px;
+            right: 35px;
+        }
+
+        .hero::after {
+            bottom: 25px;
+            left: 35px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: .95rem;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1.35;
+            color: var(--green-dark);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            max-width: 680px;
+            margin: 25px auto 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .ornament {
+            color: var(--gold);
+            margin: 25px 0 0;
+            font-size: 1.35rem;
+            letter-spacing: 8px;
+        }
+
+        /* فهرست */
+        .toc {
+            width: min(850px, 90%);
+            margin: 0 auto 55px;
+            padding: 24px;
+            background: rgba(255, 253, 248, .65);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+        }
+
+        .toc-title {
+            margin: 0 0 12px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .toc ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 8px;
+        }
+
+        .toc a {
+            color: var(--muted);
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: .2s;
+        }
+
+        .toc a:hover {
+            background: rgba(173, 137, 80, .10);
+            color: var(--green-dark);
+        }
+
+        /* متن */
+        main {
+            width: min(900px, 92%);
+            margin: auto;
+        }
+
+        .story {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(30px, 6vw, 70px);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        .chapter {
+            margin-bottom: 70px;
+        }
+
+        .chapter + .chapter {
+            padding-top: 65px;
+            border-top: 1px solid var(--line);
+        }
+
+        .chapter-title {
+            color: var(--green-dark);
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 1.45rem;
+            margin: 0 0 28px;
+        }
+
+        p {
+            margin: 0 0 1.55em;
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+            line-height: 2.5;
+        }
+
+        .dialogue {
+            position: relative;
+            margin: 35px 0;
+            padding: 25px 30px;
+            border-right: 3px solid var(--gold);
+            background: linear-gradient(
+                to left,
+                rgba(173,137,80,.075),
+                transparent
+            );
+            border-radius: 10px;
+        }
+
+        .verse {
+            text-align: center;
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .final {
+            margin-top: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            background:
+                linear-gradient(145deg,
+                    rgba(82,104,88,.08),
+                    rgba(173,137,80,.09));
+            border: 1px solid var(--line);
+            border-radius: 22px;
+        }
+
+        .final p {
+            font-size: clamp(1.12rem, 2vw, 1.35rem);
+        }
+
+        .final strong {
+            color: var(--green-dark);
+        }
+
+        .closing {
+            margin-top: 55px;
+            padding-top: 35px;
+            border-top: 1px solid var(--line);
+            text-align: center;
+        }
+
+        .closing p {
+            color: var(--green-dark);
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        /* پاورقی */
+        footer {
+            width: min(900px, 92%);
+            margin: 45px auto 60px;
+            text-align: center;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--green-dark);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* دکمه بازگشت به بالا */
+        .back-top {
+            position: fixed;
+            left: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--green-dark);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,.16);
+            transition: .25s;
+            opacity: .9;
+        }
+
+        .back-top:hover {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+
+        /* موبایل */
+        @media (max-width: 650px) {
+            .nav {
+                justify-content: center;
+                padding: 10px 0;
+            }
+
+            .brand {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 30px;
+                padding: 55px 20px;
+                border-radius: 22px;
+            }
+
+            .story {
+                padding: 28px 21px;
+                border-radius: 20px;
+            }
+
+            p {
+                line-height: 2.35;
+            }
+
+            .dialogue {
+                padding: 18px 20px;
+            }
+        }
+
+        /* چاپ */
+        @media print {
+            .topbar,
+            .toc,
+            .back-top {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .hero,
+            .story {
+                box-shadow: none;
+                border: none;
+            }
+
+            .hero {
+                margin: 0 auto 30px;
+            }
+        }
+    </style>
 </head>
 
 <body id="top">
 
-  <!-- ==============================
-       نوار ناوبری
-  =============================== -->
+    <!-- نوار ناوبری -->
+    <header class="topbar">
+        <nav class="nav" aria-label="ناوبری اصلی">
 
-  <header class="topbar">
-    <nav class="nav">
+            <a class="brand" href="#top">
+                آوازِ آزادی
+            </a>
 
-      <a href="#top" class="brand">
-        آوازِ آزادی
-      </a>
+            
+        <div class="nav-links">
+                <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+                <a href="#story">متن</a>
+                <a href="#freedom">آزادی</a>
+                <a href="#respect">احترام</a>
+                <a href="#ending">پایان</a>
+            </div>
 
-      <div class="nav-links">
-        <a href="#contents">فهرست</a>
-        <a href="#story">آغاز روایت</a>
-        <a href="#final">پایان</a>
-        <a href="index.html">خانه</a>
-      </div>
+        </nav>
+    </header>
 
-    </nav>
-  </header>
+    <!-- عنوان -->
+    <header class="hero">
+        <div class="eyebrow">روایتی دربارهٔ آزادی، کرامت و ارادهٔ انسان</div>
 
+        <h1>آوازِ آزادی؛ حرمتِ اراده</h1>
 
-  <!-- ==============================
-       بخش آغازین
-  =============================== -->
+        <div class="ornament">✦ ❈ ✦</div>
 
-  <section class="hero">
-
-    <div class="stars"></div>
-
-    <div class="hero-content">
-
-      <div class="eyebrow">
-        حکایتِ اراده و کرامتِ انسان
-      </div>
-
-      <h1>
-        آوازِ آزادی
-      </h1>
-
-      <h2>
-        حرمتِ اراده
-      </h2>
-
-      <div class="hero-line"></div>
-
-      <p class="hero-intro">
-        روایتی درباره‌ی آزادی،
-        انتخاب، عشق، مسئولیت و آن رازِ بزرگِ انسانی:
-        چگونه می‌توان دیگری را دوست داشت،
-        بی‌آنکه مالکِ او شد؟
-      </p>
-
-      <div class="actions">
-
-        <a href="https://celianor.github.io/Horia/lightbook/Fete/index.fa.html" class="button button-primary">
-          بازگشت
-        </a>
-
-        <a href="https://celianor.github.io/Horia/index.fa.html" class="button button-outline">
-          خانه
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==============================
-       فهرست
-  =============================== -->
-
-  <section class="contents" id="contents">
-
-    <h2 class="contents-title">
-      در این سفر
-    </h2>
-
-    <div class="contents-grid">
-
-      <a href="#freedom">
-        ✦ آزادی و اراده
-      </a>
-
-      <a href="#difference">
-        ✦ زیباییِ تفاوت‌ها
-      </a>
-
-      <a href="#love">
-        ✦ عشق و مالکیت
-      </a>
-
-      <a href="#child">
-        ✦ آوازِ کودک
-      </a>
-
-      <a href="#responsibility">
-        ✦ آزادی و مسئولیت
-      </a>
-
-      <a href="#forest">
-        ✦ جنگلِ انسان‌ها
-      </a>
-
-      <a href="#choice">
-        ✦ حقِ انتخاب
-      </a>
-
-      <a href="#light">
-        ✦ لوحِ نور
-      </a>
-
-      <a href="#final">
-        ✦ رازِ پایانی
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==============================
-       متن اصلی
-  =============================== -->
-
-  <main id="story">
-
-    <article>
-
-
-      <!-- آزادی -->
-
-      <section class="section" id="freedom">
-
-        <h2 class="section-title">
-          آوازِ نخستین
-        </h2>
-
-        <p class="opening">
-          در بزمِ ازلیِ زندگی،
-          آنجا که جان‌ها هنوز از غبارِ داوری پاک بودند
-          و دل‌ها در سایه‌سارِ خردِ جمعی
-          آرام‌آرام به بلوغ می‌رسیدند،
-          واژه‌ای بر زبانِ آدمی نشست؛
-          واژه‌ای کوچک،
-          اما چنان ژرف که گویی در سینه‌ی خویش
-          تمامِ آسمان را پنهان کرده بود:
+        <p class="subtitle">
+            تأملی دربارهٔ تفاوت، همدلی، مسئولیت،
+            انتخاب و زیباییِ انسان‌ها در کنار یکدیگر.
         </p>
+    </header>
 
-        <div class="emphasis">
-          آزادی.
+    <!-- فهرست -->
+    <aside class="toc" aria-label="فهرست متن">
+        <h2 class="toc-title">فهرست</h2>
+
+        <ul>
+            <li><a href="#story">آغاز بزم زندگی</a></li>
+            <li><a href="#will">ارادهٔ فردی</a></li>
+            <li><a href="#respect">محبت و احترام</a></li>
+            <li><a href="#freedom">آزادی و مسئولیت</a></li>
+            <li><a href="#garden">باغِ تفاوت‌ها</a></li>
+            <li><a href="#ending">آواز پایانی</a></li>
+        </ul>
+    </aside>
+
+    <!-- متن اصلی -->
+    <main id="story">
+
+        <article class="story">
+
+            <section class="chapter" id="will">
+
+                <p>
+                    در بزمِ زندگی،
+                    آنجا که دل‌ها از چشمه‌سارِ خردِ جمعی سیراب بود
+                    و نسیمِ ادب و لبخند
+                    آرام‌آرام در کوچه‌های جان می‌وزید،
+                    واژه‌ای بر لب‌ها نشست؛
+                    واژه‌ای کوتاه،
+                    اما ژرف‌تر از آن‌که در کوتاهیِ خویش بگنجد:
+                </p>
+
+                <p class="verse">
+                    اراده‌ی فردی.
+                </p>
+
+                <p>
+                    و پس از آن،
+                    پرسشی چون موجی آرام
+                    بر ساحلِ اندیشه‌ها نشست:
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        چگونه با هم باشیم،
+                        بی‌آنکه یکدیگر را در خویش گم کنیم؟
+                    </p>
+
+                    <p>
+                        چگونه همدل باشیم،
+                        بی‌آنکه دل‌هایمان را
+                        به رنگِ خویش درآوریم؟
+                    </p>
+
+                    <p>
+                        چگونه دست در دستِ هم بگذاریم،
+                        بی‌آنکه دستِ دیگری را
+                        از انتخابِ راهش بازداریم؟
+                    </p>
+
+                    <p>
+                        چگونه یک باغ باشیم،
+                        بی‌آنکه همه‌ی گل‌ها را
+                        به یک رنگ شکوفا بخواهیم؟
+                    </p>
+                </div>
+
+                <p>
+                    سکوتی ژرف بر بزم افتاد؛
+                    چنان ژرف
+                    که گویی آسمان نیز
+                    نفس در سینه حبس کرده بود
+                    تا پاسخِ خویش را
+                    از زبانِ آدمی بشنود.
+                </p>
+
+                <p>
+                    آنگاه خدا،
+                    با صدایی ژرف و مهربان،
+                    چنان‌که نسیم
+                    برگِ درخت را نوازش می‌کند،
+                    گفت:
+                </p>
+
+                <div class="dialogue">
+                    <p><strong>ای فرزندانِ نور،</strong></p>
+
+                    <p>
+                        من شما را یکسان نیافریدم؛
+                        زیرا زیباییِ آفرینش
+                        در تکرار نیست،
+                        در بی‌کرانگیِ تفاوت‌هاست.
+                    </p>
+
+                    <p>
+                        اگر همه‌ی پرندگان
+                        یک آواز می‌خواندند،
+                        صبح چه اندازه خاموش بود!
+                    </p>
+
+                    <p>
+                        اگر همه‌ی گل‌ها
+                        یک رنگ داشتند،
+                        بهار چه اندازه کم‌رنگ می‌شد!
+                    </p>
+
+                    <p>
+                        و اگر همه‌ی انسان‌ها
+                        یک‌گونه می‌اندیشیدند،
+                        جهان چه اندازه
+                        از کشفِ حقیقت تهی می‌ماند!
+                    </p>
+
+                    <p>
+                        هر یک از شما را
+                        با نوری یگانه آفریدم؛
+                        با نغمه‌ای که تنها از حنجره‌ی او برمی‌خیزد،
+                        با رؤیایی که در هیچ سینه‌ی دیگری
+                        عینِ آن تکرار نشده است،
+                        و با راهی
+                        که ردِ پایش
+                        تنها زیرِ قدم‌های خودش
+                        معنا می‌یابد.
+                    </p>
+
+                    <p>
+                        اراده‌ی هر انسان،
+                        دانه‌ای‌ست که خدا
+                        در خاکِ هستی نشانده است.
+                    </p>
+
+                    <p>
+                        اگر مجالِ ریشه دواندن بیابد،
+                        اگر زیرِ سایه‌ی اجبار خشک نشود،
+                        اگر با آبِ آگاهی
+                        و آفتابِ مسئولیت پرورش یابد،
+                        روزی درختی خواهد شد
+                        با سایه‌ای که تنها از آنِ اوست
+                        و میوه‌ای
+                        که تنها از شاخه‌های او می‌روید.
+                    </p>
+
+                    <p>
+                        و چه زیباست جهانی
+                        که در آن
+                        هر درخت
+                        اجازه دارد
+                        به شیوه‌ی خویش سبز شود.
+                    </p>
+                </div>
+
+            </section>
+
+            <section class="chapter" id="respect">
+
+                <p>
+                    انسان،
+                    با نگاهی سرشار از بیم و امید،
+                    گفت:
+                </p>
+
+                <div class="dialogue">
+
+                    <p><strong>اما ای خدا،</strong></p>
+
+                    <p>
+                        ما گاهی چنان به خیرِ خویش یقین می‌کنیم
+                        که خیرِ دیگری را نیز
+                        با خط‌کشِ خود اندازه می‌گیریم.
+                    </p>
+
+                    <p>
+                        از تفاوت می‌ترسیم؛
+                        از اندیشه‌ای که شبیه اندیشه‌ی ما نیست،
+                        از انتخابی که در دفترِ تجربه‌ی ما نوشته نشده،
+                        از راهی که خود نرفته‌ایم.
+                    </p>
+
+                    <p>
+                        گاه چنان شیفته‌ی نقشه‌ی خویش می‌شویم
+                        که فراموش می‌کنیم
+                        هر مسافر،
+                        آسمانِ مخصوصِ خود را
+                        بر فرازِ سر دارد.
+                    </p>
+
+                    <p>
+                        پس به ما بیاموز
+                        میانِ محبت و مالکیت فرق بگذاریم؛
+                        میانِ راهنمایی و فرمانروایی؛
+                        میانِ نگرانی برای دیگری
+                        و زندگی کردن به جای او.
+                    </p>
+
+                    <p>
+                        به ما بیاموز
+                        اگر دستِ کسی را گرفتیم،
+                        دستبند بر دستش نزنیم.
+                    </p>
+
+                    <p>
+                        اگر چراغی پیشِ پایش افروختیم،
+                        راه را به جای او انتخاب نکنیم.
+                    </p>
+
+                    <p>
+                        اگر دوستش داشتیم،
+                        آزادی‌اش را
+                        قربانیِ دوست داشتنِ خود نکنیم.
+                    </p>
+
+                </div>
+
+                <p>
+                    فرشته،
+                    آرام و سبکبال،
+                    چون نسیمی که از میانِ گندمزار می‌گذرد،
+                    گفت:
+                </p>
+
+                <div class="dialogue">
+
+                    <p>
+                        اراده‌ی فرد،
+                        اگر از چشمه‌ی آگاهی و مهر بجوشد،
+                        دشمنِ جمع نیست؛
+                    </p>
+
+                    <p>
+                        نغمه‌ای‌ست دیگر
+                        در سرودِ جمع.
+                    </p>
+
+                    <p>
+                        موسیقی
+                        از یک نت ساخته نمی‌شود؛
+                        و باغ
+                        با یک گل به پایان نمی‌رسد.
+                    </p>
+
+                    <p>
+                        چه بسیار صداها
+                        که متفاوت‌اند،
+                        اما در کنار یکدیگر
+                        سمفونیِ زندگی را می‌آفرینند.
+                    </p>
+
+                    <p>
+                        چه بسیار رنگ‌ها
+                        که شبیهِ هم نیستند،
+                        اما چون در کنار هم می‌نشینند،
+                        رنگین‌کمان زاده می‌شود.
+                    </p>
+
+                    <p class="verse">
+                        وحدت،
+                        هم‌شکل شدن نیست؛
+                        هم‌آوا شدن است.
+                    </p>
+
+                    <p>
+                        همدلی آن نیست
+                        که دیگری را وادار کنیم
+                        جهان را با چشمِ ما ببیند؛
+                        بلکه آن است که
+                        لحظه‌ای چشم‌های خود را ببندیم
+                        و جهان را
+                        از پنجره‌ی او تماشا کنیم.
+                    </p>
+
+                    <p>
+                        احترام به اراده‌ی دیگری
+                        یعنی پذیرفتنِ این حقیقتِ ساده و بزرگ
+                        که شاید در آسمانِ اندیشه‌ی او
+                        ستاره‌ای باشد
+                        که هنوز
+                        بر آسمانِ ما طلوع نکرده است.
+                    </p>
+
+                    <p>
+                        یعنی بدانی
+                        هر دل،
+                        محرابی دارد
+                        که تنها صاحبِ آن دل
+                        رازِ روشنایی‌اش را می‌داند.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section class="chapter" id="freedom">
+
+                <p>
+                    کودکی،
+                    که تا آن لحظه خاموش نشسته بود،
+                    با چشمانی پر از ستاره گفت:
+                </p>
+
+                <div class="dialogue">
+
+                    <p>
+                        گاهی می‌خواهم نقاشی‌ام را
+                        با رنگی بکشم
+                        که دیگران دوست ندارند.
+                    </p>
+
+                    <p>
+                        می‌گویند:
+                    </p>
+
+                    <p class="verse">
+                        «این رنگ عجیب است.»
+                    </p>
+
+                    <p>
+                        اما من نمی‌توانم برایشان توضیح دهم
+                        چرا این رنگ را انتخاب کرده‌ام.
+                    </p>
+
+                    <p>
+                        چون وقتی به آن نگاه می‌کنم،
+                        چیزی در دلم
+                        آواز می‌خواند.
+                    </p>
+
+                    <p>
+                        من فقط
+                        صدای دلم را شنیده‌ام.
+                    </p>
+
+                </div>
+
+                <p>
+                    خدا لبخند زد؛
+                    لبخندی چنان روشن
+                    که گویی همه‌ی شکوفه‌های بهار
+                    در گوشه‌های آن نشسته بودند.
+                </p>
+
+                <div class="dialogue">
+
+                    <p>
+                        و گفت:
+                    </p>
+
+                    <p><strong>کودکِ من،</strong></p>
+
+                    <p>
+                        تو یکی از نخستین رازهای آزادی را فهمیده‌ای:
+                    </p>
+
+                    <p>
+                        آدمی از آن روز بالغ می‌شود
+                        که جرئت کند
+                        صدای درونِ خویش را بشنود،
+                        بی‌آنکه از متفاوت بودن
+                        بترسد.
+                    </p>
+
+                    <p>
+                        اما این را نیز به یاد داشته باش:
+                    </p>
+
+                    <p>
+                        هر صدایی که از درون می‌آید،
+                        الزاماً صدای حقیقت نیست.
+                    </p>
+
+                    <p>
+                        اراده،
+                        آنگاه زیباست
+                        که با آگاهی همراه باشد؛
+                    </p>
+
+                    <p>
+                        آنگاه شریف است
+                        که با مسئولیت هم‌قدم شود؛
+                    </p>
+
+                    <p>
+                        و آنگاه به آزادی بدل می‌شود
+                        که آزادیِ دیگری را نیز
+                        به رسمیت بشناسد.
+                    </p>
+
+                    <p class="verse">
+                        آزادی،
+                        رهایی از دیگران نیست؛
+                        رهایی از میلِ سلطه بر دیگران است.
+                    </p>
+
+                    <p>
+                        آزاد بودن
+                        این نیست که هرچه خواستی
+                        بر جهان تحمیل کنی؛
+                        بلکه آن است که
+                        بتوانی خودت باشی
+                        و به دیگری نیز
+                        اجازه دهی خودش باشد.
+                    </p>
+
+                    <p>
+                        بزرگیِ انسان
+                        در بلندتر ایستادن از دیگران نیست؛
+                        در این است که
+                        کنار دیگران بایستد،
+                        بی‌آنکه بخواهد
+                        قامتِ آنان را کوتاه کند.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section class="chapter" id="garden">
+
+                <p>
+                    انسان،
+                    آهی از ژرفای جان کشید و گفت:
+                </p>
+
+                <div class="dialogue">
+
+                    <p><strong>پس ای خدا،</strong></p>
+
+                    <p>
+                        به ما بیاموز
+                        که هر انسان،
+                        درختی‌ست در جنگلِ تو.
+                    </p>
+
+                    <p>
+                        اگر همه‌ی درختان را
+                        به یک اندازه بتراشیم،
+                        به یک سو خم کنیم
+                        و یک شکل بسازیم،
+                        شاید باغی منظم داشته باشیم؛
+                        اما دیگر
+                        جنگل نخواهیم داشت.
+                    </p>
+
+                    <p>
+                        اگر همه‌ی پرندگان را
+                        به یک آواز مجبور کنیم،
+                        شاید آسمانی منظم داشته باشیم؛
+                        اما دیگر
+                        ترانه‌ای نخواهیم شنید.
+                    </p>
+
+                    <p>
+                        و اگر همه‌ی دل‌ها را
+                        در قالبی واحد بریزیم،
+                        شاید جامعه‌ای یکدست بسازیم؛
+                        اما روحِ زندگی را
+                        نیز در همان قالب
+                        مدفون خواهیم کرد.
+                    </p>
+
+                </div>
+
+                <p>
+                    فرشته گفت:
+                </p>
+
+                <div class="dialogue">
+
+                    <p>
+                        آری.
+                    </p>
+
+                    <p>
+                        زیباییِ جهان
+                        در این نیست که همه یکسان باشند؛
+                        در این است که متفاوت باشند
+                        و با این همه،
+                        به جای آنکه تنها
+                        یکدیگر را تحمل کنند،
+                        یکدیگر را بفهمند.
+                    </p>
+
+                    <p>
+                        احترام،
+                        یعنی برای دیگری جا باز کنی؛
+                        در اندیشه‌ات،
+                        در قلبت،
+                        در جهانِ خویش.
+                    </p>
+
+                    <p>
+                        یعنی بتوانی بگویی:
+                    </p>
+
+                    <p class="verse">
+                        «من راهِ خود را دوست دارم،
+                        اما راهِ تو نیز
+                        حق دارد
+                        زیرِ آسمانِ خدا امتداد یابد.»
+                    </p>
+
+                    <p>
+                        یعنی بتوانی
+                        با انتخابی مخالف باشی،
+                        بی‌آنکه شخصیتِ انتخاب‌کننده را انکار کنی.
+                    </p>
+
+                    <p>
+                        یعنی بتوانی بگویی:
+                    </p>
+
+                    <p class="verse">
+                        «من چنین نمی‌خواهم؛
+                        اما حقِ تو برای خواستن را
+                        از تو نمی‌گیرم.»
+                    </p>
+
+                    <p>
+                        و شاید این
+                        یکی از دشوارترین صورت‌های عشق باشد:
+                    </p>
+
+                    <p class="verse">
+                        دوست داشتنِ کسی،
+                        بی‌آنکه مالکِ او باشی.
+                    </p>
+
+                    <p>
+                        ما می‌توانیم
+                        چراغی در تاریکی روشن کنیم،
+                        اما نمی‌توانیم
+                        به جای دیگری قدم برداریم.
+                    </p>
+
+                    <p>
+                        می‌توانیم تجربه‌ی خویش را
+                        چون چراغی
+                        پیشِ پایش بگذاریم،
+                        اما نمی‌توانیم
+                        راه را به جای او طی کنیم.
+                    </p>
+
+                    <p>
+                        می‌توانیم هشدار دهیم،
+                        راهنمایی کنیم،
+                        دعا کنیم،
+                        محبت کنیم؛
+                    </p>
+
+                    <p>
+                        اما سرنوشتِ انتخابِ او،
+                        در نهایت،
+                        به خودِ او بازمی‌گردد.
+                    </p>
+
+                    <p>
+                        زیرا انسان،
+                        ملکِ انسان نیست.
+                    </p>
+
+                    <p>
+                        هیچ قلبی
+                        خانه‌ی اجاره‌ایِ دیگری نیست.
+                    </p>
+
+                    <p>
+                        هیچ روحی
+                        نباید قفسِ خواسته‌های دیگری شود.
+                    </p>
+
+                    <p>
+                        و شاید حکمتِ آزادی
+                        همین باشد:
+                    </p>
+
+                    <p>
+                        گل را نمی‌توان
+                        با کشیدنِ ساقه‌اش
+                        زودتر شکوفا کرد.
+                    </p>
+
+                    <p>
+                        بذر،
+                        زمانِ خودش را می‌شناسد.
+                    </p>
+
+                    <p>
+                        رود،
+                        راهِ خودش را پیدا می‌کند.
+                    </p>
+
+                    <p>
+                        صبح،
+                        ساعتِ خودش را دارد.
+                    </p>
+
+                    <p>
+                        و انسان نیز
+                        برای رسیدن به خویشتن
+                        به فرصت نیاز دارد؛
+                        به تجربه،
+                        به انتخاب،
+                        به آزمون،
+                        و حتی گاه
+                        به حقِ اشتباه کردن.
+                    </p>
+
+                    <p>
+                        چه بسا راهی
+                        که ما برای دیگری بسته‌ایم،
+                        همان راهی بوده باشد
+                        که او باید از آن می‌گذشت
+                        تا خویشتنِ خویش را پیدا کند.
+                    </p>
+
+                    <p>
+                        پس اگر دوست می‌داری،
+                        همیشه راه را نبند.
+                    </p>
+
+                    <p>
+                        گاهی بزرگ‌ترین محبت
+                        این نیست که بگویی:
+                    </p>
+
+                    <p class="verse">
+                        «از این راه برو.»
+                    </p>
+
+                    <p>
+                        بلکه این است که بگویی:
+                    </p>
+
+                    <p class="verse">
+                        «هر راهی را که برمی‌گزینی،
+                        بدان که من تو را انسان می‌بینم؛
+                        با حقِ انتخاب،
+                        با مسئولیتِ انتخاب،
+                        و با کرامتِ انتخاب.»
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section class="chapter" id="ending">
+
+                <p>
+                    آنگاه
+                    بزمِ زندگی
+                    رنگی تازه گرفت.
+                </p>
+
+                <p>
+                    آدمیان کنار یکدیگر نشستند؛
+                    نه برای آنکه یکدیگر را
+                    شبیهِ خویش کنند،
+                    بلکه برای آنکه
+                    تفاوت‌های یکدیگر را
+                    به رسمیت بشناسند.
+                </p>
+
+                <p>
+                    یکی با رؤیایی آمد،
+                    دیگری با خاطره‌ای؛
+                    یکی با رنگی تازه،
+                    دیگری با نغمه‌ای ناشنیده؛
+                    یکی راهی را برگزید
+                    که دیگری هرگز نمی‌پیمود.
+                </p>
+
+                <p>
+                    اما هیچ‌کس
+                    آسمانِ دیگری را
+                    از او نگرفت.
+                </p>
+
+                <p>
+                    و ناگهان،
+                    چیزی شبیهِ نور
+                    در میانِ جمع جاری شد؛
+                    چنان‌که گویی
+                    هزار پنجره
+                    در یک لحظه
+                    رو به صبح گشوده باشند.
+                </p>
+
+                <div class="final">
+
+                    <p>
+                        آسمان،
+                        بر لوحی از نور نوشت:
+                    </p>
+
+                    <p>
+                        <strong>
+                            «خودت باش،
+                            بی‌آنکه دیگری را
+                            از بودن محروم کنی.
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            راهِ خویش را برو،
+                            بی‌آنکه راهِ دیگری را
+                            ویران کنی.
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            آزاد باش،
+                            و آزادی را
+                            از دیگری دریغ مکن.
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            دوست بدار،
+                            بی‌آنکه مالک شوی.
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            راهنما باش،
+                            بی‌آنکه فرمانروا شوی.
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            و اگر کسی را دوست می‌داری،
+                            چنان دوستش بدار
+                            که آزادیِ او
+                            نه تهدیدِ عشق تو،
+                            که زیباترین ثمره‌ی آن باشد.»
+                        </strong>
+                    </p>
+
+                </div>
+
+                <div class="closing">
+
+                    <p>
+                        و در آن لحظه،
+                        نسیمی از میانِ بزم گذشت.
+                    </p>
+
+                    <p>
+                        برگ‌ها به نجوا درآمدند،
+                        گل‌ها سر فرود آوردند،
+                        و گویی از دوردست‌ترین کرانه‌ی آسمان
+                        صدایی آمد؛
+                        صدایی نه بلند،
+                        که ژرف:
+                    </p>
+
+                    <p class="verse">
+                        <strong>
+                            آنجا که اراده‌ها آزادند،
+                            دل‌ها مهربان‌اند،
+                            و تفاوت‌ها
+                            دیوار نمی‌شوند،
+                            بلکه پل می‌گردند؛
+                        </strong>
+                    </p>
+
+                    <p class="verse">
+                        <strong>
+                            آنجا که انسان‌ها
+                            یکدیگر را نه برای شبیهِ خویش بودن،
+                            که برای آنچه هستند
+                            حرمت می‌نهند،
+                        </strong>
+                    </p>
+
+                    <p class="verse">
+                        <strong>
+                            خدا
+                            از میانِ آنان
+                            آرام و بی‌صدا
+                            عبور می‌کند.
+                        </strong>
+                    </p>
+
+                </div>
+
+                <div class="final">
+
+                    <p>
+                        و شاید
+                        رازِ زیباییِ زندگی
+                        همین باشد:
+                    </p>
+
+                    <p>
+                        <strong>
+                            کنارِ هم باشیم،
+                            بی‌آنکه یکدیگر را
+                            شبیهِ خود کنیم؛
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            همدل باشیم،
+                            بی‌آنکه دلِ دیگری را
+                            تصاحب کنیم؛
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            و آزاد باشیم،
+                            بی‌آنکه آزادیِ دیگری را
+                            از یاد ببریم.
+                        </strong>
+                    </p>
+
+                    <p>
+                        زیرا جهان،
+                        باغِ یک گل نیست؛
+                    </p>
+
+                    <p class="verse">
+                        <strong>
+                            باغِ هزاران شکوفه است.
+                        </strong>
+                    </p>
+
+                    <p>
+                        و خدا،
+                        زیباییِ خویش را
+                        نه در یکسانیِ ما،
+                        که در این
+                        بی‌کرانگیِ تفاوت‌ها
+                        به تماشا گذاشته است.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- پاورقی -->
+    <footer>
+
+        <div class="footer-links">
+            <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+            <a href="https://celianor.github.io/Horia/lightbook/Fete/index.fa.html">بازگشت </a>
+            <a href="#ending">پایان</a>
         </div>
 
-        <p>
-          و از پیِ آن،
-          واژه‌ای دیگر چون چشمه‌ای از دلِ سنگ برآمد:
-        </p>
-
-        <div class="emphasis">
-          اراده.
+        <div>
+            آوازِ آزادی؛ حرمتِ اراده
         </div>
 
-        <p>
-          آنگاه پرسشی در میانِ جمع پیچید؛
-          نه پرسشی برای یافتنِ یک پاسخ،
-          که پرسشی برای یافتنِ خویشتن:
-        </p>
-
-        <div class="verse">
-          چگونه می‌توان در کنارِ دیگری زیست،
-          بی‌آنکه دیگری را در خویش محو کرد؟
-          <br>
-          چگونه می‌توان دوست داشت،
-          بی‌آنکه تصاحب کرد؟
-          <br>
-          چگونه می‌توان راهنما بود،
-          بی‌آنکه فرمانروا شد؟
-        </div>
-
-      </section>
-
-
-      <!-- تفاوت -->
-
-      <section class="section" id="difference">
-
-        <h2 class="section-title">
-          هزاران نغمه
-        </h2>
-
-        <p>
-          خداوند گفت:
-          من شما را یکسان نیافریدم؛
-          زیرا اگر قرار بود همه یکدیگر را تکرار کنند،
-          آفرینش پیش از آنکه آغاز شود،
-          به پایان رسیده بود.
-        </p>
-
-        <p>
-          من جهان را با یک صدا نیافریدم؛
-          با هزاران نغمه آفریدم.
-          با هزاران رنگ،
-          هزاران راه،
-          هزاران چشم
-          برای دیدنِ یک حقیقت
-          از هزاران پنجره.
-        </p>
-
-        <div class="verse">
-
-          اگر همه‌ی پرندگان
-          یک آواز داشتند،
-          صبح چیزی جز تکرار نبود.
-
-          <br><br>
-
-          اگر همه‌ی گل‌ها
-          یک رنگ داشتند،
-          بهار تنها نامی زیبا
-          برای یک رنگ بود.
-
-        </div>
-
-        <div class="emphasis">
-          وحدت،
-          هم‌شکل شدن نیست؛
-          هم‌آوا شدن است.
-        </div>
-
-        <p>
-          موسیقی با یک نت،
-          موسیقی نمی‌شود.
-          و جهان اگر تنها یک صدا داشته باشد،
-          دیگر جهان نیست؛
-          پژواکی‌ست که در اتاقی بسته
-          به خودش بازمی‌گردد.
-        </p>
-
-      </section>
-
-
-      <!-- عشق -->
-
-      <section class="section" id="love">
-
-        <h2 class="section-title">
-          عشق، بی‌مالکیت
-        </h2>
-
-        <p>
-          میانِ دوست داشتن و مالک بودن،
-          فاصله‌ای‌ست به وسعتِ آزادی.
-        </p>
-
-        <p>
-          گاه خیرخواهی‌مان لباسِ سلطه می‌پوشد.
-          محبت‌مان به مالکیت می‌رسد.
-          نگرانی‌مان به دخالت بدل می‌شود.
-          و دستِ یاری‌مان،
-          بی‌آنکه بفهمیم،
-          به دستی برای بستن تبدیل می‌شود.
-        </p>
-
-        <div class="emphasis">
-          کسی را آن‌قدر دوست بدار
-          که آزادیِ او
-          برای تو
-          از مالکیتِ او عزیزتر باشد.
-        </div>
-
-        <p>
-          عشق، اگر عشق باشد،
-          بهار است؛
-          نه قفس.
-        </p>
-
-        <div class="verse">
-          <strong>
-            عشقِ راستین نمی‌گوید:
-            «تو از آنِ منی.»
-          </strong>
-
-          <br><br>
-
-          می‌گوید:
-
-          <br>
-
-          «تو از آنِ خویشی،
-          و من خوشحالم
-          که جهان تو را
-          با همین آزادی
-          به من شناسانده است.»
-        </div>
-
-      </section>
-
-
-      <!-- کودک -->
-
-      <section class="section" id="child">
-
-        <h2 class="section-title">
-          آوازِ کودک
-        </h2>
-
-        <div class="dialogue">
-
-          <p>
-            کودکی که تا آن لحظه
-            در سکوت به بزرگان گوش سپرده بود،
-            سر بلند کرد.
-          </p>
-
-          <p>
-            گفت:
-          </p>
-
-          <p>
-            «گاهی رنگی را دوست دارم
-            که هیچ‌کس دوستش ندارد.
-          </p>
-
-          <p>
-            می‌گویند:
-            این رنگ عجیب است.
-          </p>
-
-          <p>
-            اما من نمی‌توانم بگویم
-            چرا دوستش دارم.
-            فقط می‌دانم
-            وقتی به آن نگاه می‌کنم،
-            چیزی در من بیدار می‌شود؛
-            چیزی که نامش را نمی‌دانم،
-            چیزی که آواز می‌خواند.»
-          </p>
-
-        </div>
-
-        <p>
-          خدا لبخند زد؛
-          و آن لبخند چنان روشن بود
-          که گویی بهار
-          تمامِ شکوفه‌هایش را
-          در یک لحظه
-          به آسمان بخشیده است.
-        </p>
-
-        <div class="emphasis">
-          آزادی از جایی آغاز می‌شود
-          که انسان جرئت می‌کند
-          صدای خویش را بشنود.
-        </div>
-
-      </section>
-
-
-      <!-- مسئولیت -->
-
-      <section class="section" id="responsibility">
-
-        <h2 class="section-title">
-          آزادی و مسئولیت
-        </h2>
-
-        <p>
-          اما گوش سپردن به خویش
-          به معنای حقانیتِ همیشگیِ خویش نیست.
-        </p>
-
-        <p>
-          هر صدایی که از درون می‌آید،
-          صدای حقیقت نیست.
-          گاهی ترس سخن می‌گوید
-          و خود را به جای شهامت جا می‌زند.
-          گاهی خشم سخن می‌گوید
-          و نامِ خود را عدالت می‌گذارد.
-          گاهی هوس سخن می‌گوید
-          و خود را آزادی می‌نامد.
-        </p>
-
-        <div class="emphasis">
-          آزادی،
-          رهایی از دیگران نیست؛
-          رهایی از میلِ سلطه بر دیگران است.
-        </div>
-
-        <p>
-          اراده آنگاه زیباست
-          که با آگاهی همراه شود؛
-          آنگاه شریف است
-          که مسئولیت را بپذیرد؛
-          و آنگاه آزادی‌ست
-          که آزادیِ دیگری را نیز
-          به رسمیت بشناسد.
-        </p>
-
-      </section>
-
-
-      <!-- جنگل -->
-
-      <section class="section" id="forest">
-
-        <h2 class="section-title">
-          جنگلِ انسان‌ها
-        </h2>
-
-        <p>
-          هر انسان،
-          درختی‌ست در جنگلِ هستی.
-        </p>
-
-        <p>
-          اگر همه را به یک اندازه ببریم،
-          به یک سو خم کنیم
-          و شاخه‌هایشان را
-          به یک شکل بیاراییم،
-          شاید باغی منظم داشته باشیم؛
-          اما دیگر جنگل نخواهیم داشت.
-        </p>
-
-        <p>
-          اگر همه‌ی پرندگان را
-          به یک آواز وادار کنیم،
-          شاید آسمان آرام‌تر شود؛
-          اما دیگر صدای زندگی را نخواهیم شنید.
-        </p>
-
-        <div class="emphasis">
-          زیبایی در تفاوت است؛
-          اما تفاوت آنگاه زیباست
-          که میانِ انسان‌ها دیوار نسازد.
-        </div>
-
-        <p>
-          پس تنها یکدیگر را تحمل نکنید؛
-          یکدیگر را بفهمید.
-        </p>
-
-      </section>
-
-
-      <!-- انتخاب -->
-
-      <section class="section" id="choice">
-
-        <h2 class="section-title">
-          چراغ، راه را انتخاب نمی‌کند
-        </h2>
-
-        <p>
-          اگر دیگری راهی را برگزید
-          که من نمی‌پسندم،
-          چه کنم؟
-        </p>
-
-        <div class="verse">
-
-          اگر می‌توانی،
-          چراغی روشن کن.
-
-          <br>
-
-          اگر لازم است،
-          هشدار بده.
-
-          <br>
-
-          اگر از تو خواست،
-          تجربه‌ات را با او در میان بگذار.
-
-          <br>
-
-          اگر دوستش داری،
-          کنارش بمان.
-
-          <br><br>
-
-          اما به یاد داشته باش:
-
-          <br>
-
-          <strong>
-            چراغ، راه را روشن می‌کند؛
-            راه را انتخاب نمی‌کند.
-          </strong>
-
-        </div>
-
-        <p>
-          تو می‌توانی افق را نشانش دهی،
-          اما نمی‌توانی به جای او ببینی.
-          می‌توانی دستش را بگیری،
-          اما نمی‌توانی به جای او قدم برداری.
-          می‌توانی دعا کنی،
-          اما نمی‌توانی به جای او زندگی کنی.
-        </p>
-
-        <div class="emphasis">
-          انسان،
-          ملکِ انسان نیست.
-        </div>
-
-      </section>
-
-
-      <!-- نور -->
-
-      <section class="section" id="light">
-
-        <h2 class="section-title">
-          لوحِ نور
-        </h2>
-
-        <p>
-          آنگاه چیزی در بزم دگرگون شد.
-          آدمیان کنار یکدیگر نشستند؛
-          نه برای آنکه یکدیگر را شبیهِ خویش کنند،
-          بلکه برای آنکه یکدیگر را
-          به تمامیِ تفاوت‌هایشان ببینند.
-        </p>
-
-        <p>
-          یکی با رؤیایی آمد،
-          دیگری با زخمی؛
-          یکی با رنگی تازه،
-          دیگری با نغمه‌ای ناشنیده؛
-          یکی راهی را برگزید
-          که دیگری هرگز برنمی‌گزید.
-        </p>
-
-        <p>
-          اما هیچ‌کس
-          آسمانِ دیگری را
-          از او نگرفت.
-        </p>
-
-        <div class="verse">
-
-          <strong>خودت باش؛</strong>
-          <br>
-          اما دیگری را
-          از حقِ بودن محروم نکن.
-
-          <br><br>
-
-          <strong>راهِ خویش را برو؛</strong>
-          <br>
-          اما راهِ دیگری را ویران مکن.
-
-          <br><br>
-
-          <strong>آزاد باش؛</strong>
-          <br>
-          اما آزادی را از دیگری دریغ مدار.
-
-          <br><br>
-
-          <strong>دوست بدار؛</strong>
-          <br>
-          بی‌آنکه مالک شوی.
-
-          <br><br>
-
-          <strong>راهنما باش؛</strong>
-          <br>
-          بی‌آنکه فرمانروا شوی.
-
-          <br><br>
-
-          <strong>
-            و اگر کسی را دوست می‌داری،
-            چنان دوستش بدار
-            که آزادیِ او
-            نه تهدیدِ عشق تو،
-            که زیباترین ثمره‌ی آن باشد.
-          </strong>
-
-        </div>
-
-      </section>
-
-
-      <!-- پایان -->
-
-      <section class="section final" id="final">
-
-        <h2 class="section-title">
-          رازِ پایانی
-        </h2>
-
-        <p>
-          و از دوردست‌ترین کرانه‌ی آسمان
-          صدایی آمد؛
-          نه بلند،
-          نه هراس‌انگیز،
-          بلکه آرام،
-          چنان آرام
-          که تنها دل‌های بیدار
-          توانستند آن را بشنوند:
-        </p>
-
-        <div class="verse">
-
-          <strong>
-            آنجا که اراده‌ها آزادند،
-            دل‌ها مهربان‌اند؛
-          </strong>
-
-          <br><br>
-
-          آنجا که تفاوت‌ها
-          دیوار نمی‌شوند،
-          بلکه پل می‌گردند؛
-
-          <br><br>
-
-          آنجا که انسان‌ها
-          یکدیگر را
-          نه برای شبیهِ خود بودن،
-          که برای آنچه هستند
-          حرمت می‌نهند؛
-
-          <br><br>
-
-          <strong>
-            آنجا،
-            خدا از میانِ آدمیان
-            آرام و بی‌صدا
-            عبور می‌کند.
-          </strong>
-
-        </div>
-
-        <p>
-          و شاید رازِ بزرگِ زندگی همین باشد:
-        </p>
-
-        <div class="emphasis">
-
-          کنارِ هم باشیم،
-          بی‌آنکه یکدیگر را
-          شبیهِ خود کنیم.
-
-          <br>
-
-          همدل باشیم،
-          بی‌آنکه دلِ دیگری را
-          تصاحب کنیم.
-
-          <br>
-
-          دوست بداریم،
-          بی‌آنکه آزادی را
-          بهای عشق قرار دهیم.
-
-          <br>
-
-          راهنما باشیم،
-          بی‌آنکه راه را
-          از دیگری بگیریم.
-
-          <br>
-
-          و آزاد باشیم،
-          بی‌آنکه آزادیِ دیگری را
-          فراموش کنیم.
-
-        </div>
-
-        <div class="final-quote">
-
-          جهان،
-          باغِ یک گل نیست؛
-
-          <br>
-
-          باغِ هزاران شکوفه است.
-
-        </div>
-
-        <p style="margin-top: 35px;">
-          و خدا،
-          زیباییِ خویش را
-          نه در یکسانیِ ما،
-          که در بی‌کرانگیِ تفاوت‌ها
-          به تماشا گذاشته است.
-        </p>
-
-      </section>
-
-
-    </article>
-
-  </main>
-
-
-  <!-- ==============================
-       فوتر
-  =============================== -->
-
-  <footer>
-
-    <div class="symbol">
-      ✦
-    </div>
-
-    <p>
-      آوازِ آزادی؛ حرمتِ اراده
-    </p>
-
-    <p>
-      برای آنان که آزادی را
-      با مهربانی به یاد می‌آورند.
-    </p>
-
-    <div class="actions">
-
-      <a href="https://celianor.github.io/Horia/index.fa.html" class="button button-outline">
-         خانه
-      </a>
-
-      <a href="#https://celianor.github.io/Horia/lightbook/Fete/index.fa.html" class="button button-outline">
-    بازگشت 
-      </a>
-
-    </div>
-
-  </footer>
-
-
-  <!-- ==============================
-       دکمه شناور بازگشت به بالا
-  =============================== -->
-
-  <a
-    href="#top"
-    class="back-top"
-    aria-label="بازگشت به بالای صفحه"
-    title="بازگشت به بالا">
-    ↑
-  </a>
-
+    </footer>
+
+    <!-- بازگشت سریع به بالا -->
+    <a class="back-top" href="#top" aria-label="بازگشت به بالا">
+        ↑
+    </a>
 
 </body>
-        </html>
+                      </html>
