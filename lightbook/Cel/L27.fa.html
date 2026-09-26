@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>لوح بیست‌وهفتم | در صبر، رضا و وسعت جان</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+    :root {
+      --night: #071b20;
+      --deep: #0b292b;
+      --emerald: #174f48;
+      --gold: #d8b56a;
+      --gold-light: #f1d99a;
+      --cream: #fff9e9;
+      --text: #f7efd9;
+      --muted: #d9ceb2;
+      --glass: rgba(255, 250, 228, 0.065);
+      --border: rgba(232, 201, 126, 0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Noto Naskh Arabic", "Amiri", serif;
+      line-height: 2.25;
+      background:
+        radial-gradient(circle at 50% 5%, rgba(218, 181, 106, .18), transparent 28%),
+        radial-gradient(circle at 10% 80%, rgba(43, 112, 91, .18), transparent 30%),
+        linear-gradient(145deg, var(--night), var(--deep) 48%, #06171b);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
+      background-size: 90px 90px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 6vw;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 24, 28, .72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--gold-light);
+      text-decoration: none;
+      padding: 6px 16px;
+      border: 1px solid rgba(232, 201, 126, .25);
+      border-radius: 30px;
+      transition: .3s ease;
+      font-size: .95rem;
+    }
+
+    .nav a:hover {
+      background: rgba(216,181,106,.12);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .brand {
+      color: var(--gold-light);
+      font-size: .95rem;
+      opacity: .85;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 70px;
+    }
+
+    .halo {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      border: 1px solid rgba(241,217,154,.45);
+      box-shadow:
+        0 0 30px rgba(216,181,106,.15),
+        0 0 90px rgba(216,181,106,.08),
+        inset 0 0 35px rgba(216,181,106,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .halo::before,
+    .halo::after {
+      content: "✦";
+      position: absolute;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+    }
+
+    .halo::before {
+      top: 14px;
+    }
+
+    .halo::after {
+      bottom: 14px;
+    }
+
+    .number {
+      font-family: "Amiri", serif;
+      font-size: 4rem;
+      color: var(--gold-light);
+      text-shadow: 0 0 25px rgba(241,217,154,.35);
+    }
+
+    h1 {
+      margin: 10px 0 4px;
+      font-family: "Amiri", serif;
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      font-weight: 700;
+      color: var(--cream);
+      text-shadow: 0 4px 30px rgba(216,181,106,.18);
+    }
+
+    .subtitle {
+      color: var(--gold-light);
+      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+      margin: 0;
+    }
+
+    .ornament {
+      margin: 25px auto;
+      color: var(--gold);
+      letter-spacing: 12px;
+      font-size: 1rem;
+    }
+
+    main {
+      width: min(900px, 92%);
+      margin: 0 auto 100px;
+    }
+
+    .tablet {
+      position: relative;
+      padding: clamp(28px, 6vw, 70px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.025)
+        );
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.35),
+        inset 0 0 70px rgba(216,181,106,.025);
+      backdrop-filter: blur(14px);
+    }
+
+    .tablet::before {
+      content: "❈";
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: rgba(241,217,154,.55);
+      font-size: 1.3rem;
+    }
+
+    .tablet::after {
+      content: "❈";
+      position: absolute;
+      bottom: 20px;
+      left: 28px;
+      color: rgba(241,217,154,.55);
+      font-size: 1.3rem;
+    }
+
+    .opening {
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin: 0;
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(232,201,126,.12);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section p {
+      margin: 0 0 14px;
+    }
+
+    .emphasis {
+      color: var(--gold-light);
+      font-size: 1.13em;
+    }
+
+    .quote {
+      margin: 28px 0;
+      padding: 22px 28px;
+      border-right: 3px solid var(--gold);
+      border-radius: 8px 18px 18px 8px;
+      background: linear-gradient(
+        90deg,
+        rgba(216,181,106,.025),
+        rgba(216,181,106,.10)
+      );
+      color: var(--cream);
+      font-size: 1.2rem;
+      box-shadow: inset 0 0 35px rgba(216,181,106,.025);
+    }
+
+    .closing {
+      text-align: center;
+      margin-top: 55px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      color: var(--gold-light);
+      font-family: "Amiri", serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 2.2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px 55px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .back-top {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      text-decoration: none;
+      background: rgba(7,27,32,.8);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      transition: .3s;
+    }
+
+    .back-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(216,181,106,.15);
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        padding: 11px 4vw;
+      }
+
+      .brand {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .tablet {
+        padding: 27px 22px;
+        border-radius: 22px;
+      }
+
+      body {
+        line-height: 2.15;
+      }
+
+      .quote {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- نوار ناوبری -->
+  <header class="topbar">
+    <div class="brand">لوح‌های جان</div>
+
+    <nav class="nav" aria-label="ناوبری">
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">خانه</a>
+      <span>·</span>
+      <a href="https://celianor.github.io/Horia/index.fa.html">بازگشت</a>
+    </nav>
+  </header>
+
+  <!-- عنوان -->
+  <section class="hero">
+    <div class="halo">
+      <div class="number">۲۷</div>
+    </div>
+
+    <h1>لوح بیست‌وهفتم</h1>
+    <p class="subtitle">در صبر، رضا و وسعت جان</p>
+
+    <div class="ornament">✦ ✧ ✦</div>
+  </section>
+
+  <main>
+    <article class="tablet">
+
+      <section class="section">
+        <p class="opening">ای جانِ خسته،</p>
+
+        <p>چه می‌دانی که هر رنج، دوری است و نرسیدن، مهجوری؟</p>
+        <p>چه می‌دانی پشتِ این پرده چیست و در پسِ این حادثه، چه رازی است؟</p>
+
+        <p>تو امروز را می‌بینی و من فردا را.</p>
+        <p>تو ظاهر را می‌بینی و من پنهان را.</p>
+
+        <p>بسا چیزی که دل را شکست و جان را ساخت.</p>
+        <p>بسا راهی که بسته شد و راهی گشوده شد.</p>
+
+        <p class="emphasis">
+          پس زود حکم مکن؛ بعضی رازها را باید با صبر خواند،
+          با سکوت خواند، با دل خواند.
+        </p>
+      </section>
+
+      <section class="section">
+        <p>صبر، خاموش ماندن نیست؛ دل نگه داشتن است.</p>
+        <p>صبر، بی‌دردی نیست؛ از درد، نشکستن است.</p>
+
+        <p>اشک، نشانه‌ی شکست نیست؛ اگر امید را نبرد.</p>
+
+        <p>اگر خسته شدی، بنشین؛ راه را رها مکن.</p>
+        <p>اگر گریستی، گریه کن؛ خدا را رها مکن.</p>
+
+        <p>بسا دل‌هایی که در آسایش خوابیدند و در سختی بیدار شدند.</p>
+        <p>بسا جان‌هایی که در فراخی گم شدند و در تنگی پیدا شدند.</p>
+
+        <p>پس اگر روزگار فشردت، مپندار که تمام شدی.</p>
+        <p class="emphasis">شاید در همین تنگی چیزی در تو گشوده شد.</p>
+      </section>
+
+      <section class="section">
+        <p>اگر کسی تو را رنجاند، رنج را با خود مبر.</p>
+
+        <p>حق را نگاه دار؛ کینه را رها کن.</p>
+        <p>مرز بگذار؛ دیوار مشو.</p>
+        <p>ببخش؛ اما فراموش مکن.</p>
+
+        <p class="emphasis">بخشیدن، آزاد شدن است.</p>
+
+        <p>چه سود که او یک‌بار آزارت داد و تو هر روز خود را آزاری؟</p>
+
+        <p>بگذار برود؛ نه برای او، برای خودت.</p>
+
+        <p>دل جای کینه نیست؛ جای مهر است، جای نور است، جای عبور است.</p>
+      </section>
+
+      <section class="section">
+        <p>در داوری شتاب مکن.</p>
+
+        <p>لغزشِ یک روز را به حسابِ همه‌ی عمر مگذار.</p>
+
+        <p>تو امروز را می‌بینی؛ من راهِ سال‌ها را.</p>
+
+        <p>چه می‌دانی آن‌که امروز افتاده، فردا چگونه برخیزد؟</p>
+        <p>و چه می‌دانی آن‌که امروز ایستاده، فردا کجا بایستد؟</p>
+
+        <p>پس پیش از حکم، درنگ کن؛<br>
+        پیش از خشم، نرم شو؛<br>
+        پیش از سخن، خاموش شو.</p>
+
+        <p class="emphasis">آدمی را با یک لحظه نمی‌توان شناخت.</p>
+
+        <p>هرکس را قصه‌ای است؛ هر قصه را رازی است.</p>
+      </section>
+
+      <section class="section">
+        <p>اگر دعایت دیر رسید، گمان مبر که نشنیدم.</p>
+
+        <p>کودک چون مادر را نمی‌بیند، باز منتظر می‌ماند.</p>
+        <p>تو نیز چنین باش.</p>
+
+        <p>گاهی پاسخ دیر می‌رسد تا دل آماده شود.</p>
+        <p>گاهی چیزی نمی‌رسد تا آسیبی نرسد.</p>
+        <p>گاهی راهی بسته می‌شود تا قدمت به بیراهه نرود.</p>
+
+        <p>پس بخواه؛ اما اصرار مکن.</p>
+        <p>دعا کن؛ اما معامله مکن.</p>
+
+        <div class="quote">
+          خدایا،<br>
+          خیر را نزدیک کن؛<br>
+          شر را دور کن.<br><br>
+          و اگر خواسته‌ام خیر نیست،<br>
+          دل مرا آزاد کن.
+        </div>
+
+        <p class="emphasis">این آغازِ رضاست:</p>
+        <p>خواستن، دعاست؛ سپردن، رضاست.</p>
+      </section>
+
+      <section class="section">
+        <p>ای دل،</p>
+
+        <p>با وقتِ خویش دشمنی مکن.</p>
+
+        <p>هر دانه را زمانی است؛ هر شکوفه را بهاری.</p>
+
+        <p>چیزی که امروز نمی‌بینی، شاید فردا ببینی.</p>
+
+        <p>پس کارِ خود بکن و دل به شتاب مسپار.</p>
+
+        <p>بکار؛<br>آب بده؛<br>صبر کن.</p>
+
+        <p>ریشه در تاریکی می‌روید؛ میوه در آفتاب می‌رسد.</p>
+
+        <p>تو سهمِ خویش را انجام بده؛ باقی را واگذار.</p>
+
+        <p>آنچه باید برسد، می‌رسد؛<br>
+        آنچه باید بماند، می‌ماند؛<br>
+        آنچه باید برود، می‌رود.</p>
+      </section>
+
+      <section class="section">
+        <p>اگر روزی تنها شدی، از خلوت نترس.</p>
+
+        <p>هر تنهایی، بی‌کسی نیست.</p>
+
+        <p>گاهی از مردم دور می‌شوی تا به خویش نزدیک شوی.</p>
+
+        <p>گاهی سکوت می‌آید تا صدایی را بشنوی که در هیاهو گم بود.</p>
+
+        <p>در شلوغی، بسیار صداست؛ در خلوت، یک صدا.</p>
+
+        <p>و گاهی همان یک صدا راه را نشان می‌دهد.</p>
+
+        <p>پس اگر کسی رفت، مپندار که چیزی کم شد.</p>
+        <p class="emphasis">شاید باری کم شد؛ شاید راهی باز شد.</p>
+      </section>
+
+      <section class="section">
+        <p>مرا در سخنِ بسیار مجوی.</p>
+
+        <p>اگر خشم آمد و ستم نکردی، مرا یافته‌ای.</p>
+
+        <p>اگر توانستی ببخشی و حق را نگاه داشتی، مرا یافته‌ای.</p>
+
+        <p>اگر در تنگی دلِ دیگری را فراموش نکردی، مرا یافته‌ای.</p>
+
+        <p>راهِ من همیشه از محراب نمی‌گذرد.</p>
+
+        <p>گاهی از سفره می‌گذرد؛<br>
+        گاهی از سکوت؛<br>
+        گاهی از گذشت.</p>
+
+        <p>گاهی از همان‌جا که می‌توانستی بشکنی و نشکستی.</p>
+
+        <p class="emphasis">آنجا نیز مرا می‌توان یافت.</p>
+      </section>
+
+      <section class="section">
+        <p>وسعتِ جان آن نیست که غمی نداشته باشی.</p>
+
+        <p class="emphasis">آن است که غم، همه‌ی تو نشود.</p>
+
+        <p>محبت کن؛ خودت را گم مکن.</p>
+        <p>ببخش؛ حق را فراموش مکن.</p>
+        <p>نرم باش؛ بی‌پناه مباش.</p>
+
+        <p>در میانِ مردم باش؛ دل به هر سخن مسپار.</p>
+
+        <p>دل، جای هر مهمانی نیست.</p>
+
+        <p>هرکه آمد، ماندنی نیست؛ هرکه رفت، دشمن نیست.</p>
+
+        <p>اگر این را بدانی، نه از آمدن سرمست می‌شوی و نه از رفتن می‌شکنی.</p>
+
+        <p>دلت سبک می‌شود؛ جانت آزاد می‌شود.</p>
+      </section>
+
+      <section class="section">
+        <p>روزی به گذشته نگاه می‌کنی و چیزهایی را می‌فهمی که امروز نمی‌فهمی.</p>
+
+        <p>می‌بینی بعضی درها که بسته شدند، تو را از راهی دور کردند.</p>
+
+        <p>می‌بینی بعضی نرسیدن‌ها خودِ رسیدن بودند.</p>
+
+        <p>می‌بینی بعضی اشک‌ها بیهوده نبودند.</p>
+
+        <div class="quote">
+          خدایا،<br>
+          من رنج را می‌دیدم؛<br>
+          تو راه را می‌دیدی.
+        </div>
+
+        <p>آن روز برای بسیاری از «چرا»ها پاسخی نمی‌خواهی.</p>
+
+        <p class="emphasis">
+          فقط می‌گویی:<br>
+          «اکنون می‌فهمم؛<br>
+          تو می‌دانستی،<br>
+          من نمی‌دانستم.»
+        </p>
+      </section>
+
+      <section class="section">
+        <p>پس صبر کن؛ اما بی‌جان مباش.</p>
+        <p>دعا کن؛ اما دست از کار مکش.</p>
+        <p>امید داشته باش؛ اما به خیال مسپار.</p>
+        <p>ببخش؛ اما ظلم را نپذیر.</p>
+        <p>رضا داشته باش؛ اما کوشش را رها مکن.</p>
+        <p>توکل کن؛ اما تدبیر را مبند.</p>
+
+        <p class="emphasis">
+          صبرِ راستین دست روی دست گذاشتن نیست.
+        </p>
+
+        <p>دل به خدا دادن است؛ دست به کار داشتن است.</p>
+
+        <p>اهلِ دعا باش و اهلِ پا.</p>
+        <p>اهلِ دل باش و اهلِ راه.</p>
+      </section>
+
+      <section class="section">
+        <p>و چون حادثه‌ای آمد و دلت پرسید:</p>
+
+        <div class="quote">«چرا من؟»</div>
+
+        <p>کمی خاموش شو.</p>
+
+        <p>شاید بهتر باشد بپرسی:</p>
+
+        <div class="quote">«برای چه؟»</div>
+
+        <p>چه چیزی را باید بیدار کند؟</p>
+        <p>چه چیزی را باید بگیرد؟</p>
+        <p>چه چیزی را باید بیاموزد؟</p>
+
+        <p>شاید صبرت را بیاموزد؛<br>
+        شاید غرورت را کم کند؛<br>
+        شاید چیزی را از تو بگیرد که خود توانِ رها کردنش را نداشتی.</p>
+
+        <p>و شاید فقط یادت آورد:</p>
+
+        <p class="emphasis">همه‌چیز را نمی‌توان دانست.</p>
+
+        <p>بعضی چیزها را باید پذیرفت، باید سپرد، باید گذشت.</p>
+      </section>
+
+      <section class="section">
+        <p>پس دلت را فراخ کن.</p>
+
+        <p>اگر جهان تنگ شد، دل را تنگ مکن.</p>
+        <p>اگر کسی نماند، خودت را رها مکن.</p>
+        <p>اگر راه تار شد، قدم را متوقف مکن.</p>
+
+        <p>تو هنوز در میانه‌ی راهی.</p>
+
+        <p>هنوز بسیار چیزها مانده که ندیده‌ای، نفهمیده‌ای، نچشیده‌ای.</p>
+
+        <p>شاید آنچه پایان می‌پنداری، آغازِ دیگری باشد.</p>
+
+        <p class="emphasis">و این است رازِ صبر:</p>
+
+        <p>صبر، فقط منتظر ماندن نیست؛ دگرگون شدن است.</p>
+
+        <p>روزی می‌رسد که همان چیزی که برایش گریه می‌کردی، دیگر تو را نمی‌شکند.</p>
+
+        <p>نه چون خواسته‌ات را یافته‌ای؛ چون دلِ تو بزرگ‌تر شده است.</p>
+      </section>
+
+      <section class="section">
+        <p>آن روز می‌فهمی رضا چیست:</p>
+
+        <p>دستت خالی باشد؛ دلت خالی نباشد.</p>
+
+        <p>راه را ندانی؛ راهنما را بشناسی.</p>
+
+        <p>همه‌چیز را نداشته باشی؛ از آنچه هست غافل نباشی.</p>
+
+        <div class="quote">
+          آنچه پایان می‌پنداشتی، آغاز بود.<br><br>
+          آنچه محرومیت می‌دیدی، رحمت بود.<br><br>
+          و آنچه گمان می‌کردی گم شد،<br>
+          شاید تو را یافته بود.
+        </div>
+      </section>
+
+      <div class="closing">
+        اگر دلت فراخ شد،<br>
+        شهر نیز فراخ می‌شود.
+        <div class="ornament">✦ ✧ ✦</div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">خانه</a>
+      <span>·</span>
+      <a href="https://celianor.github.io/Horia/index.fa.html">بازگشت</a>
+      <span>·</span>
+      <a href="#top">بالا ↑</a>
+    </div>
+
+    <div>لوح بیست‌وهفتم · در صبر، رضا و وسعت جان</div>
+  </footer>
+
+  <a class="back-top" href="#top" aria-label="بازگشت به بالا">↑</a>
+
+</body>
+      </html>
