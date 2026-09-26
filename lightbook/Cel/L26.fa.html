@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>لوح بیست‌وششم | در خدمت و فروتنی</title>
+
+  <!-- فونت‌های فارسی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #efe3c5;
+      --paper-light: #f7efd9;
+      --ink: #3d2c1e;
+      --muted: #725b43;
+      --gold: #9b753d;
+      --border: #b69a68;
+      --shadow: rgba(48, 31, 15, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(120, 80, 30, .08), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(120, 80, 30, .07), transparent 30%),
+        #d8c7a4;
+      color: var(--ink);
+      font-family: "Amiri", "Times New Roman", serif;
+      line-height: 2.25;
+    }
+
+    /* نوار بالایی */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 20px;
+      background: rgba(55, 39, 25, .94);
+      box-shadow: 0 3px 15px rgba(0,0,0,.25);
+      text-align: center;
+    }
+
+    .topbar a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 5px 15px;
+      color: #f3e5c4;
+      text-decoration: none;
+      border: 1px solid rgba(220,190,130,.45);
+      border-radius: 20px;
+      transition: .25s;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .9rem;
+    }
+
+    .topbar a:hover {
+      background: #9b753d;
+      color: white;
+    }
+
+    /* صفحه */
+    .page {
+      max-width: 900px;
+      margin: 45px auto;
+      padding: 65px 75px;
+      position: relative;
+
+      background:
+        linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.08)),
+        var(--paper-light);
+
+      border: 1px solid var(--border);
+      box-shadow:
+        0 12px 35px var(--shadow),
+        inset 0 0 50px rgba(111, 76, 32, .08);
+    }
+
+    /* قاب داخلی */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(130, 96, 51, .35);
+      pointer-events: none;
+    }
+
+    .ornament {
+      text-align: center;
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .tablet-number {
+      text-align: center;
+      font-size: 1.15rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin: 0 0 8px;
+      font-weight: 700;
+      color: #3a281b;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.55rem;
+      color: var(--gold);
+      margin-bottom: 45px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 30px 0;
+      color: var(--gold);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to left, transparent, var(--border), transparent);
+    }
+
+    .text p {
+      margin: 0 0 1.3em;
+      font-size: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .text p.lead {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #4a3322;
+    }
+
+    .text p.center {
+      text-align: center;
+      font-size: 1.45rem;
+      margin: 2rem 0;
+    }
+
+    .emphasis {
+      color: #754d27;
+      font-weight: 700;
+    }
+
+    .closing {
+      text-align: center;
+      margin-top: 55px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(130,96,51,.4);
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(130,96,51,.35);
+      font-family: "Vazirmatn", sans-serif;
+    }
+
+    .bottom-nav a {
+      color: #654724;
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: rgba(255,255,255,.2);
+    }
+
+    .bottom-nav a:hover {
+      background: #d7c29a;
+    }
+
+    footer {
+      text-align: center;
+      color: #765f45;
+      padding: 10px 20px 40px;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .85rem;
+    }
+
+    /* موبایل */
+    @media (max-width: 700px) {
+      .page {
+        margin: 15px 10px;
+        padding: 45px 28px;
+      }
+
+      .page::before {
+        inset: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+      }
+
+      .text p {
+        font-size: 1.12rem;
+        line-height: 2.15;
+        text-align: right;
+      }
+
+      .text p.lead {
+        font-size: 1.25rem;
+      }
+
+      .bottom-nav {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .bottom-nav,
+      footer {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- منوی بالا -->
+  <nav class="topbar">
+    <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+    <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+    <a href="#top">↑ آغاز</a>
+  </nav>
+
+  <main class="page">
+
+    <div class="ornament">❦</div>
+
+    <div class="tablet-number">
+      لوح بیست‌وششم
+    </div>
+
+    <h1>در خدمت و فروتنی</h1>
+
+    <div class="subtitle">
+      ❧
+    </div>
+
+    <article class="text">
+
+      <p class="lead">ای انسان،</p>
+
+      <p>
+        تو را نیافریدم که بارِ خویش بر دوشِ دیگران نهی و نانِ خویش به رنجِ ایشان خوری؛
+        تو را دانه‌ای کردم در کشتزارِ روزگار،
+        تا به آبِ کوشش برویی، به آفتابِ خدمت برآیی،
+        و از شاخِ وجودت میوه‌ای برای دیگران برآید.
+      </p>
+
+      <p>
+        تو را برای نشستن نساختم، برای برخاستن ساختم؛
+        نه برای خوردن، برای سود رساندن؛
+        نه برای گرفتن، برای بخشیدن.
+      </p>
+
+      <p>
+        مرا در دست‌های کوشایت بجوی، نه در دعویِ زبانت؛
+        که دستِ پینه‌بسته از زبانِ آراسته راست‌گوتر است،
+        و عرقِ پیشانی از اشکِ بی‌ریشه پاکیزه‌
+
+      <p class="center">
+        کار، عبادتِ بی‌محراب است؛<br>
+        ذکرِ بی‌زبان است؛<br>
+        سجدهٔ بی‌پیشانی است.
+      </p>
+
+      <p>
+        محرابِ این عبادت، میدانِ زندگی است؛
+        قبله‌اش دلِ شکسته؛
+        تسبیحش دستِ کارگر؛
+        و سجاده‌اش خاکی که بر آن برای دیگری قدم می‌نهی.
+      </p>
+
+      <p>
+        آن‌که برای آسایشِ خلق خویش را به رنج می‌سپارد، خویش را تباه نمی‌کند؛
+        پیرایش می‌کند.
+      </p>
+
+      <p>
+        آهن به آتش می‌رود تا پولاد شود؛
+        و آدمی به کورهٔ خدمت می‌رود تا آدم شود.
+      </p>
+
+      <p class="lead">ای انسان،</p>
+
+      <p>
+        مبادا نیکی کنی و در پسِ نیکی، نام بجویی؛
+        که نیکی اگر به حساب آید، معامله است.
+      </p>
+
+      <p>
+        نیکی آن است که ببخشی و دستت نلرزد؛
+        دهی و دلت نطلبد؛
+        بکنی و چشم به دیده‌شدن ندوزی.
+      </p>
+
+      <p>
+        اگر دستِ افتاده‌ای گرفتی، دستِ خویش بر سرِ او مگذار؛
+        که دستی که برای منت بلند شود،
+        اگرچه بخشنده باشد، از بزرگی فرود آمده است.
+      </p>
+
+      <p>
+        آن‌که دستِ دیگری را می‌شوید، پیش از آن غبارِ خویش می‌شوید؛
+        آن‌که بارِ دیگری برمی‌گیرد، بارِ خویش سبک می‌کند؛
+        و آن‌که گرهی از کارِ خلق می‌گشاید، گرهی از جانِ خویش گشوده است.
+      </p>
+
+      <p>
+        چه بسیار سجده‌ها که قامت را خم کردند و دل را راست نکردند؛
+        و چه بسیار دست‌ها که به خاک خم شدند و به آسمان رسیدند.
+      </p>
+
+      <p>
+        من به بسیاریِ رکوع و سجود نمی‌نگرم؛
+        به راستیِ دل می‌نگرم؛
+        به دستی که گرفت، نه دستی که فشرد؛
+        به دلی که بخشید، نه دلی که طلب کرد.
+      </p>
+
+      <p class="lead">ای انسان،</p>
+
+      <p>
+        خدمت، نردبانی است که پله‌هایش فروتنی است؛
+        راهش خاک است و فرجامش افلاک.
+      </p>
+
+      <p>درخت را ببین:</p>
+
+      <p>
+        میوه که اندک است، شاخه سر به آسمان دارد؛
+        و چون میوه بسیار شود، سر فرود می‌آورد.
+      </p>
+
+      <p>
+        پس اگر از باغِ معنا میوه‌ای داری، سر فرود آور؛
+        که شاخهٔ پُربار، گردن‌فراز نیست.
+      </p>
+
+      <p>
+        بزرگی آن نیست که دیگران در پیشِ تو خم شوند؛
+        بزرگی آن است که تو برای آسودگیِ دیگران خم شوی.
+      </p>
+
+      <p>
+        عزیز آن نیست که عزت از خلق طلب کند؛
+        عزیز آن است که دلِ بی‌کس را عزیز دارد.
+      </p>
+
+      <p>
+        فروتنی، شکستنِ خویش نیست؛
+        شکستنِ بتِ خویش است.
+      </p>
+
+      <p>
+        تو را کوچک نمی‌خواهم؛ خودخواهی‌ات را کوچک می‌خواهم.
+        تو را خوار نمی‌خواهم؛ غرورت را خوار می‌خواهم.
+        تو را از خویش نمی‌گیرم؛ تو را از بندی که نامش «خود» است آزاد می‌کنم.
+      </p>
+
+      <p>
+        چراغی که تنها برای خویش روشن شود، چراغ نیست؛
+        آتشِ محبوس است.
+      </p>
+
+      <p>
+        نور آن است که از خویش بگذرد و بر دیگری بتابد.
+      </p>
+
+      <p>
+        شمع را از بلندیِ شعله‌اش نمی‌سنجند؛
+        از تاریکی‌ای می‌سنجند که پس از آمدنش نمانده است.
+      </p>
+
+      <p class="lead">ای انسان،</p>
+
+      <p>
+        تن‌پروری، آسایشِ تن و بیماریِ جان است؛
+        آب اگر روان نباشد، مرداب شود؛
+        و جان اگر در راهِ خیر نرود، در خویش می‌گندد.
+      </p>
+
+      <p>
+        زندگی، رفتن است؛
+        و خدمت، راهِ رفتن.
+      </p>
+
+      <p>
+        برخیز و کاری کن؛
+        که دستِ بی‌کار، هرچند نرم باشد، دل را سخت می‌کند.
+      </p>
+
+      <p>
+        برخیز و نیکی کن؛
+        که نیکی از تو چیزی نمی‌کاهد؛
+        نور، چون بخشیده شود، کم نمی‌گردد؛ افزون می‌شود.
+      </p>
+
+      <p>
+        مال از دست می‌رود؛
+        جاه از یاد می‌رود؛
+        نام در باد می‌رود؛
+        اما دستی که گرفتی،
+        دلی که نیازردی،
+        گرهی که گشودی،
+        و اشکی که ستردی،
+        در دفترِ معنا گم نمی‌شود.
+      </p>
+
+      <p>
+        نام بر سنگ مگذار؛
+        که سنگ نیز روزی غبار شود.
+      </p>
+
+      <p>
+        مهر بر دل‌های شکسته بگذار؛
+        که دل اگر به دستِ مهر بند آید،
+        سال‌ها پس از رفتنِ تو، بی‌زبان از تو خواهد گفت.
+      </p>
+
+      <p>
+        خویش را به خاکِ مهر بسپار
+        تا نهالِ نیکی از تو برآید.
+      </p>
+
+      <p>
+        دانه تا پوستِ خویش نشکند، درخت نمی‌شود؛
+        و آدمی تا از خودخواهی نگذرد، به آدمیت نمی‌رسد.
+      </p>
+
+      <p>
+        پس پوستِ «من» بشکن،
+        اما گوهرِ انسانیت را نگاه دار.
+      </p>
+
+      <p class="center">
+        سایه باش، نه بار؛<br>
+        پناه باش، نه پناه‌جو؛<br>
+        مرهم باش، نه زخم.
+      </p>
+
+      <p>
+        نیکی کن و فراموش کن؛
+        چنان‌که باران می‌بارد و حسابِ دانه‌ها نمی‌کند؛
+        چنان‌که خورشید می‌تابد و میان گل و خار فرق نمی‌گذارد.
+      </p>
+
+      <p>
+        اگر نیکی کردی و چشم به ستایش دوختی، هنوز در بندِ خویشی؛
+        و اگر نیکی کردی و خود را فراموش کردی، از خویش رسته‌ای.
+      </p>
+
+      <p class="lead">پس برخیز، ای انسان؛</p>
+
+      <p>
+        دانه باش، نه تندیس؛
+        بکار و ننما؛
+        برو و بر جای نمان؛
+        ثمر ده و از دعوی برهان.
+      </p>
+
+      <p>
+        که در باغِ زندگی،
+        بزرگ‌ترین درخت آن نیست که بلندتر است؛
+        آن است که ریشه‌اش در دلِ خلق است
+        و میوه‌اش در دستِ دیگری.
+      </p>
+
+      <p>و بدان:</p>
+
+      <p>
+        نه آن‌کس می‌ماند که بسیار نام برد،
+        بل آن‌کس که بسیار خیر به جا گذاشت؛
+      </p>
+
+      <p>
+        نه آن‌کس که بر سرِ خلق ایستاد،
+        بل آن‌کس که زیرِ بارِ خلق ایستاد؛
+      </p>
+
+      <p>
+        نه آن‌کس که خویشتن را بزرگ نمود،
+        بل آن‌کس که خودخواهیِ خویش را کوچک کرد
+        تا دیگری مجالِ برخاستن یابد.
+      </p>
+
+      <p>
+        خود را ببخش تا دیگری بیاساید؛
+        خودخواهی را فرو نه تا دیگری برآید؛
+        و از خویش بگذر تا خیرِ تو در دیگری بماند.
+      </p>
+
+      <p class="center">
+        دانه شو؛<br>
+        در خاکِ مهر فرو شو؛<br>
+        ریشه بدوان؛<br>
+        خاموش برو؛<br>
+        و بی‌نام، میوه شو.
+      </p>
+
+      <p>
+        که راهِ بلند، از فرود آغاز می‌شود؛
+        و آن‌که ریشه در خاک دارد، از آسمان بهره‌مندتر است.
+      </p>
+
+      <p>
+        و خوشا آن بنده
+        که چون از این باغ می‌رود،
+        دستش تهی‌ست از آنچه برای خویش خواست،
+        اما جهان از خیرِ او سرشار است؛
+      </p>
+
+      <p>
+        دستش خالی‌ست،
+        اما دل‌ها از یادِ او پُر؛
+        خویش رفته است،
+        اما خیرِ او مانده؛
+        نامش خاموش است،
+        اما نیکی‌اش در جهان سخن می‌گوید.
+      </p>
+
+      <p>
+        و چه خوشا آن‌که
+        چون از این سرا گذشت،
+        نه مالی از خویش برد،
+        نه نامی،
+        نه جاه و مقامی؛
+      </p>
+
+      <p>
+        اما دستی به یادِ او بالا رفت،
+        دلی به مهرِ او آرام گرفت،
+        اشکی به دستِ او خشک شد،
+        و دعایی بی‌نام
+        از دلِ بنده‌ای شکسته
+        راهِ آسمان گرفت.
+      </p>
+
+      <p class="lead">ای انسان،</p>
+
+      <p>
+        این است راهِ خدمت؛
+        این است راهِ فروتنی؛
+        این است راهِ رهایی:
+      </p>
+
+      <p class="center">
+        از خود بگذر،<br>
+        تا به حقیقت برسی؛
+      </p>
+
+      <p class="center">
+        در خلق خدمت کن،<br>
+        تا از خویش آزاد شوی؛
+      </p>
+
+      <p class="center">
+        و در خاکِ مهر فرو رو،<br>
+        تا درختی شوی<br>
+        که سایه‌اش بر سرِ دیگران باشد<br>
+        و میوه‌اش در دستِ ایشان.
+      </p>
+
+      <p>
+        که در این باغ،
+        بلندترین درخت
+        آن نیست که سر به آسمان کشیده است؛
+        آن است که ریشه در خاک دارد،
+        سایه بر خلق دارد،
+        و میوه در دستِ دیگری.
+      </p>
+
+      <p class="center emphasis">
+        و خوشا آن بنده
+        که چون از این باغ می‌رود،
+        دستش تهی‌ست از خویش،
+        اما جهان
+        از خیرِ او سرشار.
+      </p>
+
+    </article>
+
+    <div class="ornament">❦</div>
+
+    <!-- لینک‌های پایین صفحه -->
+    <div class="bottom-nav">
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+      <a href="https://celianor.github.io/Horia/index.fa.html"> خانه</a>
+      <a href="#top">↑ بازگشت به آغاز</a>
+    </div>
+
+  </main>
+
+  <footer>
+    لوح بیست‌وششم · در خدمت و فروتنی
+  </footer>
+
+</body>
+  </html>
