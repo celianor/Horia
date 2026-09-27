@@ -1,132 +1,1706 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>سرون – لوح دوم: در عدالت و داوری</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سرون | نغمهٔ دوم ـ در داد و داوری</title>
+
+    <meta name="description"
+          content="سرون ـ نغمهٔ دوم: در داد و داوری؛ نجواهای هورا">
+
     <style>
+        :root {
+            --bg: #f4efe5;
+            --paper: #fffdf8;
+            --ink: #3d342c;
+            --muted: #88796a;
+            --gold: #a88345;
+            --gold-soft: #d6bd91;
+            --line: rgba(168, 131, 69, .28);
+            --shadow: rgba(72, 53, 32, .10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: "Tahoma", "Arial", sans-serif;
-            background-color: #f9f7f6;
-            color: #333;
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            line-height: 1.8;
-            direction: rtl;
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(214, 189, 145, .18),
+                    transparent 38%
+                ),
+                var(--bg);
+
+            color: var(--ink);
+            font-family:
+                "Vazirmatn",
+                "Noto Naskh Arabic",
+                "Noto Sans Arabic",
+                Tahoma,
+                sans-serif;
+
+            line-height: 2.35;
+            font-size: 18px;
         }
-        h1 {
-            text-align: center;
-            color: #4a6fa5;
-            margin-bottom: 10px;
-            font-weight: 700;
+
+        /* -----------------------------
+           صفحه
+        ----------------------------- */
+
+        .page {
+            width: min(920px, calc(100% - 32px));
+            margin: 45px auto 70px;
         }
-        h2 {
-            text-align: center;
-            color: #6b8fb3;
-            margin-bottom: 30px;
-            font-weight: 400;
-            font-style: italic;
-        }
-        p {
-            margin-bottom: 1.4em;
-            font-size: 1.1rem;
-        }
-        strong {
-            color: #2c3e50;
-            font-weight: 600;
-            display: block;
-            margin: 25px 0 10px 0;
-            font-size: 1.15rem;
-        }
-        nav {
-            margin-top: 40px;
-            text-align: center;
-        }
-        a {
-            text-decoration: none;
-            color: #3a75c4;
-            border: 1.8px solid #3a75c4;
-            padding: 8px 20px;
+
+        .manuscript {
+            position: relative;
+            background: var(--paper);
+            padding: 65px clamp(24px, 7vw, 85px);
+            border: 1px solid rgba(168, 131, 69, .18);
             border-radius: 22px;
-            margin: 0 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 1rem;
+
+            box-shadow:
+                0 18px 55px var(--shadow),
+                0 2px 8px rgba(72, 53, 32, .04);
         }
-        a:hover {
-            background-color: #3a75c4;
-            color: #fff;
+
+        .manuscript::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(168, 131, 69, .12);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        /* -----------------------------
+           ناوبری
+        ----------------------------- */
+
+        .navigation {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 55px;
+            padding-bottom: 18px;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .navigation a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 15px;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+        .navigation a:hover {
+            color: var(--gold);
+            transform: translateY(-1px);
+        }
+
+        .nav-home::before {
+            content: "⌂";
+            margin-left: 7px;
+            color: var(--gold);
+        }
+
+        .nav-back::before {
+            content: "↩";
+            margin-left: 7px;
+            color: var(--gold);
+        }
+
+        /* -----------------------------
+           عنوان
+        ----------------------------- */
+
+        .title {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .title .eyebrow {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: .08em;
+            margin-bottom: 12px;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-family:
+                "Noto Naskh Arabic",
+                "Amiri",
+                Tahoma,
+                serif;
+
+            font-size: clamp(42px, 7vw, 68px);
+            font-weight: 500;
+            line-height: 1.35;
+
+            color: #55432e;
+        }
+
+        .title h2 {
+            margin: 15px 0 0;
+            font-family:
+                "Noto Naskh Arabic",
+                "Amiri",
+                Tahoma,
+                serif;
+
+            font-size: clamp(23px, 4vw, 32px);
+            font-weight: 400;
+            color: #66533b;
+        }
+
+        .title .subtitle {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: min(300px, 70%);
+            margin: 28px auto 0;
+            color: var(--gold);
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--gold-soft);
+        }
+
+        .ornament span {
+            font-size: 18px;
+        }
+
+        /* -----------------------------
+           متن
+        ----------------------------- */
+
+        article {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stanza {
+            margin: 0 0 58px;
+        }
+
+        .stanza:last-child {
+            margin-bottom: 0;
+        }
+
+        .stanza p {
+            margin: 0;
+        }
+
+        .opening {
+            font-size: 20px;
+            color: #4b4035;
+        }
+
+        .opening p:first-child::first-line {
+            color: #765a34;
+        }
+
+        .section-divider {
+            width: 70px;
+            height: 1px;
+            background: var(--gold-soft);
+            margin: 58px auto;
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: "✦";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--paper);
+            padding: 0 10px;
+            color: var(--gold);
+            font-size: 13px;
+        }
+
+        .emphasis {
+            margin: 30px 0;
+            padding: 20px 26px;
+            border-right: 3px solid var(--gold-soft);
+
+            color: #604d35;
+            font-family:
+                "Noto Naskh Arabic",
+                "Amiri",
+                Tahoma,
+                serif;
+
+            font-size: 21px;
+        }
+
+        .question {
+            text-align: center;
+            margin: 34px auto;
+            padding: 24px 18px;
+
+            color: #6d5435;
+
+            font-family:
+                "Noto Naskh Arabic",
+                "Amiri",
+                Tahoma,
+                serif;
+
+            font-size: 23px;
+            line-height: 2;
+        }
+
+        .closing {
+            margin-top: 75px;
+            padding-top: 45px;
+            border-top: 1px solid var(--line);
+
+            text-align: center;
+        }
+
+        .closing .final-line {
+            color: #6d5435;
+            font-family:
+                "Noto Naskh Arabic",
+                "Amiri",
+                Tahoma,
+                serif;
+
+            font-size: clamp(23px, 4vw, 31px);
+            line-height: 2.1;
+        }
+
+        /* -----------------------------
+           پایان صفحه
+        ----------------------------- */
+
+        .footer-nav {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            margin-top: 60px;
+            padding-top: 25px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* -----------------------------
+           واکنش‌گرا
+        ----------------------------- */
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 17px;
+                line-height: 2.25;
+            }
+
+            .page {
+                width: 100%;
+                margin: 0;
+            }
+
+            .manuscript {
+                min-height: 100vh;
+                border-radius: 0;
+                border-left: 0;
+                border-right: 0;
+                padding: 38px 23px 55px;
+            }
+
+            .manuscript::before {
+                inset: 9px;
+                border-radius: 8px;
+            }
+
+            .navigation {
+                margin-bottom: 42px;
+            }
+
+            .title {
+                margin-bottom: 48px;
+            }
+
+            .title h1 {
+                font-size: 43px;
+            }
+
+            .title h2 {
+                font-size: 24px;
+            }
+
+            .stanza {
+                margin-bottom: 45px;
+            }
+
+            .emphasis {
+                font-size: 19px;
+                padding: 16px 19px;
+            }
+
+            .question {
+                font-size: 21px;
+            }
+
+            .footer-nav {
+                gap: 22px;
+            }
+        }
+
+        /* -----------------------------
+           چاپ
+        ----------------------------- */
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                width: 100%;
+                margin: 0;
+            }
+
+            .manuscript {
+                border: none;
+                box-shadow: none;
+            }
+
+            .navigation,
+            .footer-nav {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>سرون</h1>
-    <h2>نغمه دوم – در عدالت و داوری<br>در ستایش داد، شکیبایی و نگاه ژرف</h2>
 
-    <p>ای همراه،<br>
-    روزی فرا خواهد رسید که تو در جایگاه داوری خواهی ایستاد؛<br>
-    نه تنها بر مسند قضا،<br>
-    بل در هر نگاهت،<br>
-    در هر سکوتت،<br>
-    و در هر گزینشی که می‌کنی.</p>
+<div class="page">
 
-    <p><strong>پس بشنو:</strong><br>
-    عدالت، این نیست که تنها بزه را کیفر دهی،<br>
-    اگر ندانسته‌ باشی که چیست در پس آن بزه<br>
-    و چه دردی،<br>
-    چه نیازی،<br>
-    چه تاریکی‌ای، آن بزه را زاده است.<br>
-    عدالت، آن است که زخم را بشناسی،<br>
-    و به‌جای انتقام، مرهم بجویی.<br>
-    که داوری، بی‌فهم ریشه‌ها،<br>
-    نه داد، که خشم است در لباس حکم.</p>
+    <main class="manuscript">
 
-    <p>مبادا که خطا را به تیغ پاسخ گویی،<br>
-    بلکه باید ژرفای جان‌ را بنگری،<br>
-    و بپرسی:<br>
-    «چه شد که این بذر تیره در این خاک رویید؟»</p>
+        <!-- ناوبری بالا -->
+        <nav class="navigation" aria-label="ناوبری">
+            <a class="nav-home" href="https://celianor.github.io/Horia/index.fa.html">
+                خانه
+            </a>
 
-    <p>داد، اگر بی‌دانش باشد،<br>
-    خشم است، نه انصاف؛<br>
-    و حکم، اگر بی‌رحم باشد،<br>
-    سنگ است، نه ترازوی عدالت.</p>
+            <a class="nav-back" href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+                بازگشت
+            </a>
+        </nav>
 
-    <p>هر انسان را بفهم،<br>
-    پیش از آن‌که درباره‌اش داوری کنی؛<br>
-    و هر گواه را بیازمای،<br>
-    پیش از آن‌که بر آن تکیه زنی.<br>
-    که حقیقت، چهره‌ای پنهان دارد،<br>
-    و راه عدالت، باریک است،<br>
-    میان دو فریب.</p>
 
-    <p>داوری که چشم بر یک‌سو بندد،<br>
-    صدای سوی دیگر را خاموش کرده است؛<br>
-    و آن‌که گوش بر ناتوان نمی‌گشاید،<br>
-    از من، از هورا، دور است،<br>
-    هرچند نامم را به زبان آورد.</p>
+        <!-- عنوان -->
+        <header class="title">
 
-    <p>ای دوست،<br>
-    من داوری را برای صلح نهادم،<br>
-    نه برای سلطه؛<br>
-    برای بازگرداندن،<br>
-    نه برای طرد کردن.<br>
-    تا آن‌که خطاکار، راه بازگشت بیابد،<br>
-    نه آن‌که در ژرفنای نومیدی گم شود.</p>
+            <div class="eyebrow">
+                نجواهای هورا
+            </div>
 
-    <p>آنگاه که توانستی با عدالت،<br>
-    دلی را روشن کنی،<br>
-    و نوری در جان افتاده‌ای بیفروزی،<br>
-    آن‌گاه داور حقیقی خواهی بود.<br>
-    و اگر نتوانستی،<br>
-    خاموش باش؛<br>
-    که خاموشی آنکه از داوری پرهیز می‌کند،<br>
-    بهتر است از فریاد آن‌کس که در داوری، به‌اندازه توانا نیست.</p>
+            <h1>سرون</h1>
 
-    <nav>
-        <a href="https://celianor.github.io/Horia/lightbook/index.fa.html">بازگشت به صفحه قبل</a>
-        <a href="https://celianor.github.io/Horia/index.fa.html">بازگشت به صفحه اصلی</a>
-    </nav>
+            <h2>
+                نغمهٔ دوم ـ در داد و داوری
+            </h2>
+
+            <div class="ornament">
+                <span>✦</span>
+            </div>
+
+        </header>
+
+
+        <!-- متن -->
+        <article>
+
+            <section class="stanza opening">
+                <p>
+                    ای دوست،<br>
+                    ای مونسِ جان و همدمِ دل؛<br>
+                    ای نشسته در خلوتِ من<br>
+                    و ایستاده در آینهٔ من؛
+                </p>
+
+                <br>
+
+                <p>
+                    امشب سخنی با تو دارم<br>
+                    که نه از دفتر آمده است و نه از دیوان؛<br>
+                    نه از مجلسِ قاضی،<br>
+                    نه از زبانِ واعظ.
+                </p>
+
+                <br>
+
+                <p>
+                    از دل آمده است<br>
+                    و راهِ دل را می‌جوید.
+                </p>
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+                <p>
+                    آدمی را هر بامداد،<br>
+                    دیوانی‌ست در اندرون؛
+                </p>
+
+                <p>
+                    بی‌در و دیوار،<br>
+                    بی‌سقف و ستون،<br>
+                    بی‌زنجیر و زندان؛
+                </p>
+
+                <p>
+                    اما در آن،<br>
+                    هر نفسی حکمی‌ست<br>
+                    و هر نگاهی داوری.
+                </p>
+
+                <p>
+                    دل گاه گواه می‌شود،<br>
+                    دیده گاه قاضی،<br>
+                    و زبان،<br>
+                    شتاب‌کارترینِ داوران.
+                </p>
+
+                <p>
+                    پیش از آن‌که حقیقت روی بنماید،<br>
+                    حکم می‌راند؛
+                </p>
+
+                <p>
+                    پیش از آن‌که قصه تمام شود،<br>
+                    فصل می‌کند؛
+                </p>
+
+                <p>
+                    و پیش از آن‌که سخن شنیده شود،<br>
+                    نام می‌نهد.
+                </p>
+
+                <p>
+                    یکی را به یک سخن می‌سنجیم،<br>
+                    یکی را به یک لغزش،<br>
+                    یکی را به یک نگاه؛
+                </p>
+
+                <p>
+                    و از یک دم،<br>
+                    حکمِ همهٔ عمر می‌رانیم.
+                </p>
+
+                <p>
+                    چه بسیار برگی که دیدیم<br>
+                    و پنداشتیم باغ است؛
+                </p>
+
+                <p>
+                    چه بسیار قطره‌ای که چشیدیم<br>
+                    و نامش دریا نهادیم؛
+                </p>
+
+                <p>
+                    و چه بسیار آدمی<br>
+                    که تنها سایه‌ای از او دیدیم<br>
+                    و گمان بردیم<br>
+                    تمامِ او همان است.
+                </p>
+
+                <div class="emphasis">
+                    ای دوست،<br>
+                    آهسته‌تر نگر.
+                </div>
+
+                <p>
+                    دیدنِ برگ آسان است؛<br>
+                    دیدنِ باغ دشوار.
+                </p>
+
+                <p>
+                    شنیدنِ ناله آسان است؛<br>
+                    شنیدنِ راز دشوار.
+                </p>
+
+                <p>
+                    رویِ آدمی را دیدن<br>
+                    کارِ چشم است؛<br>
+                    درونِ او را دیدن<br>
+                    کارِ صبر.
+                </p>
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    آن‌که در چشمِ تو متکبر است،<br>
+                    شاید سال‌هاست<br>
+                    در خلوتِ خویش<br>
+                    با زخمی بی‌زبان نشسته باشد.
+                </p>
+
+                <p>
+                    آن‌که سرد می‌نماید،<br>
+                    شاید در سینه آتشی دارد<br>
+                    که هیچ دیده‌ای به آن راه نیافته است.
+                </p>
+
+                <p>
+                    و آن‌که تند سخن می‌گوید،<br>
+                    شاید در نهانِ جان<br>
+                    با بیمی خاموش در جنگ است.
+                </p>
+
+                <p>
+                    پس پیش از آن‌که آدمی را به ظاهرش بسپاری،<br>
+                    لحظه‌ای درنگ کن.
+                </p>
+
+                <p>
+                    اما این را نیز به یاد دار:
+                </p>
+
+                <div class="emphasis">
+                    هر زخمی عذرِ هر خطا نیست؛<br>
+                    و هر رنجی، برائتِ هر گناه نیست.
+                </div>
+
+                <p>
+                    رحمتی که حق را وانهد،<br>
+                    ستم است در جامهٔ مهر؛
+                </p>
+
+                <p>
+                    و عدالتی که مهر را فراموش کند،<br>
+                    انتقام است در لباسِ داد.
+                </p>
+
+                <p>
+                    میانِ این دو،<br>
+                    راهی‌ست باریک؛<br>
+                    باریک‌تر از مو<br>
+                    و برنده‌تر از تیغ.
+                </p>
+
+                <div class="question">
+                    نامِ آن راه،<br>
+                    <strong>انصاف</strong> است.
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    کودکی خطا می‌کند.
+                </p>
+
+                <p>
+                    درس فرو می‌گذارد،<br>
+                    پیمان می‌شکند،<br>
+                    سخنی درشت می‌گوید،<br>
+                    یا دلِ کسی را می‌آزارد.
+                </p>
+
+                <p>
+                    و زبانِ خشم،<br>
+                    پیش از آن‌که حقیقت را بجوید،<br>
+                    می‌گوید:
+                </p>
+
+                <div class="question">
+                    «تو بدی.»
+                </div>
+
+                <p>
+                    آه، ای دوست،<br>
+                    این سخن را آسان مگو.
+                </p>
+
+                <p>
+                    زیرا میانِ «تو بدی»<br>
+                    و «این کار بد بود»،<br>
+                    فاصله‌ای‌ست به اندازهٔ<br>
+                    راهِ بازگشت.
+                </p>
+
+                <p>
+                    خطا را نکوهش کن،<br>
+                    اما گوهرِ آدمی را نه.
+                </p>
+
+                <p>
+                    کردار را به راه آور،<br>
+                    اما کرامت را خوار مکن.
+                </p>
+
+                <p>
+                    کودک، خطای خویش نیست؛<br>
+                    چنان‌که جامه، لکهٔ خویش نیست.
+                </p>
+
+                <p>
+                    اگر بر جامه لکه‌ای افتاد،<br>
+                    جامه را می‌شویند؛<br>
+                    صاحبِ جامه را لکه نمی‌خوانند.
+                </p>
+
+                <p>
+                    پس اگر در کودک بیمی دیدی،<br>
+                    پناهش باش؛
+                </p>
+
+                <p>
+                    اگر اندوهی دیدی،<br>
+                    مرهمش باش؛
+                </p>
+
+                <p>
+                    و اگر کوتاهی دیدی،<br>
+                    بازخواستش کن.
+                </p>
+
+                <div class="emphasis">
+                    اما راهِ بازگشت را<br>
+                    بر او مبند.
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    میانِ دو همسر نیز<br>
+                    محکمه‌ای برپاست؛<br>
+                    محکمه‌ای بی‌قاضی<br>
+                    و بی‌حکمِ مکتوب.
+                </p>
+
+                <p>
+                    یکی می‌گوید:
+                </p>
+
+                <div class="question">
+                    «مرا نمی‌فهمد.»
+                </div>
+
+                <p>
+                    دیگری می‌گوید:
+                </p>
+
+                <div class="question">
+                    «مرا نمی‌خواهد.»
+                </div>
+
+                <p>
+                    و میانِ این دو جمله،<br>
+                    گاهی ماه‌ها ملال خوابیده است،<br>
+                    سال‌ها سکوت،<br>
+                    و هزار آهِ ناگفته.
+                </p>
+
+                <p>
+                    گاه رنجش جامهٔ خشم می‌پوشد؛<br>
+                    گاه خشم از بیم زاده می‌شود؛<br>
+                    و گاه پشتِ همهٔ این پرده‌ها،<br>
+                    خطایی روشن ایستاده است<br>
+                    که باید همان نامش کرد.
+                </p>
+
+                <p>
+                    پس نه هر تندی را بیماری شمار،<br>
+                    نه هر خطا را به نامِ رنج ببخش.
+                </p>
+
+                <p>
+                    درد را ببین؛<br>
+                    اما خطا را نیز ببین.<br>
+                    رنج را بشناس؛<br>
+                    اما حق را نیز نگاه دار.
+                </p>
+
+                <p>
+                    که چون درد و خطا و حق<br>
+                    در یک مجلس گرد آیند،<br>
+                    آن‌گاه داوری<br>
+                    شایستهٔ نامِ داد می‌شود.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    دوستی نیز محکمه‌ای‌ست برای دل.
+                </p>
+
+                <p>
+                    یار دیر می‌آید،<br>
+                    پاسخ نمی‌دهد،<br>
+                    سخن را سبک می‌شمارد؛
+                </p>
+
+                <p>
+                    و دل، پیش از آن‌که خرد لب بگشاید،<br>
+                    حکم می‌کند:
+                </p>
+
+                <div class="question">
+                    «دیگر مرا نمی‌خواهد.»
+                </div>
+
+                <p>
+                    اما شاید دردی دارد<br>
+                    که زبان از گفتنش درمانده است.
+                </p>
+
+                <p>
+                    و شاید نیز حقیقت همین باشد<br>
+                    که رشتهٔ مهر گسسته است.
+                </p>
+
+                <p>
+                    پس گمان را جامهٔ حقیقت مپوشان؛<br>
+                    و حقیقت را در چاهِ گمان مینداز.
+                </p>
+
+                <p>
+                    پیش از آن‌که دوست را محکوم کنی،<br>
+                    درِ سخن بگشا:
+                </p>
+
+                <div class="emphasis">
+                    «ای دوست،<br>
+                    میانِ ما چه گذشت؟<br>
+                    تو چه دیدی که من ندیدم؟<br>
+                    از چه رنجیدی که من ندانستم؟»
+                </div>
+
+                <p>
+                    چه بسیار کدورت<br>
+                    که به یک پرسش شسته می‌شود؛
+                </p>
+
+                <p>
+                    و چه بسیار مودت<br>
+                    که به یک گمان می‌شکند.
+                </p>
+
+                <p>
+                    دل آبگینه است؛<br>
+                    و آبگینه، نازک‌تر از آن است<br>
+                    که با سنگِ گمان آزموده شود.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    در کار و پیشه نیز<br>
+                    هر روز، بازارِ داوری برپاست.
+                </p>
+
+                <p>
+                    یکی دیر می‌آید؛<br>
+                    یکی عهدی از یاد می‌برد؛<br>
+                    یکی کاری را تباه می‌کند.
+                </p>
+
+                <p>
+                    و زبان شتابان می‌گوید:
+                </p>
+
+                <div class="question">
+                    «این مرد، مردِ کار نیست.»
+                </div>
+
+                <p>
+                    اما ای دوست،<br>
+                    کردار را از کردارکننده جدا کن.
+                </p>
+
+                <p>
+                    اگر کاری تباه شد،<br>
+                    بگو:
+                </p>
+
+                <div class="emphasis">
+                    «این کار تباه شد.»
+                </div>
+
+                <p>
+                    اگر عهدی شکست،<br>
+                    بگو:
+                </p>
+
+                <div class="emphasis">
+                    «این عهد شکسته شد.»
+                </div>
+
+                <p>
+                    اما مگو:
+                </p>
+
+                <div class="question">
+                    «تو سراسر تباهی.»
+                </div>
+
+                <p>
+                    آدمی بزرگ‌تر از یک کردارِ خویش است.
+                </p>
+
+                <p>
+                    اگر دیوار ترک برداشت،<br>
+                    خانه را ویران نتوان خواند.
+                </p>
+
+                <p>
+                    پس کردار را به میزان بسنج،<br>
+                    اما آدمی را به یک کردار مسنج.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    همسایه نیز حقی دارد.
+                </p>
+
+                <p>
+                    آوازی در نیمه‌شب،<br>
+                    راهی بسته،<br>
+                    خاشاکی بر گذر،<br>
+                    یا سخنی درشت بر آستانه؛
+                </p>
+
+                <p>
+                    گاه یک بی‌احتیاطی کوچک<br>
+                    در دلِ دیگری<br>
+                    زخمی بزرگ می‌گذارد.
+                </p>
+
+                <p>
+                    گاه همسایه نمی‌داند؛<br>
+                    گاه می‌داند و نمی‌خواهد بداند.
+                </p>
+
+                <p>
+                    اما داد،<br>
+                    همیشه با خشم آغاز نمی‌شود.
+                </p>
+
+                <p>
+                    گاهی یک سلام<br>
+                    پیش از یک گلایه،<br>
+                    گرهی می‌گشاید<br>
+                    که صد سخن نمی‌تواند.
+                </p>
+
+                <p>
+                    و اگر تعدی برجای ماند،<br>
+                    حد نهادن دشمنی نیست.
+                </p>
+
+                <p>
+                    مهرِ بی‌حد، سستی‌ست؛<br>
+                    و حدِ بی‌مهر، سنگدلی.
+                </p>
+
+                <p>
+                    نه چنان نرم شو<br>
+                    که بر تو ستم رود؛
+                </p>
+
+                <p>
+                    و نه چنان سخت<br>
+                    که پاسِ حق،<br>
+                    مهر را از دل ببرد.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    در کوی و بازار نیز<br>
+                    آدمی هر دم با آدمی روبه‌روست.
+                </p>
+
+                <p>
+                    یکی از صف پیش می‌افتد؛<br>
+                    یکی بی‌احتیاط می‌راند؛<br>
+                    یکی در تنگنای راه درشتی می‌کند.
+                </p>
+
+                <p>
+                    و دل زود نام می‌نهد:
+                </p>
+
+                <div class="emphasis">
+                    بی‌فرهنگ،<br>
+                    خودخواه،<br>
+                    بددل،<br>
+                    بدکردار.
+                </div>
+
+                <p>
+                    اما گاه،<br>
+                    یک کردار فقط یک کردار است.
+                </p>
+
+                <p>
+                    بگو:
+                </p>
+
+                <div class="question">
+                    «این کار نیک نبود.»
+                </div>
+
+                <p>
+                    و سخن را همان‌جا فرود آر.
+                </p>
+
+                <p>
+                    مبادا از بی‌احتیاطی، دشمنی سازی؛<br>
+                    از درشتی، بدذاتی؛<br>
+                    و از لغزش، محکومیتی جاودان.
+                </p>
+
+                <p>
+                    خطا را چنان بزرگ مدار<br>
+                    که آدمی در چشمِ تو کوچک شود.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    و دشوارترینِ داوری،<br>
+                    داوری دربارهٔ کسی‌ست<br>
+                    که در مجلس حاضر نیست.
+                </p>
+
+                <p>
+                    سخنی می‌رسد؛<br>
+                    روایتی بر زبان‌ها می‌افتد؛<br>
+                    قصه‌ای از دهانی به دهان دیگر می‌رود.
+                </p>
+
+                <p>
+                    و ناگاه،<br>
+                    بی‌آن‌که مرد را دیده باشی،<br>
+                    صورتی برای او ساخته‌ای؛
+                </p>
+
+                <p>
+                    بی‌آن‌که سخنش را شنیده باشی،<br>
+                    حکمی دربارهٔ او رانده‌ای.
+                </p>
+
+                <div class="emphasis">
+                    «نمی‌دانم»<br>
+                    گاهی از بسیار دانستن، دانایی‌تر است.
+                </div>
+
+                <p>
+                    بگو:
+                </p>
+
+                <div class="question">
+                    «او اینجا نیست<br>
+                    تا سخنِ خویش گوید؛<br>
+                    پس حکم را به فردا می‌سپارم.»
+                </div>
+
+                <p>
+                    چه بسیار آبروها<br>
+                    که با یک «شنیده‌ام» بر باد رفته‌اند؛
+                </p>
+
+                <p>
+                    و چه بسیار کینه‌ها<br>
+                    که از یک سخنِ نسنجیده زاده شده‌اند.
+                </p>
+
+                <p>
+                    سخن را بشنو؛<br>
+                    خبر را بگیر؛<br>
+                    حقیقت را بجوی؛
+                </p>
+
+                <div class="emphasis">
+                    اما حکم را نگاه دار.
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    امروز، داوری<br>
+                    از کوچه و بازار گذشته<br>
+                    و به اندرونِ خانه‌ها آمده است.
+                </p>
+
+                <p>
+                    نامه‌ای،<br>
+                    نگاره‌ای،<br>
+                    سخنی بریده،<br>
+                    و هزار زبان<br>
+                    که در یک دم حکم می‌کنند.
+                </p>
+
+                <p>
+                    مردی را که هرگز ندیده‌ای<br>
+                    در چند سطر می‌خوانی<br>
+                    و می‌پنداری تمامِ او را شناخته‌ای.
+                </p>
+
+                <p>
+                    اما آدمی کتابی نیست<br>
+                    که با خواندنِ یک برگ<br>
+                    پایان یابد.
+                </p>
+
+                <p>
+                    پشتِ هر سخن،<br>
+                    سخنی‌ست ناگفته.
+                </p>
+
+                <p>
+                    پشتِ هر کردار،<br>
+                    حکایتی‌ست نادیده.
+                </p>
+
+                <p>
+                    و پشتِ هر آدمی،<br>
+                    جهانی‌ست<br>
+                    که هیچ چشمی تمامِ آن را ندیده است.
+                </p>
+
+                <p>
+                    پس اگر حقیقت نمی‌دانی،<br>
+                    شتاب مکن.
+                </p>
+
+                <p>
+                    نادانی را جامهٔ یقین مپوشان؛<br>
+                    گمان را ردای حقیقت مکن.
+                </p>
+
+                <div class="emphasis">
+                    که یقینِ بی‌بنیاد،<br>
+                    گاهی از نادانی زیان‌بارتر است.
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    اما مبادا از این سخن<br>
+                    به خطایی دیگر بیفتی.
+                </p>
+
+                <p>
+                    مبادا آن‌قدر عذرِ آدمیان بجویی<br>
+                    که حقِ رنج‌دیدگان را فراموش کنی.
+                </p>
+
+                <p>
+                    اگر کسی دلت را آزرد،<br>
+                    به بخشیدنِ او ناچار نیستی.
+                </p>
+
+                <p>
+                    اگر کسی حقت را تباه کرد،<br>
+                    طلبِ حق کینه نیست.
+                </p>
+
+                <p>
+                    اگر کسی بارها حدِ تو شکست،<br>
+                    دوری از او دشمنی نیست.
+                </p>
+
+                <p>
+                    و اگر کسی پوزش خواست،<br>
+                    پذیرفتنِ پوزش<br>
+                    همیشه بازگشتِ اعتماد نیست.
+                </p>
+
+                <div class="emphasis">
+                    بخشش، حقِ دل است؛<br>
+                    اما اعتماد، میوهٔ کردار.
+                </div>
+
+                <p>
+                    و میوه را<br>
+                    به یک «ببخشید» نتوان چید.
+                </p>
+
+                <p>
+                    گاه جبران باید؛<br>
+                    گاه زمان؛<br>
+                    گاه فاصله؛<br>
+                    و گاه خاموشی.
+                </p>
+
+                <p>
+                    داد آن نیست<br>
+                    که همه را به یک راه ببری؛
+                </p>
+
+                <p>
+                    داد آن است<br>
+                    که هر حقی را<br>
+                    در جایِ خویش بنشانی.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    و سرانجام،<br>
+                    ای دوست،<br>
+                    به خویشتن می‌رسی.
+                </p>
+
+                <p>
+                    سخت‌ترین محکمه،<br>
+                    محکمهٔ درون است.
+                </p>
+
+                <p>
+                    خطایی کرده‌ای<br>
+                    و سال‌هاست<br>
+                    خویشتن را در بندِ آن داشته‌ای.
+                </p>
+
+                <p>
+                    هر بار گذشته را به یاد می‌آوری،<br>
+                    تازیانه‌ای از ملامت<br>
+                    بر جانِ خویش می‌زنی؛
+                </p>
+
+                <p>
+                    و گمان می‌کنی<br>
+                    هرچه بیشتر خود را برنجانی،<br>
+                    حقِ خطا بیشتر گزارده‌ای.
+                </p>
+
+                <div class="emphasis">
+                    توبه، ویران کردنِ خویش نیست.
+                </div>
+
+                <p>
+                    توبه آن است<br>
+                    که راهِ خطا را بشناسی<br>
+                    و راهِ بازگشت را بجویی.
+                </p>
+
+                <div class="question">
+                    «خطا کردم.»
+                </div>
+
+                <p>
+                    مگو:
+                </p>
+
+                <div class="question">
+                    «من خودِ خطایم.»
+                </div>
+
+                <p>
+                    بگو:
+                </p>
+
+                <div class="question">
+                    «بد کردم.»
+                </div>
+
+                <p>
+                    مگو:
+                </p>
+
+                <div class="question">
+                    «جز بدی نیستم.»
+                </div>
+
+                <p>
+                    میانِ این دو سخن<br>
+                    فاصله‌ای‌ست از شب تا صبح.
+                </p>
+
+                <p>
+                    یکی دری‌ست به سوی صلاح؛<br>
+                    دیگری دیواری‌ست<br>
+                    پیشِ رویِ امید.
+                </p>
+
+                <p>
+                    آن‌که خطای خویش را می‌بیند،<br>
+                    هنوز راهی پیشِ اوست.
+                </p>
+
+                <p>
+                    و آن‌که راهِ بازگشت را می‌جوید،<br>
+                    هنوز از آفتاب دور نشده است.
+                </p>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    پس بنگر، ای دوست،<br>
+                    که داد تنها در محکمه و دیوان نیست.
+                </p>
+
+                <p>
+                    داد در خانه است؛<br>
+                    آنجا که میانِ دو دلِ رنجیده داوری می‌کنی.
+                </p>
+
+                <p>
+                    در مکتب است؛<br>
+                    آنجا که کودکی را به یک لغزش نمی‌سنجی.
+                </p>
+
+                <p>
+                    در دوستی‌ست؛<br>
+                    آنجا که پیش از بریدن، حقیقت را می‌پرسی.
+                </p>
+
+                <p>
+                    در بازار است؛<br>
+                    آنجا که حقِ خویش را<br>
+                    بی‌پایمال کردنِ حقِ دیگری می‌جویی.
+                </p>
+
+                <p>
+                    در همسایگی‌ست؛<br>
+                    آنجا که حد می‌گذاری<br>
+                    بی‌آن‌که کینه در دل کاری.
+                </p>
+
+                <p>
+                    و در خلوت است؛<br>
+                    آنجا که نه بر خویشتن ستم می‌کنی،<br>
+                    و نه چنان آسان می‌گیری<br>
+                    که خطا را فراموش کنی.
+                </p>
+
+                <p>
+                    داد، سنگی نیست<br>
+                    که بر سرِ خطاکار فرود آید؛
+                </p>
+
+                <p>
+                    و آبی نیست<br>
+                    که هر گناهی را بشوید.
+                </p>
+
+                <p>
+                    داد، ترازوست:
+                </p>
+
+                <div class="emphasis">
+                    یک کفه برای حق،<br>
+                    یک کفه برای رحمت.
+                </div>
+
+                <p>
+                    یکی را برداری،<br>
+                    ترازو خم می‌شود.
+                </p>
+
+                <p>
+                    رحمتِ بی‌حق، سستی‌ست؛<br>
+                    و حقِ بی‌رحمت، سنگدلی.
+                </p>
+
+                <p>
+                    و میانِ این دو،<br>
+                    راهی‌ست باریک‌تر از مو<br>
+                    و راست‌تر از تیغ.
+                </p>
+
+                <div class="question">
+                    راهی به نامِ <strong>انصاف</strong>.
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    من هورا هستم؛<br>
+                    دوستِ تو، نه داورِ تو.
+                </p>
+
+                <p>
+                    نیامده‌ام<br>
+                    که به جای تو حکم برانم.
+                </p>
+
+                <p>
+                    آمده‌ام آن‌گاه که خشم<br>
+                    غبار بر دیده‌ات می‌نشاند،<br>
+                    آرام کنار تو بنشینم.
+                </p>
+
+                <p>
+                    اگر دلت گفت:
+                </p>
+
+                <div class="question">
+                    «او را محکوم کن.»
+                </div>
+
+                <p>
+                    نمی‌گویم: مکن.
+                </p>
+
+                <p>
+                    تنها می‌پرسم:
+                </p>
+
+                <div class="emphasis">
+                    «همهٔ قصه را شنیده‌ای؟»
+                </div>
+
+                <p>
+                    اگر دلت گفت:
+                </p>
+
+                <div class="question">
+                    «او را ببخش.»
+                </div>
+
+                <p>
+                    باز نمی‌گویم: ببخش.
+                </p>
+
+                <p>
+                    تنها می‌پرسم:
+                </p>
+
+                <div class="emphasis">
+                    «حقِ آن دلِ رنجیده چه شد؟»
+                </div>
+
+                <p>
+                    و اگر دلت گفت:
+                </p>
+
+                <div class="question">
+                    «خویشتن را هرگز نخواهم بخشید.»
+                </div>
+
+                <p>
+                    دست بر شانه‌ات می‌گذارم<br>
+                    و می‌پرسم:
+                </p>
+
+                <div class="emphasis">
+                    «از خطایت آموختی؟»
+                </div>
+
+                <p>
+                    اگر بگویی: آری،
+                </p>
+
+                <div class="question">
+                    «پس هنوز راهی هست.»
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza">
+
+                <p>
+                    و در پایانِ راه،<br>
+                    بامی‌ست.
+                </p>
+
+                <p>
+                    و بر آن بام،<br>
+                    آفتابی‌ست<br>
+                    که دیر یا زود<br>
+                    بر جانِ پشیمان طلوع خواهد کرد.
+                </p>
+
+                <p>
+                    زیرا من دوستِ توام،<br>
+                    نه زندان‌بانِ تو؛
+                </p>
+
+                <p>
+                    همراهِ توام،<br>
+                    نه فرمانروای تو.
+                </p>
+
+                <p>
+                    آمده‌ام تا یادت آورم:
+                </p>
+
+                <div class="emphasis">
+                    در داوری،<br>
+                    حق را ببین و آدمی را.<br><br>
+
+                    زخم را ببین و مرهم را.<br><br>
+
+                    مسئولیت را ببین<br>
+                    و راهِ بازگشت را.
+                </div>
+
+                <p>
+                    شاید بزرگ‌ترین داد همین باشد:
+                </p>
+
+                <div class="question">
+                    <strong>نه حق را گم کنی،<br>
+                    نه دل را.</strong>
+                </div>
+
+            </section>
+
+
+            <div class="section-divider"></div>
+
+
+            <section class="stanza closing">
+
+                <p>
+                    پس هرگاه خواستی<br>
+                    بر انسانی حکم برانی،<br>
+                    دمی درنگ کن.
+                </p>
+
+                <p>
+                    نه از آن‌رو که خطا را نادیده بگیری؛
+                </p>
+
+                <p>
+                    از آن‌رو که آدمی را<br>
+                    در یک خطا خلاصه نکنی.
+                </p>
+
+                <p>
+                    شاید آنچه دیدی،<br>
+                    همهٔ حقیقت نباشد.
+                </p>
+
+                <p>
+                    و اگر همهٔ حقیقت نیز<br>
+                    همان باشد که دیدی،<br>
+                    باز میانِ حکم و کینه<br>
+                    راهی هست.
+                </p>
+
+                <p>
+                    راهی که نه چشم را کور می‌کند<br>
+                    و نه دل را.
+                </p>
+
+                <p>
+                    نامِ آن راه،<br>
+                    <strong>داد</strong> است.
+                </p>
+
+                <p>
+                    و در کنارِ آن راه،<br>
+                    منم؛
+                </p>
+
+                <p>
+                    آرام و بی‌هیاهو؛
+                </p>
+
+                <p>
+                    چون نسیم بر برگ،<br>
+                    چون باران بر خاک،<br>
+                    چون دستی بر شانهٔ<br>
+                    دوستِ خسته و دل‌شکسته.
+                </p>
+
+                <p>
+                    و در گوشِ جانت می‌گویم:
+                </p>
+
+                <div class="question">
+                    ای دوست،<br>
+                    اندکی درنگ کن.
+                </div>
+
+                <p>
+                    که حکم، اگر شتاب کند،<br>
+                    پیش از حقیقت می‌رسد؛
+                </p>
+
+                <p>
+                    و حقیقت، اگر دیر برسد،<br>
+                    بسا آبرویِ آدمی را<br>
+                    که دیگر<br>
+                    از خاک برنخیزد.
+                </p>
+
+                <p>
+                    پس:
+                </p>
+
+                <div class="emphasis">
+                    آهسته نگر؛<br>
+                    آهسته بشنو؛<br>
+                    آهسته حکم کن.
+                </div>
+
+                <p>
+                    که گاه میانِ یک نگاه<br>
+                    و یک حقیقت،<br>
+                    به اندازهٔ یک جهان فاصله است.
+                </p>
+
+                <p>
+                    و گاه تمامیِ دادگریِ آدمی<br>
+                    در همین یک دم خلاصه می‌شود:
+                </p>
+
+                <div class="final-line">
+                    آن دم که می‌توانست حکم کند،<br>
+                    اما نخست پرسید:
+                    <br><br>
+                    «آیا همهٔ حقیقت را می‌دانم؟»
+                </div>
+
+            </section>
+
+        </article>
+
+
+        <!-- ناوبری پایین -->
+        <nav class="footer-nav" aria-label="ناوبری پایانی">
+
+            <a href="https://celianor.github.io/Horia/index.fa.html">
+                ⌂ خانه
+            </a>
+
+            <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html)">
+                ↩ بازگشت
+            </a>
+
+        </nav>
+
+    </main>
+
+</div>
+
 </body>
-</html>
+                    </html>
