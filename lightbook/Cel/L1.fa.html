@@ -1,724 +1,1028 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>سرون – نغمه نخستین هورا برای انسان</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Vazirmatn:wght@800&display=swap');
-
-        :root {
-            --ink: #263238;
-            --deep-blue: #173b57;
-            --blue: #315f7d;
-            --gold: #b28a45;
-            --gold-light: #d8bd7a;
-            --paper: #f7f2e7;
-            --paper-dark: #eee5d3;
-            --white: #fffdf8;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            padding: 40px 18px;
-            direction: rtl;
-
-            font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
-            font-size: 17px;
-            line-height: 2.35;
-            color: var(--ink);
-
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(178, 138, 69, 0.10),
-                    transparent 38%
-                ),
-                linear-gradient(
-                    135deg,
-                    #eee8da 0%,
-                    #f8f4eb 45%,
-                    #e9e1d1 100%
-                );
-
-            min-height: 100vh;
-        }
-
-        /* قاب اصلی نغمه */
-        .tablet {
-            position: relative;
-
-            max-width: 850px;
-            margin: 0 auto;
-
-            padding: 70px 75px;
-
-            background:
-                linear-gradient(
-                    rgba(255, 253, 248, 0.96),
-                    rgba(247, 242, 231, 0.96)
-                );
-
-            border: 1px solid rgba(178, 138, 69, 0.45);
-
-            box-shadow:
-                0 20px 60px rgba(36, 43, 48, 0.13),
-                0 3px 12px rgba(36, 43, 48, 0.08);
-
-            border-radius: 5px;
-        }
-
-        /* قاب داخلی */
-        .tablet::before {
-            content: "";
-            position: absolute;
-            inset: 18px;
-
-            border: 1px solid rgba(178, 138, 69, 0.28);
-
-            pointer-events: none;
-        }
-
-        /* گوشه‌های تزئینی */
-        .tablet::after {
-            content: "✦";
-            position: absolute;
-
-            top: 30px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            color: var(--gold);
-            font-size: 18px;
-
-            background: var(--white);
-            padding: 0 14px;
-        }
-
-        /* سرلوح */
-        header {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .eyebrow {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        h1 {
-            margin: 0;
-
-            color: var(--deep-blue);
-
-            font-size: clamp(2.6rem, 7vw, 4.4rem);
-            font-weight: 800;
-
-            letter-spacing: 4px;
-
-            text-shadow:
-                0 2px 0 rgba(178, 138, 69, 0.12);
-        }
-
-        .subtitle {
-            margin: 15px auto 0;
-
-            max-width: 620px;
-
-            color: #617586;
-
-            font-size: 1.08rem;
-            font-weight: 400;
-
-            line-height: 2;
-        }
-
-        .ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 13px;
-
-            margin: 30px 0;
-        }
-
-        .ornament::before,
-        .ornament::after {
-            content: "";
-
-            width: 95px;
-            height: 1px;
-
-            background:
-                linear-gradient(
-                    to left,
-                    transparent,
-                    var(--gold)
-                );
-        }
-
-        .ornament::after {
-            background:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    var(--gold)
-                );
-        }
-
-        .ornament span {
-            color: var(--gold);
-            font-size: 20px;
-        }
-
-        /* متن */
-        main {
-            position: relative;
-            z-index: 1;
-        }
-
-        p {
-            margin: 0 0 28px;
-
-            text-align: justify;
-            text-align-last: right;
-
-            font-weight: 400;
-        }
-
-        p:first-child {
-            font-size: 1.12rem;
-        }
-
-        /* بخش‌های تأکیدی */
-        .emphasis {
-            position: relative;
-
-            margin: 45px 5px;
-
-            padding: 28px 32px 28px 28px;
-
-            background:
-                linear-gradient(
-                    to left,
-                    rgba(49, 95, 125, 0.07),
-                    rgba(178, 138, 69, 0.035)
-                );
-
-            border-right: 3px solid var(--gold);
-
-            color: var(--deep-blue);
-
-            box-shadow:
-                inset 0 0 30px rgba(178, 138, 69, 0.025);
-        }
-
-        .emphasis strong {
-            display: block;
-
-            margin-bottom: 12px;
-
-            color: var(--gold);
-
-            font-size: 1.12rem;
-            font-weight: 700;
-        }
-
-        /* نقل قول روحانی */
-        .sacred {
-            position: relative;
-
-            margin: 50px 0;
-
-            padding: 35px 40px;
-
-            text-align: center;
-
-            color: var(--deep-blue);
-
-            font-size: 1.08rem;
-
-            border-top: 1px solid rgba(178, 138, 69, 0.35);
-            border-bottom: 1px solid rgba(178, 138, 69, 0.35);
-
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    rgba(178, 138, 69, 0.07),
-                    transparent 70%
-                );
-        }
-
-        .sacred::before {
-            content: "«";
-            display: block;
-
-            color: var(--gold);
-
-            font-family: Georgia, serif;
-            font-size: 42px;
-            line-height: 0.7;
-
-            margin-bottom: 12px;
-        }
-
-        /* پایان لوح */
-        .ending {
-            margin-top: 50px;
-
-            text-align: center;
-
-            color: var(--deep-blue);
-
-            font-weight: 500;
-        }
-
-        .ending-symbol {
-            display: block;
-
-            margin-bottom: 14px;
-
-            color: var(--gold);
-
-            font-size: 25px;
-        }
-
-        /* ناوبری */
-        nav {
-            position: relative;
-            z-index: 2;
-
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-
-            gap: 14px;
-
-            margin-top: 60px;
-            padding-top: 35px;
-
-            border-top: 1px solid rgba(178, 138, 69, 0.25);
-        }
-
-        nav a {
-            display: inline-block;
-
-            padding: 9px 22px;
-
-            color: var(--deep-blue);
-
-            text-decoration: none;
-
-            border: 1px solid rgba(178, 138, 69, 0.65);
-            border-radius: 30px;
-
-            background: rgba(255, 253, 248, 0.7);
-
-            font-size: 0.9rem;
-            font-weight: 500;
-
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #fff;
-
-            background: var(--deep-blue);
-
-            border-color: var(--deep-blue);
-
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 5px 15px rgba(23, 59, 87, 0.18);
-        }
-
-        /* خط پایانی */
-        footer {
-            margin-top: 35px;
-
-            text-align: center;
-
-            color: #8a857a;
-
-            font-size: 0.78rem;
-        }
-
-        /* موبایل */
-        @media (max-width: 700px) {
-
-            body {
-                padding: 15px 8px;
-                font-size: 16px;
-                line-height: 2.15;
-            }
-
-            .tablet {
-                padding: 55px 28px;
-            }
-
-            .tablet::before {
-                inset: 10px;
-            }
-
-            header {
-                margin-bottom: 40px;
-            }
-
-            h1 {
-                font-size: 3rem;
-                letter-spacing: 2px;
-            }
-
-            .subtitle {
-                font-size: 0.95rem;
-            }
-
-            p {
-                text-align: right;
-                margin-bottom: 24px;
-            }
-
-            .emphasis {
-                margin: 35px 0;
-                padding: 22px 20px;
-            }
-
-            .sacred {
-                padding: 28px 20px;
-                font-size: 1rem;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            nav a {
-                text-align: center;
-            }
-        }
-
-        /* حالت چاپ */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .tablet {
-                box-shadow: none;
-                border: none;
-                max-width: none;
-            }
-
-            nav {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نغمهٔ نخستین | در ستایش آزادی، قانون، برابری و نیکی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1720;
+      --bg-soft: #10232d;
+      --card: rgba(255, 255, 255, 0.055);
+      --card-border: rgba(224, 196, 130, 0.20);
+      --gold: #d8b66a;
+      --gold-light: #f1d99a;
+      --cream: #eee7d8;
+      --text: #d9d5cb;
+      --muted: #9da9a8;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(216,182,106,.13), transparent 32rem),
+        radial-gradient(circle at 10% 30%, rgba(76,133,143,.10), transparent 28rem),
+        linear-gradient(135deg, #071219, #10232d 48%, #08151d);
+      font-family: "Vazirmatn", sans-serif;
+      line-height: 2.25;
+      min-height: 100vh;
+    }
+
+    /* نورهای تزئینی */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      top: 15%;
+      right: -150px;
+      background: #d8b66a;
+    }
+
+    body::after {
+      bottom: 5%;
+      left: -150px;
+      background: #438b94;
+    }
+
+    /* نوار ناوبری */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 6%;
+      background: rgba(7, 18, 25, .82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(216,182,106,.12);
+    }
+
+    .brand {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-family: "Amiri", serif;
+      font-size: 1.35rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      color: #d5d0c5;
+      text-decoration: none;
+      padding: 6px 15px;
+      border-radius: 30px;
+      transition: .3s ease;
+      font-size: .9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+      background: rgba(216,182,106,.10);
+    }
+
+    /* قهرمان */
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 20px 100px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "✦";
+      position: absolute;
+      top: 85px;
+      color: var(--gold);
+      font-size: 1.5rem;
+      opacity: .75;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: .85rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: "Amiri", serif;
+      color: var(--gold-light);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0;
+      text-shadow: 0 0 35px rgba(216,182,106,.17);
+    }
+
+    .subtitle {
+      font-family: "Amiri", serif;
+      font-size: clamp(1.2rem, 2vw, 1.65rem);
+      color: var(--cream);
+      margin: 20px 0 35px;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 1.7rem;
+      opacity: .8;
+    }
+
+    /* محتوای اصلی */
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 0 20px 100px;
+    }
+
+    .chapter {
+      position: relative;
+      margin: 55px 0;
+      padding: 55px clamp(25px, 6vw, 75px);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow:
+        0 25px 70px var(--shadow),
+        inset 0 1px rgba(255,255,255,.035);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .chapter::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--gold),
+        transparent
+      );
+      opacity: .55;
+    }
+
+    .chapter-number {
+      color: var(--gold);
+      font-size: .78rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      opacity: .8;
+    }
+
+    h2 {
+      font-family: "Amiri", serif;
+      color: var(--gold-light);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.5;
+      margin: 0 0 30px;
+    }
+
+    p {
+      margin: 0 0 1.35em;
+      font-size: 1.04rem;
+      font-weight: 300;
+    }
+
+    .poem {
+      font-family: "Amiri", serif;
+      font-size: 1.22rem;
+      line-height: 2.35;
+      color: #e7e1d5;
+    }
+
+    .highlight {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .quote {
+      margin: 40px 0;
+      padding: 25px 30px;
+      border-right: 2px solid var(--gold);
+      background: rgba(216,182,106,.045);
+      color: #e9dfc9;
+      font-family: "Amiri", serif;
+      font-size: 1.35rem;
+      line-height: 2.2;
+    }
+
+    .divider {
+      text-align: center;
+      color: var(--gold);
+      margin: 35px 0;
+      letter-spacing: 12px;
+      opacity: .65;
+    }
+
+    /* بخش پایانی */
+    .ending {
+      text-align: center;
+      padding: 75px 30px;
+      margin-top: 80px;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .ending h2 {
+      font-size: 3rem;
+    }
+
+    .final-lines {
+      color: var(--gold-light);
+      font-family: "Amiri", serif;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      line-height: 2.4;
+    }
+
+    /* دکمه‌های پایین */
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--cream);
+      text-decoration: none;
+      border: 1px solid rgba(216,182,106,.35);
+      background: rgba(255,255,255,.04);
+      padding: 11px 25px;
+      border-radius: 50px;
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(216,182,106,.12);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* پاورقی */
+    footer {
+      text-align: center;
+      padding: 45px 20px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    footer .symbol {
+      color: var(--gold);
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* انیمیشن */
+    .fade {
+      animation: fadeUp 1s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* موبایل */
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 11px 4%;
+      }
+
+      .brand {
+        font-size: 1.05rem;
+      }
+
+      .nav-links a {
+        padding: 5px 9px;
+        font-size: .78rem;
+      }
+
+      .hero {
+        min-height: 68vh;
+        padding-top: 70px;
+      }
+
+      .chapter {
+        padding: 38px 24px;
+        border-radius: 20px;
+      }
+
+      p {
+        font-size: .98rem;
+        line-height: 2.15;
+      }
+
+      .poem {
+        font-size: 1.1rem;
+      }
+
+      .quote {
+        padding: 20px;
+        font-size: 1.18rem;
+      }
+    }
+  </style>
 </head>
 
-<body>
-
-    <article class="tablet">
-
-        <header>
-
-         <div class="eyebrow">
-                
-             
-             به نام روشنایی
-             
-            </div>
-
-            <h1>سرون</h1>
-
-            <div class="ornament">
-                <span>✦</span>
-            </div>
-
-            <div class="subtitle">
- نغمه نخستین   
-                <br>
-                در ستایش آزادی، قانون، برابری و نیکی
-            </div>
-
-        </header>
-
-
-        <main>
-
-            <p>
-        
-                از نور آفریده شدی و بر خاک فرود آمدی،
-                <br>
-                تا در میان سایه‌ها، راه روشنایی را بجویی.
-            </p>
-
-
-            <p>
-                در تو چراغی نهادم از فروغ خویش،
-                <br>
-                تا در تاریکی، راه بیابی؛
-                <br>
-                و بدانی که هیچ‌کس بر دیگری برتری ندارد.
-                <br>
-                نه رنگ، نه زبان، نه زادگاه، نه آیین،
-                <br>
-                هیچ‌یک تو را برتر نمی‌کند.
-            </p>
-
-
-            <p>
-                هر که از نفس من است، در کرامت برابر است.
-                <br>
-                فرزند زر، بر فرزند گل برتری ندارد،
-                <br>
-                و زن و مرد، هر دو از یک جان‌اند.
-            </p>
-
-
-            <p>
-                تو را دانایی دادم و قدرت گزینش،
-                <br>
-                تا آزاد باشی، نه در بند؛
-                <br>
-                تا خود راه خویش را بیابی،
-                <br>
-                نه آن‌که به جبر، دنباله‌رو باشی.
-            </p>
-
-
-            <p>
-                هیچ‌کس را خوار مدار؛
-                <br>
-                نه به آن‌چه دارد، و نه به آن‌چه ندارد.
-                <br>
-                نه باورش را خاموش کن،
-                <br>
-                نه صدایش را بِبُر.
-                <br>
-                هر اندیشه‌ای را گوش باید،
-                <br>
-                و هر رنجی را داد.
-            </p>
-
-
-            <div class="emphasis">
-
-                <strong>بشنو:</strong>
-
-                انسان را نه به رنگ باید سنجید،
-                <br>
-                نه به نام، نه به سرزمین، نه به باور؛
-                <br>
-                او را به جانش باید سنجید،
-                <br>
-                که جان، یکی‌ست،
-                <br>
-                اگرچه هزار چهره بر آن باشد.
-
-            </div>
-
-
-            <p>
-                اندیشه، در آزادی بهتر می‌روید،
-                <br>
-                و جامعه، در آزادی شکوفاتر می‌ماند.
-                <br>
-                زبانت را دادم، تا بگویی،
-                <br>
-                نه آن‌که از بیم، خاموش شوی؛
-                <br>
-                و نه آن‌که از خشم، دیگران را خاموش کنی.
-            </p>
-
-
-            <p>
-                هرکس را که سخنی هست، باید شنیده شود،
-                <br>
-                و هر که سکوت را برگزیند،
-                <br>
-                اندیشه‌اش باید محترم باشد.
-                <br>
-                که انسان، تا انسان است،
-                <br>
-                حق گفتن دارد،
-                <br>
-                حق شنیدن دارد،
-                <br>
-                و حق «نه» گفتن.
-            </p>
-
-
-            <p>
-                بدان که آزادی، در میان مردم معنا می‌یابد،
-                <br>
-                نه در خلوت، نه در سایه‌ی ترس.
-                <br>
-                و عدالت را باید در دل‌های کوچک جُست،
-                <br>
-                نه در کاخ‌های بزرگ.
-            </p>
-
-
-            <p>
-                هیچ دستی را به زور مبند،
-                <br>
-                و هیچ جانی را قربانی مکن،
-                <br>
-                که زخم بر تن دیگری، زخمی بر روان توست.
-            </p>
-
-
-            <p>
-                نیکی آن است که در آن، رنجی نباشد
-                <br>
-                و هیچ‌کس را فرو نکاهد.
-            </p>
-
-
-            <p>
-                زنجیر آزادی، قانون است،
-                <br>
-                نه آن‌که ببندد، که نگهبان جان تو باشد،
-                <br>
-                نه دشمن گفتارت.
-                <br>
-                قانونی که زبان را خاموش کند،
-                <br>
-                نه تنها صدا، که جان‌ها را می‌کُشد.
-            </p>
-
-
-            <div class="sacred">
-
-                آزادی، یعنی حقِ اعمالِ اراده و گزینش بر پایه‌ی خرد،
-                <br>
-                بی‌آن‌که ترس یا اجبار راه را ببندد؛
-                <br>
-                تا زمانی که این آزادی، آزادی دیگران را نرباید.
-
-            </div>
-
-
-            <p>
-                قانون، اگر از دل مردم برنخیزد، فرمان نیست؛
-                <br>
-                تحکم است.
-            </p>
-
-
-            <p>
-                من تو را برای ساختن فرستادم،
-                <br>
-                نه برای اطاعت کور.
-                <br>
-                تا قانونی بسازی که از مهر برخیزد، نه از ترس؛
-                <br>
-                و بدانی که آزادی، حق هر دل تپنده است،
-                <br>
-                نه موهبتی برای اندک‌شماران.
-            </p>
-
-
-            <p>
-                قانون، باید حافظ آزادی باشد،
-                <br>
-                و اگر نیست، خود بند است.
-                <br>
-                هر جا که قاعده‌ای از همدلی برخیزد،
-                <br>
-                عدالت در آن جوانه می‌زند.
-            </p>
-
-
-            <p>
-                قانون را، چون آینه‌ای، هر روز در برابر خورشید بگیر،
-                <br>
-                تا گرد ستم بر آن ننشیند.
-                <br>
-                چنان باش با مردم،
-                <br>
-                که اگر همان قانون بر تو نیز جاری شود،
-                <br>
-                عدالتش را بستایی.
-            </p>
-
-
-            <p>
-                قانونی که بر بنیاد انصاف نوشته شود، نزد من گرامی‌ست؛
-                <br>
-                و آن‌چه به ستم آلوده شود،
-                <br>
-                اگرچه به نام من نوشته شده باشد،
-                <br>
-                از من نیست.
-            </p>
-
-
-            <p>
-                در هر قانونی که انسان را از رنج، تازیانه و مرگ بازدارد،
-                <br>
-                در هر سخنی که ستمدیده را پناه دهد،
-                <br>
-                من، هورا، با توام.
-            </p>
-
-
-            <div class="ending">
-
-                <span class="ending-symbol">✦</span>
-
-                <div>
-                    به نام انسان،
-                    <br>
-                    به سوی روشنایی.
-                </div>
-
-            </div>
-
-        </main>
-
-
-        <nav>
-
-            <a href="https://celianor.github.io/Horia/lightbook/index.fa.html">
-                بازگشت به صفحه قبل
-            </a>
-
-            <a href="https://celianor.github.io/Horia/index.fa.html">
-                بازگشت به صفحه اصلی
-            </a>
-
-        </nav>
-
-
-        <footer>
-            نغمه نخستین 
-        </footer>
-
-    </article>
+<body id="top">
+
+  <!-- نوار ناوبری -->
+  <nav class="navbar">
+    <a class="brand" href="#top">نغمهٔ نخستین</a>
+
+    <div class="nav-links">
+      <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+    </div>
+  </nav>
+
+  <!-- عنوان -->
+  <header class="hero fade">
+    <div class="hero-content">
+      <div class="eyebrow">در ستایش آزادی، قانون، برابری و نیکی</div>
+
+      <h1>نغمهٔ نخستین</h1>
+
+      <div class="ornament">✦　❈　✦</div>
+
+      <div class="subtitle">
+        عهدِ انسان با انسان
+      </div>
+
+      <p class="poem">
+        از نور به خاک،
+        از خاک به جان،
+        و از جان به جانان.
+      </p>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- بخش اول -->
+    <section class="chapter" id="azadi">
+      <div class="chapter-number">نغمهٔ نخستین · یک</div>
+      <h2>در ستایش آزادی، قانون، برابری و نیکی</h2>
+
+      <div class="poem">
+        <p>
+          ای فرزندِ خاک و همنشینِ نور،
+        </p>
+
+        <p>
+          از پرتوِ خویش در تو چراغی نهادم<br>
+          و از گِلِ زمین برایت خانه‌ای ساختم؛<br>
+          نه تا در سایهٔ هراس بخزی،<br>
+          که تا در پرتوِ خرد بدرخشی؛<br>
+          نه تا زبان در کامِ سکوت بشکنی،<br>
+          که تا حقیقتِ خویش بر زبان آری؛<br>
+          نه تا چشم بر هم نهی و از پیِ دیگران روی،<br>
+          که تا چشم بگشایی،<br>
+          ببینی،<br>
+          بیندیشی،<br>
+          بسنجی<br>
+          و برگزینی.
+        </p>
+
+        <p>
+          خرد دادمت تا میزان باشی،<br>
+          نه ترازودارِ میزانِ دیگران؛<br>
+          چشم دادمت تا ببینی،<br>
+          نه تا از دیدنِ حقیقت بگریزی؛<br>
+          گوش دادمت تا بشنوی،<br>
+          نه تا بانگِ دیگران را در غوغای خویش گم کنی؛<br>
+          و اختیار دادمت،<br>
+          امانتی گران‌بها،<br>
+          نه بازیچه‌ای رها.
+        </p>
+
+        <div class="quote">
+          که هر آزادی، اگر از امانت بگسلد، به هرزگی گراید؛<br>
+          و هر امانت، اگر از آزادی تهی شود، به بندگی انجامد.
+        </div>
+
+        <p>
+          پس بشنو،<br>
+          ای که در خاک نشسته‌ای<br>
+          و از نور سرشته‌ای.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- برابری -->
+    <section class="chapter" id="barabari">
+      <div class="chapter-number">نغمهٔ نخستین · دو</div>
+      <h2>در بابِ برابریِ جان‌ها</h2>
+
+      <div class="poem">
+        <p>
+          آدمی را به رنگ مسنج؛<br>
+          که رنگ، جامهٔ تن است<br>
+          و جان از آن بی‌نیاز.
+        </p>
+
+        <p>
+          به نژاد مسنج؛<br>
+          که نژاد، نشانِ خاک است<br>
+          و همه از یک خاک برخاسته‌ایم.
+        </p>
+
+        <p>
+          به زبان مسنج؛<br>
+          که زبان، مرکبِ سخن است<br>
+          نه گوهرِ آن.
+        </p>
+
+        <p>
+          به زادگاه مسنج؛<br>
+          که شهرها بسیارند<br>
+          و زمین یکی‌ست.
+        </p>
+
+        <p>
+          به دارایی مسنج؛<br>
+          که زر، دست را گران کند،<br>
+          اما دل را بزرگ نمی‌کند.
+        </p>
+
+        <div class="quote">
+          آدمی را به جانش بشناس.<br>
+          جان یکی‌ست و صورت بسیار<br>
+          دریا یکی‌ست و موج بی‌شمار.
+        </div>
+
+        <p>
+          آفتاب یکی‌ست<br>
+          و پرتو بر هر بام به گونه‌ای تابد؛<br>
+          جان نیز چنین است:<br><br>
+
+          <span class="highlight">یک گوهر،<br>هزار آینه.</span>
+        </p>
+
+        <p>
+          همان بیمِ خاموش در دلِ مادر،<br>
+          همان امیدِ نوپا در چشمِ کودک،<br>
+          همان اشتیاقِ دیرینهٔ زیستن در سینهٔ هر آدمی‌زاد؛
+        </p>
+
+        <p>
+          این‌هاست میزانِ خویشاوندیِ انسانها،<br>
+          نه نام و نشان،<br>
+          نه نسب و نژاد،<br>
+          نه خاک و زبان.
+        </p>
+
+        <p>
+          زن و مرد،<br>
+          دو نام‌اند بر یک گوهر؛<br>
+          دو شاخه‌اند بر یک درخت؛<br>
+          دو نغمه‌اند از یک ساز.
+        </p>
+
+        <p>
+          فضیلت را در جنس مجوی؛<br>
+          در کردار بجوی.
+        </p>
+
+        <p>
+          هر که راست‌گوتر، والاتر؛<br>
+          هر که مهربان‌تر، بزرگ‌تر؛<br>
+          هر که دادگرتر، به حق نزدیک‌تر؛<br>
+          و هر که رنجِ دیگری را رنجِ خویش بیند،<br>
+          به انسان نزدیک‌تر.
+        </p>
+
+        <p>
+          فرزندِ زر را بر فرزندِ خاک برتری نیست؛<br>
+          و کاخ‌نشین را بر کوخ‌نشین سروری نیست.
+        </p>
+
+        <p>
+          چه تاج‌ها که روزی بر سر بودند<br>
+          و امروز زیرِ خاک خفته‌اند؛<br>
+          و چه دست‌های تهی<br>
+          که جهان را به یک مهربانی<br>
+          توانگر کرده‌اند.
+        </p>
+
+        <div class="quote">
+          میزانِ آدمی‌ست حال،<br>
+          و نه مال؛<br>
+          کار، شرفِ اوست،<br>
+          نه نام.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- خرد و اختیار -->
+    <section class="chapter" id="ekhtiar">
+      <div class="chapter-number">نغمهٔ نخستین · سه</div>
+      <h2>خرد، اختیار و آزادی</h2>
+
+      <div class="poem">
+        <p>
+          خرد و اختیار از آن رو دادمت<br>
+          که راهِ خویش بجویی،<br>
+          نه آن‌که رهروِ کورِ راهِ دیگران باشی؛<br>
+          که بپرسی،<br>
+          نه آن‌که از پرسیدن هراسان شوی؛<br>
+          که بیندیشی،<br>
+          نه آن‌که اندیشه را میراثِ ترس بدانی؛<br>
+          که بیافرینی،<br>
+          نه آن‌که تقلید را به جای آفرینش بنشانی.
+        </p>
+
+        <div class="quote">
+          آزاد آن نیست که هر چه خواهد کند؛<br>
+          آزاد آن است که بندهٔ هر چه خواهد نباشد.
+        </div>
+
+        <p>
+          آزاد آن نیست که هر قیدی بگسلد؛<br>
+          آزاد آن است که بندِ جهل و بیم را بشکند.
+        </p>
+
+        <p>
+          آزادی، راهِ رفتن است؛<br>
+          اما راهِ دیگری را بستن نیست.
+        </p>
+
+        <p>
+          دستت گشاده است،<br>
+          اما گلوی دیگری را مفشار.
+        </p>
+
+        <p>
+          زبانت رهاست،<br>
+          اما دهانِ دیگری را مبند.
+        </p>
+
+        <p>
+          راهت باز است،<br>
+          اما بر رهگذرِ دیگری دیوار مکش.
+        </p>
+
+        <div class="quote">
+          که آزادیِ تو از آن‌جا آغاز می‌شود<br>
+          که آزادیِ دیگری را حرمت نهی؛<br>
+          و از همان‌جا به بیداد بدل می‌شود<br>
+          که این حرمت را از یاد ببری.
+        </div>
+
+        <p>
+          پس سه امانت را از آدمی مستان:
+        </p>
+
+        <p class="highlight">
+          حقِ گفتن،<br>
+          حقِ شنیده‌شدن،<br>
+          حقِ نه گفتن.
+        </p>
+
+        <p>
+          گفتن، بی‌هراس؛<br>
+          شنیدن، بی‌تحقیر؛<br>
+          نه گفتن، بی‌ترس از انتقام.
+        </p>
+
+        <p>
+          این‌ها زیورِ زندگی نیستند؛<br>
+          ستون‌های کرامت‌اند.
+        </p>
+
+        <p>
+          شنیدن، دروازهٔ دانایی‌ست؛<br>
+          تحمل، هوایی‌ست که آزادی در آن نفس می‌کشد؛<br>
+          و گفت‌وگو، پلی‌ست میانِ دل‌ها.
+        </p>
+
+        <p>
+          اگر همهٔ باغ را یک‌رنگ خواهی،<br>
+          باغ را رنجور کرده‌ای.
+        </p>
+
+        <p>
+          اگر همهٔ آواز را یک‌نوا خواهی،<br>
+          آسمان را از پرنده تهی کرده‌ای.
+        </p>
+
+        <p>
+          و اگر همهٔ اندیشه‌ها را یکسان بخواهی،<br>
+          خرد را در زندانِ یک پنجره نشانده‌ای.
+        </p>
+
+        <div class="quote">
+          حقیقت از پرسش نمی‌هراسد؛<br>
+          و خرد از گفت‌وگو نمی‌میرد.
+        </div>
+
+        <p>
+          پس بشنو،<br>
+          گرچه سخن از آنِ دیگری‌ست؛<br>
+          بیندیش،<br>
+          گرچه اندیشه با تو یکی نیست؛<br>
+          تحمل کن،<br>
+          گرچه راهِ او راهِ تو نیست.
+        </p>
+
+        <p>
+          که جهان فراخ‌تر از آن است<br>
+          که از یک روزن به تماشایش نشینی.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- قانون -->
+    <section class="chapter" id="ghanun">
+      <div class="chapter-number">نغمهٔ نخستین · چهار</div>
+      <h2>قانون؛ پناهِ آدمی</h2>
+
+      <div class="poem">
+        <p>
+          اما قانون را زنجیر مخوان<br>
+          اگر پاسبانِ آزادی‌ست؛
+        </p>
+
+        <p>
+          دیوارِ خانه‌اش بدان<br>
+          اگر پناهِ آدمی‌ست.
+        </p>
+
+        <p>
+          قانون را بر آن نهادم<br>
+          که پاسدارِ جان باشد،<br>
+          نه دشمنِ زبان؛<br>
+          نگهبانِ حق باشد،<br>
+          نه نگهبانِ قدرت؛<br>
+          پناهِ ناتوان باشد،<br>
+          نه پناهِ توانگر؛<br>
+          سپرِ مظلوم باشد،<br>
+          نه شمشیرِ حاکم.
+        </p>
+
+        <p>
+          قانونی که زبان را ببندد،<br>
+          تنها صدا را نمی‌کشد؛<br>
+          راهِ اندیشه را نیز می‌بندد.
+        </p>
+
+        <p>
+          و جامعه‌ای که اندیشه در آن رهسپار نباشد،<br>
+          هرچند کوچه‌هایش پر از آدمی باشد،<br>
+          در باطنِ خویش<br>
+          خلوت و خاموش است.
+        </p>
+
+        <div class="quote">
+          هر نوشته‌ای قانون نیست؛<br>
+          هر فرمانی داد نیست؛<br>
+          هر مُهری حق نیست.
+        </div>
+
+        <p>
+          قانون آن است<br>
+          که بر قدرت نیز حد نهد؛<br>
+          و آن‌که حکم می‌راند،<br>
+          خود در دایرهٔ حکم ایستاده باشد.
+        </p>
+
+        <p>
+          قانون را چون آینه<br>
+          هر بامداد رو به آفتاب بدار.
+        </p>
+
+        <p>
+          مبادا غبارِ منفعت بر آن نشیند؛<br>
+          مبادا زنگارِ قدرت بر آن بنشیند؛<br>
+          مبادا دستِ کینه کجش کند.
+        </p>
+
+        <p>
+          چنان حکم کن<br>
+          که اگر همان حکم بر تو رود،<br>
+          آن را داد بدانی، نه بیداد.
+        </p>
+
+        <p>
+          میزان را چنان نگاه دار<br>
+          که دوست در یک کفه بایستد<br>
+          و دشمن در کفهٔ دیگر؛<br>
+          اما سنگِ مهر و کین<br>
+          در هیچ‌یک منه.
+        </p>
+
+        <div class="quote">
+          داد آن است<br>
+          که حق،<br>
+          در دستِ خویش و بیگانه<br>
+          یک وزن داشته باشد.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- نیکی -->
+    <section class="chapter" id="niki">
+      <div class="chapter-number">نغمهٔ نخستین · پنج</div>
+      <h2>نیکی؛ هنرِ زیستن</h2>
+
+      <div class="poem">
+        <p>
+          نیکی آن نیست<br>
+          که تو را برافرازد<br>
+          و دیگری را فروکاهد.
+        </p>
+
+        <p>
+          آن است<br>
+          که تو را بلند کند<br>
+          بی‌آن‌که دیگری را بیفکند.
+        </p>
+
+        <p>
+          آن نیست<br>
+          که بر دیگری غالب شوی؛<br>
+          آن است<br>
+          که بر خویش غالب شوی.
+        </p>
+
+        <div class="quote">
+          سخنِ نیک،<br>
+          اگر کردارِ نیک همراه نداشته باشد،<br>
+          بادی‌ست بر آب.
+        </div>
+
+        <p>
+          پس نیکی را به زبان مگو؛<br>
+          به دست بگو.
+        </p>
+
+        <p>
+          اگر دستت گشاده است،<br>
+          دستِ فرودست را بگیر.
+        </p>
+
+        <p>
+          اگر توانگری،<br>
+          درویش را از یاد مبر.
+        </p>
+
+        <p>
+          اگر قدرتمندی،<br>
+          ناتوان را میازار.
+        </p>
+
+        <p>
+          اگر زبانت گویاست،<br>
+          از بی‌زبان یاد کن.
+        </p>
+
+        <p>
+          اگر سفره‌ات رنگین است،<br>
+          سفرهٔ دیگری را خالی مگذار.
+        </p>
+
+        <p>
+          چراغ را از آن‌رو برافروز<br>
+          که راهِ دیگری نیز روشن شود؛<br>
+          و نان را چنان قسمت کن<br>
+          که سفرهٔ دیگری تهی نماند.
+        </p>
+
+        <p>
+          و قدرت را چنان به کار بر<br>
+          که دیگری از سایهٔ تو نلرزد.
+        </p>
+
+        <p>
+          چه سود از نامِ نیک<br>
+          اگر رسمِ نیکی در تو نباشد؟
+        </p>
+
+        <p>
+          چه سود از دعای بسیار<br>
+          اگر دلِ تو برای دیگری<br>
+          جایِ امنی نباشد؟
+        </p>
+
+        <div class="quote">
+          نیکی زیستنی است.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- پایان -->
+    <section class="chapter" id="payam">
+      <div class="chapter-number">نغمهٔ نخستین · پایان</div>
+      <h2>چراغی برای بازگشت به روشنایی</h2>
+
+      <div class="poem">
+        <p>
+          ای فرزندِ خاک و نور،
+        </p>
+
+        <p>
+          چراغِ خویش را خاموش مکن؛<br>
+          که شاید گمگشته‌ای<br>
+          راهش را<br>
+          به نورِ تو باز یابد.
+        </p>
+
+        <p>
+          آزادی را برای خویش مخواه<br>
+          و از دیگری دریغ مدار.
+        </p>
+
+        <p>
+          قانون را برای دیگری مخواه<br>
+          و بر خویش سبک مشمار.
+        </p>
+
+        <p>
+          برابری را بر زبان میاور<br>
+          اگر در دل هنوز<br>
+          آدمیان را به رنگ و طبقه و نام می‌سنجی.
+        </p>
+
+        <p>
+          داد را مخوان<br>
+          اگر ترازو در دستت کج است.
+        </p>
+
+        <p>
+          نیکی را مگو<br>
+          اگر دستت از یاری خالی‌ست.
+        </p>
+
+        <p>
+          راهِ نیکی کوتاه نیست؛<br>
+          اما هر گامی در آن<br>
+          سنگی از پیشِ پای آدمیان برمی‌دارد.
+        </p>
+
+        <p>
+          جهان با یک چراغ روشن نمی‌شود؛<br>
+          اما هر چراغ<br>
+          سهمِ خویش از تاریکی می‌ستاند.
+        </p>
+
+        <div class="quote">
+          و گاه تمامِ رسالتِ یک انسان<br>
+          همین است:<br><br>
+          در گوشه‌ای از جهان<br>
+          چنان روشن بماند<br>
+          که دیگری<br>
+          راهِ بازگشت به روشنایی را<br>
+          فراموش نکند.
+        </div>
+
+        <p>
+          نغمهٔ نخستین چیست؟
+        </p>
+
+        <p>
+          آن‌گاه که آدمی، آدمی را خوار نشمارد؛<br>
+          آزادی یک تن، آزادیِ دیگری را نستاند؛<br>
+          قانون، حق را در زیرِ سایهٔ خویش نپوشاند؛<br>
+          قدرت، بر سرِ ناتوان آوار نشود؛<br>
+          و نیکی، از دستی به دستی<br>
+          و از دلی به دلی روان شود.
+        </p>
+
+        <p>
+          آن‌گاه<br>
+          نغمه آغاز شده است.
+        </p>
+
+        <p>
+          چراغی را که میراثِ توست<br>
+          به دستِ دیگری بسپار؛<br>
+          که چراغ، چون بخشیده شود، کم نمی‌شود؛<br>
+          بلکه از یک شعله<br>
+          هزار شعله برمی‌خیزد.
+        </p>
+      </div>
+
+      <div class="ending">
+        <div class="ornament">✦</div>
+
+        <h2>و بدان</h2>
+
+        <div class="final-lines">
+          جهان با شمشیر آباد نگردد؛<br>
+          به داد آباد گردد.<br><br>
+
+          دل به فرمان رام نشود؛<br>
+          به مهر رام شود.<br><br>
+
+          و آدمی،<br>
+          آدمی را<br>
+          نه با بیم،<br>
+          که با کرامت نگاه بدارد.
+        </div>
+
+        <div class="divider">❈　❈　❈</div>
+
+        <div class="final-lines">
+          نغمهٔ نخستین:<br><br>
+
+          آزادی، بی‌هراس؛<br>
+          قانون، بی‌ستم؛<br>
+          عدالت، بی‌کین؛<br>
+          برابری، بی‌تحقیر؛<br>
+          و نیکی، بی‌منت.
+        </div>
+
+        <div class="divider">✦</div>
+
+        <p class="poem">
+          عهدِ انسان با انسان.
+        </p>
+
+        <p class="poem">
+          و این است آن چراغِ نخستین<br>
+          که از نور به خاک آمد،<br>
+          از خاک به جان رسید،<br>
+          و از جان<br>
+          به جانان می‌رسد.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- لینک‌های پایانی -->
+    <div class="bottom-nav">
+      <a class="btn" href="https://celianor.github.io/Horia/index.fa.html">⌂ بازگشت به خانه</a>
+      <a class="btn" href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+    </div>
+
+  </main>
+
+
+  <footer>
+    <span class="symbol">✦</span>
+    نغمهٔ نخستین
+    <br>
+    <span>آزادی · قانون · برابری · نیکی</span>
+  </footer>
 
 </body>
-</html>
+    </html>
