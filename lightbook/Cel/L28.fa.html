@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>نغمهٔ بیست‌وهشتم — در خرد، آگاهی و مسئولیت</title>
+
+  <!-- فونت کهن و خوش‌خوان فارسی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #332b22;
+      --muted: #756858;
+      --gold: #a8864b;
+      --gold-soft: #c7aa72;
+      --paper: #f4eddf;
+      --paper-deep: #e8dcc7;
+      --shadow: rgba(52, 40, 25, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,.55), transparent 35%),
+        linear-gradient(135deg, #e7dbc5, #f6efe2 45%, #dfd0b6);
+      font-family: "Amiri", serif;
+      line-height: 2.25;
+    }
+
+    /* هالهٔ لطیف اطراف صفحه */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at center, transparent 45%, rgba(74, 55, 32, .08));
+      z-index: -1;
+    }
+
+    /* نوار ناوبری */
+    .navigation {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+
+      padding: 14px 20px;
+
+      background: rgba(244, 237, 223, .88);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(168, 134, 75, .28);
+      box-shadow: 0 4px 18px rgba(60, 45, 28, .08);
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: var(--ink);
+
+      padding: 6px 18px;
+
+      border: 1px solid rgba(168, 134, 75, .45);
+      border-radius: 30px;
+
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .9rem;
+
+      transition: .3s ease;
+    }
+
+    .navigation a:hover {
+      color: #fff;
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* صفحهٔ اصلی */
+    .page {
+      width: min(900px, calc(100% - 32px));
+      margin: 55px auto 80px;
+
+      padding: 70px clamp(25px, 7vw, 85px);
+
+      background:
+        linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)),
+        var(--paper);
+
+      border: 1px solid rgba(126, 98, 56, .28);
+
+      box-shadow:
+        0 18px 55px var(--shadow),
+        inset 0 0 45px rgba(125, 95, 50, .07);
+
+      position: relative;
+    }
+
+    /* حاشیهٔ نسخهٔ خطی */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+
+      border: 1px solid rgba(168, 134, 75, .28);
+
+      pointer-events: none;
+    }
+
+    .page::after {
+      content: "✦";
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      color: var(--gold);
+      background: var(--paper);
+      padding: 0 18px;
+
+      font-size: 20px;
+    }
+
+    /* سرآغاز */
+    .header {
+      text-align: center;
+      padding: 20px 10px 55px;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 25px;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+    }
+
+    .number {
+      color: var(--muted);
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .82rem;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(2.1rem, 6vw, 3.5rem);
+      font-weight: 700;
+
+      color: #4a3927;
+
+      text-shadow: 0 1px 1px rgba(255,255,255,.8);
+    }
+
+    .subtitle {
+      margin-top: 8px;
+
+      color: var(--muted);
+      font-size: 1.25rem;
+    }
+
+    .rule {
+      width: 120px;
+      height: 1px;
+      margin: 28px auto 0;
+
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    /* متن */
+    .text {
+      font-size: clamp(1.12rem, 2vw, 1.3rem);
+    }
+
+    .text p {
+      margin: 0 0 25px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .opening {
+      font-size: 1.45rem;
+      line-height: 2.2;
+      text-align: center !important;
+      color: #4b3926;
+      margin-bottom: 45px !important;
+    }
+
+    .opening::first-letter {
+      font-size: 3.4rem;
+      float: right;
+      line-height: .8;
+      color: var(--gold);
+      padding-left: 8px;
+    }
+
+    /* جمله‌های برجسته */
+    .verse {
+      position: relative;
+
+      margin: 42px 0;
+      padding: 25px 35px;
+
+      text-align: center;
+
+      color: #5a452d;
+      font-size: 1.4rem;
+      line-height: 2.1;
+
+      border-top: 1px solid rgba(168, 134, 75, .35);
+      border-bottom: 1px solid rgba(168, 134, 75, .35);
+
+      background: rgba(168, 134, 75, .045);
+    }
+
+    .verse::before,
+    .verse::after {
+      color: var(--gold);
+      font-size: 1.8rem;
+    }
+
+    .verse::before {
+      content: "❝";
+      position: absolute;
+      right: 8px;
+      top: 5px;
+    }
+
+    .verse::after {
+      content: "❞";
+      position: absolute;
+      left: 8px;
+      bottom: -10px;
+    }
+
+    /* عناوین میانی */
+    h2 {
+      position: relative;
+
+      margin: 55px 0 28px;
+      padding-bottom: 10px;
+
+      text-align: center;
+
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #60492d;
+    }
+
+    h2::after {
+      content: "◆";
+      display: block;
+
+      margin-top: 5px;
+
+      color: var(--gold);
+      font-size: .65rem;
+    }
+
+    /* پایان */
+    .ending {
+      margin-top: 60px;
+      padding-top: 40px;
+
+      text-align: center;
+      color: #4a3927;
+    }
+
+    .ending p {
+      text-align: center !important;
+    }
+
+    .final-line {
+      margin: 35px auto 15px !important;
+
+      font-size: 1.55rem;
+      font-weight: 700;
+
+      color: #594329;
+    }
+
+    .last-line {
+      margin-top: 35px !important;
+
+      font-size: 1.8rem;
+      line-height: 2;
+
+      color: #70572f;
+    }
+
+    /* پانوشت */
+    footer {
+      text-align: center;
+      color: var(--muted);
+
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .8rem;
+
+      padding: 30px 15px 60px;
+    }
+
+    footer .star {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* موبایل */
+    @media (max-width: 600px) {
+      .navigation {
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .navigation a {
+        padding: 5px 12px;
+        font-size: .78rem;
+      }
+
+      .page {
+        margin-top: 25px;
+        padding: 50px 25px;
+      }
+
+      .page::before {
+        inset: 8px;
+      }
+
+      .text p {
+        text-align: right;
+      }
+
+      .verse {
+        padding: 22px 20px;
+      }
+    }
+
+    /* چاپ */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .navigation {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- ناوبری -->
+  <nav class="navigation">
+    <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+    <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+    <a href="#top">↑ آغاز</a>
+  </nav>
+
+  <main class="page">
+
+    <!-- عنوان -->
+    <header class="header">
+      <div class="ornament">✦ ❖ ✦</div>
+
+      <div class="number">
+        نغمهٔ بیست‌وهشتم
+      </div>
+
+      <h1>در خرد، آگاهی و مسئولیت</h1>
+
+      <div class="subtitle">
+        نغمه‌ای برای بیداریِ جان
+      </div>
+
+      <div class="rule"></div>
+    </header>
+
+    <!-- متن -->
+    <article class="text">
+
+      <p class="opening">
+        ای هم‌نفسِ رازِ هستی،<br>
+        ای رهروِ میانِ خاک و ستاره،<br>
+        ای آن‌که در رگ‌های تو<br>
+        هم غبارِ زمین جاری‌ست<br>
+        و هم خاطره‌ای از آسمان؛
+      </p>
+
+      <p>
+        چشم به تو دادم<br>
+        تا تنها جهان را نبینی،<br>
+        بل پرده از جهان برداری؛<br>
+        تا از صورت بگذری و به معنا برسی،<br>
+        از نمود عبور کنی و به نهاد راه یابی.
+      </p>
+
+      <div class="verse">
+        چشم، برگ را می‌بیند و خرد، ریشه را؛<br>
+        چشم، موج را می‌نگرد و خرد، ژرفای دریا را؛<br>
+        چشم، ستاره را می‌بیند و دلِ بیدار،<br>
+        تاریکیِ میانِ ستارگان را نیز درمی‌یابد.
+      </div>
+
+      <p>
+        دیدن، آغازِ آگاهی‌ست؛<br>
+        فهمیدن، زادهٔ خرد؛<br>
+        و شناختن، میوهٔ بیداری.
+      </p>
+
+      <h2>چراغِ خرد</h2>
+
+      <p>
+        خرد چراغی‌ست در شبستانِ جان؛<br>
+        نه برای آن‌که همهٔ راه را یک‌باره روشن کند،<br>
+        بل برای آن‌که گامِ بعدی را گم نکنی.
+      </p>
+
+      <p>
+        زیرا بزرگ‌ترین تاریکی<br>
+        نبودنِ نور نیست؛<br>
+        نخواستنِ دیدن است.
+      </p>
+
+      <h2>سرزمینِ پرسش</h2>
+
+      <p>
+        میانِ باور و انکار،<br>
+        سرزمینی‌ست به نامِ پرسش.
+      </p>
+
+      <p>
+        پرسش، اگر از سرِ حقیقت‌جویی باشد، پنجره است؛<br>
+        و اگر از سرِ خودنمایی باشد، دیوار.
+      </p>
+
+      <div class="verse">
+        فرزانگی در بسیار دانستن نیست؛<br>
+        در دانستنِ اندازهٔ دانستن است.
+      </div>
+
+      <h2>آزادی و مسئولیت</h2>
+
+      <p>
+        آزادی توانِ انتخاب است<br>
+        و مسئولیت، پذیرفتنِ سایهٔ همان انتخاب.
+      </p>
+
+      <p>
+        آزادی، اگر از خرد جدا شود، به سرگردانی می‌انجامد؛<br>
+        و مسئولیت، اگر از آزادی جدا شود، به بند.
+      </p>
+
+      <p>
+        آزادی اسبی‌ست تیزپا<br>
+        و خرد، لجامِ آن.
+      </p>
+
+      <p>
+        هر انتخاب، بذری‌ست<br>
+        که دیر یا زود، درختِ خویش را خواهد رویاند.
+      </p>
+
+      <div class="verse">
+        بر زمین چنان گام بگذار<br>
+        که گویی باغی‌ست که پیش از تو کسی کاشته<br>
+        و پس از تو دیگری در سایه‌اش خواهد نشست.
+      </div>
+
+      <p>
+        آنچه از جهان می‌گیری،<br>
+        چیزی نیز به جهان بازگردان.
+      </p>
+
+      <h2>کرامتِ آدمی</h2>
+
+      <p>
+        هیچ‌کس را به ظاهرش مخوان.
+      </p>
+
+      <p>
+        دستِ پینه‌بسته‌ای ممکن است<br>
+        تاریخِ یک خانه را بر دوش کشیده باشد؛<br>
+        و دلِ شکسته‌ای ممکن است<br>
+        ژرف‌ترین چشمهٔ مهر را در خود پنهان کرده باشد.
+      </p>
+
+      <h2>فتحِ خویشتن</h2>
+
+      <p>
+        مسئولیت، بهایی‌ست که آزادی برای خویش می‌پردازد.
+      </p>
+
+      <p>
+        آن‌که مسئول است،<br>
+        پیش از آن‌که انگشتِ اتهام به سوی جهان بگیرد،<br>
+        به خویشتن می‌نگرد و می‌پرسد:
+      </p>
+
+      <div class="verse">
+        «سهمِ من چه بود؟»
+      </div>
+
+      <p>
+        فتحِ دیگری آسان‌تر از فتحِ خویشتن است.
+      </p>
+
+      <p>
+        می‌توان شهری را با زور گرفت؛<br>
+        اما خشم را نمی‌توان با زور رام کرد.
+      </p>
+
+      <p>
+        می‌توان دیگری را شکست داد؛<br>
+        اما اگر غرور بر جای بماند،<br>
+        فاتح نیز شکست‌خورده است.
+      </p>
+
+      <h2>دانش و سخن</h2>
+
+      <p>
+        دانش نیز اگر در جانِ آدمی نروید،<br>
+        تنها انباری از واژه‌هاست.
+      </p>
+
+      <p>
+        هر حقیقتی را نباید با فریاد گفت<br>
+        و هر سکوتی را نباید ترس نامید.
+      </p>
+
+      <p>
+        حکمت، شناختنِ اندازه است؛<br>
+        اندازهٔ سخن، اندازهٔ سکوت،<br>
+        اندازهٔ خشم، اندازهٔ مهر.
+      </p>
+
+      <div class="verse">
+        واژه اگر از دلِ آگاه برخیزد،<br>
+        می‌تواند زخمی را ببندد؛<br>
+        و اگر از دهانِ بی‌خرد رها شود،<br>
+        می‌تواند زخمی بیافریند که سال‌ها خون بچکاند.
+      </div>
+
+      <h2>اندیشه، نه شمشیر</h2>
+
+      <p>
+        جهان را با شمشیر نتوان ساخت.
+      </p>
+
+      <p>
+        شمشیر می‌تواند دیوار را بشکند،<br>
+        اما خانه نمی‌سازد؛<br>
+        تختی را واژگون کند،<br>
+        اما عدالت نمی‌آفریند.
+      </p>
+
+      <p>
+        یک پرسشِ درست<br>
+        گاهی از صد پاسخِ شتاب‌زده نیرومندتر است.
+      </p>
+
+      <p>
+        یک آموزگار<br>
+        می‌تواند شعله‌ای در ذهنِ یک کودک بیفروزد؛<br>
+        و آن شعله، سال‌ها بعد،<br>
+        چراغِ راهِ هزاران تن شود.
+      </p>
+
+      <h2>فروتنیِ دانایی</h2>
+
+      <p>
+        دانایی اگر با فروتنی همراه نشود،<br>
+        بارِ غرور است.
+      </p>
+
+      <p>
+        درخت هرچه پربارتر شود،<br>
+        شاخه‌هایش فروتن‌تر می‌شوند.
+      </p>
+
+      <p>
+        رودِ عمیق آرام‌تر می‌رود؛<br>
+        آبِ کم‌عمق بیشتر بر سنگ‌ها می‌کوبد.
+      </p>
+
+      <h2>آینهٔ حقیقت</h2>
+
+      <p>
+        حقیقت را دوست بدار،<br>
+        حتی آن‌گاه که آینه‌ای بر خطاهای تو باشد.
+      </p>
+
+      <p>
+        زیرا آینه را نباید<br>
+        به سببِ زشتیِ چهره شکست.
+      </p>
+
+      <div class="verse">
+        زخمِ راستین<br>
+        از مرهمِ دروغین بهتر است.
+      </div>
+
+      <h2>آنچه پس از ما می‌ماند</h2>
+
+      <p>
+        تو برای شمردنِ روزها نیامده‌ای.
+      </p>
+
+      <p>
+        روزها خود می‌گذرند؛<br>
+        این تویی که باید به گذشتنِ آن‌ها معنا بدهی.
+      </p>
+
+      <p>
+        چنان زندگی کن<br>
+        که پس از رفتنت چیزی از تو در جهان روشن بماند.
+      </p>
+
+      <p>
+        یک جملهٔ درست در ساعتی درست<br>
+        می‌تواند سال‌ها در جانِ آدمی بماند.
+      </p>
+
+      <h2>دشمنانِ پنهان</h2>
+
+      <p>
+        بزرگ‌ترین دشمنِ آدمی همیشه بیرون از او نیست.
+      </p>
+
+      <p>
+        گاه درونِ اوست:<br>
+        غفلت، ترس، غرور،<br>
+        و آن ندای خاموشی که هنگامِ رویارویی با حقیقت می‌گوید:
+      </p>
+
+      <div class="verse">
+        «اکنون نه.»
+      </div>
+
+      <p>
+        زندگی همیشه فرصتِ دوباره نمی‌دهد.
+      </p>
+
+      <p>
+        آدمی در همین لحظه‌ها خود را آشکار می‌کند؛<br>
+        نه در روزهای آسان، که در تنگنای انتخاب؛<br>
+        نه در میانِ ستایش، که در خلوتِ وجدان.
+      </p>
+
+      <h2>آزمونِ خویشتن</h2>
+
+      <p>
+        اگر می‌خواهی خرد را در خویش بیازمایی،<br>
+        ببین آیا می‌توانی پیش از داوری، بشنوی.
+      </p>
+
+      <p>
+        اگر می‌خواهی آگاهی را بشناسی،<br>
+        ببین آیا رنجِ دیگری در تو پژواکی برمی‌انگیزد.
+      </p>
+
+      <p>
+        اگر می‌خواهی آزادی را بفهمی،<br>
+        ببین آیا توانِ پذیرفتنِ پیامدِ انتخابت را داری.
+      </p>
+
+      <p>
+        و اگر می‌خواهی بدانی تا چه اندازه بزرگ شده‌ای،<br>
+        ببین آیا می‌توانی بی‌هراس بگویی:
+      </p>
+
+      <div class="verse">
+        «خطا کردم.»
+      </div>
+
+      <p>
+        پذیرفتنِ خطا،<br>
+        آغازِ دگرگونی‌ست.
+      </p>
+
+      <div class="ending">
+
+        <h2>آخرین چراغ</h2>
+
+        <p>
+          پس برخیز.
+        </p>
+
+        <p>
+          نه با شتابِ کور، که با گامِ آگاه؛<br>
+          نه با غرورِ فاتح، که با تواضعِ جوینده.
+        </p>
+
+        <p>
+          راه را نیز آن‌گونه طی کن<br>
+          که پس از عبور تو<br>
+          سنگی از سرِ آن برداشته شده باشد.
+        </p>
+
+        <p>
+          و اگر چیزی از جهان گرفتی،<br>
+          چیزی بر آن بیفزا.
+        </p>
+
+        <p>
+          روزی خواهد رسید<br>
+          که هیاهوی بیرون فرو خواهد نشست<br>
+          و آدمی با خویشتن تنها خواهد ماند.
+        </p>
+
+        <div class="verse">
+          با آنچه دانستی، چه کردی؟<br>
+          با آزادیِ خویش چه ساختی؟<br>
+          با قدرتی که در دستت بود<br>
+          چه بر سرِ ضعیف‌تر از خود آوردی؟<br>
+          و هنگامی که توانستی<br>
+          میانِ آسان‌ترین راه و درست‌ترین راه<br>
+          یکی را برگزینی،<br>
+          کدام را برگزیدی؟
+        </div>
+
+        <p class="final-line">
+          راهِ خرد از پرسیدن آغاز می‌شود؛<br>
+          با آگاهی ادامه می‌یابد؛<br>
+          در آزادی آزموده می‌شود؛<br>
+          و با مسئولیت به بلوغ می‌رسد.
+        </p>
+
+        <p>
+          نه آن‌که هرگز خطا نکنی،<br>
+          بل آن‌که پس از خطا راهِ بازگشت را پیدا کنی؛
+        </p>
+
+        <p>
+          نه آن‌که هرگز نترسی،<br>
+          بل آن‌که ترس آخرین سخن را نگوید؛
+        </p>
+
+        <p>
+          نه آن‌که همه‌چیز را بدانی،<br>
+          بل آن‌که در برابرِ ناشناخته<br>
+          هنوز مشتاقِ دانستن بمانی.
+        </p>
+
+        <p>
+          و شاید در پایانِ همهٔ راه‌ها،<br>
+          آنچه از انسان باقی می‌ماند<br>
+          نه نام او باشد، نه ثروتش، نه قدرتش؛
+        </p>
+
+        <p>
+          بلکه نوری باشد که در ذهنی افروخت،<br>
+          آرامشی باشد که در دلی نشاند،<br>
+          راهی باشد که برای دیگری هموار کرد.
+        </p>
+
+        <p>
+          پس زندگی کن چنان‌که<br>
+          رفتنت چیزی از جهان کم نکند.
+        </p>
+
+        <div class="verse">
+          این است خرد: دیدنِ آنچه پنهان است.<br>
+          این است آگاهی: بیدار ماندن در برابرِ حقیقت.<br>
+          این است آزادی: توانِ انتخاب، بی‌گریز از پیامد.<br>
+          و این است مسئولیت: آن‌که جهان را از خود روشن‌تر تحویل دهی.
+        </div>
+
+        <p>
+          آنگاه، هر کجا که باشی،<br>
+          حتی اگر تنها یک چراغ در دست داشته باشی،<br>
+          برای آغازِ سپیده کافی‌ست.
+        </p>
+
+        <p class="last-line">
+          زیرا گاه تمامِ تاریکیِ جهان<br>
+          منتظرِ یک شعله است.
+        </p>
+
+        <div class="ornament">
+          ✦ ❖ ✦
+        </div>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <span class="star">✦</span>
+    نغمه
+    <span class="star">✦</span>
+    <br>
+    <small>در راهِ روشنایی، هر گام خویش چراغی‌ست.</small>
+  </footer>
+
+</body>
+</html>
