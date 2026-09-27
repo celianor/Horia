@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>لوح بیست و نهم | در باب مهربانی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffdf7;
+      --ink: #403b32;
+      --muted: #817766;
+      --gold: #b08b45;
+      --gold-soft: #d9c49a;
+      --green: #596653;
+      --shadow: rgba(69, 55, 31, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(176,139,69,.10), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(89,102,83,.10), transparent 30%),
+        var(--bg);
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      line-height: 2.25;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .25;
+      background-image:
+        radial-gradient(rgba(70,55,30,.16) .6px, transparent .6px);
+      background-size: 9px 9px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(244,239,228,.82);
+      border-bottom: 1px solid rgba(176,139,69,.18);
+    }
+
+    .nav {
+      max-width: 900px;
+      margin: auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav a {
+      color: var(--green);
+      text-decoration: none;
+      font-size: .92rem;
+      transition: .25s ease;
+    }
+
+    .nav a:hover {
+      color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 65px auto 35px;
+      padding: 0 22px;
+      text-align: center;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-family: "Amiri", serif;
+      font-size: 2rem;
+      letter-spacing: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tablet-number {
+      color: var(--muted);
+      font-size: .95rem;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #514835;
+      font-family: "Amiri", serif;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--gold);
+      font-family: "Amiri", serif;
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+    }
+
+    .divider {
+      width: 130px;
+      height: 1px;
+      margin: 30px auto;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-family: "Amiri", serif;
+      font-size: 1.18rem;
+    }
+
+    .manuscript {
+      position: relative;
+      max-width: 850px;
+      margin: 40px auto 100px;
+      padding: 65px clamp(25px, 7vw, 80px);
+      background: var(--paper);
+      border: 1px solid rgba(176,139,69,.22);
+      border-radius: 8px;
+      box-shadow:
+        0 25px 70px var(--shadow),
+        0 3px 12px rgba(69,55,31,.05);
+    }
+
+    .manuscript::before,
+    .manuscript::after {
+      content: "✦";
+      position: absolute;
+      color: var(--gold-soft);
+      font-size: 1.2rem;
+    }
+
+    .manuscript::before {
+      top: 22px;
+      right: 28px;
+    }
+
+    .manuscript::after {
+      bottom: 22px;
+      left: 28px;
+    }
+
+    .opening {
+      margin: 0 auto 55px;
+      padding: 25px 20px;
+      text-align: center;
+      color: #5b513f;
+      font-family: "Amiri", serif;
+      font-size: 1.55rem;
+      line-height: 2.25;
+      border-top: 1px solid var(--gold-soft);
+      border-bottom: 1px solid var(--gold-soft);
+    }
+
+    .opening strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    section {
+      margin: 0 0 55px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0 0 25px;
+      font-family: "Amiri", serif;
+      font-size: 1.32rem;
+      line-height: 2.35;
+    }
+
+    .verse {
+      margin: 35px 0;
+      padding: 18px 25px;
+      border-right: 3px solid var(--gold);
+      color: #625744;
+      background: linear-gradient(
+        to left,
+        rgba(176,139,69,.07),
+        transparent
+      );
+    }
+
+    .verse p {
+      margin: 0;
+    }
+
+    .emphasis {
+      margin: 45px 0;
+      text-align: center;
+      color: var(--green);
+      font-family: "Amiri", serif;
+      font-size: 1.65rem;
+      line-height: 2.2;
+    }
+
+    .closing {
+      margin-top: 70px;
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid var(--gold-soft);
+    }
+
+    .closing-symbol {
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      padding: 35px 20px 55px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 18px;
+    }
+
+    .footer-links a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        margin-top: 40px;
+      }
+
+      .manuscript {
+        margin: 25px 12px 70px;
+        padding: 45px 22px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 2.25;
+      }
+
+      .opening {
+        font-size: 1.35rem;
+      }
+
+      .emphasis {
+        font-size: 1.4rem;
+      }
+
+      .nav {
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- نوار پیمایش -->
+  <header class="topbar">
+    <nav class="nav">
+      <a href="https://celianor.github.io/Horia/index.fa.html" aria-label="خانه">⌂ خانه</a>
+
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html" aria-label="بازگشت">
+        ← بازگشت
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- عنوان -->
+  <header class="hero">
+
+    <div class="ornament">✦ ❈ ✦</div>
+
+    <div class="tablet-number">
+      نغمه بیست و نهم
+    </div>
+
+    <h1>در باب مهربانی</h1>
+
+    <div class="subtitle">
+      آیین مهر و نیکی
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="intro">
+      سخنی در باب مهربانی، نیکی، رنج، بخشایش
+      و اثری که آدمی بی‌نام و بی‌صدا در جهان باقی می‌گذارد.
+    </p>
+
+  </header>
+
+
+  <!-- متن اصلی -->
+  <main class="manuscript">
+
+    <div class="opening">
+      <strong>مهر را خوار مدار؛</strong><br>
+      که بسیار بزرگی‌ها<br>
+      از اندک نیکی‌ها برمی‌خیزد.
+      <br><br>
+      دانه خرد است و درخت گران؛<br>
+      قطره ناچیز است و دریا بی‌کران.
+    </div>
+
+
+    <section>
+      <p>
+        چه دانی کدام سخن دل شکسته‌ای را نگاه دارد؛
+        کدام نگاه غمگینی را از غم برهاند؛
+        و کدام دست در وقت افتادن،
+        دست دیگری را بگیرد و از خاک، راهی به پا خیزد.
+      </p>
+
+      <p>
+        نیکی گاه چنان نهان آید
+        که نیکوکار خود از آن خبر نیابد؛
+        اما در دل دیگری جای گیرد
+        و سال‌ها پس از او بتابد.
+      </p>
+
+      <p>
+        باغبان چون دانه در خاک نهد،
+        نپرسد که سایه‌اش بر سر که خواهد افتاد.
+      </p>
+
+      <div class="verse">
+        <p>
+          در نیکی این حکم را نگاه دار:<br>
+          بکار و بگذر؛<br>
+          که دانه را برای دیدنِ درخت نمی‌کارند،
+          و نیکی را برای دیدنِ ثمر نمی‌گسترند.
+        </p>
+      </div>
+    </section>
+
+
+    <section>
+      <p>
+        دل آدمی خاک است؛
+        و خاک، حافظه‌ای دیرینه دارد.
+      </p>
+
+      <p>
+        هرچه در او افکنی،
+        روزی سر برآورد؛
+        هرچه در او بکاری،
+        روزی سایه گسترد.
+      </p>
+
+      <p>
+        کینه، زمین را سخت کند؛
+        ترس، دیوار برآورد؛
+        و مهر، راه روییدن باز کند.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        اگر گرسنه‌ای دیدی،
+        نان دریغ مدار؛
+        اگر تنها مانده‌ای دیدی،
+        ساعتی از تنهایی او بکاه؛
+        و اگر دل شکسته‌ای دیدی،
+        بر زخم او پای منه
+        و نمک بر درد او مپاش.
+      </p>
+
+      <p>
+        بسا دلی که پیش از مرهم،
+        امان خواهد؛
+        و بسا زخمی که پیش از درمان،
+        همدلی خواهد.
+      </p>
+
+      <p>
+        آدمی را به یک حال حکم مکن؛
+        که هرکس را شب‌هایی است
+        که تو ندیده‌ای
+        و دردهایی است
+        که تو نشنیده‌ای.
+      </p>
+
+      <div class="emphasis">
+        خاموشی را بی‌دردی مپندار؛<br>
+        تندی را بی‌زخمی مشمار.
+      </div>
+
+      <p>
+        که گاه پشت خاموشی،
+        فریادی نهان است
+        و زیر خشم،
+        نرمیِ از دست‌رفته‌ای روان.
+      </p>
+
+      <p>
+        چه دانی در پس آن سکوت
+        چه فریادی است خفته؛
+        و در زیر آن خشم
+        چه نرمیِ از دست‌رفته‌ای نهفته.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        آدمی را آهسته بخوان؛
+        که بعضی کتاب‌ها
+        یک‌باره گشوده نشوند
+        و بعضی رازها
+        به یک نگاه نگشایند.
+      </p>
+
+      <p>
+        هرکس خانه‌ای است
+        با حجره‌های نهان؛
+        و در پس هر پنجره
+        ماجراهایی است پنهان.
+      </p>
+
+      <div class="verse">
+        <p>
+          مهر آن نیست
+          که دیده بر حقیقت ببندی؛<br>
+          مهر آن است
+          که حقیقت را ببینی
+          و حرمت آدمی را نگاه داری.
+        </p>
+      </div>
+
+      <p>
+        اگر شاخه‌ای بر سر کودکی افتد،
+        بایدش برید؛
+        هرچند درخت را
+        هزار مرید باشد.
+      </p>
+
+      <p>
+        پس مهربانی همیشه دست نوازش نیست؛
+        گاه دستی است که از گزند بازمی‌دارد؛
+        گاه سخنی است که از راهی کج برمی‌گرداند.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        بر ستم بایست،
+        اما ستم را در دل خویش مپروران؛
+        که آن‌کس که با ستم می‌ستیزد
+        و ستم را در خویش می‌پرورد،
+        زنجیر را از دستی
+        به دستی دیگر سپرده است.
+      </p>
+
+      <p>
+        آب، سنگ را به نرمی می‌ساید
+        و از نرمی خویش نمی‌کاهد؛
+        باد، راه خویش می‌یابد
+        و از دیوار نمی‌هراسد.
+      </p>
+
+      <div class="emphasis">
+        نرم باش و استوار؛<br>
+        رحیم باش و بیدار.
+      </div>
+
+      <p>
+        که مهر بی‌خردی،
+        گاه دام بلاست
+        و نرمی بی‌بیداری،
+        گاه راه خطاست.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        مهر، پیش از آنکه در دست آید،
+        در نظر پدید آید؛
+        پیش از آنکه کردار شود،
+        در دل قرار گیرد.
+      </p>
+
+      <p>
+        آن ساعت که دیگری را
+        نه وسیله بینی و نه مانع،
+        نه بیگانه بینی و نه خویش؛
+        بلکه آدمی بینی چون خود،
+        دانه‌ای در دل خاک،
+        که ریشه‌ای دارد
+        و روزی به آسمان خواهد رسید.
+      </p>
+
+      <div class="verse">
+        <p>
+          پس از نظر، نوبت کردار است:<br>
+          نان،<br>
+          پناه،<br>
+          گوش سپردن،<br>
+          بخشایش،<br>
+          و گاه تنها ماندن.
+        </p>
+      </div>
+
+      <p>
+        بسیار کسان نجات نخواهند؛
+        همراه خواهند.
+      </p>
+
+      <p>
+        آن‌که در روز سخت کنار تو بماند،
+        گاه کاری کند که صد پندگو از آن عاجز باشند؛
+        که حضور، گاه از سخن راست‌تر است
+        و ماندن، گاه از هزار وعده باورپذیرتر.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        نیکی تباه نشود.
+      </p>
+
+      <p>
+        دانه اگر زیر خاک رود،
+        از جهان نرفته است؛
+        که در تاریکی ریشه می‌گیرد
+        و در روشنایی سر برمی‌آورد.
+      </p>
+
+      <p>
+        بسا چیزها که نخست در تاریکی رویند
+        و آنگاه به روشنایی آیند؛
+        نیکی نیز چنین است.
+      </p>
+
+      <p>
+        دستی که امروز بر شانه‌ای نهاده‌ای،
+        شاید فردا در یاد تو نباشد؛
+        اما آرامشی که در دلی نهاده‌ای،
+        از آن دل به دلی دیگر رود
+        و از دلی به دلی دیگر رسد.
+      </p>
+
+      <p>
+        نیکی همیشه به نیکوکار بازنگردد؛
+        گاه از دستی به دستی رود،
+        از دلی به دلی،
+        تا در جایی دور
+        گل برآورد
+        و سایه بگسترد.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        پس نیکی را به شمار میاور.
+      </p>
+
+      <div class="verse">
+        <p>
+          باران، قطره‌های خود نمی‌شمارد؛<br>
+          چراغ، روشنایی خود نمی‌فروشد؛<br>
+          چشمه، از تشنه نام نمی‌پرسد؛<br>
+          و درخت، سایه به بهای نام نمی‌دهد.
+        </p>
+      </div>
+
+      <p>
+        آنچه بخشش را زیبا کند،
+        بی‌نیازی او از شاهد است؛
+        و آنچه نیکی را پاک کند،
+        بی‌نیازی او از نام است.
+      </p>
+
+      <p>
+        نیکی آنگاه نیکوست
+        که برای نام نباشد؛
+        که آدمی نیکی کند
+        چون خرد او جز آن را روا ندارد
+        و دل او جز آن را نشناسد.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        جهان از کارهای بزرگ تنها برپا نیست.
+      </p>
+
+      <p>
+        سنگ بر سنگ، دیوار شود؛
+        قطره بر قطره، چشمه؛
+        و کردار بر کردار،
+        خوی شود
+        و خوی بر سرنوشت اثر نهد.
+      </p>
+
+      <p>
+        تحقیر، دوری زاید؛
+        خوف، حصار؛
+        اعتماد، راه؛
+        و مهر، میان دل‌ها گذرگاه.
+      </p>
+
+      <p>
+        آدمی هر روز چیزی در جهان می‌کارد،
+        اگرچه خود نداند.
+      </p>
+
+      <div class="emphasis">
+        پس بنگر چه می‌کاری؛<br>
+        که فردا همان را در سایه و ثمر خواهی دید.
+      </div>
+    </section>
+
+
+    <section>
+      <p>
+        اگر جهان را آرام نمی‌توانی کرد،
+        دلی را میازار؛
+        اگر راه همه را روشن نمی‌توانی داشت،
+        پیش پای یکی چراغی نه؛
+        اگر زخم همه را بستن نتوانی،
+        بر زخمی زخم دیگر میفزا.
+      </p>
+
+      <p>
+        این اندک نیست.
+      </p>
+
+      <p>
+        چه بسیار که سهم آدمی از نجات جهان
+        نجات جهان نباشد؛
+        بل آن باشد که تاریکیِ رسیده به او
+        از او به دیگری نرسد.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        رنج، میراثی نیکو نیست.
+      </p>
+
+      <p>
+        اگر روزگار تو را زخمی کرده است،
+        زخم را میراث مگذار؛
+        که آن‌که رنج را به دیگری سپارد،
+        رنج را از خویش نرانده،
+        بلکه در جهان پراکنده است.
+      </p>
+
+      <p>
+        آن‌که به سبب رنج خویش
+        دیگری را می‌رنجاند،
+        زخم را درمان نکرده؛
+        آن را از خویش به دیگری سپرده است.
+      </p>
+
+      <div class="verse">
+        <p>
+          زخم دو راه دارد:<br>
+          یا دیوار شود، یا پنجره؛<br>
+          یا آدمی را تلخ کند، یا ژرف.
+        </p>
+      </div>
+
+      <p>
+        و اختیار آدمی در همین میان است؛
+        میان دیوار و پنجره،
+        میان تلخی و ژرفا.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        آدمی رفتنی است.
+      </p>
+
+      <p>
+        نامش کم‌رنگ شود؛
+        خانه‌اش از او جدا گردد؛
+        دستش از کار بماند.
+      </p>
+
+      <p>
+        اما اثر او چون سایه‌ای بی‌نام
+        بر زمین بماند.
+      </p>
+
+      <p>
+        کسی به سبب او اندکی بیشتر تاب آورده باشد؛
+        کسی در شب تیره از فرو افتادن بازمانده باشد؛
+        کودکی از او دانسته باشد
+        که جهان سراسر سنگ نیست.
+      </p>
+
+      <div class="emphasis">
+        اینها می‌ماند.
+      </div>
+
+      <p>
+        نه نام، که اثر؛<br>
+        نه صورت، که روشنی؛<br>
+        نه آواز، که پژواک آن نیکی
+        در جان دیگری.
+      </p>
+
+      <p>
+        جاودانگی آدمی در آن نیست
+        که نامش دیر بماند؛
+        در آن است که نیکی او
+        در دیگری ادامه یابد.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        گل از فردای خویش خبر ندارد؛
+        درخت نمی‌داند سایه‌اش بر سر که خواهد افتاد؛
+        چشمه نمی‌پرسد که لب تشنه از آنِ کیست.
+      </p>
+
+      <p>
+        اما می‌بخشد؛
+        که بخشیدن در سرشت اوست.
+      </p>
+
+      <p>
+        مهر نیز آنگاه به کمال رسد
+        که نمایش نباشد؛
+        که نیکی نه برای ستایش،
+        که برای نیکی باشد؛
+        نه برای دیده شدن،
+        که برای درست بودن.
+      </p>
+
+      <div class="verse">
+        <p>
+          اگر زخمی هستی، زخم دیگری مشو؛<br>
+          اگر تنها مانده‌ای، تنهایی دیگری را میفزا؛<br>
+          اگر تاریکی دیده‌ای، آن را میراث مگذار؛<br>
+          و اگر چراغی در تو روشن است، خاموشش مکن.
+        </p>
+      </div>
+    </section>
+
+
+    <section>
+      <p>
+        جهان به مردان نامدار کمتر از آن محتاج است
+        که به آدمیان درستکار؛
+        به دستی که یاری کند؛
+        به زبانی که نیازارد؛
+        به دری که بر درمانده بسته نشود؛
+        و به دلی که رنج خویش را
+        سبب رنج دیگری نکند.
+      </p>
+
+      <p>
+        آن‌گاه که می‌توانی سنگی بر راه نهی
+        و نمی‌نهی؛
+        می‌توانی تحقیر کنی
+        و زبان نگه می‌داری؛
+        می‌توانی بگذری
+        و می‌ایستی؛
+      </p>
+
+      <div class="emphasis">
+        همان‌جا خرد بر خشم غالب آمده است؛<br>
+        و آدمی بر زخم خویش غالب شده است.
+      </div>
+    </section>
+
+
+    <section>
+      <p>
+        هورا نام آن روشنایی است
+        که در آدمی خرد را با مهر آشتی می‌دهد؛
+        نه بیرون از انسان،
+        که در ژرفای او؛
+        نه صدایی بیگانه،
+        که روشنایی همان عقل،
+        آنگاه که از کینه پاک شود.
+      </p>
+
+      <p>
+        هورا آنجاست
+        که آدمی اختیار خویش را
+        به دست رنج نمی‌سپارد.
+      </p>
+
+      <p>
+        می‌تواند برنجاند و نمی‌رنجاند؛
+        می‌تواند تحقیر کند و حرمت نگاه می‌دارد؛
+        می‌تواند انتقام گیرد و راه دیگری برگزیند.
+      </p>
+
+      <div class="verse">
+        <p>
+          این ناتوانی نیست؛<br>
+          توانایی است.
+        </p>
+      </div>
+
+      <p>
+        که قدرت، توان رنجاندن نیست؛
+        قدرت آن است که اختیار خویش را
+        به دست خشم نسپاری.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        آنچه از جهان تو را زخمی کرده است،
+        به جهان بازنگردان.
+      </p>
+
+      <p>
+        رنج را تکرار مکن؛
+        آن را بفهم؛
+        زخم را پنهان مکن؛
+        از آن دیوار مساز؛
+        آنچه از تاریکی آموخته‌ای،
+        چراغی برای دیگری کن.
+      </p>
+
+      <p>
+        پیش از رفتن،
+        دانه‌ای در خاک نه؛
+        چراغی در پنجره افروز؛
+        یا دستی را در وقت افتادن بگیر.
+      </p>
+
+      <p>
+        نه از بهر نام؛
+        از بهر آنکه جهان
+        پس از گذشتن تو
+        اندکی کمتر سرد باشد؛
+        اندکی روشن‌تر،
+        اندکی مهربان‌تر.
+      </p>
+    </section>
+
+
+    <section>
+      <p>
+        میراث آدمی آن نیست
+        که برای خود نگاه داشت؛
+        آن است که بی‌نام و بی‌صدا
+        در دل دیگری نهاد.
+      </p>
+
+      <div class="emphasis">
+        و این حکم خرد است:
+      </div>
+
+      <p>
+        هرکه رنج را به جای مهر به دیگری سپارد،
+        رنج را در جهان ادامه داده است؛
+        و هرکه در خویش رشته رنج را ببرد،
+        جهان را به اندازه خویش آزاد کرده است.
+      </p>
+
+      <p>
+        پس مهر بورز،
+        اما دیده باز دار؛
+        ببخش،
+        اما خرد را از کف مده؛
+        دست بگیر،
+        اما دیگری را خوار و ناتوان مکن؛
+        و نیکی کن،
+        نه برای آنکه نامت نیکو ماند،
+        بل برای آنکه سهم تو از جهان
+        بر رنج آن نیفزاید.
+      </p>
+    </section>
+
+
+    <div class="closing">
+      <div class="closing-symbol">✦</div>
+
+      <p>
+        این است راه مهر:
+      </p>
+
+      <p>
+        رنج را بر رنج نیفزودن؛<br>
+        تاریکی را به تاریکی نسپردن؛<br>
+        زخم را میراث نکردن؛<br>
+        و آنچه هنوز در آدمی روشن است،
+        به دست خویش خاموش نکردن.
+      </p>
+    </div>
+
+  </main>
+
+
+  <!-- پابرگ -->
+  <footer>
+
+    <div class="footer-links">
+      <a href="https://celianor.github.io/Horia//index.fa.html">⌂ خانه</a>
+      <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">← بازگشت</a>
+      <a href="#top">↑ بالای صفحه</a>
+    </div>
+
+    <div>
+      لوح بیست و نهم · در باب مهربانی
+    </div>
+
+  </footer>
+
+</body>
+  </html>
