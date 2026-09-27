@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>هورای مهر | دعای روشن‌جان</title>
+
+    <meta name="description" content="ای هورای جان‌ها، ای اهورای مهر، ای هورای روشن‌جان؛ نیایشی برای مهر، انسانیت و روشنایی.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg-dark: #101b22;
+            --bg-mid: #172a2d;
+            --gold: #d8b978;
+            --gold-light: #f1dca4;
+            --cream: #f7f1df;
+            --text: #eee7d5;
+            --muted: #c9bea5;
+            --glass: rgba(255, 255, 255, 0.055);
+            --border: rgba(216, 185, 120, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 50% 0%, rgba(216, 185, 120, 0.12), transparent 32%),
+                radial-gradient(circle at 10% 80%, rgba(100, 160, 145, 0.08), transparent 28%),
+                linear-gradient(145deg, var(--bg-dark), var(--bg-mid) 55%, #0d171d);
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            line-height: 2.35;
+            overflow-x: hidden;
+        }
+
+        /* نورهای شناور */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: .10;
+            z-index: -1;
+        }
+
+        body::before {
+            background: #d8b978;
+            top: -180px;
+            right: -150px;
+        }
+
+        body::after {
+            background: #5d9b8c;
+            bottom: -180px;
+            left: -150px;
+        }
+
+        /* ستاره‌ها */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: .45;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.75) 1px, transparent 1.5px),
+                radial-gradient(circle, rgba(216,185,120,.55) 1px, transparent 1.5px);
+            background-size: 110px 130px, 170px 190px;
+            background-position: 10px 20px, 70px 90px;
+        }
+
+        /* نوار بالا */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(12, 24, 29, .78);
+            border-bottom: 1px solid rgba(216,185,120,.14);
+        }
+
+        .nav {
+            width: min(1120px, 92%);
+            margin: auto;
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-family: "Amiri", serif;
+            font-size: 1.45rem;
+            letter-spacing: .5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            padding: 7px 15px;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            transition: .3s ease;
+            font-size: .9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+            border-color: var(--border);
+            background: rgba(216,185,120,.06);
+        }
+
+        /* قهرمان */
+        .hero {
+            width: min(920px, 90%);
+            margin: 0 auto;
+            padding: 105px 20px 80px;
+            text-align: center;
+        }
+
+        .symbol {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 28px;
+            border: 1px solid rgba(216,185,120,.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-size: 2rem;
+            box-shadow:
+                0 0 35px rgba(216,185,120,.12),
+                inset 0 0 20px rgba(216,185,120,.05);
+        }
+
+        .hero h1 {
+            font-family: "Amiri", serif;
+            color: var(--gold-light);
+            font-size: clamp(2.3rem, 6vw, 4.5rem);
+            line-height: 1.4;
+            font-weight: 700;
+            text-shadow: 0 4px 30px rgba(216,185,120,.16);
+        }
+
+        .hero p {
+            margin-top: 18px;
+            color: var(--muted);
+            font-family: "Amiri", serif;
+            font-size: clamp(1.05rem, 2vw, 1.4rem);
+        }
+
+        .divider {
+            width: 150px;
+            height: 1px;
+            margin: 36px auto 0;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--gold),
+                transparent
+            );
+        }
+
+        /* متن دعا */
+        main {
+            width: min(880px, 92%);
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .prayer {
+            position: relative;
+            padding: clamp(35px, 6vw, 70px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
+                );
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.25),
+                inset 0 1px 0 rgba(255,255,255,.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .prayer::before {
+            content: "✦";
+            position: absolute;
+            top: 22px;
+            right: 30px;
+            color: var(--gold);
+            opacity: .65;
+        }
+
+        .prayer::after {
+            content: "✦";
+            position: absolute;
+            bottom: 22px;
+            left: 30px;
+            color: var(--gold);
+            opacity: .65;
+        }
+
+        .prayer p {
+            margin-bottom: 30px;
+            font-family: "Amiri", serif;
+            font-size: clamp(1.12rem, 2.1vw, 1.38rem);
+            color: var(--text);
+        }
+
+        .prayer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .opening,
+        .closing {
+            color: var(--gold-light) !important;
+            font-weight: 700;
+            font-size: clamp(1.35rem, 2.5vw, 1.7rem) !important;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .highlight {
+            display: block;
+            margin: 48px 0;
+            padding: 28px 25px;
+            text-align: center;
+            color: var(--gold-light);
+            font-family: "Amiri", serif;
+            font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(216,185,120,.035);
+        }
+
+        .poem {
+            padding-right: 20px;
+            border-right: 2px solid rgba(216,185,120,.32);
+        }
+
+        /* دکمه بازگشت */
+        .back-top {
+            display: flex;
+            justify-content: center;
+            margin: 35px 0 0;
+        }
+
+        .back-top a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cream);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 9px 20px;
+            transition: .3s ease;
+            background: rgba(255,255,255,.03);
+        }
+
+        .back-top a:hover {
+            color: var(--gold-light);
+            transform: translateY(-2px);
+            background: rgba(216,185,120,.07);
+        }
+
+        /* پاورقی */
+        footer {
+            text-align: center;
+            padding: 45px 20px 55px;
+            border-top: 1px solid rgba(216,185,120,.12);
+            color: #a99f89;
+            font-family: "Amiri", serif;
+        }
+
+        footer .footer-light {
+            color: var(--gold-light);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        /* موبایل */
+        @media (max-width: 650px) {
+            .nav {
+                min-height: 62px;
+            }
+
+            .brand {
+                font-size: 1.2rem;
+            }
+
+            .nav-links a {
+                padding: 5px 9px;
+                font-size: .78rem;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .prayer {
+                border-radius: 20px;
+                padding: 35px 23px;
+            }
+
+            .prayer p {
+                line-height: 2.45;
+            }
+        }
+
+        /* کاهش حرکت برای کاربرانی که ترجیح می‌دهند */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+<div class="stars"></div>
+
+<header>
+    <nav class="nav">
+        <a class="brand" href="#top">هورای مهر</a>
+
+        <div class="nav-links">
+            <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+            <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="symbol">✦</div>
+
+    <h1>هورای جان‌ها</h1>
+
+    <p>
+        نیایشی برای مهر، روشنایی و انسان‌بودن
+    </p>
+
+    <div class="divider"></div>
+</section>
+
+<main>
+    <article class="prayer">
+
+        <p class="opening center">
+            ای هورای جان‌ها،<br>
+            ای جانِ جان و جانانِ جهان،
+        </p>
+
+        <p>
+            ای نهان در رگِ باران<br>
+            و عیان در تبسمِ انسان،
+            ای آن‌که صبح، نام تو را
+            بر پیشانیِ سپیده می‌نویسد
+            و شب، یاد تو را
+            چون چراغی در مشتِ ستارگان می‌گیرد؛
+        </p>
+
+        <p class="opening center">
+            ای هورای مهر،<br>
+            ای اهورای بی‌کران،<br>
+            ای خداهورای مهربان،
+        </p>
+
+        <p>
+            مرا به خویش نزدیک کن،
+            اما نه چنان‌که از خلق بگریزم؛
+            چنان نزدیکم کن
+            که هرچه به تو نزدیک‌تر باشم،
+            به دل‌های شکسته شریک‌تر شوم،
+            به چشم‌های بارانی قریب‌تر،
+            به دست‌های لرزان نصیب‌تر.
+        </p>
+
+        <p>
+            مرا از خویش لبریز کن،
+            تا از خویشتن تهی شوم؛
+            آن‌قدر از مهر خویش سرشارم کن
+            که جایی برای کینه نماند،
+            آن‌قدر از نور خویش روشنم کن
+            که سایهٔ من بر دلِ کسی نیفتد.
+        </p>
+
+        <p>
+            پروردگارا،
+            اگر دل دادی،
+            دل‌داری بیاموز؛
+            اگر دست دادی،
+            دستگیری؛
+            اگر زبان دادی،
+            زخم نزدن؛
+            و اگر چشم دادی،
+            دیدنِ آن‌کس
+            که پشتِ لبخندی خاموش
+            گریه می‌کند.
+        </p>
+
+        <p class="poem">
+            مرا چشمی ده<br><br>
+            که فقط چهره نبیند،<br><br>
+            از پسِ چهره، دلهره بچیند؛<br><br>
+            فقط لبخند نبیند،<br><br>
+            اندوهِ پنهان و دربند بچیند؛<br><br>
+            فقط خشونت نبیند،<br><br>
+            ترسِ نهفته‌اش را به عطوفت بچیند.
+        </p>
+
+        <p>
+            ای هورای روشن‌جان،
+            چه دانم عشق چیست
+            اگر آهِ دیگری
+            در سینهٔ من پژواک نداشته باشد؟
+        </p>
+
+        <p>
+            چه دانم مهر چیست
+            اگر اشکِ دیگری
+            راهی به چشم من نیابد؟
+        </p>
+
+        <p>
+            چه دانم آدمی‌بودن چیست
+            اگر از کنارِ دلِ شکسته‌ای بگذرم
+            و صدای ترک خوردنِ آن را نشنوم؟
+        </p>
+
+        <p>
+            مرا دلی ده
+            نرم‌تر از شبنمِ سحر،
+            گشاده‌تر از آغوشِ بهار،
+            و بیدارتر از چراغی
+            که در خانهٔ تنها
+            تا صبح می‌سوزد.
+        </p>
+
+        <p>
+            اگر دلی شکسته دیدم،
+            مرا مرهم کن؛
+            اگر دلی خسته دیدم،
+            مرا همدم کن؛
+            و اگر دلی تنها دیدم،
+            مرا هم‌قدم کن.
+        </p>
+
+        <p>
+            و اگر هیچ از این‌ها
+            در توانم نبود،
+            مرا زخمِ تازه‌ای بر زخم‌هایش مکن.
+        </p>
+
+        <p class="opening center">
+            ای اهورای مهر،
+        </p>
+
+        <p>
+            چه بسیار زخم‌ها
+            که خون ندارند،
+            اما شبانه
+            در تاریکیِ دل می‌چکند؛
+            چه بسیار فریادها
+            که از حنجره نمی‌گذرند،
+            اما در خاموشیِ چشم‌ها
+            جهانی را به آتش می‌کشند.
+        </p>
+
+        <p>
+            مرا گوشِ شنیدنِ سکوت ده.
+        </p>
+
+        <p>
+            اگر کسی گفت:
+            «خسته‌ام»،
+            پیش از آن‌که بپرسم «چرا؟»
+            کنارش بنشینم.
+        </p>
+
+        <p>
+            اگر گفت:
+            «دلم شکسته»،
+            پیش از آن‌که پندش دهم،
+            دستش را بگیرم.
+        </p>
+
+        <p>
+            و اگر گفت:
+            «تنهایم»،
+            پیش از آن‌که پاسخی بیابم،
+            بمانم.
+        </p>
+
+        <div class="highlight">
+            چه بسیار شب‌ها که با یک چراغ کوتاه می‌شوند،<br>
+            چه بسیار زمستان‌ها که با یک آغوش بهار می‌شوند،<br>
+            و چه بسیار دل‌ها که با یک «من هستم»<br>
+            از سقوط بازمی‌گردند.
+        </div>
+
+        <p>
+            ای هورای دل‌آگاه،
+            مرا شنوندهٔ دردها کن،
+            نه داورِ دردها؛
+            همراهِ خستگان کن،
+            نه شمارندهٔ خطاها؛
+            پناهِ بی‌پناهان کن،
+            نه دیوارِ بلندِ پیشِ پایشان.
+        </p>
+
+        <p>
+            پیش از داوری،
+            شنیدن بیاموز؛
+            پیش از خشم،
+            درنگ؛
+            پیش از سخن،
+            اندیشه؛
+            و پیش از رفتن،
+            نگاهی به پشتِ سر.
+        </p>
+
+        <p>
+            مبادا پشتِ یک خشم،
+            کودکی گریان پنهان باشد
+            و من فقط خشم را ببینم؛
+            مبادا پشتِ یک سکوت،
+            سال‌ها تنهایی باشد
+            و من فقط خاموشی را؛
+            مبادا پشتِ یک بی‌مهری،
+            دلی باشد
+            که روزگاری بسیار مهر دیده
+            و بسیار زخم خورده است.
+        </p>
+
+        <p>
+            ای خداهورا، ای مهربان،
+            مرا به ظاهرِ آدمیان گرفتار مکن؛
+            از فریاد، مرا به درد برسان،
+            از اشک، به قصه،
+            از خشم، به زخم،
+            و از خاموشی، به تنهایی.
+        </p>
+
+        <p class="opening center">
+            ای هورای آفرینش،
+            مرا باران کن؛
+        </p>
+
+        <p>
+            بی‌پرسش ببارم،
+            چنان‌که باران
+            بر خار و گل یکسان می‌بارد.
+        </p>
+
+        <p>
+            مرا خورشید کن؛
+            چنان‌که بر بامِ کاخ
+            و سقفِ کاهگلی
+            یکسان بتابد؛
+            بر پنجرهٔ رنگین
+            و شیشهٔ شکسته
+            یکسان نور بریزد.
+        </p>
+
+        <p>
+            مرا دریا کن؛
+            گشاده‌دامن و بی‌دریغ؛
+            تا رودِ زلال را بپذیرم
+            و رودِ گل‌آلود را،
+            رودِ خروشان را
+            و جویبارِ خسته را.
+        </p>
+
+        <p>
+            مرا چنان کن
+            که خوبی‌ام
+            آفتابِ سفرهٔ خودم نباشد؛
+            بارانِ کوچه‌های دیگر هم باشد.
+        </p>
+
+        <p>
+            اگر نانم اندک است،
+            نیمی از آن را قسمت کنم؛
+            اگر آبم اندک است،
+            جرعه‌ای برای تشنه نگه دارم؛
+            و اگر جز لبخند چیزی ندارم،
+            همان را از جهان دریغ نکنم.
+        </p>
+
+        <p>
+            ای هورای بی‌کران،
+            مرا آن‌قدر بزرگ کن
+            که در بخشیدن کوچک نشوم،
+            آن‌قدر غنی کن
+            که مهر را معامله نکنم،
+            و آن‌قدر بی‌نیاز کن
+            که خوبی را برای دیده‌شدن نکنم.
+        </p>
+
+        <p>
+            بگذار نیکی‌ام
+            چون عطرِ گل باشد:
+            در هوا بپیچد
+            بی‌آنکه بخواهم کسی نامِ گل را بپرسد.
+        </p>
+
+        <p>
+            بگذار بخششم
+            چون سایهٔ درخت باشد:
+            بر دوست و بیگانه بیفتد،
+            بی‌آنکه شناسنامهٔ رهگذر را بخواهد.
+        </p>
+
+        <p>
+            و بگذار مهرم
+            چون باران باشد:
+            بر خاکِ تشنه فرو ریزد
+            و در جست‌وجوی نامِ خویش نباشد.
+        </p>
+
+        <p>
+            ای هورای جان،
+            چه سود اگر هزار کتاب
+            در ذهنم باشد
+            و یک دل
+            در کنارم نفهمیده بماند؟
+        </p>
+
+        <p>
+            چه سود اگر از حقیقت
+            هزار سخن بدانم
+            و حقیقتِ اشکِ یک انسان
+            را نادیده بگیرم؟
+        </p>
+
+        <p>
+            مرا دانشی ده
+            که چراغ باشد،
+            نه تیغ؛
+            حکمتی ده
+            که پنجره باشد،
+            نه دیوار.
+        </p>
+
+        <p>
+            مرا زبانی ده
+            که نرم باشد
+            اما دروغ نگوید؛
+            راست باشد
+            اما دل نشکند؛
+            و اگر سخن
+            بیش از آن‌که چراغ باشد
+            آتش است،
+            خاموش بماند.
+        </p>
+
+        <p>
+            ای هورای روشنایی،
+            اگر چراغی در دستم نهادی،
+            مگذار فقط راهِ خویش را روشن کنم.
+        </p>
+
+        <p>
+            بگذار از پنجرهٔ من
+            کوچه‌ای روشن شود،
+            از لبخند من
+            چهره‌ای جان بگیرد،
+            و از بودنِ من
+            انسانی کمتر تنها بماند.
+        </p>
+
+        <p>
+            اگر توانم دادی،
+            توانگرِ دیگرانم کن؛
+            اگر دانشی دادی،
+            آموزگارِ بی‌ادعای آن؛
+            و اگر نامی دادی،
+            مرا از نامِ خویش بی‌نیاز کن.
+        </p>
+
+        <p class="opening center">
+            ای اهورای مهر،
+        </p>
+
+        <p>
+            درخت را از من بهتر آموختی:
+        </p>
+
+        <p class="poem">
+            ریشه در تاریکی دارد<br>
+            اما روی به روشنایی؛<br>
+            دست‌هایش در خاک است<br>
+            اما سایه‌اش بر سرِ آدمی؛<br>
+            میوه می‌دهد<br>
+            بی‌آنکه بپرسد<br>
+            چه کسی می‌چیند؛<br>
+            و سایه می‌دهد<br>
+            بی‌آنکه بداند<br>
+            چه کسی خسته است.
+        </p>
+
+        <p>
+            مرا نیز
+            چنین درختی کن:
+            ریشه‌دار در خاک،
+            رو به نور،
+            و گشوده به خلق.
+        </p>
+
+        <p>
+            ای هورای جان،
+            اگر نتوانستم جهان را نجات دهم،
+            یک انسان را تنها نگذارم.
+        </p>
+
+        <p>
+            اگر نتوانستم
+            همهٔ تاریکی را بشکافم،
+            چراغِ یک پنجره باشم.
+        </p>
+
+        <p>
+            اگر نتوانستم
+            همهٔ زخم‌ها را درمان کنم،
+            نمکِ تازه‌ای بر زخم‌ها نپاشم.
+        </p>
+
+        <p>
+            اگر نتوانستم مرهم باشم،
+            زخم نباشم؛
+            اگر نتوانستم پناه باشم،
+            سنگِ راه نباشم؛
+            و اگر نتوانستم گل باشم،
+            خار نباشم.
+        </p>
+
+        <p>
+            مرا چنان زندگی ده
+            که آمدنم
+            نسیمی باشد بر پیشانیِ خسته‌ای
+            و رفتنم
+            خاطرهٔ گرمی
+            در خانه‌ای سرد.
+        </p>
+
+        <p>
+            پروردگارا،
+            اگر روزی از من بپرسی:
+        </p>
+
+        <div class="highlight">
+            «با روزهایی که به تو دادم چه کردی؟<br>
+            با دست‌هایی که به تو سپردم چه کردی؟<br>
+            با دلی که به تو بخشیدم چه کردی؟»
+        </div>
+
+        <p>
+            مگذار بگویم:
+            دیوار ساختم،
+            نام اندوختم،
+            مال شمردم.
+        </p>
+
+        <p>
+            بگذار بگویم:
+        </p>
+
+        <p class="poem">
+            دستی گرفتم،<br>
+            دلی آرام کردم،<br>
+            اشکی ستردم،<br>
+            نانم را قسمت کردم،<br>
+            و شبی که جهان<br>
+            برای انسانی تاریک بود،<br>
+            چراغی کوچک افروختم.
+        </p>
+
+        <p class="opening center">
+            ای خداهورای مهربان،
+        </p>
+
+        <p>
+            اگر روزی
+            همهٔ بناهای من فرو ریخت،
+            بگذار آنچه از مهر ساخته‌ام
+            بر جای بماند.
+        </p>
+
+        <p>
+            اگر نامم رفت،
+            مهری که بخشیدم نرود؛
+            اگر سخنم خاموش شد،
+            آرامشی که آفریدم خاموش نشود؛
+            و اگر چهره‌ام از یادها رفت،
+            لبخندی که بر لبِ انسانی نشاندم
+            در جهان بماند.
+        </p>
+
+        <div class="highlight">
+            که آدمی
+            برای ماندنِ نامش نیامده است؛
+            برای ماندنِ مهرش آمده است.
+        </div>
+
+        <p>
+            ای هورای بی‌کران،
+            مرا چنان کن
+            که کودکی در کنارم
+            از جهان نترسد؛
+            پیری از تنهایی؛
+            و دلِ شکسته
+            از دوباره شکستن.
+        </p>
+
+        <p>
+            مرا آغوشی کن
+            برای خسته،
+            پنجره‌ای
+            برای تاریک،
+            و پلی
+            برای آن‌که از تنهایی
+            به سوی آدمیان بازمی‌گردد.
+        </p>
+
+        <p class="opening center">
+            ای هورای جان‌ها،<br>
+            ای اهورای مهر،<br>
+            ای هورای هستی،<br>
+            ای هورای روشن‌جان،<br>
+            ای آفریدگارا،<br>
+            ای بارخدایا،<br>
+            ای خداهورای مهربان،
+        </p>
+
+        <p>
+            در پایانِ این راه،
+            اگر چیزی از من باقی ماند،
+            نه تاج باشد،
+            نه احتیاج؛
+            نه نام،
+            نه نان،
+            نه نشان.
+        </p>
+
+        <p class="highlight">
+            فقط<br>
+            دلی کمتر شکسته،<br>
+            چشمی کمتر گریان،<br>
+            دستی بیشتر گرفته‌شده،<br>
+            شبی کمتر تنها،<br>
+            و چراغی بیشتر<br>
+            در این جهانِ تاریک.
+        </p>
+
+        <p>
+            بگذار کسی
+            در گوشه‌ای از این خاک
+            روزی بگوید:
+        </p>
+
+        <p class="poem">
+            «روزی دستی بود<br>
+            که مرا گرفت؛<br>
+            دلی بود<br>
+            که مرا فهمید؛<br>
+            و انسانی بود<br>
+            که وقتی همه رفتند،<br>
+            او ماند.»
+        </p>
+
+        <p>
+            اگر چنین بمانم،
+            بس است.
+        </p>
+
+        <p>
+            اگر از من
+            چراغی کوچک
+            در شبِ کسی بماند،
+            بس است.
+        </p>
+
+        <p>
+            اگر در خاطرِ یک انسان
+            به نامِ مهربانی بمانم،
+            بس است.
+        </p>
+
+        <p>
+            که جهان
+            پیش از هر چیز
+            به دل‌هایی نیاز دارد
+            که ببینند،
+            بشنوند،
+            بمانند.
+        </p>
+
+        <p class="opening center">
+            ای هورای جان‌ها،
+            مرا از این دل‌ها قرار ده.
+        </p>
+
+        <p>
+            مرا چنان کن
+            که هرجا پا نهادم،
+            خار کمتر شود
+            و گل بیشتر؛
+            اندوه کمتر شود
+            و امید بیشتر؛
+            تنهایی کمتر شود
+            و مهر بیشتر.
+        </p>
+
+        <p>
+            و اگر روزی
+            از من چیزی پرسیدند،
+            مگذار بگویم:
+            «بسیار داشتم.»
+        </p>
+
+        <p>
+            بگذار بگویم:
+            «بسیار بخشیدم.»
+        </p>
+
+        <p>
+            مگذار بگویم:
+            «بسیار دانستم.»
+        </p>
+
+        <p>
+            بگذار بگویم:
+            «بسیار فهمیدم.»
+        </p>
+
+        <p>
+            و مگذار بگویم:
+            «بسیار سخن گفتم.»
+        </p>
+
+        <p>
+            بگذار بگویم:
+            «تا توانستم،
+            دل نشکستم.»
+        </p>
+
+        <p class="opening center">
+            ای اهورای مهر،<br>
+            ای هورای جان،<br>
+            ای هورای بی‌کران،
+        </p>
+
+        <p>
+            مرا به این دعا زنده بدار
+            و به این دعا بمیران:
+        </p>
+
+        <p class="poem">
+            نانم با دیگری انباز شود،<br><br>
+            آبم با دیگری انباز شود،<br><br>
+            توانم با دیگری انباز شود،<br><br>
+            دانشم با دیگری انباز شود،<br><br>
+            لبخندم با دیگری انباز شود،<br><br>
+            و دلم،<br><br>
+            هرچه بیشتر بتپد،<br>
+            بیشتر برای دیگری بتپد.
+        </p>
+
+        <p>
+            و اگر در پایانِ همهٔ راه‌ها
+            تنها یک واژه برایم بماند،
+            آن واژه «مهر» باشد؛
+        </p>
+
+        <p class="highlight">
+            مهر،<br>
+            زبانِ بی‌زبانان،<br>
+            پناهِ بی‌پناهان،<br>
+            نانِ گرسنگان،<br>
+            آبِ تشنگان،<br>
+            چراغِ شب‌ماندگان،<br>
+            و شاید<br>
+            نزدیک‌ترین نامِ تو<br>
+            در دلِ آدمیان.
+        </p>
+
+        <p class="closing center">
+            آمین،<br>
+            ای هورای جان‌ها؛<br>
+            آمین،<br>
+            ای اهورای مهر؛<br>
+            آمین،<br>
+            ای هورای روشن‌جان؛<br>
+            آمین،<br>
+            هورای مهربان؛
+        </p>
+
+        <p class="highlight">
+            که هرجا دلی<br>
+            برای دلی می‌تپد،<br>
+            آنجایی.
+        </p>
+
+    </article>
+
+    <div class="back-top">
+        <a href="#top">
+            ↑ بازگشت به آغاز
+        </a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-light">✦ هورای مهر ✦</div>
+    <div>برای دل‌هایی که می‌بینند، می‌شنوند و می‌مانند</div>
+</footer>
+
+</body>
+</html>
