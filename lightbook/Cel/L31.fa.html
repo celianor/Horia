@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نغمهٔ سی‌ویکم - در آزادی، وجدان و حق گزینش</title>
+
+    <!-- فونت‌های فارسی -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0e1715;
+            --bg-deep: #14231f;
+            --paper: rgba(249, 244, 229, 0.97);
+            --paper-soft: rgba(255, 252, 241, 0.94);
+            --gold: #b8944c;
+            --gold-light: #d8bd7c;
+            --gold-dark: #82662e;
+            --ink: #2d3029;
+            --muted: #6e6b5e;
+            --line: rgba(184, 148, 76, 0.35);
+            --shadow: rgba(0, 0, 0, 0.30);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 50% 0%, rgba(184, 148, 76, 0.15), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(216, 189, 124, 0.06), transparent 25%),
+                linear-gradient(135deg, var(--bg-dark), var(--bg-deep));
+            font-family: "Noto Naskh Arabic", serif;
+            line-height: 2.35;
+        }
+
+        /* ستاره‌های بسیار ظریف پس‌زمینه */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.28;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px),
+                radial-gradient(circle, rgba(216,189,124,.5) 1px, transparent 1px);
+            background-size: 95px 95px, 137px 137px;
+            background-position: 10px 20px, 60px 80px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
+        }
+
+        .page {
+            position: relative;
+            width: min(940px, calc(100% - 32px));
+            margin: 42px auto 70px;
+        }
+
+        /* نوار ناوبری */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            color: #ead8ad;
+            text-decoration: none;
+            border: 1px solid rgba(216, 189, 124, 0.28);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.045);
+            backdrop-filter: blur(8px);
+            transition: all .3s ease;
+            font-size: .95rem;
+        }
+
+        .nav-link:hover {
+            color: #fff8e8;
+            border-color: var(--gold-light);
+            background: rgba(184, 148, 76, 0.14);
+            transform: translateY(-2px);
+        }
+
+        /* جلد */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 70px 35px 62px;
+            overflow: hidden;
+            color: #f7efd9;
+            border: 1px solid rgba(216, 189, 124, 0.30);
+            border-radius: 24px 24px 8px 8px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(29, 48, 42, .96),
+                    rgba(13, 24, 21, .98)
+                );
+            box-shadow: 0 25px 70px var(--shadow);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(216, 189, 124, .18);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 310px;
+            height: 310px;
+            top: -180px;
+            left: -110px;
+        }
+
+        .hero::after {
+            width: 220px;
+            height: 220px;
+            bottom: -145px;
+            right: -80px;
+        }
+
+        .ornament {
+            color: var(--gold-light);
+            font-size: 1.8rem;
+            letter-spacing: .5em;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            position: relative;
+            margin: 0;
+            font-family: "Amiri", "Noto Naskh Arabic", serif;
+            font-size: clamp(2rem, 5vw, 3.35rem);
+            font-weight: 700;
+            line-height: 1.6;
+            color: #f5e8c5;
+            text-shadow: 0 3px 18px rgba(0,0,0,.45);
+        }
+
+        .hero .subtitle {
+            margin: 17px auto 0;
+            color: #cdbd94;
+            font-size: 1.05rem;
+            opacity: .9;
+        }
+
+        .hero-line {
+            width: 110px;
+            height: 1px;
+            margin: 28px auto 0;
+            background: linear-gradient(to left, transparent, var(--gold-light), transparent);
+        }
+
+        /* متن */
+        .manuscript {
+            position: relative;
+            margin-top: 0;
+            padding: 60px clamp(24px, 6vw, 78px) 75px;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(184,148,76,.08), transparent 24%),
+                linear-gradient(180deg, var(--paper), var(--paper-soft));
+            border-radius: 8px 8px 24px 24px;
+            box-shadow: 0 30px 75px var(--shadow);
+        }
+
+        .manuscript::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 1px solid var(--line);
+            border-radius: 5px 5px 17px 17px;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .opening {
+            color: var(--gold-dark);
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin: 0 0 25px;
+            font-size: clamp(1.04rem, 1.7vw, 1.19rem);
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-break {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 40px 0 35px;
+            color: var(--gold);
+            font-size: 1.15rem;
+        }
+
+        .section-break::before,
+        .section-break::after {
+            content: "";
+            width: 75px;
+            height: 1px;
+            background: linear-gradient(to left, transparent, var(--line));
+        }
+
+        .section-break::after {
+            background: linear-gradient(to right, transparent, var(--line));
+        }
+
+        .emphasis {
+            margin: 38px 0;
+            padding: 20px 25px;
+            border-right: 3px solid var(--gold);
+            border-left: 1px solid rgba(184,148,76,.15);
+            background: rgba(184,148,76,.055);
+            color: #51462e;
+            font-family: "Amiri", serif;
+            font-size: 1.22rem;
+        }
+
+        .closing {
+            margin-top: 50px;
+            padding-top: 34px;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: #51462e;
+            font-family: "Amiri", serif;
+            font-size: 1.28rem;
+            line-height: 2.4;
+        }
+
+        /* پابرگ */
+        footer {
+            text-align: center;
+            padding: 25px 10px 0;
+            color: rgba(235, 219, 177, .62);
+            font-size: .85rem;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--gold-light);
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                width: min(100% - 14px, 940px);
+                margin-top: 15px;
+            }
+
+            .hero {
+                padding: 48px 20px 42px;
+                border-radius: 18px 18px 5px 5px;
+            }
+
+            .manuscript {
+                padding: 45px 20px 55px;
+            }
+
+            .manuscript::before {
+                inset: 10px;
+            }
+
+            p {
+                text-align: right;
+                line-height: 2.25;
+            }
+
+            .nav-link {
+                padding: 7px 13px;
+                font-size: .88rem;
+            }
+
+            .section-break {
+                margin: 30px 0 25px;
+            }
+
+            .section-break::before,
+            .section-break::after {
+                width: 35px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .navigation,
+            footer {
+                display: none;
+            }
+
+            .page {
+                width: 100%;
+                margin: 0;
+            }
+
+            .hero,
+            .manuscript {
+                box-shadow: none;
+            }
+
+            .hero {
+                color: #222;
+                border: none;
+            }
+
+            .manuscript {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+<div class="page">
+
+    <!-- ناوبری -->
+    <nav class="navigation" aria-label="ناوبری">
+        <a class="nav-link" href="https://celianor.github.io/Horia/index.fa.html">
+            ⌂
+            <span>خانه</span>
+        </a>
+
+        <a class="nav-link" href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+            ←
+            <span>بازگشت</span>
+        </a>
+    </nav>
+
+    <!-- عنوان -->
+    <header class="hero">
+        <div class="ornament">✦ ✧ ✦</div>
+
+        <h1>
+            نغمهٔ سی‌ویکم
+            <br>
+            <span>در آزادی، وجدان و حق گزینش</span>
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <div class="subtitle">
+            نامه‌ای دربارهٔ آزادی، اختیار، وجدان و مسئولیت انسان
+        </div>
+    </header>
+
+    <!-- متن اصلی -->
+    <main class="manuscript">
+        <article class="content">
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                تو را از مشتی خاک برآوردم و در گلِ خاموشِ وجودت، شراره‌ای از جان افکندم؛
+                تو را از تاریکیِ نیستی برکشیدم، چنان‌که سپیده از گریبان شب برآید؛
+                و در سینه‌ات چراغی نهادم که اگر بادهای جهان هزار بار بر آن تازند،
+                باز در ژرفای جانت، شعله‌ای از حقیقت نگاه دارد.
+            </p>
+
+            <p>
+                چشم دادم تا پرده‌ها را بدری؛
+                گوش دادم تا از پسِ غوغای جهان، نغمهٔ حقیقت را بشنوی؛
+                عقل دادم تا در بازارِ آشفتهٔ پندار و حقیقت، گوهر از خرمهره بازشناسی؛
+                دل دادم تا جهان را نه تنها با چشم، که با جان لمس کنی؛
+                و اختیار دادم تا دستت در دستِ تقدیرِ کور نباشد.
+            </p>
+
+            <p>
+                تو را چون سنگی در جویبار نیفکندم تا هر موجی به هر سو ببردت؛
+                تو را چون کشتی‌ای آفریدم که باد را بشناسد،
+                اما سکان از کف ننهد؛
+                که کشتیِ بی‌سکان، بازیچهٔ موج است
+                و آدمیِ بی‌اختیار، بازیچهٔ روزگار.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                آزادی، هر درِ گشوده نیست؛
+                گاه پشتِ دری گشوده، چاهی‌ست بی‌انتها.
+            </p>
+
+            <p>
+                آزادی، هر راهِ بی‌دیوار نیست؛
+                گاه راهی که دیوار ندارد، پرتگاهی‌ست که پایان ندارد.
+            </p>
+
+            <p>
+                آزادی آن نیست که هرچه خواهی بر جهان بتازی؛
+                آزادی آن است که در میانهٔ هجومِ خواهش‌ها،
+                خویشتن را گم نکنی.
+            </p>
+
+            <p>
+                اگر خواهش اسب است، تو سوار باش؛
+                اگر خشم آتش است، تو آب باش؛
+                اگر ترس شب است، تو سپیده باش؛
+                و اگر جهان تو را به هر سو می‌کشد،
+                تو قطب‌نمای خویش را در ژرفای دل نگاه دار.
+            </p>
+
+            <div class="emphasis">
+                که آن‌کس آزاد نیست که هرچه می‌خواهد می‌کند؛
+                آن‌کس آزاد است که می‌تواند هرچه می‌خواهد نکند.
+            </div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                در سینه‌ات ترازویی نهادم
+                که زر در یک کفه‌اش باشد و زور در کفهٔ دیگر،
+                و هیچ‌یک در برابر حقیقت، وزنی نداشته باشد.
+            </p>
+
+            <p>
+                آن را «وجدان» نام نهادم.
+            </p>
+
+            <p>
+                وجدان، چراغی‌ست که در خانهٔ جان افروختم؛
+                چراغی نه برای چشمِ خلق،
+                که برای خلوتِ تو.
+            </p>
+
+            <p>
+                خلق می‌تواند درِ بازار را بر تو ببندد؛
+                وجدان، درِ خلوت را نمی‌بندد.
+            </p>
+
+            <p>
+                پادشاه می‌تواند زبانت را خاموش کند؛
+                وجدان، صدای خویش را در سینه‌ات خاموش نمی‌کند.
+            </p>
+
+            <p>
+                جهان می‌تواند نامت را از دفتر خویش بشوید؛
+                وجدان، کردار تو را از لوح خویش نمی‌زداید.
+            </p>
+
+            <p>
+                پس هرگاه هزار زبان تو را بستایند،
+                به آن یک صدای خاموش درون گوش بسپار؛
+                و هرگاه هزار زبان تو را نکوهند،
+                باز همان صدای خاموش را بشنو.
+            </p>
+
+            <p>
+                که من حقیقت را به شمارِ دهان‌ها نسنجیدم،
+                و راستی را به وزنِ غوغا نسپردم.
+            </p>
+
+            <p>
+                چه بسیار فریادها که چون کفِ دریا بلندند
+                و چون کفِ دریا زودگذر؛
+                و چه بسیار سکوت‌ها که چون چاهِ شب ژرف‌اند
+                و در ژرفای خود، آسمان را نگاه می‌دارند.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                اگر هیچ چشمی تو را نبیند،
+                ببین که چگونه‌ای.
+            </p>
+
+            <p>
+                اگر هیچ گوشی سخنت را نشنود،
+                بشنو که با خویشتن چه می‌گویی.
+            </p>
+
+            <p>
+                اگر هیچ دستی برای کردارت پاداشت ندهد،
+                ببین چه چیزی تو را به نیکی می‌خواند.
+            </p>
+
+            <p>
+                اگر نامت از دفتر جهان پاک شود،
+                آیا هنوز همان خواهی بود
+                که در روشناییِ خلوت خویش ادعا می‌کنی؟
+            </p>
+
+            <p>
+                آنجا که تماشاگران رفته‌اند،
+                پرده‌ها فرو افتاده‌اند،
+                و صحنه از هیاهوی خلق خالی شده است،
+                آنجا من و تو می‌مانیم
+                و آنچه حقیقتاً هستی.
+            </p>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                مبادا آزادی خویش را شمشیری کنی
+                که گلوی دیگری را ببرد؛
+                مبادا حق خویش را چنان بخواهی
+                که حق دیگری زیر پای تو له شود؛
+                مبادا چراغ خویش را چنان برفروزی
+                که چشم دیگری از نور آن کور شود.
+            </p>
+
+            <p>
+                من جهان را باغی آفریدم
+                و آدمیان را گل‌های این باغ.
+            </p>
+
+            <p>
+                گل سرخ را گفتم: سرخ باش؛
+                گل یاس را گفتم: سپید باش؛
+                سرو را گفتم: بلند بایست؛
+                و هیچ‌یک را نگفتم
+                که برای اثبات خویش، گل دیگری را بشکند.
+            </p>
+
+            <p>
+                تو نیز چنین باش.
+            </p>
+
+            <p>
+                خویشتن باش،
+                بی‌آنکه دیگری را از خویشتن بودن بازداری.
+            </p>
+
+            <p>
+                باور خویش را نگاه دار،
+                بی‌آنکه باور دیگری را به زنجیر بکشی.
+            </p>
+
+            <p>
+                راه خویش را برو،
+                بی‌آنکه جادهٔ دیگری را ویران کنی.
+            </p>
+
+            <p>
+                اگر همه یک‌رنگ بودند،
+                رنگین‌کمان چه معنایی داشت؟
+            </p>
+
+            <p>
+                اگر همه یک‌صدا بودند،
+                موسیقی جهان از کجا می‌آمد؟
+            </p>
+
+            <p>
+                اگر همه یک راه می‌رفتند،
+                اختیار برای چه بود؟
+            </p>
+
+            <p>
+                اختلاف را دیوار مپندار؛
+                گاه اختلاف، پنجره‌ای‌ست
+                که از آن، جهانی دیگر را می‌بینی.
+            </p>
+
+            <p>
+                آن‌که چون تو نمی‌اندیشد،
+                آینه‌ای‌ست که شاید چهره‌ای فراموش‌شده از خویشتنِ تو را به تو بنمایاند.
+            </p>
+
+            <p>
+                آن‌که راه دیگری می‌رود،
+                همیشه گمراه نیست؛
+                شاید افق او با افق تو یکسان نیست.
+            </p>
+
+            <p>
+                من حقیقت را در مشت هیچ‌کس ننهادم؛
+                حقیقت، دریای من است،
+                و هیچ کاسه‌ای تمام دریا را در خود جای نمی‌دهد.
+            </p>
+
+            <p>
+                پس آنچه را یافته‌ای، چراغ بدان، نه دیوار؛
+                راه بدان، نه زندان؛
+                پنجره بدان، نه پرده.
+            </p>
+
+            <p>
+                چراغ برافروز تا راه دیده شود؛
+                دیوار بنا مکن تا راه بسته شود.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                تو را چون دانه‌ای در خاک نهادم
+                تا بشکافی،
+                سر برآوری،
+                باد ببینی،
+                باران بخوری،
+                و روزی به درخت بدل شوی.
+            </p>
+
+            <p>
+                اگر امروزت با دیروزت تفاوت دارد، مترس؛
+                رود اگر در مسیر خویش پیچ و تاب خورد،
+                از رود بودن بازنمی‌ایستد.
+            </p>
+
+            <p>
+                تو نیز در پیچ‌وخمِ روزگار،
+                خویشتن را می‌سازی.
+            </p>
+
+            <p>
+                خطا کردی؟
+                خطا را سنگِ مزار خویش مکن.
+            </p>
+
+            <p>
+                شکست خوردی؟
+                شکست را نامِ خویش مگذار.
+            </p>
+
+            <p>
+                زمین خوردی؟
+                خاک را خانهٔ خویش مکن.
+            </p>
+
+            <p>
+                برخیز؛
+                که من درِ بازگشت را نبسته‌ام.
+            </p>
+
+            <p>
+                هر بامداد، سپیده را چون نامه‌ای سفید پیش رویت می‌گشایم؛
+                هر شب، تاریکی را چون آینه‌ای سیاه در برابرت می‌نهم.
+            </p>
+
+            <p>
+                در آن نامه، کردار خویش را بنویس؛
+                در این آینه، چهرهٔ خویش را ببین.
+            </p>
+
+            <p>
+                دیروز، درسِ توست؛
+                امروز، میدانِ عمل توست؛
+                و فردا، پرده‌ای‌ست که هنوز کنار نزده‌ام.
+            </p>
+
+            <p>
+                آن پرده را فروگذاشتم
+                تا اختیار از تو نربایم.
+            </p>
+
+            <p>
+                اگر همهٔ فردا پیش چشم تو گشوده بود،
+                آیا راه رفتن هنوز انتخاب بود؟
+            </p>
+
+            <p>
+                اگر پایان هر راه را از آغاز می‌دیدی،
+                آیا گام نخست را با امید برمی‌داشتی؟
+            </p>
+
+            <p>
+                من بخشی از راه را در مه نهادم
+                تا چراغی را که در دست توست بشناسی.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                تو را بی‌خطا نیافریدم؛
+                تو را مختار آفریدم.
+            </p>
+
+            <p>
+                میان خطا و بازگشت،
+                دره‌ای نهادم که پلش از ارادهٔ توست.
+            </p>
+
+            <p>
+                میان هوس و حقیقت،
+                میزان نهادم.
+            </p>
+
+            <p>
+                میان ترس و شجاعت،
+                دروازه نهادم.
+            </p>
+
+            <p>
+                میان ظلمت و روشنایی،
+                چراغ نهادم.
+            </p>
+
+            <p>
+                اما قدم را به جای تو برنداشتم.
+            </p>
+
+            <p>
+                که اگر همهٔ راه را به جای تو می‌پیمودم،
+                مسافر نبودی؛ سایه بودی.
+            </p>
+
+            <p>
+                اگر همهٔ انتخاب‌ها را به جای تو می‌کردم،
+                انسان نبودی؛ تصویر بودی.
+            </p>
+
+            <p>
+                من تو را سایه نخواستم؛
+                انسان خواستم.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                اگر مرا می‌جویی،
+                تنها در بلندای آسمان مجوی.
+            </p>
+
+            <p>
+                آن‌جا که دروغ آسان است و راستی دشوار،
+                اگر راستی را برگزینی، از من نشانی یافته‌ای.
+            </p>
+
+            <p>
+                آن‌جا که انتقام شیرین است و بخشش تلخ،
+                اگر دست از انتقام بداری،
+                سایه‌ای از رحمت مرا دیده‌ای.
+            </p>
+
+            <p>
+                آن‌جا که می‌توانی دیگری را خوار کنی
+                و حرمتش را نگاه می‌داری،
+                دل تو به باغی از نور نزدیک شده است.
+            </p>
+
+            <p>
+                من گاه در صدای رعد نیستم؛
+                در سکوت پس از رعدم.
+            </p>
+
+            <p>
+                گاه در شعلهٔ آفتاب نیستم؛
+                در گرمای دستی‌ام که دستِ افتاده‌ای را می‌گیرد.
+            </p>
+
+            <p>
+                گاه در دورترین ستاره نیستم؛
+                در اشکی‌ام که پیش از ستم،
+                بر گونهٔ وجدان تو می‌نشیند.
+            </p>
+
+            <p>
+                مرا از ترس مخواه؛
+                از شناخت بخواه.
+            </p>
+
+            <p>
+                مرا از عادت مخواه؛
+                از آگاهی بخواه.
+            </p>
+
+            <p>
+                مرا از زبان مخواه؛
+                از دل بخواه.
+            </p>
+
+            <p>
+                من بتِ ترس تو نیستم؛
+                آسمانِ آزادی توأم.
+            </p>
+
+            <p>
+                تو را آزاد آفریدم
+                تا مرا از روی اختیار بجویی؛
+                زیرا عشقی که به زنجیر بسته شود، عشق نیست؛
+                و بندگی‌ای که از ترس برخیزد، سایهٔ بندگی‌ست.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                روزی از تو خواهم پرسید:
+            </p>
+
+            <p>
+                با آن چراغی که در سینه‌ات نهادم، چه کردی؟
+            </p>
+
+            <p>
+                اگر گفتی:
+                «ترسیدم باد آن را خاموش کند»،
+            </p>
+
+            <p>
+                خواهم گفت:
+                «چراغ برای ترسیدن از باد نیست؛
+                برای روشن‌کردن راه است.»
+            </p>
+
+            <p>
+                خواهم پرسید:
+                «با آزادی‌ای که به تو سپردم، چه کردی؟»
+            </p>
+
+            <p>
+                مگو:
+                «دیگران چنین خواستند.»
+            </p>
+
+            <p>
+                بگو:
+                «دیدم؛
+                پرسیدم؛
+                سنجیدم؛
+                و برگزیدم.»
+            </p>
+
+            <p>
+                خواهم پرسید:
+                «با انسان دیگری چه کردی؟»
+            </p>
+
+            <p>
+                مگو:
+                «چون با من هم‌دل نبود، از او گذشتم.»
+            </p>
+
+            <p>
+                بگو:
+                «چون انسان بود، حرمتش نهادم؛
+                چون دل داشت، دردش را شنیدم؛
+                چون راهی داشت، راهش را به رسمیت شناختم.»
+            </p>
+
+            <p>
+                خواهم پرسید:
+                «با وجدان خویش چه کردی؟»
+            </p>
+
+            <p>
+                بگو:
+                «گاه از آن گریختم،
+                اما خاموشش نکردم؛
+                گاه لغزیدم،
+                اما راه بازگشت را گم نکردم.»
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                آزادی تو امانتی‌ست که به دست تو سپرده‌ام؛
+                وجدان تو چراغی‌ست که در سینه‌ات افروخته‌ام؛
+                و انتخاب تو نامه‌ای‌ست که هر روز با کردار خویش می‌نویسی.
+            </p>
+
+            <p>
+                هر گام تو سطری‌ست؛
+                هر سخن تو کلمه‌ای‌ست؛
+                هر انتخاب تو نقطه‌ای‌ست
+                که بر پایانِ جمله‌ای از زندگی می‌گذاری.
+            </p>
+
+            <p>
+                پس نیک بنویس؛
+                که این نامه را یک بار می‌نویسی
+                و یک بار به پایان می‌بری.
+            </p>
+
+            <p>
+                راه را من آفریدم،
+                اما رفتن را به تو سپردم.
+            </p>
+
+            <p>
+                دریا را من آفریدم،
+                اما پارو را به دست تو دادم.
+            </p>
+
+            <p>
+                باد را من آفریدم،
+                اما جهتِ بادبان را به تو سپردم.
+            </p>
+
+            <p>
+                پس برو؛
+            </p>
+
+            <p>
+                چون رود، روان باش؛
+                چون کوه، استوار باش؛
+                چون چراغ، روشن باش؛
+                و چون انسان، پاسخ‌گو.
+            </p>
+
+            <p>
+                اگر لغزیدی، بازگرد.
+            </p>
+
+            <p>
+                اگر گم شدی، بپرس.
+            </p>
+
+            <p>
+                اگر شکستی، برخیز.
+            </p>
+
+            <p>
+                اگر پیروز شدی، فروتن بمان.
+            </p>
+
+            <p>
+                و اگر روزی جهان را کوچک و تاریک دیدی،
+                مبادا چراغ خویش را خاموش کنی؛
+                که من تو را برای تاریکی نیافریدم.
+            </p>
+
+            <p>
+                تو را برای دیدن آفریدم؛
+                برای اندیشیدن؛
+                برای گزینش؛
+                برای دوست‌داشتن؛
+                و برای آنکه چنان آزاد باشی
+                که حقیقت را برگزینی،
+                و چنان مسئول باشی
+                که آزادی تو چراغی برای دیگری باشد،
+                نه آتشی بر جان او.
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p class="opening">ای فرزند هورا،</p>
+
+            <p>
+                این عهد من با توست:
+            </p>
+
+            <p>
+                آزادت آفریدم؛
+                وجدان در سینه‌ات نهادم؛
+                راه را پیش پایت گشودم؛
+                و انتخاب را به دست تو سپردم.
+            </p>
+
+            <p>
+                اکنون برو؛
+            </p>
+
+            <p>
+                نه چون برگِ سرگردان در باد،
+                بل چون درختی که ریشه‌اش در خاک است
+                و شاخه‌اش رو به آسمان؛
+            </p>
+
+            <p>
+                نه چون پرنده‌ای که از قفس گریخته،
+                بل چون پرنده‌ای که آسمان را شناخته؛
+            </p>
+
+            <p>
+                نه چون بنده‌ای که از بند رسته،
+                بل چون انسانی که خویشتن را یافته.
+            </p>
+
+            <div class="emphasis">
+                و بدان:
+                <br><br>
+                آزادی، آن لحظه نیست
+                که هیچ بندی بر تو نیست.
+                <br><br>
+                آزادی آن لحظه است
+                که در میان هزار بندِ پنهان،
+                دل تو هنوز توانِ گفتنِ «نه» دارد؛
+                <br><br>
+                و در میان هزار راه،
+                وجدان تو هنوز توانِ گفتنِ «این راه» دارد.
+            </div>
+
+            <div class="closing">
+                آن‌گاه که چنین شدی،
+                نه تنها آزاد زیسته‌ای؛
+                <br>
+                بلکه امانت مرا نگاه داشته‌ای.
+                <br><br>
+                و آن‌گاه،
+                آزادی دیگر نامِ رهایی نیست؛
+                <br>
+                نامِ انسانی‌ست
+                <br>
+                که در خویشتن خویش بیدار شده است.
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <div>✦ نغمهٔ سی‌ویکم ✦</div>
+        <a class="back-to-top" href="#top">بازگشت به آغاز ↑</a>
+    </footer>
+
+</div>
+
+</body>
+  </html>
