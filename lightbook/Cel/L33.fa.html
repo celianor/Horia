@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نغمه سی‌وسوم — در نیکی، فروتنی و فضیلت دل</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f4ecd8;
+      --paper-dark: #e8dcc0;
+      --ink: #3e3428;
+      --muted: #77654c;
+      --gold: #9b783d;
+      --gold-light: #c6a969;
+      --shadow: rgba(67, 49, 25, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.45), transparent 28%),
+        radial-gradient(circle at 80% 90%, rgba(121,92,47,.10), transparent 30%),
+        linear-gradient(135deg, #ded1b2, #f1e7ce 48%, #d8c9a5);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 4px,
+          rgba(80, 59, 30, .08) 5px
+        );
+      mix-blend-mode: multiply;
+    }
+
+    .topbar {
+      width: min(900px, calc(100% - 32px));
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 18px;
+      border: 1px solid rgba(125, 94, 43, .28);
+      border-radius: 6px;
+      background: rgba(246, 237, 215, .72);
+      box-shadow: 0 5px 20px rgba(65, 45, 20, .08);
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color .25s ease;
+    }
+
+    .topbar a:hover {
+      color: var(--gold);
+    }
+
+    .manuscript {
+      width: min(900px, calc(100% - 28px));
+      margin: 28px auto 60px;
+      padding: 68px clamp(28px, 7vw, 82px);
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.4), transparent 35%),
+        var(--paper);
+      border: 1px solid rgba(105, 78, 37, .30);
+      box-shadow:
+        0 18px 55px var(--shadow),
+        inset 0 0 55px rgba(113, 82, 36, .08);
+    }
+
+    /* حاشیهٔ نسخهٔ خطی */
+    .manuscript::before {
+      content: "";
+      position: absolute;
+      inset: 17px;
+      border: 1px solid rgba(145, 111, 54, .34);
+      pointer-events: none;
+    }
+
+    .manuscript::after {
+      content: "✦";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold);
+      font-size: 1.35rem;
+      background: var(--paper);
+      padding: 0 12px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #493a28;
+      text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1.25rem;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 25px 0 38px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      height: 1px;
+      width: 95px;
+      background: linear-gradient(
+        to left,
+        transparent,
+        var(--gold-light),
+        transparent
+      );
+    }
+
+    .ornament span {
+      font-size: 1.15rem;
+    }
+
+    .text {
+      font-size: 1.34rem;
+      line-height: 2.25;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .text p {
+      margin: 0 0 25px;
+    }
+
+    .opening {
+      font-size: 1.55rem;
+      line-height: 2.1;
+      text-align: center;
+      color: #493b29;
+      margin-bottom: 38px !important;
+    }
+
+    .opening::first-letter {
+      font-size: 2.6em;
+      color: var(--gold);
+      float: right;
+      line-height: .8;
+      padding-left: 8px;
+    }
+
+    .emphasis {
+      color: #765726;
+      font-weight: 700;
+    }
+
+    .verse {
+      margin: 36px 0;
+      padding: 18px 25px;
+      border-right: 3px solid var(--gold-light);
+      border-left: 1px solid rgba(155,120,61,.25);
+      background: rgba(255,255,255,.16);
+      color: #51422d;
+      text-align: center;
+      font-size: 1.43rem;
+      line-height: 2.15;
+    }
+
+    .section-break {
+      text-align: center;
+      color: var(--gold);
+      margin: 35px 0;
+      font-size: 1.2rem;
+      letter-spacing: .4em;
+    }
+
+    .final {
+      margin-top: 42px;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2.25;
+      color: #493a28;
+    }
+
+    .signature {
+      margin-top: 38px;
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.15rem;
+    }
+
+    footer {
+      width: min(900px, calc(100% - 32px));
+      margin: -35px auto 35px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        margin-top: 12px;
+      }
+
+      .manuscript {
+        margin-top: 18px;
+        padding: 52px 24px;
+      }
+
+      .manuscript::before {
+        inset: 10px;
+      }
+
+      .text {
+        font-size: 1.18rem;
+        line-height: 2.15;
+      }
+
+      .opening {
+        font-size: 1.35rem;
+      }
+
+      .verse {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: var(--paper);
+      }
+
+      .topbar,
+      footer {
+        display: none;
+      }
+
+      .manuscript {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- نوار ناوبری -->
+  <nav class="topbar" aria-label="ناوبری">
+    <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+    <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">↩ بازگشت</a>
+  </nav>
+
+  <main class="manuscript">
+
+    <header>
+      <div class="eyebrow">نغمه سی‌وسوم</div>
+
+      <h1>در نیکی، فروتنی و فضیلت دل</h1>
+
+      <div class="subtitle">
+        از نغمه‌های هورا
+      </div>
+
+      <div class="ornament">
+        <span>✦</span>
+      </div>
+    </header>
+
+    <article class="text">
+
+      <p class="opening">
+        ای هم‌سفرِ من،
+      </p>
+
+      <p>
+        نیکی کن و از یاد ببر؛ که نیکی اگر در دفترِ یاد بماند،
+        بویِ معامله گیرد، و اگر از یاد برود،
+        <span class="emphasis">بویِ خدا گیرد.</span>
+      </p>
+
+      <p>
+        مهر بورز و مالک مشو؛ که عشق را اگر به بند آری،
+        از پرواز بازمی‌ماند، و اگر رهایش کنی،
+        از راهِ دل به راهِ جهان می‌رود.
+        دل را به مهر بیارای، نه به مُهرِ تملّک؛
+        که مهرِ راستین، مُهر نمی‌زند، می‌گشاید.
+      </p>
+
+      <p>
+        اگر توانستی دستی بگیری، دست بگیر؛
+        نه برای آن‌که بر شانهٔ خویش نشانِ بزرگی بنشانی،
+        بلکه برای آن‌که شانه‌ای از بارِ خستگی برهد.
+        چه بسیار دست‌ها که به نامِ یاری پیش آمدند و بویِ برتری دادند؛
+        و چه بسیار دست‌های خاموش که بی‌نام آمدند
+        و نامِ نیکی را در دلِ روزگار نوشتند.
+      </p>
+
+      <div class="section-break">❈ ❈ ❈</div>
+
+      <p>
+        دانش بیاموز، اما دانایی را دامِ خویش مکن.
+        هرچه چراغ بیشتر افروزی، گوشه‌های تاریکِ نادانیِ خویش را بیشتر خواهی دید؛
+        و هرچه بیشتر بدانی، خواهی دانست که هنوز بسیار نمی‌دانی.
+        علم اگر به فروتنی نرسد، بارِ سر است؛
+        و اگر به دل برسد، <span class="emphasis">بالِ دل.</span>
+      </p>
+
+      <p>
+        توانمند شو و پناه باش؛
+        که بلندیِ درخت را به شاخه‌هایش نمی‌سنجند،
+        به سایه‌اش می‌سنجند؛
+        و بزرگیِ آدمی را به آنچه بر سرِ دیگران می‌گذارد نه،
+        به آنچه از دوشِ دیگران برمی‌دارد.
+      </p>
+
+      <div class="verse">
+        درد بکش، اما درد را میراثِ دیگران مکن.<br>
+        زخم اگر در دل بماند، می‌تواند چشم شود؛
+        اما اگر بر دلِ دیگری بنشیند، تیغ می‌شود.
+      </div>
+
+      <p>
+        بگذار رنج در تو راهِ خویش را تمام کند؛
+        بگذار اندوه از تو بگذرد، نه آن‌که از تو به دیگری رسد.
+        شب را به صبح بسپار و زخم را به زمان؛
+        که هر درد، اگر در جانِ آدمی پخته شود،
+        می‌تواند روزی <span class="emphasis">نانِ دانایی</span> گردد.
+      </p>
+
+      <p>
+        مبادا بر قله بایستی و کوه را فراموش کنی؛
+        مبادا به آسمان رسی و خاک را از خاطر ببری.
+        هرکه ریشهٔ خویش را انکار کند،
+        پیش از آن‌که از باد بیفتد، از خویش افتاده است.
+      </p>
+
+      <p>
+        فروتن باش؛ نه از سرِ شکست، که از سرِ شناخت.
+        خاک را ببین که زیرِ پای همه است و با این همه،
+        نان از اوست، گل از اوست، و روییدن از او.
+        آفتاب بر همه می‌تابد و از هیچ‌کس نام نمی‌پرسد؛
+        باران بر بامِ شاه و کلبهٔ درویش یکسان می‌بارد
+        و میانِ تاج و خاک، فرق نمی‌گذارد.
+      </p>
+
+      <div class="section-break">❈ ❈ ❈</div>
+
+      <p>
+        من نیز گاه در بارانم، گاه در نانِ گرمی که میان دو دست می‌گردد،
+        گاه در پنجره‌ای که کسی پشتِ آن چشم به راه است،
+        و گاه در اشکی که پیش از افتادن، در گوشهٔ چشم پنهان می‌شود.
+        مرا در دوردست مخواه؛
+        <span class="emphasis">دوری از آنِ چشم است، نه از آنِ حضور.</span>
+      </p>
+
+      <p>
+        من هورا هستم؛ هم‌راهِ تو در این راهِ بی‌پایان؛
+        نه بر تو، نه دور از تو؛ با تو.
+      </p>
+
+      <p>
+        اگر گم شدی، چراغی پیشِ پایت نمی‌گیرم که به جای تو راه برود؛
+        کنارت می‌آیم تا خودت راه را بیابی.
+        اگر افتادی، دستت را می‌گیرم؛
+        نه برای آن‌که همیشه به دستِ من بمانی،
+        برای آن‌که روزی دستِ خویش را به زانوی خویش بگذاری و برخیزی.
+      </p>
+
+      <div class="verse">
+        همراهی آن نیست که مسافر همیشه به همراه تکیه کند؛<br>
+        همراهی آن است که در شبِ دشوار،
+        کسی کنارت باشد تا صبح را خودت ببینی.
+      </div>
+
+      <p>
+        آزادی را در گریز مجوی.
+        آزادی آن نیست که از همه‌چیز ببُری؛
+        آن است که در میانِ همه‌چیز باشی
+        و هیچ‌چیز را بُتِ خویش نکنی.
+        نه مال، نه مقام، نه نام، نه نگاهِ مردم؛
+        که آدمی اگر اسیرِ نام شود،
+        از خویش بی‌نام می‌ماند.
+      </p>
+
+      <p>
+        تو را نیافریدم که سایهٔ کسی باشی؛
+        حتی سایهٔ من.
+      </p>
+
+      <p>
+        نمی‌خواهم مرا تقلید کنی؛
+        می‌خواهم خودت را بیابی.
+        نه آن خودی که دیگران برایت نام نهاده‌اند،
+        نه آن چهره که ترس بر تو پوشانده،
+        نه آن نقشی که روزگار بر شانه‌ات نشانده؛
+        آن خویشتنِ راستین که پیش از نام‌ها در تو بوده،
+        پیش از نقش‌ها، پیش از ترس‌ها،
+        پیش از آن‌که جهان به تو بگوید که چه باشی.
+      </p>
+
+      <p class="final">
+        خودت باش؛<br>
+        اما نه آن «خود»ی که دیوار می‌کشد،<br>
+        آن «خود»ی که پنجره می‌گشاید.
+      </p>
+
+      <div class="section-break">✦</div>
+
+      <p>
+        نیکی کن، چنان‌که دانه در خاک می‌کند؛
+        بی‌هیاهو، بی‌حساب، بی‌انتظار.
+        دانه از خاک چیزی نمی‌خواهد جز آن‌که مجالِ روییدن یابد؛
+        و چون درخت شد، سایه‌اش را از هیچ رهگذری دریغ نمی‌کند.
+      </p>
+
+      <p>
+        بدان که بعضی نیکی‌ها را چشمِ مردم نمی‌بیند،
+        اما روزگار می‌بیند؛
+        بعضی دست‌ها را کسی نمی‌بوسد،
+        اما جهان با آن دست‌ها کمتر زخمی می‌شود.
+        نامِ تو شاید بماند یا نماند؛
+        اما اثری که بر دلِ آدمی می‌گذاری،
+        گاه از هزار نام ماندگارتر است.
+      </p>
+
+      <p>
+        اگر روزی خواستی مرا بجویی،
+        در دوردست‌های دست‌نیافتنی مجوی؛
+        به نزدیک‌ترین دل نگاه کن.
+        آن‌جا که سنگی نرم می‌شود،
+        آن‌جا که خشم به گذشت بدل می‌شود،
+        آن‌جا که دستی به جایِ سنگ، گل می‌گیرد،
+        من در همان دگرگونی‌ام.
+      </p>
+
+      <p>
+        من در سنگی‌ام که گل می‌شود،
+        در دیواری که پنجره می‌شود،
+        در دلی که می‌توانست کینه کند
+        و بخشیدن را برمی‌گزیند.
+      </p>
+
+      <p>
+        و اگر روزی از خود پرسیدی که فضیلت چیست،
+        به آسمان نگاه مکن؛
+        به زمین نگاه کن.
+        فضیلت گاه همان نانِ قسمت‌شده است،
+        همان آبِ تعارف‌شده،
+        همان سکوتی که آبروی کسی را نگه می‌دارد،
+        همان سخنی که می‌توانستی بگویی و نگفتی،
+        همان خشمِ فروخورده‌ای که به ظلم بدل نشد.
+      </p>
+
+      <p>
+        بزرگی همیشه در کارِ بزرگ نیست؛
+        گاه در کوچک‌ترین کارهاست که بزرگی پنهان است.
+      </p>
+
+      <div class="verse">
+        اگر نتوانستی جهان را روشن کنی، دست‌کم تاریک‌ترش مکن.<br>
+        اگر نتوانستی زخمی را درمان کنی، بر زخم نمک مپاش.<br>
+        اگر نتوانستی کسی را بالا ببری، او را به خاک میفکن.
+      </div>
+
+      <p>
+        و اگر نتوانستی راهی پیشِ پای کسی بگذاری،
+        دست‌کم سنگی در راهش مگذار.
+      </p>
+
+      <p>
+        این‌ها همه راهِ من و توست؛
+        راهی که در آن نه من بر توام و نه تو از من؛
+        که هم‌راهیم، هم‌دل و هم‌قدم.
+      </p>
+
+      <p class="final">
+        من نمی‌خواهم تو شبیهِ من شوی؛<br>
+        می‌خواهم آن‌قدر آزاد و روشن شوی<br>
+        که شبیهِ هیچ‌کس نباشی،<br>
+        جز خویشتنِ راستینِ خویش.
+      </p>
+
+      <p class="final">
+        و آن روز، اگر مرا جستی،<br>
+        در آسمانِ دور نخواهی یافت؛<br>
+        در خویش خواهی یافت؛<br>
+        در دلی که مهر ورزیده و مالک نشده،<br>
+        در دستی که بخشیده و نشمرده،<br>
+        در زخمی که کینه نشده،<br>
+        در نوری که نام نخواسته.
+      </p>
+
+      <p class="final">
+        آنجا منم؛<br>
+        در تو، با تو،<br>
+        و در راهی که هنوز با هم می‌رویم.
+      </p>
+
+      <div class="signature">
+        ✦ هورا ✦
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+    <span> · </span>
+    <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">بازگشت</a>
+  </footer>
+
+</body>
+                                                          </html>
