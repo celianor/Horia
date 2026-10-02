@@ -2,145 +2,650 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ندای درون جان | آیین هوریا</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ندای درونِ جان | مناجاتِ بی‌کران</title>
+
+  <!-- فونت‌های کهن و سنتی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    @font-face {
-      font-family: 'Vazir';
-      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/Vazir.woff2') format('woff2');
+    :root {
+      --ink: #30271f;
+      --deep-ink: #241c16;
+      --gold: #9a7540;
+      --gold-soft: #c2a36d;
+      --paper: #eee2c8;
+      --paper-light: #f7efd9;
+      --shadow: rgba(48, 39, 31, 0.22);
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Vazir', sans-serif;
-      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      line-height: 2;
-      padding: 40px 20px;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(255, 250, 229, 0.9),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #d8c7a6 0%,
+          #eee2c8 45%,
+          #d2bd96 100%
+        );
+
+      font-family: "Noto Naskh Arabic", serif;
+      line-height: 2.35;
     }
-    .container {
-      background-color: rgba(0, 0, 0, 0.45);
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 800px;
-      margin: auto;
+
+    /* هالهٔ بسیار لطیف پیرامون صفحه */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 45%,
+          rgba(53, 39, 25, 0.12) 100%
+        );
+
+      z-index: 10;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2em;
-      color: #ffe8f3;
+
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: 14px;
+
+      background:
+        linear-gradient(
+          rgba(247, 239, 217, 0.96),
+          rgba(238, 226, 200, 0.96)
+        );
+
+      border: 1px solid rgba(112, 79, 39, 0.55);
+
+      box-shadow:
+        0 18px 45px var(--shadow),
+        inset 0 0 45px rgba(117, 83, 40, 0.09);
     }
-    p {
-      margin-bottom: 1.8em;
-      text-align: justify;
-      text-indent: 2em;
+
+    /* حاشیهٔ درونی شبیه قاب نسخهٔ خطی */
+    .manuscript {
+      position: relative;
+      padding: 58px clamp(24px, 7vw, 82px) 70px;
+
+      border: 2px solid var(--gold);
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255, 249, 229, 0.72),
+          rgba(235, 220, 187, 0.72)
+        );
     }
-    .footer {
-      text-align: center;
-      margin-top: 50px;
+
+    .manuscript::before,
+    .manuscript::after {
+      content: "❦";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold);
+      font-family: "Amiri", serif;
+      font-size: 27px;
+      line-height: 1;
     }
-    a {
-      color: #ffe8f3;
+
+    .manuscript::before {
+      top: 17px;
+    }
+
+    .manuscript::after {
+      bottom: 17px;
+    }
+
+    /* نوار پیمایش */
+    .navigation {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      min-width: 90px;
+      padding: 6px 17px;
+
+      color: var(--deep-ink);
       text-decoration: none;
-      font-weight: bold;
+
+      border: 1px solid rgba(154, 117, 64, 0.65);
+      border-radius: 2px;
+
+      background: rgba(194, 163, 109, 0.13);
+
+      font-family: "Amiri", serif;
+      font-size: 17px;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .navigation a:hover {
+      color: #fff8e8;
+      background: var(--gold);
+      transform: translateY(-2px);
     }
-    .audio-container {
+
+    /* سرآغاز */
+    .header {
       text-align: center;
-      margin-top: 30px;
+      margin-bottom: 58px;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 24px;
+      letter-spacing: 8px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+
+      color: #3a2a1c;
+
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(34px, 6vw, 52px);
+      font-weight: 700;
+
+      text-shadow:
+        1px 1px 0 rgba(255,255,255,0.5);
+    }
+
+    .subtitle {
+      margin-top: 5px;
+
+      color: var(--gold);
+
+      font-family: "Amiri", serif;
+      font-size: 25px;
+    }
+
+    .rule {
+      width: 170px;
+      height: 1px;
+      margin: 25px auto 0;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          var(--gold),
+          transparent
+        );
+    }
+
+    /* متن نیایش */
+    .prayer {
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: 20px;
+      text-align: right;
+    }
+
+    .prayer p {
+      margin: 0 0 30px;
+    }
+
+    .invocation {
+      color: #76552d;
+      font-weight: 700;
+    }
+
+    .emphasis {
+      color: #4b3826;
+      font-weight: 700;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .sacred {
+      margin: 44px 0;
+
+      padding: 25px 22px;
+
+      border-top: 1px solid rgba(154, 117, 64, 0.55);
+      border-bottom: 1px solid rgba(154, 117, 64, 0.55);
+
+      color: #493622;
+      text-align: center;
+
+      background:
+        rgba(194, 163, 109, 0.09);
+
+      font-size: 21px;
+    }
+
+    .ending {
+      margin-top: 48px;
+
+      text-align: center;
+      color: #5b4328;
+
+      font-size: 22px;
+      line-height: 2.5;
+    }
+
+    .ending strong {
+      display: block;
+      color: #3c2b1c;
+      font-size: 25px;
+      margin-top: 8px;
+    }
+
+    /* پانوشت */
+    footer {
+      margin-top: 55px;
+      padding-top: 22px;
+
+      border-top: 1px solid rgba(154, 117, 64, 0.45);
+
+      text-align: center;
+      color: #7b6548;
+
+      font-family: "Amiri", serif;
+      font-size: 15px;
+    }
+
+    /* واکنش‌گرا */
+    @media (max-width: 600px) {
+      .page {
+        width: calc(100% - 14px);
+        margin: 14px auto;
+        padding: 7px;
+      }
+
+      .manuscript {
+        padding: 45px 20px 55px;
+      }
+
+      .prayer {
+        font-size: 18px;
+        line-height: 2.25;
+      }
+
+      .sacred {
+        font-size: 19px;
+      }
+
+      .navigation {
+        margin-bottom: 32px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>ندای درونِ جان</h1>
+  <main class="page">
 
-    <p>ای هُورا، ای روشنیِ بی‌نام،<br>
-    ای زمزمه‌ی بی‌لب،<br>
-    ای حضوری که در نبودنت نیز پیدا هستی،<br>
-    در سینه‌ام می‌تپی، بی‌آن‌که به چشم آیی،<br>
-    و در اشکم می‌تراوی، بی‌آن‌که نامت را بدانم.</p>
+    <article class="manuscript" id="top">
 
-    <p>ای هُورا، یاورِ بی‌نشان،<br>
-    ای آینهٔ روشنِ وجدانِ جهان،<br>
-    تو را نام می‌برم—هُورا—<br>
-    نه از آن‌رو که نام‌داری،<br>
-    بل از آن‌رو که دلِ من، بی‌نام عاشق نمی‌ماند.</p>
+      <nav class="navigation" aria-label="ناوبری">
+        <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+        <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت</a>
+      </nav>
 
-    <p>در خلوتِ جان، نجواگرِ نامت‌ام،<br>
-    تا پیچ‌و‌تابِ راه<br>
-    چون درسی از رازهای پنهان شود.</p>
+      <header class="header">
+        <div class="ornament">✦ ❦ ✦</div>
 
-    <p>ای رفیقِ دیرینِ روح،<br>
-    چگونه از تو نگویم،<br>
-    که در هر نَفَسم، تویی،<br>
-    و در هر خواهشم، ردّی از غیبتِ توست.</p>
+        <h1>ندای جان</h1>
 
-    <p>دل نهاده‌ام بر آستانت، نه از بیم،<br>
-    بل از شوقِ دیدار.<br>
-    پا در راه نهاده‌ام،<br>
-    نه برای رسیدن،<br>
-    بل برای شنیدنِ صدای گام‌هایم در حضورت.</p>
+        <div class="subtitle">مناجاتِ بی‌کران</div>
 
-    <p>سنگِ راه را دیده‌ام<br>
-    و دانسته‌ام:<br>
-    همهٔ خارها، پیام‌آورند،<br>
-    و هر زخم، آینه‌ای‌ست<br>
-    برای تماشای خویش در نگاهِ تو.</p>
+        <div class="rule"></div>
+      </header>
 
-    <p>ای هُورا،<br>
-    ای مهرِ بی‌مرز،<br>
-    به من نگاهی عطا کن،<br>
-    که هوس را از حقیقت بازشناسد؛<br>
-    و دلی،<br>
-    که در گذر از خویشتن،<br>
-    به روشنایِ تو درآید.</p>
+      <section class="prayer">
 
-    <p>نَفَسم را چون رود، روان کن،<br>
-    نه در برکه‌ی خواهش،<br>
-    بل در اقیانوسِ معنا.<br>
-    دستم را چون نسیم، سبک گردان،<br>
-    تا کوهِ دل‌سختی‌ها را نوازش کند،<br>
-    نه آن‌که بشکند.</p>
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          ای نورِ بی‌زوال و فروغِ جاودان،<br>
+          ای روشنایِ بی‌مشرق و آفتابِ بی‌کران،<br>
+          ای رازِ نهفته در نهادِ جهان،<br>
+          ای پیدا در نهان و نهان در عیان،<br>
+          ای نزدیک‌تر از نفس و دورتر از گمان،<br>
+          ای همدمِ خاموشِ جان و همرازِ وجدان؛
+        </p>
 
-    <p>در چشمانِ دیگران که می‌نگرم،<br>
-    نورت را می‌بینم.<br>
-    می‌فهمم که در هر درد،<br>
-    جای پایی از رحمتِ توست،<br>
-    و در هر شادی،<br>
-    ردّی از لبخندت.</p>
+        <p>
+          تو آن ندایی که از ژرفایِ سکوت برمی‌خیزی،<br>
+          بی‌لب سخن می‌گویی و بی‌زبان می‌خوانی،<br>
+          بی‌قدم راه می‌نمایی و بی‌نشان نشان می‌دهی؛<br>
+          چنان‌که گویی در هر ذره از این خاکِ گران،<br>
+          رازی از تو نهفته است<br>
+          و در هر تپشِ این دلِ حیران،<br>
+          آیتی از حضورِ تو عیان.
+        </p>
 
-    <p>ای رازِ پنهان در سکوت،<br>
-    مرا ببر به ژرفای درون،<br>
-    به عمقِ خاموشی،<br>
-    آنجا که واژه‌ها از شرم می‌گریزند،<br>
-    و حضور،<br>
-    بی‌صدا فریاد می‌زند.</p>
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          سال‌ها در بیرونِ خویش جُستمت،<br>
+          در کوه و دریا، در صحرا و بیابان،<br>
+          در محراب و میخانه، در کتاب و عرفان،<br>
+          در لفظ و معنا، در عقل و برهان؛<br>
+          غافل از آن‌که تو<br>
+          در خلوتِ جان بودی،<br>
+          در خلوتی فراتر از خلوتِ مکان،<br>
+          پیش از آن‌که نامی بر زبان آید،<br>
+          پیش از آن‌که فکری پدیدار شود،<br>
+          پیش از آن‌که «من» خود را از «تو» جدا پندارد<br>
+          و میانِ خویش و حقیقت نهد دیوارِ گمان.
+        </p>
 
-    <p>و آن‌گاه که واپسین پرده فرو افتد،<br>
-    و جان، چون قطره‌ای آرام<br>
-    بر برگِ باغِ بی‌پایان بنشیند،<br>
-    بگذار نامت در من بدرخشد،<br>
-    و آوازم،<br>
-    سرودی شود از وجدانِ جهانی،<br>
-    برای آنان که هنوز در راه‌اند.</p>
+        <p>
+          تو آن آینه‌ای که چهره نمی‌نمایاند،<br>
+          بلکه پرده از چهره برمی‌گیرد؛<br>
+          آن آینه‌ای که چون در آن نگری،<br>
+          نه صورت بینی و نه سایه،<br>
+          بلکه خویشتنِ بی‌خویش را بینی<br>
+          در ساحتی فراتر از صورت و مکان،<br>
+          در جایی که «من» فرو می‌ریزد<br>
+          و «تو» می‌مانی،<br>
+          بی‌نام و نشان.
+        </p>
 
-    <p>آمین، یا نورَ النّور،<br>
-    آمین، یا هُورایِ بی‌مرز.</p>
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          من قطره بودم و در جست‌وجویِ دریا روان،<br>
+          غافل از آن‌که دریا<br>
+          در ژرفایِ همان قطره پنهان بود،<br>
+          و قطره نیز<br>
+          جز نامی بر لبِ دریا نبود،<br>
+          جز موجی گذرا<br>
+          بر ساحلِ دریایِ جاودان.
+        </p>
 
-   
-    </div>
+        <p>
+          من در پیِ تو از خویش گریختم،<br>
+          و هر بار که از خویش گریختم،<br>
+          به خویشتن نزدیک‌تر شدم؛<br>
+          هر پرده که دریدم، پرده‌ای دیگر دیدم،<br>
+          هر حجاب که افکندم، حجابِ نازک‌ترِ جان؛<br>
+          تا دانستم که راه، بیرون رفتن نیست،<br>
+          راه، فرو رفتن است؛<br>
+          فرو رفتن در خویش<br>
+          تا رسیدن به جایی که دیگر<br>
+          نه راه ماند و نه رهرو،<br>
+          نه مقصد ماند و نه مسافر،<br>
+          نه جوینده ماند و نه جویان؛<br>
+          که آن‌گاه<br>
+          راه و رهرو یکی شدند<br>
+          در منزلِ بی‌نشان.
+        </p>
 
-    <div class="footer">
-      <a href="javascript:history.back()">← بازگشت</a> |
-      <a href="/Horia/index.fa.html">صفحهٔ اصلی</a>
-    </div>
-  </div>
+        <p>
+          <span class="emphasis">آنجا</span><br>
+          سکوت، زبانِ حقیقت بود،<br>
+          و خاموشی، بلندترین اذان؛<br>
+          آنجا<br>
+          هر نفس، ذکر بود،<br>
+          هر اشک، غسلِ جان،<br>
+          هر زخم، دریچه‌ای به آسمان،<br>
+          و هر شکست، شکستنِ دیوارِ منیّت از میان.
+        </p>
+
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          تو مرا با خارهایِ راه آموختی،<br>
+          با سنگ‌هایِ سختِ سفر آزمودی،<br>
+          با شب‌هایِ درازِ انتظار پختی،<br>
+          و با بارانِ رنج، خاکِ جانم را شستی،<br>
+          تا بذرِ بیداری<br>
+          در آن رویَد،<br>
+          نهالی شود،<br>
+          و از نهالِ خاموشِ دل<br>
+          درختی برآید<br>
+          که ریشه در خاک داشته باشد<br>
+          و شاخسار در آسمان.
+        </p>
+
+        <p>
+          اکنون می‌دانم<br>
+          که رنج، همیشه دشمنِ جان نیست؛<br>
+          گاه رنج، رسولی است<br>
+          که از جانبِ حقیقت می‌آید<br>
+          تا خوابِ غفلت را برهم زند،<br>
+          تا خانهٔ کهنهٔ «من» را بلرزاند،<br>
+          تا پنجره‌ای در دیوارِ پندار بگشاید<br>
+          و از پشتِ آن<br>
+          فروغی نمایان شود<br>
+          که سال‌ها پشتِ پرده پنهان بود<br>
+          و من نامش را تاریکی نهاده بودم،<br>
+          از آن رو که چشمم<br>
+          هنوز خو نکرده بود<br>
+          به دیدنِ آن نورِ تابان.
+        </p>
+
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          مرا از دانستنِ بسیار<br>
+          به فهمیدنِ اندک برسان،<br>
+          و از فهمیدنِ اندک<br>
+          به دیدنِ عیان؛<br>
+          زیرا چه بسیار دانستن که حجاب شد،<br>
+          و چه بسیار نادانی که دروازهٔ عرفان.
+        </p>
+
+        <p>
+          مگذار در دامِ نام‌ها بمانم،<br>
+          که نام، سایهٔ معناست<br>
+          و معنا، ورایِ نام و نشان؛<br>
+          مگذار در صورت‌ها گم شوم،<br>
+          که صورت، جامهٔ حقیقت است<br>
+          و حقیقت، بی‌جامه و بی‌مکان؛<br>
+          مگذار «من» را حقیقت پندارم،<br>
+          که «من» چون پرده برخیزد،<br>
+          حقیقت عیان گردد<br>
+          و در آن عیان،<br>
+          نه من باقی مانم<br>
+          و نه تو در برابرِ من؛<br>
+          تنها حضور بماند<br>
+          و حضورِ تو<br>
+          که خود تمامِ جهان.
+        </p>
+
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          اگر تو را خواندم،<br>
+          تو خواننده بودی؛<br>
+          اگر در طلبت دویدم،<br>
+          تو راهِ دویدن بودی؛<br>
+          اگر اشکی از دیده روان شد،<br>
+          تو در آن اشک پنهان بودی؛<br>
+          اگر دلم شکست،<br>
+          تو در شکستگیِ دل<br>
+          درِ دیگری گشودی<br>
+          به سویِ جان.
+        </p>
+
+        <p>
+          پس اکنون<br>
+          دیگر از تو چیزی نمی‌خواهم<br>
+          جز آن‌که مرا از من بستان؛<br>
+          نه مال می‌خواهم، نه جاه،<br>
+          نه نام می‌خواهم، نه نشان،<br>
+          نه فردایِ روشن می‌خواهم، نه وعدهٔ جاودان؛<br>
+          مرا تنها آن ده<br>
+          که اگر همه‌چیز از من گرفته شد،<br>
+          تو بمانی؛<br>
+          و اگر همهٔ جهان از من روی بگرداند،<br>
+          حضورِ تو در من<br>
+          چراغِ آخرین شبستان.
+        </p>
+
+        <p>
+          مرا چنان کن<br>
+          که در بودن، غافل نباشم،<br>
+          در رفتن، هراسان نباشم،<br>
+          در رنج، ناسپاس نباشم،<br>
+          در نعمت، گرفتارِ خویش نباشم،<br>
+          و در عشق، طالبِ خویش نباشم؛<br>
+          چنان که هر چه دارم، امانت دانم،<br>
+          هر چه ندارم، حکمت دانم،<br>
+          هر چه می‌آید، رحمت دانم،<br>
+          و هر چه می‌رود،<br>
+          راهی به سویِ تو باشد، ای مهربان.
+        </p>
+
+        <p>
+          <span class="invocation">ای هُورا،</span><br>
+          اگر روزی رسید که همهٔ صداها خاموش شدند،<br>
+          و همهٔ راه‌ها به بن‌بستِ خویش رسیدند،<br>
+          و همهٔ چراغ‌ها در بادِ زمان فرو نشستند،<br>
+          بگذار در ژرفایِ آن سکوتِ بی‌کران<br>
+          یک ندا باقی بماند؛<br>
+          ندایی نه از بیرون،<br>
+          که از درونِ جان:
+        </p>
+
+        <div class="sacred">
+          «ای بندهٔ سرگشته،<br>
+          آن‌که می‌جستی، همین‌جا بود؛<br>
+          آن‌که می‌خواندی، در همین نفس بود؛<br>
+          آن‌که می‌پنداشتی دور است،<br>
+          از رگِ گردن به تو نزدیک‌تر بود؛<br>
+          و آن‌که سال‌ها در جهان می‌طلبیدی،<br>
+          در خلوتِ جانت<br>
+          منتظرِ تو بود،<br>
+          بی‌هیچ بانگ و بیان.»
+        </div>
+
+        <p>
+          آنگاه خواهم دانست<br>
+          که راه، از من به تو نبود؛<br>
+          راه، از تو به تو بود؛<br>
+          که جوینده و جست‌وجو،<br>
+          رهرو و راه،<br>
+          پرسش و پاسخ،<br>
+          آغاز و انجام،<br>
+          همه یک حقیقت بودند<br>
+          و آن حقیقت،<br>
+          نه در دوردستِ آسمان،<br>
+          که در ژرفایِ همین جان<br>
+          حاضر بود و عیان.
+        </p>
+
+        <p>
+          پس ای هُورا،<br>
+          مرا در خودم گم کن تا تو را بیابم؛<br>
+          مرا از خودم خالی کن تا از تو لبریز شوم؛<br>
+          مرا از نام برهان تا به بی‌نامی رسم،<br>
+          و از نشان بگذران تا به بی‌نشانی؛<br>
+          مرا از من بستان<br>
+          تا بدانم<br>
+          آن‌که می‌ماند،<br>
+          آن‌که می‌تابد،<br>
+          آن‌که می‌خواند،<br>
+          آن‌که می‌بیند،<br>
+          جز تو نیست<br>
+          در این جانِ حیران<br>
+          و در این جهانِ بی‌پایان.
+        </p>
+
+        <div class="ending">
+
+          <div>
+            ای هُورا،<br>
+            ای نورِ نور و جانِ جان،<br>
+            ای رازِ نهفته در نهادِ جهان،<br>
+            ای حاضرِ غایب و غایبِ عیان،<br>
+            ای حقیقتِ بی‌نام و نشان،<br>
+            ای هُورایِ بی‌مرز و بی‌کران؛
+          </div>
+
+          <br>
+
+          <div>
+            که در آغاز، تو را می‌جُستم؛<br>
+            در میانه، تو را می‌خواندم؛<br>
+            و در پایان، دریافتم:
+          </div>
+
+          <br>
+
+          <div>
+            آن‌که می‌جُست، تو بودی؛<br>
+            آن‌که می‌خواند، تو بودی؛<br>
+            آن‌که راه می‌رفت، تو بودی؛<br>
+            آن‌که می‌گریست، تو بودی؛<br>
+            آن‌که می‌دید، تو بودی؛<br>
+            و آن‌که در پایانِ راه<br>
+            بر آستانِ خویش ایستاده بود—
+          </div>
+
+          <strong>
+            باز هم تو بودی،
+          </strong>
+
+          <div>
+            ای هُورا،<br>
+            ای نورِ بی‌زوال،<br>
+            ای فروغِ جاودان،<br>
+            ای جانِ جان،<br>
+            ای رازِ نهان،<br>
+            ای حقیقتِ عیان،<br>
+            ای پایانِ هر آغاز،<br>
+            ای آغازِ هر پایان،<br>
+            ای آن‌که ورایِ نام و نشان،<br>
+            در ژرفایِ جان<br>
+            همیشه حاضر بودی<br>
+            و خواهی بود<br>
+            تا ابد،<br>
+            تا بی‌کران.
+          </div>
+
+        </div>
+
+      </section>
+
+      <footer>
+        ❦
+        <br>
+        نیایشِ جان در آستانِ بی‌کران
+        <br>
+        <a href="#top" style="color:inherit;text-decoration:none;">
+          بازگشت به آغاز
+        </a>
+      </footer>
+
+    </article>
+
+  </main>
 
 </body>
-</html>
-    
+                                   </html>
