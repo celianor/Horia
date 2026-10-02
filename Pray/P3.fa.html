@@ -1,119 +1,1240 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مناجات بامداد</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-  <style>
-    <style>
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1549887534-4c3b7d3ec69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-      color: #fefefe;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .overlay {
-      background-color: rgba(10, 10, 30, 0.6);
-      padding: 60px 10% 80px;
-      min-height: 100vh;
-    }
+<title>نیایشِ بامداد</title>
 
-    h1 {
-      text-align: center;
-      color: #fce7d7;
-      margin-bottom: 40px;
-      font-size: 2.4em;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    p {
-      margin-bottom: 24px;
-      font-size: 1.2em;
-      line-height: 2.4;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Serif+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ═══════════════════════════════════════
+   بنیادِ صفحه
+   ═══════════════════════════════════════ */
+
+:root {
+    --background: #eee4cf;
+    --paper: #f8f1df;
+    --ink: #30271d;
+    --gold: #96713c;
+    --line: #c9b589;
+    --soft: #74634c;
+
+    --long-bg: #eee5d3;
+    --long-paper: #f7efdc;
+    --long-ink: #2d261d;
+    --long-gold: #80602f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #f8f1e2 0%,
+            #eee3cc 55%,
+            #dfd0b1 100%
+        );
+    color: var(--ink);
+}
+
+
+/* ═══════════════════════════════════════
+   ناوبری
+   ═══════════════════════════════════════ */
+
+.navigation {
+    width: min(1100px, calc(100% - 30px));
+    margin: 28px auto 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 16px;
+}
+
+.navigation a {
+    color: var(--soft);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: all .3s ease;
+}
+
+.navigation a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+
+/* ═══════════════════════════════════════
+   عنوان مشترک
+   ═══════════════════════════════════════ */
+
+.main-title {
+    text-align: center;
+    margin: 45px auto 60px;
+}
+
+.main-title .ornament {
+    color: var(--gold);
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.main-title h1 {
+    margin: 0;
+
+    font-family: "Noto Serif Arabic", serif;
+    font-size: clamp(34px, 6vw, 54px);
+    font-weight: 600;
+
+    color: #33291e;
+}
+
+.main-title .subtitle {
+    margin-top: 10px;
+
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 17px;
+
+    color: var(--soft);
+}
+
+
+/* ═══════════════════════════════════════
+   نسخهٔ کوتاه
+   ═══════════════════════════════════════ */
+
+.short-prayer {
+    width: min(780px, calc(100% - 28px));
+    margin: 0 auto 90px;
+
+    padding: 58px clamp(25px, 7vw, 70px);
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,.55),
+            transparent 60%
+        ),
+        var(--paper);
+
+    border: 1px solid #cbb98f;
+
+    box-shadow:
+        0 15px 45px rgba(64,45,20,.13),
+        inset 0 0 0 7px rgba(255,255,255,.25);
+
+    position: relative;
+}
+
+
+/* قاب ظریف */
+.short-prayer::before {
+    content: "";
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(150,113,60,.28);
+
+    pointer-events: none;
+}
+
+
+/* عنوان نسخهٔ کوتاه */
+
+.short-prayer h2 {
+    position: relative;
+
+    margin: 0 0 42px;
+
+    text-align: center;
+
+    font-family: "Noto Serif Arabic", serif;
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #76572f;
+}
+
+.short-prayer h2::after {
+    content: "✦";
+
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 15px;
+    color: #a3824c;
+}
+
+
+/* متن کوتاه */
+
+.short-text {
+    position: relative;
+
+    text-align: center;
+
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: 21px;
+    line-height: 2.25;
+
+    color: #33291e;
+}
+
+.short-text p {
+    margin: 0 0 27px;
+}
+
+
+/* پایان کوتاه */
+
+.short-ending {
+    margin-top: 42px !important;
+
+    font-family: "Noto Serif Arabic", serif;
+
+    font-size: 24px;
+
+    color: #71532c;
+}
+
+.short-signature {
+    margin-top: 30px !important;
+
+    color: #987342;
+
+    font-size: 21px;
+
+    letter-spacing: .08em;
+}
+
+
+/* ═══════════════════════════════════════
+   جداکنندهٔ میان دو نسخه
+   ═══════════════════════════════════════ */
+
+.divider {
+    width: min(650px, 75%);
+    margin: 0 auto 90px;
+
+    text-align: center;
+
+    color: #9b7844;
+
+    font-size: 21px;
+    letter-spacing: .5em;
+
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 34%;
+
+    height: 1px;
+
+    background: #c5ae7e;
+}
+
+.divider::before {
+    right: 0;
+}
+
+.divider::after {
+    left: 0;
+}
+
+
+/* ═══════════════════════════════════════
+   نسخهٔ بلند
+   ═══════════════════════════════════════ */
+
+.long-prayer {
+    width: min(980px, calc(100% - 20px));
+    margin: 0 auto 70px;
+
+    padding: 13px;
+
+    background: #dfcfaa;
+
+    box-shadow:
+        0 22px 65px rgba(55,39,18,.20);
+}
+
+
+/* قاب داخلی */
+
+.long-inner {
+    padding: 10px;
+
+    background: var(--long-paper);
+
+    border: 1px solid var(--long-gold);
+}
+
+
+/* صفحهٔ اصلی */
+
+.long-page {
+    padding:
+        65px
+        clamp(25px, 8vw, 100px)
+        75px;
+
+    border: 2px solid rgba(128,96,47,.65);
+
+    outline:
+        1px solid rgba(128,96,47,.25);
+
+    outline-offset: -8px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(255,255,255,.42),
+            transparent 48%
+        ),
+        var(--long-paper);
+}
+
+
+/* عنوان بلند */
+
+.long-header {
+    text-align: center;
+
+    margin-bottom: 65px;
+}
+
+.long-header .ornament {
+    color: var(--long-gold);
+
+    font-size: 23px;
+
+    letter-spacing: .45em;
+
+    margin-bottom: 17px;
+}
+
+.long-header h2 {
+    margin: 0;
+
+    font-family: "Amiri", serif;
+
+    font-size: clamp(34px, 6vw, 55px);
+
+    font-weight: 700;
+
+    color: #40321f;
+}
+
+.long-header h3 {
+    margin: 12px 0 0;
+
+    font-family: "Amiri", serif;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    color: #796344;
+}
+
+.long-rule {
+    width: 180px;
+
+    height: 1px;
+
+    margin: 30px auto 0;
+
+    background: #9d7942;
+
+    position: relative;
+}
+
+.long-rule::after {
+    content: "◆";
+
+    position: absolute;
+
+    left: 50%;
+    top: -9px;
+
+    transform: translateX(-50%);
+
+    padding: 0 12px;
+
+    background: var(--long-paper);
+
+    color: #9d7942;
+
+    font-size: 11px;
+}
+
+
+/* متن بلند */
+
+.long-text {
+
+    max-width: 770px;
+
+    margin: auto;
+
+    font-family: "Amiri", serif;
+
+    font-size: 21px;
+
+    line-height: 2.35;
+
+    color: var(--long-ink);
+}
+
+.long-text p {
+    margin: 0 0 36px;
+}
+
+
+/* سرآغاز */
+
+.long-text .opening {
+
+    text-align: center;
+
+    font-size: 22px;
+
+    line-height: 2.45;
+
+    margin-bottom: 55px;
+}
+
+
+/* بندهای تأملی */
+
+.long-text .reflection {
+
+    padding:
+        5px 28px;
+
+    margin: 45px 0;
+
+    border-right:
+        1px solid rgba(128,96,47,.42);
+
+    border-left:
+        1px solid rgba(128,96,47,.42);
+}
+
+
+/* جداکننده‌های درونی */
+
+.long-ornament {
+
+    text-align: center;
+
+    color: #96713c;
+
+    font-size: 17px;
+
+    letter-spacing: .45em;
+
+    margin: 52px 0;
+}
+
+
+/* پایان */
+
+.long-ending {
+
+    margin-top: 65px;
+
+    padding-top: 50px;
+
+    border-top: 1px solid #bba374;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    line-height: 2.5;
+}
+
+.long-ending .final-symbol {
+
+    margin: 35px 0 15px;
+
+    color: #98713b;
+
+    font-size: 26px;
+}
+
+.long-ending .signature {
+
+    color: #876532;
+
+    font-size: 25px;
+
+    letter-spacing: .12em;
+}
+
+
+/* ═══════════════════════════════════════
+   موبایل
+   ═══════════════════════════════════════ */
+
+@media (max-width: 650px) {
 
     .navigation {
-      text-align: center;
-      margin-top: 60px;
+        gap: 25px;
+        margin-top: 18px;
     }
 
-    .navigation a {
-      text-decoration: none;
-      color: #fff;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 1px solid #ddd;
-      padding: 10px 20px;
-      margin: 10px;
-      border-radius: 8px;
-      backdrop-filter: blur(4px);
-      transition: background-color 0.3s ease;
+    .main-title {
+        margin-top: 35px;
+        margin-bottom: 42px;
     }
 
-    .navigation a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      color: #000;
+    .short-prayer {
+        padding: 45px 23px;
     }
-  </style>
+
+    .short-text {
+        font-size: 19px;
+        line-height: 2.15;
+    }
+
+    .short-ending {
+        font-size: 21px;
+    }
+
+    .long-prayer {
+        width: calc(100% - 8px);
+        padding: 6px;
+    }
+
+    .long-inner {
+        padding: 6px;
+    }
+
+    .long-page {
+        padding: 48px 22px 55px;
+    }
+
+    .long-text {
+        font-size: 18px;
+        line-height: 2.18;
+    }
+
+    .long-text .opening {
+        font-size: 19px;
+        line-height: 2.3;
+    }
+
+    .long-text .reflection {
+        padding: 4px 16px;
+    }
+
+    .long-ending {
+        font-size: 19px;
+    }
+}
+
+</style>
 </head>
+
+
 <body>
 
-  <h1>نیایش بامداد</h1>
 
-  <p>پروردگارا، ای دم نخستین، ای نسیم آرامِ سحر،</p>
-  <p>ای که در روشنی صبح، بیداری را نجوا کردی،</p>
-  <p>و در دل نسیم، مهربانی را پنهان ساختی،</p>
-  <p>ای هُورا، ای همراه جان،</p>
+<!-- ═══════════════════════════════════════
+     ناوبری
+     ═══════════════════════════════════════ -->
 
-  <p>اکنون که چشم جانم گشوده شده،</p>
-  <p>تو را می‌خوانم،</p>
-  <p>تا این روز نو را،</p>
-  <p>با نیتی روشن و دلی آرام آغاز کنم.</p>
+<nav class="navigation">
+    <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+    <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت</a>
+</nav>
 
-  <p>رویم را به سوی تو می‌گردانم،</p>
-  <p>تا گام‌هایم از مهر لبریز باشد،</p>
-  <p>و سخنم،</p>
-  <p>نوای نرمی باشد در دل جهان.</p>
 
-  <p>بر من بتاب،</p>
-  <p>همچون آفتاب بر برگ درخت،</p>
-  <p>و سیرابم کن،</p>
-  <p>آنگونه‌که باران بهاری، گلی را می‌نوازد.</p>
+<!-- ═══════════════════════════════════════
+     عنوان
+     ═══════════════════════════════════════ -->
 
-  <p>دل را به تو می‌سپارم،</p>
-  <p>تا در راستی بیارامد،</p>
-  <p>و بسوی نیکی روان شود.</p>
+<header class="main-title">
 
-  <p>ای روشنی وجدان، ای شور زندگی،</p>
-  <p>مگذار روزم در بی‌خبری بگذرد،</p>
-  <p>و لحظه‌هایم، بی‌ثمر از بین بروند.</p>
+    <div class="ornament">❈</div>
 
-  <p>نیت‌ام را پاک گردان،</p>
-  <p>آنچه میگویم را با لبخند بیارای،</p>
-  <p>و دلم را خانه‌ی مهر ساز.</p>
+    <h1>نیایشِ بامداد</h1>
 
-  <p>باشد که امروز،</p>
-  <p>بذری بنشانم برای فردا،</p>
-  <p>و نوری بیفشانم در دل انسانی دیگر.</p>
+    <div class="subtitle">
+        دو سرود برای آغازِ روز
+    </div>
 
-  <p>باشد که نگاهم روشن باشد،</p>
-  <p>سخنم نوازشگر،</p>
-  <p>کردارم مهربان،</p>
-  <p>و راهم روشن.</p>
+</header>
 
-  <p>آمین، ای سپیده‌دم جان‌ها،</p>
-  <p>ای که هر بامداد،</p>
-  <p>یاد تو، آغاز زندگی‌ست.</p>
 
-  <div class="footer">
-    <a href="https://celianor.github.io/Horia/Pray/index.fa.html">صفحه قبل</a>
-    |
-    <a href="https://celianor.github.io/Horia/index.fa.html">صفحه اصلی</a>
-  </div>
+
+<!-- ═══════════════════════════════════════
+     نسخهٔ کوتاه
+     ═══════════════════════════════════════ -->
+
+<section class="short-prayer">
+
+    <h2>نیایشِ بامداد</h2>
+
+    <article class="short-text">
+
+        <p>
+            ای هُورا،<br>
+            ای فروغِ نخستین،<br>
+            که در جانم می‌درخشی،<br>
+            از خوابِ گرانم برهان؛<br>
+            خردم را هشیار کن،<br>
+            دلم را روشن،<br>
+            و دیده‌ام را بینا.
+        </p>
+
+        <p>
+            جوینده‌ام کن و فروتن؛<br>
+            گفتارم را با کردارم هم‌آوا،<br>
+            و مهرم را از چشمداشت پیراسته.
+        </p>
+
+        <p>
+            مگذار اندوهِ دیروز و بیمِ فردا<br>
+            امروزم را بستاند؛<br>
+            باشد که آنچه از دستم بیرون است<br>
+            به آرامش بپذیرم،<br>
+            و آنچه در دستم است<br>
+            به دلیری و خرد بسازم.
+        </p>
+
+        <p>
+            مهربان‌ترم کن<br>
+            و به خویشتنِ راستین نزدیک‌تر؛<br>
+            تا به تیرگی سر فرود نیاورم،<br>
+            و تا اخگری در جان دارم،<br>
+            آن را از جهان دریغ نکنم.
+        </p>
+
+        <p class="short-ending">
+            من از فروغِ توام؛<br>
+            پاره‌ای از تو.<br>
+            باشد که بر روشنی بیفزایم.
+        </p>
+
+        <p class="short-signature">
+            هورام
+        </p>
+
+    </article>
+
+</section>
+
+
+
+<!-- ═══════════════════════════════════════
+     جداکننده
+     ═══════════════════════════════════════ -->
+
+<div class="divider">
+    ❈ ✦ ❈
+</div>
+
+
+
+<!-- ═══════════════════════════════════════
+     نسخهٔ بلند
+     ═══════════════════════════════════════ -->
+
+<section class="long-prayer">
+
+<div class="long-inner">
+
+<div class="long-page">
+
+
+<header class="long-header">
+
+    <div class="ornament">
+        ✦ ❈ ✦
+    </div>
+
+    <h2>
+        نیایشِ بامداد
+    </h2>
+
+    <h3>
+        سرودِ فروغ و بیداریِ جان
+    </h3>
+
+    <div class="long-rule"></div>
+
+</header>
+
+
+<article class="long-text">
+
+
+<p class="opening">
+
+    به نامِ آن فروغِ نخستین<br>
+    که پیش از برآمدنِ آفتاب،<br>
+    در نهان‌خانهٔ هستی بتافت<br>
+    و از پرتوِ خویش، چراغِ جانِ جهان برافروخت؛<br>
+    آن مهرِ دیرینه<br>
+    که در ژرفایِ جانِ آدمی<br>
+    تخمِ روشنایی نهاد،<br>
+    تا هر که در شبستانِ خویشتن گم شود،<br>
+    روزی به فروغِ آن چراغ بازآید<br>
+    و راهِ خویش بازشناسد.
+
+</p>
+
+
+<p>
+
+    ای هُورا،<br>
+    ای فروغِ بی‌زوال،<br>
+    ای روشنایِ نخستین و واپسین،<br>
+    ای آنکه نامت را زبان درنمی‌یابد<br>
+    و پرتوی از تو<br>
+    در هر ذرهٔ هستی پیداست؛
+
+</p>
+
+
+<p>
+
+    اینک که مرغِ سحر<br>
+    بر شاخسارِ خاموشی نغمه برکشیده،<br>
+    و سپیده<br>
+    چون دیباییِ سپید<br>
+    بر پهنهٔ آسمان گسترده است،<br>
+    مرا از خوابِ غفلت برانگیز.
+
+</p>
+
+
+<div class="long-ornament">
+    ✦ ❈ ✦
+</div>
+
+
+<p>
+
+    مرا دیده‌ای ده<br>
+    که از دیدنِ نقش<br>
+    به رازِ نگارگر رسد؛<br>
+    از برگ به بهار،<br>
+    از قطره به دریا،<br>
+    و از فروغِ سحر<br>
+    به خورشیدِ نهان.
+
+</p>
+
+
+<p>
+
+    مرا گوشی ده<br>
+    که در خاموشی<br>
+    بانگِ هستی بشنود،<br>
+    و در تپشِ دل<br>
+    آن سخنِ بی‌زبان را بازشناسد<br>
+    که از ژرفایِ جهان<br>
+    با جانِ آدمی در گفت‌وگوست.
+
+</p>
+
+
+<p>
+
+    در من بوز،<br>
+    تا غبارِ غفلت از چهرهٔ جان فرو ریزد؛<br>
+    و آن اخگرِ دیرینه<br>
+    که زیرِ خاکسترِ عادت نهفته است،<br>
+    باز سرخ گردد<br>
+    و زبانه برکشد.
+
+</p>
+
+
+<p>
+
+    مرا بیداری‌ای ارزانی دار<br>
+    که نخست<br>
+    چراغِ اندرونِ خویش برافروزم؛<br>
+    که اگر سراسرِ گیتی روشن باشد<br>
+    و درونِ آدمی شبستان،<br>
+    راهِ خویش نخواهد یافت.
+
+</p>
+
+
+<div class="reflection">
+
+<p>
+
+    خردم را تیز گردان<br>
+    و دلم را روشن؛<br>
+    تا خرد، راهبرِ دل باشد<br>
+    و دل، گرمی‌بخشِ خرد.
+
+</p>
+
+<p>
+
+    چه سود<br>
+    اگر خرد چراغی در دست دارد<br>
+    و دل راهِ رفتن نمی‌داند؟<br>
+    و چه سود<br>
+    اگر دل از شوقِ رفتن می‌تپد<br>
+    و خرد در پیشِ پایش چراغی نمی‌نهد؟
+
+</p>
+
+</div>
+
+
+<p>
+
+    مرا بیاموز<br>
+    که دانایی آن نیست<br>
+    که نامِ هر چیز بدانم؛<br>
+    دانایی آن است<br>
+    که رازِ نادانستن را نیز بشناسم<br>
+    و در برابرِ آنچه نمی‌دانم<br>
+    سرِ فروتنی فرود آورم.
+
+</p>
+
+
+<p>
+
+    مرا جوینده دار، نه مدعی؛<br>
+    رهسپار دار،<br>
+    نه دعوی‌دارِ رسیدن؛<br>
+    که راه،<br>
+    از گام‌هایِ جوینده روشن می‌شود،<br>
+    نه از دعویِ رسیدگان.
+
+</p>
+
+
+<div class="long-ornament">
+    ❈
+</div>
+
+
+<p>
+
+    ای مهرِ مینوی،<br>
+    دل مرا جایگاهِ مهر گردان؛<br>
+    که بی‌مهر،<br>
+    خرد نیز سنگی سرد است<br>
+    در مشتِ آدمی.
+
+</p>
+
+
+<p>
+
+    مرا چنان کن<br>
+    که رنجِ دیگری در من بیگانه نماند<br>
+    و شادیِ دیگری<br>
+    در جانم پژواکی بیابد.
+
+</p>
+
+
+<p>
+
+    مرا بیاموز<br>
+    که نیکی را برایِ آوازه نکنم؛<br>
+    که گل<br>
+    نامِ خویش نمی‌پرسد<br>
+    و عطرِ خویش<br>
+    به بهایِ ستایش نمی‌فروشد.
+
+</p>
+
+
+<p>
+
+    اگر نتوانم شبِ همهٔ گیتی را روز کنم،<br>
+    چراغی در گوشه‌ای برافروزم؛<br>
+    که گاه<br>
+    یک شررِ کوچک<br>
+    راهِ کاروانی را<br>
+    در شبِ بی‌پایان می‌نمایاند.
+
+</p>
+
+
+<p>
+
+    هر بامداد<br>
+    می‌توان خشتی بر دیوارِ نیکی نهاد<br>
+    و سنگی از بنایِ کین برداشت؛<br>
+    دلی را کمتر آزرد،<br>
+    جانی را بیشتر امید داد،<br>
+    و در خاموشیِ خویش<br>
+    چیزی از جهان را آباد کرد.
+
+</p>
+
+
+<p>
+
+    مرا از گفتارِ بی‌کردار نگاه دار؛<br>
+    مگذار زبانم<br>
+    کاخی بلند از سخن برآورد<br>
+    و دستم در برابرِ آن خالی بماند.
+
+</p>
+
+
+<p>
+
+    مرا از خویشتن‌فریبی برهان؛<br>
+    آینه‌ای زلال در جانم بیاویز،<br>
+    تا خویشتن را<br>
+    نه بزرگ‌تر از آنچه هستم ببینم<br>
+    که غرور مرا بفریبد،<br>
+    و نه کوچک‌تر از آنچه هستم<br>
+    که نومیدی مرا بشکند.
+
+</p>
+
+
+<div class="long-ornament">
+    ✦ ❈ ✦
+</div>
+
+
+<p>
+
+    مرا در امروز جای ده؛<br>
+    که دیروز رفته است<br>
+    و فردا هنوز نیامده.
+
+</p>
+
+
+<p>
+
+    مگذار حسرتِ دیروز<br>
+    چشمم را بر امروز ببندد،<br>
+    و بیمِ فردا<br>
+    دست و پایِ اکنونم را.
+
+</p>
+
+
+<p>
+
+    مرا چنان بیدار دار<br>
+    که نسیم را بفهمم،<br>
+    باران را بشنوم،<br>
+    و از کنارِ شگفتی‌هایِ کوچکِ جهان<br>
+    بی‌خبر نگذرم.
+
+</p>
+
+
+<p>
+
+    مرا از ناپایداری مترسان؛<br>
+    که ناپایداری<br>
+    رازِ بهایِ هر دم است.
+
+</p>
+
+
+<p>
+
+    اگر برگ نمی‌ریخت،<br>
+    بهار این‌همه عزیز نبود؛<br>
+    و اگر شب نمی‌آمد،<br>
+    سپیده چنین گرامی نمی‌نمود.
+
+</p>
+
+
+<p>
+
+    مرا چنان زیستن بیاموز<br>
+    که چون هنگامِ رفتن رسد،<br>
+    از آنچه می‌بایست باشم<br>
+    کمتر نمانده باشم.
+
+</p>
+
+
+<div class="reflection">
+
+<p>
+
+    مگذار رنج مرا سنگ کند؛<br>
+    بگذار نرم‌ترم کند.
+
+</p>
+
+<p>
+
+    مگذار اندوه مرا از جهان براند؛<br>
+    بگذار چشمم را<br>
+    به اندوهِ دیگران گشوده‌تر سازد.
+
+</p>
+
+</div>
+
+
+<p>
+
+    هر بامداد<br>
+    در من چیزی را بمیران<br>
+    که شایستهٔ ماندن نیست:<br>
+    کینه‌ای،<br>
+    خودفریبی‌ای،<br>
+    ترسی،<br>
+    عادتی؛<br>
+    و در جایِ آن<br>
+    نهالی از روشنایی بنشان.
+
+</p>
+
+
+<p>
+
+    مرا چنان کن<br>
+    که آنچه در دستِ من نیست<br>
+    با دلِ آرام بسپارم،<br>
+    و آنچه در دستِ من است<br>
+    با دلیری بسازم؛<br>
+    و خردی ده<br>
+    که این دو را از یکدیگر بازشناسم.
+
+</p>
+
+
+<div class="long-ornament">
+    ❈
+</div>
+
+
+<p>
+
+    و چون شامگاه<br>
+    دامن بر جهان افکند<br>
+    و خورشید<br>
+    پشتِ کوهساران فرو رود،<br>
+    مرا با خویشتن تنها کن؛<br>
+    تا بنگرم<br>
+    امروز چه کاشته‌ام<br>
+    و چه بر جای نهاده‌ام.
+
+</p>
+
+
+<p>
+
+    اگر دلی را آزرده‌ام،<br>
+    راهِ جبران را بر من بنما؛<br>
+    اگر لغزیده‌ام،<br>
+    مرا از برخاستن بازمدار؛<br>
+    و اگر نیکی کرده‌ام،<br>
+    مرا از غرورِ آن نگاه دار.
+
+</p>
+
+
+<p>
+
+    که راهِ جان<br>
+    راهِ بی‌لغزش نیست؛<br>
+    راهِ بازآمدن است،<br>
+    راهِ آموختن،<br>
+    راهِ برخاستن،<br>
+    راهِ دوباره به خویشتن رسیدن.
+
+</p>
+
+
+<p>
+
+    که ماندگاریِ آدمی<br>
+    به نام و آوازه نیست؛<br>
+    به آن نیکی‌ست<br>
+    که از بودنِ او<br>
+    در جانِ جهان بر جای می‌ماند.
+
+</p>
+
+
+<div class="long-ornament">
+    ✦ ❈ ✦
+</div>
+
+
+<p>
+
+    پس این بامداد را<br>
+    به نامِ فروغ آغاز می‌کنم؛<br>
+    خرد را چراغِ راه می‌گیرم،<br>
+    مهر را آیینِ دل می‌سازم،<br>
+    راستی را پیمانِ خویش می‌دارم؛<br>
+    و با خویشتن پیمان می‌بندم<br>
+    که تا چراغِ جان روشن است،<br>
+    در تیرگی نمانم؛<br>
+    و تا فروغی در من هست،<br>
+    آن را از جهان دریغ نکنم.
+
+</p>
+
+
+<p>
+
+    بگذار چون سپیده باشم؛<br>
+    نه آفتابی که جهان را بسوزاند،<br>
+    بل نوری که آهسته‌آهسته<br>
+    تیرگی را پس زند.
+
+</p>
+
+
+<p>
+
+    بگذار چون باران باشم؛<br>
+    فرودآینده بر همه،<br>
+    بی‌پرسش از نام و نشان.
+
+</p>
+
+
+<p>
+
+    بگذار چون درخت باشم؛<br>
+    سایه‌بخشِ هر که در سایه‌ام پناه گیرد.
+
+</p>
+
+
+<p>
+
+    بگذار چون رود باشم؛<br>
+    روان،<br>
+    جوینده،<br>
+    رهسپارِ دریا؛<br>
+    که آب، اگر در خویش بماند،<br>
+    مرداب شود،<br>
+    و اگر روان گردد،<br>
+    راهِ خویش به دریا باز یابد.
+
+</p>
+
+
+<p>
+
+    و بگذار چون آتش باشم؛<br>
+    نه آتشِ سوختن،<br>
+    که آتشِ روشن کردن؛<br>
+    آن اخگرِ مینوی<br>
+    که تیرگی را می‌خورد<br>
+    و خویشتن<br>
+    روشن‌تر می‌شود.
+
+</p>
+
+
+<div class="long-ornament">
+    ❈
+</div>
+
+
+<p>
+
+    ای هُورا،<br>
+    آدمی اگر خویشتنِ راستین را بیابد،<br>
+    گنجی یافته است<br>
+    که دستِ روزگار بدان نرسد.
+
+</p>
+
+
+<p>
+
+    پس مرا به خویشتن بازگردان؛<br>
+    به آن چشمهٔ خاموش<br>
+    که در ژرفایِ جان روان است؛<br>
+    به آن فروغِ نهفته<br>
+    که زیرِ غبارِ روزگاران<br>
+    هنوز خاموش نگشته است.
+
+</p>
+
+
+<div class="long-ending">
+
+<p>
+
+    و چون بامدادِ دیگر فرا رسد،<br>
+    باشد که من<br>
+    اندکی بیدارتر از امروز باشم،<br>
+    اندکی مهربان‌تر،<br>
+    اندکی آزادتر،<br>
+    اندکی ژرف‌تر،<br>
+    و اندکی نزدیک‌تر<br>
+    به آن حقیقتِ روشن<br>
+    که از نخستین سپیده<br>
+    مرا به سویِ خویش می‌خواند.
+
+</p>
+
+<div class="final-symbol">
+    ❦
+</div>
+
+<div class="signature">
+    هورام
+</div>
+
+</div>
+
+
+</article>
+
+</div>
+</div>
+
+</section>
+
 
 </body>
-</html>
+  </html>
