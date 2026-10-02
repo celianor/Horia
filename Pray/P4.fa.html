@@ -5,246 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نیایشِ شبانگاه | هُورا</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Marhey:wght@400;500;600&display=swap');
-
-    :root {
-      --ink: #eadfc4;
-      --gold: #c9a96e;
-      --gold-light: #e2c98d;
-      --deep: #0d0b09;
-      --panel: #15110d;
-      --line: rgba(201, 169, 110, 0.45);
-      --muted: #aa9a7b;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 50% 0%, #2a2118 0%, #120e0b 38%, #080706 100%);
-      color: var(--ink);
-      font-family: "Amiri", "Times New Roman", serif;
-      line-height: 2.35;
-      font-size: 19px;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .12;
-      background-image:
-        radial-gradient(#d5bd8b 0.6px, transparent 0.6px);
-      background-size: 7px 7px;
-      mix-blend-mode: screen;
-    }
-
-    a {
-      color: var(--gold-light);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #fff1c5;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(10, 8, 6, .9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
-      padding: 12px 20px;
-      text-align: center;
-    }
-
-    .topbar a {
-      display: inline-block;
-      margin: 0 18px;
-      font-size: 15px;
-      letter-spacing: .5px;
-      transition: .3s ease;
-    }
-
-    .topbar a::before {
-      content: "✦";
-      margin-left: 7px;
-      color: var(--gold);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 90px 20px 55px;
-    }
-
-    .ornament {
-      color: var(--gold);
-      font-size: 27px;
-      letter-spacing: 10px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      color: var(--gold-light);
-      font-family: "Marhey", "Amiri", serif;
-      font-size: clamp(30px, 6vw, 58px);
-      font-weight: 500;
-      text-shadow: 0 0 25px rgba(201,169,110,.18);
-    }
-
-    .hero p {
-      color: var(--muted);
-      margin-top: 15px;
-      font-size: 17px;
-    }
-
-    main {
-      width: min(920px, 92%);
-      margin: auto;
-    }
-
-    .prayer {
-      position: relative;
-      margin: 45px 0 90px;
-      padding: 55px clamp(25px, 6vw, 75px);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(37, 28, 20, .96),
-          rgba(16, 12, 9, .98)
-        );
-      border: 1px solid var(--line);
-      box-shadow:
-        0 20px 60px rgba(0,0,0,.55),
-        inset 0 0 45px rgba(201,169,110,.035);
-    }
-
-    .prayer::before,
-    .prayer::after {
-      content: "❦";
-      position: absolute;
-      color: var(--gold);
-      font-size: 34px;
-    }
-
-    .prayer::before {
-      top: 15px;
-      right: 22px;
-    }
-
-    .prayer::after {
-      bottom: 15px;
-      left: 22px;
-      transform: rotate(180deg);
-    }
-
-    .prayer.short {
-      border-radius: 4px;
-    }
-
-    .prayer.long {
-      border-radius: 2px;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--gold-light);
-      font-family: "Marhey", "Amiri", serif;
-      font-size: 29px;
-      font-weight: 500;
-      margin: 0 0 35px;
-    }
-
+  
     .section-title::after {
       content: "──────── ✦ ────────";
-      display: block;
-      color: var(--gold);
-      font-family: serif;
-      font-size: 14px;
-      margin-top: 10px;
-      opacity: .7;
-    }
 
-    .short .verse {
-      text-align: center;
-      margin: 0 0 25px;
-    }
+<style>
+/* ===== فونت و نمایش درست فارسی در تیترها ===== */
 
-    .long .verse {
-      margin: 0 0 27px;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
-    .verse.emphasis {
-      color: var(--gold-light);
-      font-size: 21px;
-      text-align: center;
-      margin: 45px 0;
-    }
+html {
+    direction: rtl;
+}
 
-    .closing {
-      text-align: center;
-      color: var(--gold-light);
-      font-size: 23px;
-      margin-top: 45px;
-      line-height: 2;
-    }
+body {
+    direction: rtl;
+    font-family:
+        "Noto Naskh Arabic",
+        "Amiri",
+        "Noto Serif Arabic",
+        "Scheherazade New",
+        serif;
+}
 
-    .divider {
-      text-align: center;
-      color: var(--gold);
-      margin: 65px 0;
-      letter-spacing: 8px;
-    }
+/* تیتر اصلی */
+h1,
+.hero h1 {
+    font-family:
+        "Amiri",
+        "Noto Naskh Arabic",
+        "Noto Serif Arabic",
+        serif !important;
 
-    .footer {
-      text-align: center;
-      padding: 55px 20px 75px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    font-weight: 700;
+    direction: rtl;
+    unicode-bidi: isolate;
+    text-align: center;
 
-    .footer .symbol {
-      display: block;
-      color: var(--gold);
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
+    font-style: normal;
+    font-variant: normal;
+    font-feature-settings:
+        "liga" 1,
+        "rlig" 1,
+        "calt" 1,
+        "kern" 1;
 
-    @media (max-width: 650px) {
-      body {
-        font-size: 17px;
-        line-height: 2.15;
-      }
+    text-rendering: optimizeLegibility;
 
-      .hero {
-        padding-top: 65px;
-      }
+    /* جلوگیری از هرگونه دستکاری حروف */
+    text-transform: none;
+    letter-spacing: 0;
+    word-spacing: normal;
+}
 
-      .prayer {
-        padding: 42px 22px;
-      }
+/* تیترهای فرعی */
+h2,
+.section-title {
+    font-family:
+        "Amiri",
+        "Noto Naskh Arabic",
+        "Noto Serif Arabic",
+        serif !important;
 
-      .topbar a {
-        margin: 0 8px;
-        font-size: 14px;
-      }
+    font-weight: 700;
+    direction: rtl;
+    unicode-bidi: isolate;
+    text-align: center;
 
-      .verse.emphasis {
-        font-size: 19px;
-      }
-    }
-  </style>
+    font-style: normal;
+    font-variant: normal;
+    font-feature-settings:
+        "liga" 1,
+        "rlig" 1,
+        "calt" 1,
+        "kern" 1;
+
+    text-rendering: optimizeLegibility;
+
+    text-transform: none;
+    letter-spacing: 0;
+    word-spacing: normal;
+}
+
+/* اطمینان از اینکه ی فارسی واقعاً ی فارسی باشد */
+h1, h2, h1 *, h2 * {
+    direction: rtl;
+    unicode-bidi: isolate;
+}
+
+/* اندازه‌ها */
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.8;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1.9;
+}
+</style>
 </head>
 
 <body>
