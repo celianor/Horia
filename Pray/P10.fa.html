@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>راستی | نیایشِ هُورا</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+    --ink: #eee4c9;
+    --muted: #b9aa86;
+    --gold: #c7a45a;
+    --gold-light: #e3c77d;
+    --deep: #11100d;
+    --stone: #191713;
+    --line: rgba(199,164,90,.42);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(139,110,53,.18), transparent 32rem),
+        linear-gradient(180deg, #0d0c0a 0%, #15130f 45%, #0d0c0a 100%);
+    color: var(--ink);
+    font-family: "Amiri", "Noto Naskh Arabic", serif;
+    line-height: 2.55;
+    font-size: 21px;
+}
+
+/* حاشیهٔ کهن */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 15px;
+    border: 1px solid rgba(199,164,90,.22);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page {
+    width: min(920px, calc(100% - 42px));
+    margin: auto;
+    padding: 45px 0 90px;
+}
+
+/* ناوبری */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--line);
+    font-size: 17px;
+}
+
+.nav a {
+    color: var(--gold-light);
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.nav a:hover {
+    color: white;
+    text-shadow: 0 0 14px rgba(227,199,125,.55);
+}
+
+.nav .mark {
+    color: var(--muted);
+    letter-spacing: 2px;
+}
+
+/* سرآغاز */
+.hero {
+    text-align: center;
+    padding: 20px 0 75px;
+}
+
+.hero .ornament {
+    color: var(--gold);
+    font-size: 27px;
+    letter-spacing: 12px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    margin: 0;
+    color: var(--gold-light);
+    font-size: clamp(46px, 8vw, 78px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow:
+        0 2px 2px #000,
+        0 0 25px rgba(199,164,90,.18);
+}
+
+.hero .subtitle {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 19px;
+    letter-spacing: 4px;
+}
+
+/* خط آیینی */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0;
+    color: var(--gold);
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(
+        to left,
+        transparent,
+        var(--line)
+    );
+}
+
+.divider::after {
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--line)
+    );
+}
+
+/* متن اصلی */
+.prayer {
+    position: relative;
+    padding: 50px clamp(22px, 6vw, 70px);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.025),
+            transparent 35%,
+            rgba(199,164,90,.025)
+        ),
+        rgba(20,18,14,.76);
+
+    border-top: 1px solid rgba(199,164,90,.28);
+    border-bottom: 1px solid rgba(199,164,90,.28);
+
+    box-shadow:
+        inset 0 0 80px rgba(0,0,0,.28),
+        0 20px 70px rgba(0,0,0,.25);
+}
+
+.prayer p {
+    margin: 0 0 30px;
+    text-align: right;
+    text-wrap: pretty;
+}
+
+.prayer .opening {
+    color: var(--gold-light);
+    font-size: 25px;
+    line-height: 2.35;
+    margin-bottom: 42px;
+}
+
+.prayer .opening:first-letter {
+    font-size: 1.7em;
+}
+
+/* سه جلوهٔ راستی */
+.truth-triad {
+    margin: 50px 0 55px;
+    padding: 30px 18px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+}
+
+.truth-triad .title {
+    color: var(--gold);
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.truth-triad .three {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.truth-triad .three span {
+    min-width: 190px;
+    padding: 13px 18px;
+    color: var(--ink);
+    border: 1px solid rgba(199,164,90,.25);
+    background: rgba(199,164,90,.035);
+}
+
+.truth-triad strong {
+    display: block;
+    color: var(--gold-light);
+    font-size: 21px;
+}
+
+/* بندهای ویژه */
+.emphasis {
+    margin: 55px 0;
+    padding: 30px 28px;
+    border-right: 3px solid var(--gold);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(199,164,90,.045),
+            transparent
+        );
+    color: #f0e7d0;
+    font-size: 23px;
+    line-height: 2.45;
+}
+
+.emphasis.center {
+    text-align: center;
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid rgba(199,164,90,.32);
+    border-bottom: 1px solid rgba(199,164,90,.32);
+}
+
+/* پایان */
+.closing {
+    margin-top: 65px;
+    padding: 45px 20px;
+    text-align: center;
+    color: var(--gold-light);
+    font-size: 25px;
+    line-height: 2.5;
+}
+
+.closing .seal {
+    display: block;
+    margin-top: 35px;
+    color: var(--gold);
+    font-size: 29px;
+    letter-spacing: 7px;
+}
+
+/* پابرگ */
+footer {
+    margin-top: 65px;
+    text-align: center;
+    color: #83775d;
+    font-size: 15px;
+}
+
+footer .symbol {
+    color: var(--gold);
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+/* موبایل */
+@media (max-width: 650px) {
+
+    body {
+        font-size: 18px;
+        line-height: 2.45;
+    }
+
+    body::before {
+        inset: 7px;
+    }
+
+    .page {
+        width: min(100% - 28px, 920px);
+        padding-top: 25px;
+    }
+
+    .nav {
+        margin-bottom: 40px;
+    }
+
+    .hero {
+        padding-bottom: 45px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .prayer {
+        padding: 35px 18px;
+    }
+
+    .prayer .opening {
+        font-size: 21px;
+    }
+
+    .emphasis {
+        font-size: 20px;
+        padding: 25px 18px;
+    }
+
+    .truth-triad .three {
+        display: block;
+    }
+
+    .truth-triad .three span {
+        margin: 9px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <nav class="nav">
+        <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+        <span class="mark">هُورا · نیایش‌ها</span>
+        <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت ↩</a>
+    </nav>
+
+    <header class="hero">
+        <div class="ornament">✦ ❈ ✦</div>
+        <h1>راستی</h1>
+        <div class="subtitle">نیایشِ راستی و راست‌بودن</div>
+    </header>
+
+    <div class="divider">✦</div>
+
+    <main class="prayer">
+
+        <p class="opening">
+            ای هُورا،<br>
+            ای راستیِ نخستین،<br>
+            ای فروغِ فرونخفتنیِ جان،<br>
+            ای چشمهٔ روشنِ هستی،<br>
+            که از راستیِ تو<br>
+            رگ‌هایِ جهان روان است<br>
+            و رشته‌هایِ هستی به پیمانِ تو پیوسته؛<br>
+            ای آن‌که نهان‌تر از اندیشه‌ای<br>
+            و آشکارتر از آفتاب،<br>
+            نزدیک‌تر از نفس<br>
+            و دورتر از دسترسِ زبان؛<br>
+            مرا به راهِ راستی راه بنمای،<br>
+            و از راهِ راست<br>
+            به رازِ راست رهنمون شو؛
+        </p>
+
+        <p>
+            که بسیار دانسته‌ام و نزیسته‌ام،<br>
+            بسیار گفته‌ام و نکرده‌ام،<br>
+            بسیار دیده‌ام و درنیافته‌ام،<br>
+            و چه بسیار در آیینه نگریسته‌ام<br>
+            و خویشتن را ندیده‌ام.
+        </p>
+
+        <section class="truth-triad">
+            <div class="title">یک گوهر · سه جلوه</div>
+
+            <div class="three">
+                <span>
+                    <strong>راستیِ بودن</strong>
+                    در جان
+                </span>
+
+                <span>
+                    <strong>راستیِ گفتن</strong>
+                    بر زبان
+                </span>
+
+                <span>
+                    <strong>راستیِ زیستن</strong>
+                    در کردار
+                </span>
+            </div>
+        </section>
+
+        <p>
+                    راستی  <br>
+        یک گوهر است با سه جلوه،<br>
+            یک خورشید است و سه پرتو:<br>
+            در جان، راست بودن؛<br>
+            بر زبان، راست گفتن؛<br>
+            و در کردار، راست زیستن.
+        </p>
+
+        <p>
+            ای هُورا،<br>
+            نخست آیینهٔ جانم را از غبار بزدای<br>
+            و دیدهٔ دلم را از دودِ خودفریبی پاک کن؛<br>
+            تا خویشتن را<br>
+            نه در جامهٔ آرزو،<br>
+            که در جامهٔ راستی ببینم؛<br>
+            نه چنان که می‌خواهم باشم،<br>
+            که چنان که هستم.
+        </p>
+
+        <p>
+            مگذار ناتوانی را<br>
+            ردایِ فروتنی پوشانم،<br>
+            و غرور را<br>
+            تاجِ سرافرازی بر سر نهم؛<br>
+            مگذار بیم را خرد بنامم،<br>
+            هوس را خواستِ دل،<br>
+            و سودِ خویش را<br>
+            سودِ جهان.
+        </p>
+
+        <div class="emphasis">
+            که نخستین ناراستی<br>
+            آن‌گاه زاده می‌شود<br>
+            که آدمی<br>
+            آیینه را کج کند<br>
+            تا چهره‌اش راست بنماید.
+        </div>
+
+        <p>
+            مرا دلِ دیدن ده<br>
+            و دیدهٔ پذیرفتن؛<br>
+            تا اگر در خویش شب دیدم،<br>
+            چراغ برفروزم، نه پرده بیفکنم؛<br>
+            و اگر در خویش روشنایی دیدم،<br>
+            سر بر آستانِ سپاس بنهم،<br>
+            نه بر بامِ غرور.
+        </p>
+
+        <p>
+            که راستی<br>
+            آن نیست که خویش را بی‌عیب ببینی،<br>
+            و نه آن‌که یکسره عیب بدانی؛<br>
+            راستی آن است<br>
+            که خویشتن را<br>
+            بی‌کم‌وکاست، بی‌پیرایه و بی‌پرده،<br>
+            چنان‌که هستی ببینی.
+        </p>
+
+        <p>
+            ای هُورا،<br>
+            زبانم را نگهبانِ راستی کن،<br>
+            نه سوداگرِ خواهش؛<br>
+            پاسدارِ معنا کن،<br>
+            نه اسیرِ هوس.
+        </p>
+
+        <p>
+            سخنم را راست گردان<br>
+            و راستگویی‌ام را<br>
+            به خرد بیارای و به مهر بیامیز؛<br>
+            که هر سخنِ راست<br>
+            جایِ گفتن ندارد<br>
+            و هر خاموشی<br>
+            نشانِ ناراستی نیست.
+        </p>
+
+        <p>
+            گاه یک واژه<br>
+            کلیدِ دری است بسته،<br>
+            و گاه همان واژه<br>
+            سنگی است بر شیشهٔ دل؛<br>
+            گاه سخن چراغِ راه است<br>
+            و گاه تیغِ آه؛<br>
+            گاه خاموشی وفایِ دل است<br>
+            و گاه خیانتِ زبان.
+        </p>
+
+        <p>
+            مرا آن خرد ده<br>
+            که هنگامِ گفتن را از ناگفتن بشناسم،<br>
+            و جایِ تیغ را از چراغ؛<br>
+            تا زبانم<br>
+            نه زخم‌زنِ جان،<br>
+            که مرهم‌گذارِ دل باشد؛<br>
+            نه دیوارِ میانِ آدمیان،<br>
+            که پلِ پیوندِ ایشان.
+        </p>
+
+        <p>
+            اگر راست می‌گویم،<br>
+            راستی را به کین نیالایم؛<br>
+            اگر هشدار می‌دهم،<br>
+            هشدارم را با خوارداشت درنیامیزم؛<br>
+            و اگر خاموش می‌مانم،<br>
+            خاموشی‌ام از بیم نباشد<br>
+            و از آز نیز.
+        </p>
+
+        <p>
+            زبانم را چشمه‌ای کن<br>
+            که آبش زلال باشد<br>
+            و آبرویِ کسی را نریزد؛<br>
+            نه سیلی که خانه‌ای را ببرد،<br>
+            نه آتشی که خرمنی را بسوزد.
+        </p>
+
+        <div class="emphasis center">
+            ای هُورا،<br>
+            چه سود اگر زبانم راست گوید<br>
+            و دستم کژ رود؟<br>
+            چه سود اگر لب به داد گشایم<br>
+            و دست به بیداد؟<br>
+            چه سود اگر در سخن<br>
+            از راستی سرایم<br>
+            و در دادوستد<br>
+            ترازوی خویش را کج نهم؟
+        </div>
+
+        <p>
+            راستی آن‌گاه راستی است<br>
+            که از لب فرود آید<br>
+            و در دست برآید؛<br>
+            در خانه آزموده شود،<br>
+            در بازار سنجیده گردد،<br>
+            در پیمان استوار بماند،<br>
+            در سپرده خیانت نکند،<br>
+            در داوری جانبِ سود نگیرد،<br>
+            در توانایی بر ناتوانی ستم نراند،<br>
+            و آن‌گاه که هیچ دیده‌ای نگران نیست،<br>
+            چشمِ دل را نگرانِ خویش بداند.
+        </p>
+
+        <p>
+            آنجاست<br>
+            که زر از گوهر جدا شود،<br>
+            نقش از نگین،<br>
+            و ریا از راستی.
+        </p>
+
+        <p>
+            مرا چنان کن<br>
+            که پیمانم در نهان<br>
+            همان باشد که در آشکار؛<br>
+            سپرده‌ام در تنهایی<br>
+            همان که در انجمن؛<br>
+            و دادم دربارهٔ دوست<br>
+            همان که دربارهٔ دشمن.
+        </p>
+
+        <p>
+            که راستی<br>
+            آن نیست که برای دوست<br>
+            ترازویِ نرم نهی<br>
+            و برای دشمن<br>
+            سنگِ سخت.
+        </p>
+
+        <p>
+            ای هُورا،<br>
+            اکنون مرا از خویشتن<br>
+            به جهان ببر؛<br>
+            از یک دل به هزار دل،<br>
+            از یک سخن<br>
+            به سامانِ بسیار سخن.
+        </p>
+
+        <p>
+            که آدمی جزیره نیست؛<br>
+            رشته‌ای است در رشتهٔ جهان،<br>
+            تاری است در تارِ هستی،<br>
+            و هر جنبشِ او<br>
+            در جانِ دیگری موج می‌زند.
+        </p>
+
+        <p>
+            یک دروغ<br>
+            دانهٔ ترس است؛<br>
+            در دل می‌افتد<br>
+            و شاخه‌هایِ بدگمانی برمی‌آورد.
+        </p>
+
+        <p>
+            یک پیمان‌شکنی<br>
+            ترکِ کوچکی در دیوارِ اعتماد است؛<br>
+            اگر بازماند،<br>
+            بارانِ بی‌باوری<br>
+            از همان ترک به خانهٔ دل راه می‌یابد.
+        </p>
+
+        <p>
+            و یک راستی نیز<br>
+            بی‌ثمر نمی‌ماند:<br>
+            یک دل که راست بایستد،<br>
+            لرزِ دلِ دیگری را می‌نشاند؛<br>
+            یک سخن که پاک برآید،<br>
+            هوایِ آلودهٔ یک انجمن را می‌زداید؛<br>
+            و یک پیمان که استوار بماند،<br>
+            میانِ دو دل پل می‌زند.
+        </p>
+
+        <p>
+            پس شاید سامانِ جهان<br>
+            از همین جایِ کوچک آغاز شود:<br>
+            از دلی که خویش را نمی‌فریبد،<br>
+            از زبانی که راستی را نمی‌فروشد،<br>
+            از دستی که عهدِ زبان را نمی‌شکند.
+        </p>
+
+        <div class="emphasis center">
+            دریا از قطره‌هاست،<br>
+            سپیده از سوسویِ چراغ‌ها.<br><br>
+            مرا یکی از آن چراغ‌ها کن؛<br>
+            نه چندان بلند<br>
+            که خویشتن را خورشید پندارم،<br>
+            و نه چنان خُرد<br>
+            که شعلهٔ خویش را خوار شمارم.
+        </div>
+
+        <p>
+            اگر نتوانم<br>
+            همهٔ جهان را راست کنم،<br>
+            دست‌کم<br>
+            کژیِ خویش را بر کژی‌هایِ جهان نیفزایم؛<br>
+            و اگر نتوانم<br>
+            تمامِ شب را روشن کنم،<br>
+            چراغِ خویش را<br>
+            به دستِ باد نسپارم.
+        </p>
+
+        <p>
+            ای هُورا،<br>
+            مرا چنان کن<br>
+            که نخواهم همیشه «برحق» باشم؛<br>
+            بخواهم «راست» باشم.
+        </p>
+
+        <p>
+            که «برحق بودن»<br>
+            گاه آدمی را بر تختِ خویش می‌نشاند،<br>
+            اما «راست بودن»<br>
+            او را بر خاکِ حقیقتِ خویش می‌نشاند.
+        </p>
+
+        <p>
+            چه بسیار ستیزها<br>
+            که از «من درست می‌گویم» آغاز شد،<br>
+            و چه بسیار آشتی‌ها<br>
+            که با یک «شاید من خطا کرده باشم»<br>
+            راهِ نفس کشیدن یافت.
+        </p>
+
+        <p>
+            مرا این دل‌آوری ده؛<br>
+            که بازگشت از ناراستی<br>
+            شکست نیست، رهایی است؛<br>
+            پذیرفتنِ خطا<br>
+            خُردی نیست، بزرگی است؛<br>
+            و دگرگون شدن<br>
+            بی‌وفایی به خویش نیست،<br>
+            وفاداری به راستی است.
+        </p>
+
+        <p>
+            در دلم ترازویی بنه<br>
+            که سود آن را سبک نکند<br>
+            و زیان سنگین؛<br>
+            ستایش آن را نلغزاند<br>
+            و سرزنش نشکند؛<br>
+            ترازویی که سنگش راستی باشد<br>
+            و میزانش مهر،<br>
+            نه هیاهوی مردمان<br>
+            و نه هوایِ نفس.
+        </p>
+
+        <p>
+            ای هُورا،<br>
+            راستی را در من<br>
+            از دانستن به زیستن برسان؛<br>
+            از زیستن به بخشیدن؛<br>
+            از بخشیدن به روشنایی؛<br>
+            و از روشنایی<br>
+            به روشن کردنِ راهِ دیگران.
+        </p>
+
+        <p>
+            مرا چنان کن<br>
+            که راستی را از آنِ خویش ندانم،<br>
+            که در راستی آرام گیرم؛<br>
+            راستی را در مشت نگیرم،<br>
+            که خویشتن را در آغوشِ آن بسپارم.
+        </p>
+
+        <p>
+            راستی در جانم،<br>
+            راستگویی بر زبانم،<br>
+            راستی در کردارم؛<br>
+            سه جلوه از یک گوهر،<br>
+            سه پرتو از یک خورشید،<br>
+            سه گام در یک راه،<br>
+            سه پیمان در یک عهد.
+        </p>
+
+        <p>
+            از یک دلِ راست<br>
+            زبانِ راست برآید؛<br>
+            از زبانِ راست<br>
+            اعتماد زاده شود؛<br>
+            از اعتماد، پیمان؛<br>
+            از پیمان، همدلی؛<br>
+            و از همدلی<br>
+            جهانی که در آن<br>
+            آدمی کمتر از خویش بترسد،<br>
+            کمتر به دیگری بدگمان شود،<br>
+            و بیشتر<br>
+            پناهِ دیگری باشد.
+        </p>
+
+        <p>
+            اگر لغزیدم، بازگردان؛<br>
+            اگر فراموش کردم، یادآور شو؛<br>
+            اگر ترسیدم، استوارم کن؛<br>
+            اگر ببالیدم، فروتنم ساز؛<br>
+            و اگر خسته شدم،<br>
+            اخگرِ راستی را<br>
+            در خاکسترِ جانم زنده بدار.
+        </p>
+
+        <p>
+            تا واپسین دم<br>
+            نه مدعیِ راستی باشم،<br>
+            که جویندهٔ آن؛<br>
+            نه دارندهٔ راستی،<br>
+            که خدمتگزارِ آن؛<br>
+            نه داورِ دیگران،<br>
+            که نخستین داورِ خویشتن.
+        </p>
+
+        <p>
+            و اگر از من در جهان<br>
+            چیزی بماند،<br>
+            کاش واژه‌ای باشد<br>
+            که دروغ نداشته باشد؛<br>
+            پیمانی باشد<br>
+            که شکست نپذیرد؛<br>
+            کرداری باشد<br>
+            که زبان و دل را<br>
+            از هم جدا نکند؛<br>
+            یا حتی نگاهی<br>
+            که در آن<br>
+            راستی نفس کشیده باشد.
+        </p>
+
+        <div class="emphasis center">
+            و اگر تنها یک چراغ باشم،<br>
+            همین مرا بس؛<br>
+            که یک چراغِ راست<br>
+            بهتر از هزار شعلهٔ فریب است.
+        </div>
+
+        <p>
+            باشد که راستیِ من<br>
+            در من نماند؛<br>
+            از من به دیگری رسد،<br>
+            از دیگری به دیگری،<br>
+            و از دل‌هایِ راست<br>
+            راهی به سوی جهانی راست گشوده شود؛<br>
+            که شاید رستگاریِ جهان<br>
+            نه از فریادِ بسیار،<br>
+            که از یک دلِ راست آغاز شود؛<br>
+            از دلی که در تنهاییِ خویش<br>
+            با راستی پیمان بندد،<br>
+            در آشکار بدان وفا کند،<br>
+            و تا واپسین نفس<br>
+            از آن بازنگردد.
+        </p>
+
+        <div class="closing">
+            ای هُورا،<br>
+            ای راستیِ نخستین،<br>
+            مرا راست بدار؛<br>
+            تا هرچه از من برمی‌خیزد، راست برخیزد؛<br>
+            هرچه از من می‌گذرد، پاک بگذرد؛<br>
+            و هرجا که می‌روم،<br>
+            جهان،<br>
+            هرچند به اندازهٔ یک دل،<br>
+            به راستی نزدیک‌تر شود.
+
+            <span class="seal">هُورام</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="symbol">✦</div>
+        به نامِ راستی، برای راستی، به راه راستی
+    </footer>
+
+</div>
+
+</body>
+</html>
