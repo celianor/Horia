@@ -1,128 +1,759 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مناجات شبانگاه</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نیایشِ شبانگاه | هُورا</title>
+
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Marhey:wght@400;500;600&display=swap');
+
+    :root {
+      --ink: #eadfc4;
+      --gold: #c9a96e;
+      --gold-light: #e2c98d;
+      --deep: #0d0b09;
+      --panel: #15110d;
+      --line: rgba(201, 169, 110, 0.45);
+      --muted: #aa9a7b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1549887534-4c3b7d3ec69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       margin: 0;
-      padding: 0;
-      color: #fefefe;
+      background:
+        radial-gradient(circle at 50% 0%, #2a2118 0%, #120e0b 38%, #080706 100%);
+      color: var(--ink);
+      font-family: "Amiri", "Times New Roman", serif;
+      line-height: 2.35;
+      font-size: 19px;
     }
 
-    .overlay {
-      background-color: rgba(10, 10, 30, 0.6);
-      padding: 60px 10% 80px;
-      min-height: 100vh;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      background-image:
+        radial-gradient(#d5bd8b 0.6px, transparent 0.6px);
+      background-size: 7px 7px;
+      mix-blend-mode: screen;
     }
 
-    h1 {
-      text-align: center;
-      color: #fce7d7;
-      margin-bottom: 40px;
-      font-size: 2.4em;
-    }
-
-    p {
-      margin-bottom: 24px;
-      font-size: 1.2em;
-      line-height: 2.4;
-    }
-
-    .navigation {
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .navigation a {
+    a {
+      color: var(--gold-light);
       text-decoration: none;
-      color: #fff;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 1px solid #ddd;
-      padding: 10px 20px;
-      margin: 10px;
-      border-radius: 8px;
-      backdrop-filter: blur(4px);
-      transition: background-color 0.3s ease;
     }
 
-    .navigation a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      color: #000;
+    a:hover {
+      color: #fff1c5;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10, 8, 6, .9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 20px;
+      text-align: center;
+    }
+
+    .topbar a {
+      display: inline-block;
+      margin: 0 18px;
+      font-size: 15px;
+      letter-spacing: .5px;
+      transition: .3s ease;
+    }
+
+    .topbar a::before {
+      content: "✦";
+      margin-left: 7px;
+      color: var(--gold);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px 55px;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 27px;
+      letter-spacing: 10px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: var(--gold-light);
+      font-family: "Marhey", "Amiri", serif;
+      font-size: clamp(30px, 6vw, 58px);
+      font-weight: 500;
+      text-shadow: 0 0 25px rgba(201,169,110,.18);
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin-top: 15px;
+      font-size: 17px;
+    }
+
+    main {
+      width: min(920px, 92%);
+      margin: auto;
+    }
+
+    .prayer {
+      position: relative;
+      margin: 45px 0 90px;
+      padding: 55px clamp(25px, 6vw, 75px);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(37, 28, 20, .96),
+          rgba(16, 12, 9, .98)
+        );
+      border: 1px solid var(--line);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        inset 0 0 45px rgba(201,169,110,.035);
+    }
+
+    .prayer::before,
+    .prayer::after {
+      content: "❦";
+      position: absolute;
+      color: var(--gold);
+      font-size: 34px;
+    }
+
+    .prayer::before {
+      top: 15px;
+      right: 22px;
+    }
+
+    .prayer::after {
+      bottom: 15px;
+      left: 22px;
+      transform: rotate(180deg);
+    }
+
+    .prayer.short {
+      border-radius: 4px;
+    }
+
+    .prayer.long {
+      border-radius: 2px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--gold-light);
+      font-family: "Marhey", "Amiri", serif;
+      font-size: 29px;
+      font-weight: 500;
+      margin: 0 0 35px;
+    }
+
+    .section-title::after {
+      content: "──────── ✦ ────────";
+      display: block;
+      color: var(--gold);
+      font-family: serif;
+      font-size: 14px;
+      margin-top: 10px;
+      opacity: .7;
+    }
+
+    .short .verse {
+      text-align: center;
+      margin: 0 0 25px;
+    }
+
+    .long .verse {
+      margin: 0 0 27px;
+    }
+
+    .verse.emphasis {
+      color: var(--gold-light);
+      font-size: 21px;
+      text-align: center;
+      margin: 45px 0;
+    }
+
+    .closing {
+      text-align: center;
+      color: var(--gold-light);
+      font-size: 23px;
+      margin-top: 45px;
+      line-height: 2;
+    }
+
+    .divider {
+      text-align: center;
+      color: var(--gold);
+      margin: 65px 0;
+      letter-spacing: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 55px 20px 75px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer .symbol {
+      display: block;
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        font-size: 17px;
+        line-height: 2.15;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .prayer {
+        padding: 42px 22px;
+      }
+
+      .topbar a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .verse.emphasis {
+        font-size: 19px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="overlay">
-    <h1>مناجات شبانگاه</h1>
 
-    <p>ای هُرا، ای انیس شب‌های خاموش،<br>
-    ای آرام دل‌های دردمند،<br>
-    ای که چراغ وجدان در شب تار به اشارت تو فروزان گردد،<br>
-    چون شب فرود آمد و غوغای روز در خویشتن خاموش شد،<br>
-    بنده‌ای خسته‌جان و تنگ‌دل،<br>
-    به درگاه مهر تو پناه آورد.</p>
+  <!-- نوار پیوندها -->
+  <nav class="topbar">
+    <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+    <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت</a>
+  </nav>
 
-    <p>پروردگارا!<br>
-    آمدم با دلی پرغبار و چشمی پرآب،<br>
-    نه ز بهره‌مندی، بل ز نیاز،<br>
-    نه از ادعا، بلکه با فروتنی.</p>
+  <!-- سرآغاز -->
+  <header class="hero" id="top">
+    <div class="ornament">✦ ❦ ✦</div>
+    <h1>نیایشِ شبانگاه</h1>
+    <p>در خاموشیِ شب، دل به روشنایی بسپار</p>
+  </header>
 
-    <p>ای خداوند مهر و خرد<br>
-    کارنامه‌ی این روز پیش تو باز است،<br>
-    و من، هیچ ندارم جز آهی، و نگاهی رو به آسمانت.<br>
-    آن‌چه کردم، تو دانی؛<br>
-    و آن‌چه نگفتم، تو شنیدی.</p>
+  <main>
 
-    <p>ای خدای بی‌نیاز،<br>
-    آن‌چه خطا آمد، به دیده‌ی کرم درنگر،<br>
-    و آن‌چه به مهر کوشیدم، به فضل بپذیر.<br>
-    دل را به تو سپردم،<br>
-    تا شبم، شب امن باشد،<br>
-    و خوابم، خواب پاکیزگی.</p>
+    <!-- نیایش کوتاه -->
+    <section class="prayer short" id="short-prayer">
 
-    <p>ای هورا!<br>
-    تو خود گفتی که «هر شب، آغازی‌ست»؛<br>
-    پس بر من این شب را،<br>
-    دریچه‌ای ساز به روشنایی خویش.<br>
-    از اندوه رهایم کن،<br>
-    و ذهنم از هیاهوی حسرت برهان.</p>
+      <h2 class="section-title">نیایش شبانگاه</h2>
 
-    <p>هورای نیکوی من!<br>
-    شب را آغوش مهر ساز،<br>
-    و خواب را مکاشفه‌ی نور کن.<br>
-    دلِ خسته‌ام را، به شبنمی آرام کن،<br>
-    و فردایم را، به نسیمی نو بشارت ده.</p>
+      <p class="verse">
+        ای هُورا، ای مهرِ نهان، ای آرامِ جان،<br>
+        در شبِ خاموش، دلم را سوی خویش بخوان.
+      </p>
 
-    <p>خدای من!<br>
-    به نور سکوتت شب را بیارای،<br>
-    و به فروغ مهرت، امید در دل افکن.<br>
-    که بندگان تو در پناه تو،<br>
-    آسوده‌خاطر شوند و سربلند خیزند.</p>
+      <p class="verse">
+        از غوغایِ روز، با جانی امیدوار<br>
+        سوی تو آمدم.
+      </p>
 
-    <p>باری،<br>
-    مگذار دیده از وجدان تهی گردد،<br>
-    و مگذار دل، از ندامت بسوزد و راه نیابد.<br>
-    وجدان را ستاره‌وار برافروز،<br>
-    و نیایشم را نسیمی ساز، شفابخشِ جان.</p>
+      <p class="verse">
+        مرا به فروغِ خویش راهبر،<br>
+        به مهرِ خویش پرور،<br>
+        و آرامشی ده، درخورِ جان.
+      </p>
 
-    <p>آمین، ای فروغ شبهای تاریک،<br>
-    ای که پایان شبانگاه با تو،<br>
-    آغازِ روزی‌ نو است…</p>
+      <p class="verse">
+        شبم را آرام کن،<br>
+        خوابم را شیرین،<br>
+        و بیداری‌ام را روشن گردان.
+      </p>
 
-    <div class="navigation">
-      <a href="https://celianor.github.io/Horia/Pray/index.fa.html">بازگشت به صفحه نیایش‌ها</a>
-      
-      
-      <a href="https://celianor.github.io/Horia/index.fa.html">بازگشت به صفحه اصلی</a>
-    </div>
-  </div>
+      <p class="closing">
+        هورام، ای مهرِ جان،<br>
+        ای آرامِ جهان.
+      </p>
+
+    </section>
+
+    <div class="divider">✦ ❦ ✦</div>
+
+    <!-- مناجات بلند -->
+    <section class="prayer long" id="long-prayer">
+
+      <h2 class="section-title">مناجات شبانگاه</h2>
+
+      <p class="verse">
+        ای هُورا، ای مونسِ دل‌های بی‌قرار،<br>
+        ای محرمِ رازِ جان‌های رازدار،<br>
+        ای پناهِ خستگان و دستگیرِ بی‌پناه،<br>
+        ای مرهمِ سینه‌های سوخته و آرامِ دل‌های آگاه؛<br>
+        ای فروغِ دیدهٔ دل و چراغِ راهِ جان،<br>
+        ای آرامِ شب‌های هجران و امیدِ صبحِ درمان؛<br>
+        ای دانایِ آشکار و آگاهِ نهان،<br>
+        ای محرمِ هر سرِّ پنهان و هر دردِ بی‌زبان.
+      </p>
+
+      <p class="verse">
+        ای آن‌که در خاموشی، آوازِ تو برپاست،<br>
+        و در تیرگی، نشانهٔ تو پیداست؛<br>
+        چون غوغایِ روز فروخوابد،<br>
+        آوازِ حقیقت در دل برآید؛<br>
+        چون خورشید در پسِ افق نهان شود،<br>
+        چراغِ معرفت در خانهٔ جان عیان شود.
+      </p>
+
+      <p class="verse">
+        اینک شب درآمده است؛<br>
+        خورشید رخ در نقابِ مغرب کشیده،<br>
+        ماه جامِ سیمین بر آسمان پاشیده،<br>
+        و ستارگان بر صحیفهٔ شب پراکنده‌اند.<br>
+        جهان خاموش شده است<br>
+        تا دل به سخن آید<br>
+        و رازِ نهان آشکار شود.
+      </p>
+
+      <p class="verse">
+        و من، ای پروردگارِ مهر و خرد،<br>
+        از غوغایِ روز به خلوتِ شب پناه آورده‌ام؛<br>
+        از خلق به خویش،<br>
+        و از خویش به تو.
+      </p>
+
+      <p class="verse">
+        نه با دستِ پُر از طاعت،<br>
+        که با دامنِ پُر از خطا؛<br>
+        نه با زبانِ مدّعی،<br>
+        که با دلِ نیازمند و دیدهٔ گریان؛<br>
+        نه با سرمایهٔ کردار،<br>
+        که با بضاعتِ امید و سرمایهٔ نیاز.
+      </p>
+
+      <p class="verse">
+        آمده‌ام خسته از راه،<br>
+        بسته به آه،<br>
+        شکسته از بارِ گناه،<br>
+        و تشنهٔ جرعه‌ای از آن آرام<br>
+        که جز در سایهٔ مهرِ تو نمی‌توان یافت.
+      </p>
+
+      <p class="verse">
+        پس ای خدایِ جان و جهان،<br>
+        ای قبلهٔ دل و کعبهٔ جان،<br>
+        مرا به خویش واگذار مکن؛<br>
+        که بی‌تو دل راه نمی‌داند،<br>
+        و بی‌نورِ تو جان پناه نمی‌داند.
+      </p>
+
+      <p class="verse">
+        تو دانی چه کردم،<br>
+        چه گفتم،<br>
+        چه شنیدم،<br>
+        چه اندیشیدم،<br>
+        و چه می‌بایست کردم و نکردم.
+      </p>
+
+      <p class="verse">
+        آن سخن را شنیدی<br>
+        که بر زبان نیاوردم؛<br>
+        آن اشک را دیدی<br>
+        که در چشم نگه داشتم؛<br>
+        و آن آه را دانستی<br>
+        که در سینه شکستم.
+      </p>
+
+      <p class="verse">
+        پس ای پوشندهٔ کاستی‌ها<br>
+        و آمرزندهٔ لغزش‌ها،<br>
+        آنچه از من به خطا رفت<br>
+        به قهر منگر،<br>
+        به چشمِ مهر بنگر؛<br>
+        و آنچه از من به غفلت رفت<br>
+        به پردهٔ بخشایش بسپار.
+      </p>
+
+      <p class="verse">
+        اگر لغزیدم، در لغزشم مگذار؛<br>
+        اگر دور شدم، راهِ بازآمدن بنما؛<br>
+        اگر دل شکستم، راهِ مرهم شدن نشانم ده؛<br>
+        و اگر از راستی روی گرداندم،<br>
+        مرا به روشنایِ راستی بازگردان.
+      </p>
+
+      <p class="verse">
+        مرا چنان مبخشای<br>
+        که خطای خویش را فراموش کنم؛<br>
+        چنان ببخش<br>
+        که از بخشایشِ تو گستاخ نشوم؛<br>
+        و چنان بیدارم دار<br>
+        که مهرِ تو را دست‌آویزِ غفلت نسازم.
+      </p>
+
+      <p class="verse emphasis">
+        که بخشایشِ راستین<br>
+        پاک کردنِ گذشته نیست؛<br>
+        چراغ کردنِ گذشته است.
+      </p>
+
+      <p class="verse">
+        مرا از حسرت به حکمت برسان،<br>
+        از ندامت به همت،<br>
+        از خطا به صواب،<br>
+        و از شکست به شناخت.
+      </p>
+
+      <p class="verse">
+        اگر دلی را آزردم، شوقِ پوزش در من بیفکن؛<br>
+        اگر حقی را تباه کردم، توانِ جبران عطا کن؛<br>
+        و اگر کسی مرا آزرد،<br>
+        مگذار رنج در جانم ریشهٔ کین دواند.
+      </p>
+
+      <p class="verse">
+        اگر سنگی بر راهم نهادند، مرا سنگ مکن؛<br>
+        اگر بی‌مهری دیدم، مرا بی‌مهر مکن؛<br>
+        و اگر ناسپاسی دیدم، مرا از سپاس بازمدار.
+      </p>
+
+      <p class="verse">
+        ای هُورا،<br>
+        مرا به خویش بازگردان؛<br>
+        نه به آن «من» که از نام و نان و نشان ساخته‌ام،<br>
+        بل به آن جانِ بی‌نام<br>
+        که پیش از نام‌ها در من نهاده‌ای.
+      </p>
+
+      <p class="verse">
+        اگر در من غرور است، به فروتنی بدل کن؛<br>
+        اگر ریا است، به صدق؛<br>
+        اگر بیم است، به توکل؛<br>
+        اگر خودخواهی است، به مهر؛<br>
+        و اگر ذره‌ای نور است، به لطفِ خویش فزونش کن.
+      </p>
+
+      <p class="verse">
+        ای خدایِ خرد،<br>
+        مرا دانشی ده<br>
+        که بارِ دل نشود، بل بالِ جان گردد؛<br>
+        دانشی که مرا فروتن‌تر کند، نه فزون‌طلب‌تر؛<br>
+        مهربان‌تر کند، نه ملامت‌گرتر؛<br>
+        بیناتر کند، نه خودبین‌تر.
+      </p>
+
+      <p class="verse">
+        که دانایی اگر به فروتنی نینجامد، حجابی‌ست بر دیده؛<br>
+        و دانش اگر به مهر نینجامد، سنگی‌ست بر سینه.
+      </p>
+
+      <p class="verse">
+        مرا بیاموز<br>
+        که حقیقت تنها سخنی بر زبان نیست؛<br>
+        آیینی‌ست در جان<br>
+        و پیمانی‌ست در کردار.
+      </p>
+
+      <p class="verse">
+        راستی آن است<br>
+        که چون سودم در دروغ باشد، باز راست بمانم؛<br>
+        مهر آن است<br>
+        که چون کسی توانِ جبرانِ نیکیِ مرا ندارد، باز با او نیکو باشم؛<br>
+        و بخشش آن است<br>
+        که خطای دیگری را بهانهٔ تباهیِ خویش نکنم.
+      </p>
+
+      <p class="verse">
+        ای پروردگار،<br>
+        مرا چنان کن<br>
+        که نیایشم در زبان نماند؛<br>
+        در کردارم روان شود،<br>
+        در گفتارم پیدا شود،<br>
+        و در خاموشی‌ام معنا شود.
+      </p>
+
+      <p class="verse">
+        اگر نام تو بر لب دارم، مهر تو در دستم دار؛<br>
+        اگر از نور تو سخن می‌گویم، در تاریکیِ دیگری چراغی خاموش مکن؛<br>
+        و اگر از راستی می‌گویم، در خلوتِ خویش ناراست مباش.
+      </p>
+
+      <p class="verse">
+        ای هُورا،<br>
+        شب را دوست دارم؛<br>
+        که شب پرده‌ای‌ست میانِ آدمی و جهان،<br>
+        و در پسِ این پرده<br>
+        دل آهسته‌تر می‌تپد<br>
+        و جان آرام‌تر سخن می‌گوید.
+      </p>
+
+      <p class="verse">
+        ستاره دعویِ روشنایی ندارد،<br>
+        اما روشن است؛<br>
+        ماه دعویِ پادشاهی ندارد،<br>
+        اما شب از نورش لبریز است.
+      </p>
+
+      <p class="verse">
+        پس مرا نیز<br>
+        از دعویِ نیکی بازدار<br>
+        و به حقیقتِ نیکویی برسان؛<br>
+        از گفتار به کردار،<br>
+        از ادعا به معنا،<br>
+        و از ظاهر به باطن.
+      </p>
+
+      <p class="verse">
+        ای خدایِ رازها،<br>
+        مرا به قدرِ یک دل بزرگ کن،<br>
+        نه به قدرِ یک نام؛<br>
+        به قدرِ یک مهر،<br>
+        نه به قدرِ یک آواز.
+      </p>
+
+      <p class="verse">
+        اگر جهان نامم را فراموش کرد،<br>
+        مگذار مهرم را فراموش کند؛<br>
+        و اگر از من چیزی بر جای ماند،<br>
+        کاش نه سنگی بر سنگ،<br>
+        بل نوری در دلِ انسانی باشد.
+      </p>
+
+      <p class="verse">
+        اگر نتوانستم جهان را دگرگون کنم،<br>
+        دستِ کم دلی را نیازارم؛<br>
+        اگر نتوانستم همهٔ دردها را درمان کنم،<br>
+        دردی بر دردِ کسی نیفزایم؛<br>
+        اگر نتوانستم خورشید باشم،<br>
+        چراغِ خانه‌ای باشم.
+      </p>
+
+      <p class="verse">
+        ای هُورا،<br>
+        شاید آدمی برای آن نیامده است<br>
+        که همهٔ رازهای هستی را بگشاید؛<br>
+        آمده است<br>
+        که در میانِ این رازها<br>
+        معنایی بیابد<br>
+        و بدان معنا وفادار بماند.
+      </p>
+
+      <p class="verse">
+        پس عمر مرا بسیار مکن؛<br>
+        معنادار کن؛<br>
+        روزهایم را افزون مکن؛<br>
+        ثمرمند کن.
+      </p>
+
+      <p class="verse">
+        چیزی از خودخواهی کم کن<br>
+        و بر راستی بیفزا؛<br>
+        از ترس کم کن<br>
+        و بر توکل بیفزا؛<br>
+        از خشم کم کن<br>
+        و بر بردباری بیفزا.
+      </p>
+
+      <p class="verse">
+        ای خدایِ شب و روز،<br>
+        مرگ را آیینهٔ زندگی گردان<br>
+        تا در آن ببینم<br>
+        امروز چگونه زیسته‌ام.
+      </p>
+
+      <p class="verse">
+        مرا چنان زنده دار<br>
+        که اگر مرگ درِ خانه‌ام را کوبید،<br>
+        حسرتِ بسیار<br>
+        پشتِ درِ دلِ من منتظر نمانده باشد.
+      </p>
+
+      <p class="verse">
+        امروزِ مرا به فردا مفکن:<br>
+        اگر مهر باید، امروز مهر ورزم؛<br>
+        اگر پوزش باید، امروز پوزش خواهم؛<br>
+        اگر آشتی باید، امروز آشتی کنم؛<br>
+        که فردا فرزندِ امروز است<br>
+        و بامداد از دانهٔ همین شام سر برمی‌آورد.
+      </p>
+
+      <p class="verse">
+        اکنون، ای پروردگار،<br>
+        که شب به نیمه رسیده است،<br>
+        دل مرا نیز<br>
+        از نیمهٔ تاریکِ خویش<br>
+        به سوی روشنایی ببر.
+      </p>
+
+      <p class="verse">
+        غم را از من مگیر<br>
+        پیش از آن‌که حکمتش را دریابم؛<br>
+        تنهایی را مگیر<br>
+        پیش از آن‌که در خلوتِ خویش با خویشتن آشنا شوم؛<br>
+        و اشک را مگیر<br>
+        پیش از آن‌که دل را بشوید.
+      </p>
+
+      <p class="verse">
+        خوابم را آرام کن،<br>
+        دل را سبک کن،<br>
+        فکر را آسوده کن،<br>
+        و وجدان را بیدار دار؛<br>
+        چنان بیدار<br>
+        که در تاریک‌ترین ساعت<br>
+        چراغِ راهِ خویش را از یاد نبرد.
+      </p>
+
+      <p class="verse">
+        ای هُورا،<br>
+        فردا چون صبح سر از گریبانِ شب برآورد،<br>
+        مرا نیز از خویشتنِ دیروز سر برآور.
+      </p>
+
+      <p class="verse">
+        مرا همان مکن که بودم؛<br>
+        مرا آن کن که می‌توانم باشم.
+      </p>
+
+      <p class="verse">
+        مرا به توکلی بیاموز<br>
+        که دست از کوشش نشویم،<br>
+        و به کوششی وادار<br>
+        که از توکل غافل نمانم.
+      </p>
+
+      <p class="verse">
+        راهِ میانِ توکل و تلاش را بر من روشن کن؛<br>
+        که بنده وظیفهٔ خویش به جای آورد<br>
+        و نتیجه را به حکمتِ پروردگار واگذارد.
+      </p>
+
+      <p class="verse">
+        ای هُورا،<br>
+        اکنون شب بر جهان سایه گسترده است،<br>
+        اما من از تاریکی نمی‌هراسم؛<br>
+        که آموخته‌ام:
+      </p>
+
+      <p class="verse emphasis">
+        شب دشمنِ نور نیست؛<br>
+        محرابِ زایشِ نور است.
+      </p>
+
+      <p class="verse">
+        دانه در تاریکیِ خاک می‌شکفد،<br>
+        چشمه در دلِ سنگ راه می‌گشاید،<br>
+        و سپیده در ژرفایِ شب<br>
+        پیش از آن‌که دیده شود، آغاز شده است.
+      </p>
+
+      <p class="verse">
+        پس اگر امشب تاریک است، دل مباز؛<br>
+        چه می‌دانی که همین تاریکی<br>
+        آستانهٔ طلوع نباشد؟<br>
+        چه می‌دانی که همین اشک<br>
+        آبِ وضویِ صبح نباشد؟<br>
+        و چه می‌دانی که همین شکست<br>
+        درِ تازه‌ای به سوی حقیقت نگشوده باشد؟
+      </p>
+
+      <p class="verse">
+        مرا در این باور استوار دار:
+      </p>
+
+      <p class="verse emphasis">
+        که هیچ شبی بی‌سحر نیست،<br>
+        هیچ دلی بی‌راهِ بازگشت نیست،<br>
+        و هیچ انسانی آن‌چنان دور نرفته است<br>
+        که راهِ بازآمدن را نیابد.
+      </p>
+
+      <p class="verse">
+        اکنون چشم بر هم می‌نهم<br>
+        و دل به نور می‌سپارم.
+      </p>
+
+      <p class="verse">
+        اگر خواب مرا از خویش ببرد،<br>
+        امید مرا به خویش بازگرداند؛<br>
+        اگر شب مرا در خویش فروبرد،<br>
+        صبح مرا از نو برآورد؛<br>
+        و اگر فردا مرا به جهان بازگردانی،<br>
+        بگذار از من<br>
+        اندکی خیر،<br>
+        اندکی مهر،<br>
+        اندکی راستی،<br>
+        و اندکی روشنایی<br>
+        بر جای مانده باشد.
+      </p>
+
+      <p class="verse">
+        و شاید رازِ آدمی همین باشد:
+      </p>
+
+      <p class="verse emphasis">
+        آدمی برای آن آفریده نشده است<br>
+        که هرگز در تاریکی نیفتد؛<br>
+        بل برای آن‌که<br>
+        در تاریکی نیز<br>
+        راهِ نور را فراموش نکند.
+      </p>
+
+      <p class="verse">
+        پس ای هُورا،<br>
+        چراغم باش؛<br>
+        نه تا هرگز شب نبینم،<br>
+        بل تا در هر شب<br>
+        راهِ خویش را بازشناسم.
+      </p>
+
+      <p class="verse">
+        و چون صبح آمد،<br>
+        مرا نیز با خویش بیاور:
+      </p>
+
+      <p class="verse emphasis">
+        از خواب به بیداری،<br>
+        از غفلت به آگاهی،<br>
+        از بیم به امید،<br>
+        از خود به معنا،<br>
+        و از معنا به مهر.
+      </p>
+
+      <p class="closing">
+        هورام
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="symbol">❦</span>
+    نیایشِ شبانگاه
+    <br>
+    <a href="#top">بازگشت به آغاز</a>
+  </footer>
+
 </body>
 </html>
