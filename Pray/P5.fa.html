@@ -2,91 +2,1188 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>نیایش باران مهربانی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>نیایشِ بارانِ مهر | سرودِ رازهای نهان</title>
+
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500&display=swap');
+
+    :root {
+      --ink: #33271d;
+      --gold: #9a7538;
+      --gold-light: #c9a75b;
+      --paper: #f4ead5;
+      --paper-dark: #e5d3b0;
+      --shadow: rgba(60, 39, 18, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Vazirmatn", "Tahoma", sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      padding: 2em;
-      line-height: 2;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 15%, rgba(255,255,255,.55), transparent 30%),
+        linear-gradient(135deg, #d8c29b 0%, #f1e4c8 45%, #cdb387 100%);
+      font-family: "Amiri", "Times New Roman", serif;
+      line-height: 2.35;
     }
-    h1 {
-      text-align: center;
-      color: #444;
-      margin-bottom: 1em;
+
+    /* لایهٔ لطیفِ کاغذ کهنه */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        radial-gradient(#6f5739 0.6px, transparent 0.6px);
+      background-size: 7px 7px;
+      mix-blend-mode: multiply;
     }
-    p {
-      text-indent: 1.5em;
-      margin-bottom: 1em;
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      padding: 10px 16px;
+      background: rgba(45, 31, 20, .92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 18px rgba(0,0,0,.2);
     }
-    .nav-links {
-      margin-top: 3em;
-      text-align: center;
-    }
-    .nav-links a {
-      margin: 0 1em;
+
+    .topbar a {
+      color: #f4dfae;
       text-decoration: none;
-      color: #006699;
+      padding: 5px 18px;
+      border: 1px solid rgba(201,167,91,.5);
+      border-radius: 30px;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .82rem;
+      transition: .3s ease;
+    }
+
+    .topbar a:hover {
+      background: rgba(201,167,91,.16);
+      color: #fff2ca;
+      transform: translateY(-1px);
+    }
+
+    .manuscript {
+      width: min(920px, calc(100% - 28px));
+      margin: 45px auto 70px;
+      padding: 55px clamp(25px, 7vw, 85px);
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(255,250,235,.72),
+          rgba(238,222,190,.86)
+        ),
+        var(--paper);
+
+      border: 1px solid rgba(120,87,38,.5);
+      box-shadow:
+        0 22px 55px var(--shadow),
+        inset 0 0 70px rgba(110,75,28,.12);
+
+      border-radius: 4px;
+    }
+
+    /* حاشیهٔ نسخهٔ خطی */
+    .manuscript::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(150,112,55,.42);
+      pointer-events: none;
+    }
+
+    .manuscript::after {
+      content: "✦";
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 25px;
+      color: var(--gold);
+      background: var(--paper);
+      padding: 0 14px;
+    }
+
+    header {
+      text-align: center;
+      padding: 28px 10px 48px;
+      position: relative;
+    }
+
+    .eyebrow {
+      font-size: 1rem;
+      letter-spacing: .16em;
+      color: #80612e;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #5b4024;
+      font-size: clamp(2.3rem, 7vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.3;
+      text-shadow: 1px 1px 0 #ead9b6;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      color: #92713b;
+    }
+
+    .ornament {
+      margin: 25px auto 0;
+      width: 180px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .ornament::after {
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .ornament span {
+      font-size: 1.2rem;
+    }
+
+    .prayer {
+      font-size: clamp(1.12rem, 2.3vw, 1.38rem);
+      text-align: right;
+    }
+
+    .stanza {
+      margin: 0 auto 42px;
+      max-width: 690px;
+      position: relative;
+    }
+
+    .stanza:first-child::first-letter {
+      font-size: 3.6em;
+      float: right;
+      line-height: .85;
+      padding-left: 8px;
+      color: var(--gold);
       font-weight: bold;
     }
-    .nav-links a:hover {
-      text-decoration: underline;
+
+    .invocation {
+      color: #6f4e27;
+      font-weight: 700;
+      font-size: 1.28em;
+    }
+
+    .verse {
+      margin: 0;
+    }
+
+    .breath {
+      display: block;
+      height: 10px;
+    }
+
+    .small-ornament {
+      text-align: center;
+      color: var(--gold);
+      margin: 42px 0;
+      font-size: 1.3rem;
+      letter-spacing: .5em;
+    }
+
+    .emphasis {
+      text-align: center;
+      font-size: 1.28em;
+      color: #634721;
+      margin: 45px auto;
+      padding: 22px 20px;
+      border-top: 1px solid rgba(145,106,48,.45);
+      border-bottom: 1px solid rgba(145,106,48,.45);
+      max-width: 650px;
+    }
+
+    .final {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 35px;
+      border-top: 1px solid rgba(130,95,42,.5);
+      color: #5b4024;
+      font-size: 1.3em;
+    }
+
+    .final .amen {
+      font-size: 1.65em;
+      margin: 15px 0;
+      color: #8b672f;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 55px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(130,95,42,.3);
+      font-family: "Vazirmatn", sans-serif;
+      font-size: .78rem;
+      color: #806b4d;
+    }
+
+    @media (max-width: 600px) {
+      .manuscript {
+        margin-top: 20px;
+        padding: 40px 25px;
+      }
+
+      .manuscript::before {
+        inset: 9px;
+      }
+
+      .prayer {
+        font-size: 1.08rem;
+        line-height: 2.2;
+      }
+
+      .topbar a {
+        padding: 4px 12px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .manuscript {
+        box-shadow: none;
+        width: 100%;
+        margin: 0;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>نیایشِ بارانِ مهربانی</h1>
+  <!-- ناوبری -->
+  <nav class="topbar">
+    <a href="https://celianor.github.io/Horia/index.fa.html">⌂ خانه</a>
+    <a href="https://celianor.github.io/Horia/Pray/index.fa.html">⟵ بازگشت</a>
+  </nav>
 
-  <p>ای هُورا، ای بارانِ بی‌دریغ، ای نوازشِ خاموشِ دل‌های خسته،<br>
-  تو که از بلندای ناپیدا می‌آیی، و بی‌هیاهو در جانِ من شکوفه می‌کنی.<br>
-  تو که می‌باری نه برای سزاواری، که برای خودِ عشق،<br>
-  نه از روی داوری، که از طبعِ بی‌مرزِ مهر.</p>
+  <main class="manuscript">
 
-  <p>ای جانِ جانان،<br>
-  تو نرمیِ باران بر گونه‌های خاکی،<br>
-  بوسه‌ی خاموش بر پیشانیِ اندوهی،<br>
-  تو را می‌ستایم،<br>
-  چونان مادری که بی‌هیاهو دوست می‌دارد<br>
-  و عشقش را به آفتاب نمی‌سپارد،<br>
-  بل به اشکِ نیمه‌شب و دست‌های ناپیدا می‌سپارد.</p>
+    <header>
+      <div class="eyebrow">به نامِ روشناییِ بی‌زوال</div>
 
-  <p>دلم، ای مهرِ بی‌پایان، تشنه‌ی سیراب شدن از توست؛<br>
-  بر من ببار،<br>
-  بگذار در لطافتِ مهرت گم شوم،<br>
-  و بر خاکِ دلم، که سال‌هاست ترک برداشته،<br>
-  بذرِ نرمی و آشتی بروید.</p>
+      <h1> بارانِ مهر</h1>
 
-  <p>ای هُورا،<br>
-  نامت را آرام زمزمه می‌کنم،<br>
-  چونان که عاشقی، نامِ معشوق را زیر لب تکرار می‌کند،<br>
-  بی‌آن‌که کسی بشنود،<br>
-  اما تمام آسمان از دلتنگی‌اش باخبر است.</p>
+      <div class="subtitle">
+        سرودِ رازهای نهان
+      </div>
 
-  <p>مهربانی‌ات را در رگ‌های من بدم،<br>
-  تا با هر تپش، عطرش را بپراکند.<br>
-  لبانم را به جامی از واژه‌های نیکو سیراب کن،<br>
-  تا هر سخنم برای همگان، نوازش باشد، نه زخم.</p>
+      <div class="ornament">
+        <span>✦</span>
+      </div>
+    </header>
 
-  <p>بگذار با گام‌های نرم، زمین را گل‌باران کنم،<br>
-  و با چشم‌هایی که مهربانی را آموخته‌اند،<br>
-  دنیایی تازه بسازم،<br>
-  که در آن، هیچ‌کس در عطشِ محبت، تنها نماند.</p>
+    <article class="prayer">
 
-  <p>آمین،<br>
-  ای مهرِ بی‌پایان،<br>
-  ای جانِ جانان،<br>
-  ای هُورا.</p>
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          ای آن‌که نامت<br>
+          پیش از آن‌که بر زبان آید،<br>
+          در خاموشیِ جهان<br>
+          شنیده می‌شود؛<br>
+          ای روشنایِ پنهان<br>
+          پشتِ پرده‌های نور،<br>
+          ای رازِ نادیده<br>
+          در دیده‌ترین چیزها،
+          <span class="breath"></span>
+          بر من ببار؛<br>
+          چنان‌که باران<br>
+          بی‌آنکه از خاک بپرسد<br>
+          کدام دانه<br>
+          در انتظارِ اوست،<br>
+          فرومی‌بارد؛<br>
+          و چنان‌که نور<br>
+          بی‌آنکه دری را بکوبد،<br>
+          از شکافِ پرده می‌گذرد<br>
+          و اتاق را<br>
+          از آمدنِ خویش<br>
+          آگاه می‌کند.
+        </p>
+      </section>
 
-  <div class="nav-links">
-    <a href="https://celianor.github.io/Horia/Pray/index.fa.html">⟵ بازگشت به صفحه پیش</a>
-    |
-    <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
-  </div>
+      <section class="stanza">
+        <p class="verse">
+          مرا از آن نور<br>
+          نصیب کن<br>
+          که چشم را خیره نمی‌کند،<br>
+          بلکه راه را<br>
+          آشکار می‌سازد؛<br>
+          نوری که<br>
+          بر پیشانیِ حقیقت<br>
+          نمی‌نشیند<br>
+          تا خود را بنمایاند،<br>
+          بلکه در جانِ تاریکی<br>
+          آهسته<br>
+          ریشه می‌دواند،
+          <span class="breath"></span>
+          تا آدمی<br>
+          روزی<br>
+          در میانِ راه<br>
+          ناگهان دریابد:
+        </p>
+
+        <div class="emphasis">
+          راه<br>
+          همیشه<br>
+          آنجا بوده است.
+        </div>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای مهر،</span><br>
+          در من<br>
+          چراغی بیفروز<br>
+          که به باد وابسته نباشد.
+          <span class="breath"></span>
+          چه بسیار چراغ‌ها<br>
+          که با نخستین نسیم<br>
+          خاموش شدند؛<br>
+          و چه بسیار روشنایی‌ها<br>
+          که هیچ شعله‌ای نداشتند<br>
+          و با این همه<br>
+          جهان را<br>
+          ترک نکردند.
+          <span class="breath"></span>
+          بگذار حضورم<br>
+          چنین باشد:
+          <span class="breath"></span>
+          چون روشناییِ سحر<br>
+          که هنوز نرسیده،<br>
+          پرندگان<br>
+          از آمدنش<br>
+          آگاه می‌شوند.
+        </p>
+      </section>
+
+      <div class="small-ornament">✦ ✧ ✦</div>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          تو را<br>
+          در فاصله‌ها می‌جویم؛<br>
+          در فاصلهٔ دو ستاره،<br>
+          در فاصلهٔ دو نگاه،<br>
+          در فاصلهٔ یک واژه<br>
+          تا زخمی کهنه،<br>
+          در فاصلهٔ یک دست<br>
+          تا دستی لرزان.
+          <span class="breath"></span>
+          چه راز است<br>
+          که گاه<br>
+          هیچ چیز<br>
+          میانِ دو چیز نیست،<br>
+          و با این همه<br>
+          جهانی<br>
+          میانِ آن دو<br>
+          در جریان است؟
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          باد را نمی‌بینیم،<br>
+          اما شاخه<br>
+          پیش از آمدنش<br>
+          می‌لرزد.
+          <span class="breath"></span>
+          مهر را نمی‌بینیم،<br>
+          اما دل<br>
+          جهتِ خویش را<br>
+          عوض می‌کند.
+          <span class="breath"></span>
+          کسی سخن نمی‌گوید،<br>
+          و با این همه<br>
+          هوای اتاق<br>
+          چیزی دیگر می‌شود.
+          <span class="breath"></span>
+          پس مرا بیاموز:
+          <br>
+          هر آنچه را<br>
+          نمی‌بینم<br>
+          انکار نکنم،
+          <br>
+          و هر آنچه را<br>
+          احساس می‌کنم<br>
+          بی‌درنگ<br>
+          حقیقت نپندارم.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          مرا<br>
+          بر آن راهِ باریک<br>
+          نگه دار؛
+          <br>
+          میانِ ایمان و پرسش،<br>
+          میانِ شگفتی و خرد،<br>
+          میانِ دل و دلیل؛
+          <br>
+          آنجا که<br>
+          دل می‌بیند<br>
+          و خرد<br>
+          آهسته می‌پرسد:
+        </p>
+
+        <div class="emphasis">
+          آنچه دیدی،<br>
+          چیست؟
+        </div>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای بارانِ مهر،</span><br>
+          دانه<br>
+          در تاریکی می‌ماند؛
+          <br>
+          نه از روشنایی می‌گریزد،<br>
+          نه از سکوت می‌هراسد.
+          <br>
+          مدتی<br>
+          هیچ نیست<br>
+          جز سکوتی<br>
+          در زیرِ خاک؛
+          <br>
+          و آنگاه<br>
+          از همان تاریکی<br>
+          راهی<br>
+          به سوی روشنایی<br>
+          باز می‌کند.
+          <span class="breath"></span>
+          چه کسی گفته است<br>
+          هر تولد<br>
+          باید با آواز آغاز شود؟
+          <span class="breath"></span>
+          بعضی چیزها<br>
+          در سکوت<br>
+          شکل می‌گیرند؛
+          <br>
+          در خلوت،<br>
+          در تاریکی،<br>
+          در میانِ امکان‌هایی<br>
+          که هنوز<br>
+          نامی ندارند.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          پس اگر امروز<br>
+          در من<br>
+          چیزی هنوز<br>
+          شکل نگرفته است،
+          <br>
+          مرا نومید مکن.
+          <span class="breath"></span>
+          شاید<br>
+          آنچه نیست<br>
+          هنوز<br>
+          در راهِ شدن است.
+        </p>
+      </section>
+
+      <div class="small-ornament">✦ ✧ ✦</div>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          مرا با رازِ «شاید»<br>
+          آشتی بده.
+          <span class="breath"></span>
+          که «شاید»<br>
+          گاه<br>
+          صادقانه‌تر از هزار «حتماً» است.
+          <span class="breath"></span>
+          بگذار بدانم<br>
+          آینده<br>
+          دیوارِ نوشته‌شده‌ای نیست<br>
+          که تنها باید<br>
+          آن را بخوانم؛
+          <br>
+          باغی‌ست<br>
+          پر از راه‌های باریک،<br>
+          پر از درهای بسته،<br>
+          پر از بذرهایی<br>
+          که هنوز<br>
+          نمی‌دانند<br>
+          درخت خواهند شد<br>
+          یا علف.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          مرا چنان نکن<br>
+          که از ندانستن<br>
+          بترسم.
+          <span class="breath"></span>
+          چه بسیار راه‌ها<br>
+          که پیش از رفتن<br>
+          نامی ندارند؛
+          <br>
+          و چه بسیار پاسخ‌ها<br>
+          که تنها<br>
+          پس از پرسیدنِ درست<br>
+          آرام‌آرام<br>
+          از تاریکی<br>
+          بیرون می‌آیند.
+          <span class="breath"></span>
+          پس اگر فردا<br>
+          از من پنهان است،<br>
+          امروز<br>
+          چگونه بودن را<br>
+          به من بیاموز.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای مهرِ پنهان،</span><br>
+          در من<br>
+          آرامشی بکار<br>
+          که با پراکندگیِ جهان<br>
+          از هم نپاشد.
+          <span class="breath"></span>
+          زیرا برگ<br>
+          اگر رها شود<br>
+          بر زمین می‌ریزد؛
+          <br>
+          غبار<br>
+          اگر رها شود<br>
+          بر هر چیز می‌نشیند؛
+          <br>
+          و خانه<br>
+          اگر رها شود<br>
+          آهسته‌آهسته<br>
+          از خانه بودن<br>
+          بازمی‌ماند.
+          <span class="breath"></span>
+          هر زیبایی<br>
+          نگهبانی می‌خواهد؛
+          <br>
+          هر دوستی<br>
+          مراقبتی؛
+          <br>
+          هر دل<br>
+          دستی؛
+          <br>
+          و هر باغ<br>
+          باغبانی.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          پس مرا<br>
+          باغبانِ جانِ خویش کن.
+          <span class="breath"></span>
+          هر روز<br>
+          اندکی از آشوبم بکاه؛
+          <br>
+          اندکی از تلخی‌ام؛
+          <br>
+          اندکی از غرورم؛
+          <br>
+          اندکی از آنچه<br>
+          میانِ من و دیگری<br>
+          دیوار می‌سازد.
+          <span class="breath"></span>
+          بگذار<br>
+          پیش از آنکه<br>
+          جهان را تغییر دهم،<br>
+          شیوهٔ بودنم<br>
+          در جهان<br>
+          اندکی تغییر کرده باشد.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          زمان<br>
+          آهسته از کنارِ ما می‌گذرد،<br>
+          اما هیچ‌گاه<br>
+          خالی‌دست نمی‌گذرد.
+          <span class="breath"></span>
+          صدایی را می‌برد،<br>
+          چهره‌ای را،<br>
+          بوی خانه‌ای قدیمی را،<br>
+          گرمای دستی را<br>
+          که روزی<br>
+          در دستِ ما بود.
+          <span class="breath"></span>
+          و آنچه را می‌برد<br>
+          همان‌گونه<br>
+          بازنمی‌گرداند.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          پس مرا<br>
+          از بی‌خبری برهان.
+          <br>
+          مگذار آن‌قدر<br>
+          در فردا بمانم<br>
+          که امروز<br>
+          از کنارم بگذرد؛
+          <br>
+          و آن‌قدر<br>
+          در دیروز نمانم<br>
+          که پنجرهٔ اکنون<br>
+          بسته شود.
+          <span class="breath"></span>
+          به من بیاموز:
+          <span class="breath"></span>
+          هر لحظه<br>
+          دانه‌ای‌ست<br>
+          که تنها یک‌بار<br>
+          در خاکِ زمان<br>
+          کاشته می‌شود.
+        </p>
+      </section>
+
+      <div class="small-ornament">✦ ✧ ✦</div>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای بارانِ مهر،</span><br>
+          من از راهی دور آمده‌ام؛
+          <br>
+          دورتر از خاطره،<br>
+          دورتر از نام،<br>
+          دورتر از نخستین قصه‌ای<br>
+          که انسان<br>
+          برای خویش گفت.
+          <span class="breath"></span>
+          در من<br>
+          خاکی هست<br>
+          که ستاره دیده است؛
+          <br>
+          آبی هست<br>
+          که باران بوده؛
+          <br>
+          و نوری هست<br>
+          که پیش از رسیدن<br>
+          به چشمِ من،<br>
+          راهی دراز<br>
+          از دلِ تاریکی<br>
+          پیموده است.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          پس چگونه<br>
+          خود را جدا بدانم؟
+          <span class="breath"></span>
+          من<br>
+          تنها ادامهٔ داستانی هستم<br>
+          که پیش از من<br>
+          آغاز شده است؛
+          <br>
+          داستانی که<br>
+          در سنگ نماند،<br>
+          در گیاه نماند،<br>
+          در ستاره متوقف نشد،
+          <br>
+          و اکنون<br>
+          در اندیشهٔ من<br>
+          به پرسش رسیده است.
+          <span class="breath"></span>
+          چه شگفت است:
+          <span class="breath"></span>
+          جهان<br>
+          در گوشه‌ای از خویش<br>
+          چشم گشوده<br>
+          و از خودش پرسیده است:
+        </p>
+
+        <div class="emphasis">
+          من چیست‌ام؟
+        </div>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          مرا از غرورِ بزرگی<br>
+          و اندوهِ کوچکی<br>
+          هر دو رها کن.
+          <span class="breath"></span>
+          آسمان<br>
+          آن‌قدر وسیع است<br>
+          که عمرِ یک انسان<br>
+          در برابرش<br>
+          چون یک نفس می‌نماید؛
+          <br>
+          اما همین نفس<br>
+          برای کسی<br>
+          تمامِ جهان است.
+          <span class="breath"></span>
+          ستاره‌ها<br>
+          بی‌شمارند؛
+          <br>
+          اما یک پنجره<br>
+          برای کودکی<br>
+          می‌تواند<br>
+          تمامِ آسمان باشد.
+          <span class="breath"></span>
+          پس مرا<br>
+          هم کوچک نگه دار<br>
+          و هم بزرگ:
+        </p>
+
+        <div class="emphasis">
+          کوچک<br>
+          در برابرِ حقیقت؛<br>
+          بزرگ<br>
+          در برابرِ مسئولیت.
+        </div>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای مهر،</span><br>
+          میانِ آدمیان<br>
+          رشته‌هایی هست<br>
+          که چشم نمی‌بیند.
+          <span class="breath"></span>
+          محبتی<br>
+          که هیچ‌کس ندید<br>
+          ممکن است<br>
+          سال‌ها بعد<br>
+          در زندگیِ انسانی دیگر<br>
+          شکوفه کند.
+          <span class="breath"></span>
+          کلمه‌ای<br>
+          که امروز<br>
+          بی‌اهمیت از کنارِ آن می‌گذریم<br>
+          ممکن است<br>
+          فردا<br>
+          در ذهنِ کسی<br>
+          چراغ شود.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          پس مرا بیاموز<br>
+          که هیچ نیکی را<br>
+          بی‌اثر نپندارم.
+          <span class="breath"></span>
+          شاید<br>
+          دستِ من<br>
+          امروز<br>
+          بر شانهٔ انسانی بنشیند<br>
+          که فردا<br>
+          دستِ او<br>
+          پناهِ دیگری شود؛
+          <br>
+          چون رود<br>
+          که آبِ خویش را<br>
+          از کوه می‌گیرد<br>
+          و به دریا می‌سپارد،
+          <br>
+          بی‌آنکه بداند<br>
+          کدام موج<br>
+          روزی<br>
+          تشنگیِ کدام ساحل را<br>
+          خواهد نشاند.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          مرا برای دیر فهمیدن<br>
+          سرزنش مکن؛
+          <br>
+          فقط<br>
+          چشمم را<br>
+          باز نگه دار.
+          <span class="breath"></span>
+          بعضی دیدارها<br>
+          هنگامِ آمدن<br>
+          عادی‌اند؛
+          <br>
+          سال‌ها بعد<br>
+          می‌فهمیم<br>
+          که دروازه‌ای بوده‌اند.
+          <span class="breath"></span>
+          بعضی رنج‌ها<br>
+          هنگامِ وقوع<br>
+          تنها رنج‌اند؛
+          <br>
+          و سال‌ها بعد<br>
+          می‌بینیم<br>
+          که در دلِ خود<br>
+          دانه‌ای از فهم<br>
+          پنهان داشته‌اند.
+        </p>
+      </section>
+
+      <div class="small-ornament">✦ ✧ ✦</div>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای بارانِ مهر،</span><br>
+          اگر روزی<br>
+          دلِ من<br>
+          از آشوب پر شد،<br>
+          مرا به یادِ آسمان بینداز.
+          <span class="breath"></span>
+          ستاره<br>
+          برای درخشیدن<br>
+          نیازی ندارد<br>
+          تمامِ تاریکی را<br>
+          نابود کند.
+          <span class="breath"></span>
+          کافی‌ست<br>
+          جایِ خویش را<br>
+          روشن کند.
+          <span class="breath"></span>
+          پس اگر نتوانستم<br>
+          همهٔ جهان را نجات دهم،<br>
+          گوشه‌ای را روشن کنم.
+          <br>
+          اگر نتوانستم<br>
+          تمامِ رنج را بردارم،<br>
+          رنجی بر آن نیفزایم.
+          <br>
+          اگر نتوانستم<br>
+          حقیقت را یکسره بفهمم،<br>
+          دروغ نگویم.
+          <br>
+          اگر نتوانستم<br>
+          همهٔ راه را ببینم،<br>
+          قدمِ بعدی را<br>
+          در تاریکی<br>
+          درست بردارم.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          جهان<br>
+          در چشمِ من<br>
+          گاهی آشوب است؛
+          <br>
+          اما شاید<br>
+          آشوب<br>
+          آخرین نامِ جهان نباشد.
+          <span class="breath"></span>
+          گاهی<br>
+          از بی‌سامانی<br>
+          طرحی برمی‌آید؛
+          <br>
+          از برخوردِ موج‌ها<br>
+          آوازی؛
+          <br>
+          از هزاران امکان<br>
+          یک واقعیت؛
+          <br>
+          از تکرارِ بسیار<br>
+          نقشی؛
+          <br>
+          از خاموشیِ طولانی<br>
+          سپیده‌ای.
+          <span class="breath"></span>
+          پس اگر امروز<br>
+          در زندگی‌ام<br>
+          چیزی شکسته است،
+          <br>
+          مرا از امکانِ ساختن<br>
+          محروم مکن.
+          <span class="breath"></span>
+          شاید<br>
+          زیباترین صورتِ فردا<br>
+          هنوز<br>
+          در میانِ همین تکه‌های شکسته<br>
+          پنهان باشد.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای مهرِ پنهان،</span><br>
+          مرا مشهور مکن؛<br>
+          مرا عمیق کن.
+          <span class="breath"></span>
+          مرا بزرگ مکن؛<br>
+          مرا روشن کن.
+          <span class="breath"></span>
+          مرا صاحبِ همه‌چیز مکن؛<br>
+          مرا امانت‌دارِ آنچه دارم کن.
+          <span class="breath"></span>
+          مرا از همه‌چیز آگاه مکن؛<br>
+          مرا عاشقِ دانستن کن.
+          <span class="breath"></span>
+          مرا از هر شکلی از رنج<br>
+          محفوظ مدار؛
+          <br>
+          مرا چنان بساز<br>
+          که رنج<br>
+          در من<br>
+          به فهم بدل شود.
+          <span class="breath"></span>
+          مرا از همهٔ تاریکی‌ها<br>
+          دور مکن؛
+          <br>
+          چراغی<br>
+          در دستم بگذار.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          اگر تمامِ این جهان<br>
+          یک نیایشِ بزرگ باشد،
+          <br>
+          مرا<br>
+          واژه‌ای نیک<br>
+          در میانِ آن کن.
+          <span class="breath"></span>
+          اگر هستی<br>
+          کتابی بی‌پایان باشد،
+          <br>
+          مرا<br>
+          حاشیه‌ای روشن<br>
+          بر صفحه‌ای دور کن.
+          <span class="breath"></span>
+          اگر زمان<br>
+          رودخانه‌ای بی‌کران باشد،
+          <br>
+          مرا<br>
+          قطره‌ای کن<br>
+          که در مسیرِ خویش<br>
+          تلخی نیفزاید.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          و اگر روزی<br>
+          نامِ من<br>
+          از یادها برود،
+          <br>
+          مگذار<br>
+          مهرِ من<br>
+          بی‌اثر شده باشد.
+        </p>
+      </section>
+
+      <div class="small-ornament">✦ ✧ ✦</div>
+
+      <section class="stanza">
+        <p class="verse">
+          و اکنون،
+          <br>
+          <span class="invocation">ای بارانِ مهر،</span>
+          <br>
+          بر این دلِ کوچک<br>
+          ببار.
+          <span class="breath"></span>
+          بر خاکِ خاموشِ من؛<br>
+          بر دانه‌های نادیده؛<br>
+          بر آنچه هنوز<br>
+          نامی ندارد.
+          <span class="breath"></span>
+          ببار.
+          <span class="breath"></span>
+          باشد که از من<br>
+          رویشی برآید<br>
+          که خودم نیز<br>
+          امروز<br>
+          از آن خبر ندارم.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          باشد که نور<br>
+          در من<br>
+          راهِ خویش را بیابد؛
+          <br>
+          باشد که مهر<br>
+          در من<br>
+          از مرزِ من بگذرد؛
+          <br>
+          باشد که خرد<br>
+          در من<br>
+          با فروتنی<br>
+          هم‌خانه شود؛
+          <br>
+          و باشد که هرچه<br>
+          از من<br>
+          به جهان می‌رسد،
+          <br>
+          ذره‌ای<br>
+          از سنگینیِ جهان<br>
+          بکاهد.
+        </p>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          اگر سخنی از من<br>
+          می‌ماند،<br>
+          سبک باشد.
+          <br>
+          اگر نگاهی<br>
+          می‌ماند،<br>
+          گرم باشد.
+          <br>
+          اگر دستی<br>
+          می‌ماند،<br>
+          پناه باشد.
+          <span class="breath"></span>
+          و اگر هیچ‌یک<br>
+          نماند،
+          <br>
+          مهم نیست.
+        </p>
+
+        <div class="emphasis">
+          کافی‌ست<br>
+          جهان<br>
+          اندکی<br>
+          مهربان‌تر شده باشد.
+        </div>
+      </section>
+
+      <section class="stanza">
+        <p class="verse">
+          <span class="invocation">ای هُورا،</span><br>
+          ای رازِ پنهان در روشنایی،<br>
+          ای بارانِ بی‌نام،<br>
+          ای مهرِ بی‌انتها،
+          <span class="breath"></span>
+          بر ما ببار؛
+          <br>
+          چنان آرام<br>
+          که نخست<br>
+          کسی نفهمد<br>
+          چه روی داده است.
+          <span class="breath"></span>
+          و آنگاه،<br>
+          سال‌ها بعد،
+          <br>
+          وقتی دستی<br>
+          دستِ دیگری را گرفت،
+          <br>
+          وقتی انسانی<br>
+          به جای خشم<br>
+          درنگ کرد،
+          <br>
+          وقتی کسی<br>
+          در میانِ تاریکی<br>
+          چراغی کوچک روشن کرد،
+          <br>
+          وقتی دانه‌ای<br>
+          بی‌خبر از دستِ باغبان<br>
+          سر از خاک برآورد،
+          <br>
+          وقتی کسی<br>
+          در عمیق‌ترین شب<br>
+          آهسته گفت:
+        </p>
+
+        <div class="emphasis">
+          «هنوز امیدی هست.»
+        </div>
+
+        <p class="verse">
+          آنگاه
+          <br>
+          شاید
+          <br>
+          رازِ باران<br>
+          آشکار شود.
+          <span class="breath"></span>
+          نه در صدای رعد،<br>
+          نه در شکوهِ آسمان،
+          <br>
+          بلکه<br>
+          در آن قطرهٔ کوچکی<br>
+          که بی‌صدا<br>
+          بر خاک نشست
+          <br>
+          و جهان را<br>
+          اندکی<br>
+          سبزتر کرد.
+        </p>
+      </section>
+
+      <div class="final">
+        <div class="amen">آمین</div>
+        <div>آری، چنین باد؛</div>
+        <div>و چنین بماند:</div>
+        <div>
+          در نور،<br>
+          در خاک،<br>
+          در آب،<br>
+          در زمان،<br>
+          در جان،<br>
+          و در مهر.
+        </div>
+      </div>
+
+    </article>
+
+    <footer>
+      ✦ باران مهر ✦
+    </footer>
+
+  </main>
 
 </body>
-</html>
+            </html>
