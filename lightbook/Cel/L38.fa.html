@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>نغمه سی‌وهشتم | در امانت، امید و پایداری در راه روشن</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   هویت بصری
+   ========================================================= */
+
+:root {
+    --ink: #302319;
+    --ink-soft: #49382a;
+
+    --gold-dark: #80602d;
+    --gold: #a8833e;
+    --gold-light: #d4b66f;
+    --gold-pale: #ead9a5;
+
+    --paper: #f1e5c9;
+    --paper-light: #f8f0dc;
+    --paper-dark: #dfcda4;
+
+    --red: #753d31;
+    --red-dark: #55271f;
+
+    --shadow:
+        rgba(54, 37, 18, .30);
+}
+
+
+/* =========================================================
+   پایه
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    color: var(--ink);
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #d9c9a5 0%,
+            #c8b38a 55%,
+            #a58b61 100%
+        );
+
+    font-family:
+        "Noto Naskh Arabic",
+        "Amiri",
+        serif;
+
+    line-height: 2.45;
+}
+
+
+/* بافت کاغذ */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .23;
+
+    background-image:
+        radial-gradient(
+            rgba(72, 48, 22, .18) .65px,
+            transparent .8px
+        );
+
+    background-size: 8px 8px;
+
+    mix-blend-mode: multiply;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   ورق نسخه
+   ========================================================= */
+
+.manuscript {
+    width: min(1040px, calc(100% - 28px));
+
+    margin: 45px auto;
+
+    position: relative;
+
+    padding: 48px 58px 80px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(255,255,255,.42),
+            transparent 58%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(110,76,31,.09),
+            transparent 8%,
+            transparent 92%,
+            rgba(110,76,31,.09)
+        ),
+        var(--paper);
+
+    box-shadow:
+        0 30px 75px var(--shadow),
+        inset 0 0 70px rgba(111,76,27,.13);
+
+    border: 1px solid rgba(105,73,28,.45);
+}
+
+
+/* حاشیهٔ بیرونی */
+
+.manuscript::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border:
+        2px solid rgba(128,96,45,.60);
+
+    pointer-events: none;
+}
+
+
+/* حاشیهٔ درونی */
+
+.manuscript::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 23px;
+
+    border:
+        1px solid rgba(128,96,45,.38);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   حاشیهٔ تزئینی چهارگوش
+   ========================================================= */
+
+.corner {
+    position: absolute;
+
+    width: 74px;
+    height: 74px;
+
+    z-index: 4;
+
+    color: var(--gold-dark);
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 1px 0 #f8eac2;
+}
+
+.corner.tl {
+    top: 27px;
+    right: 29px;
+}
+
+.corner.tr {
+    top: 27px;
+    left: 29px;
+
+    transform: scaleX(-1);
+}
+
+.corner.bl {
+    bottom: 27px;
+    right: 29px;
+
+    transform: scaleY(-1);
+}
+
+.corner.br {
+    bottom: 27px;
+    left: 29px;
+
+    transform: scale(-1);
+}
+
+
+/* =========================================================
+   ناوبری
+   ========================================================= */
+
+.navigation {
+    position: relative;
+
+    z-index: 20;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    margin-bottom: 42px;
+}
+
+.navigation a {
+    color: var(--red-dark);
+
+    text-decoration: none;
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: 1.1rem;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.navigation a:hover {
+    color: var(--gold-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   سرلوح
+   ========================================================= */
+
+.header {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    margin: 20px auto 70px;
+
+    max-width: 850px;
+}
+
+
+/* قاب سرلوح */
+
+.header-frame {
+    position: relative;
+
+    padding: 32px 50px 38px;
+
+    border:
+        1px solid rgba(128,96,45,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(211,181,105,.13),
+            rgba(255,255,255,.15),
+            rgba(211,181,105,.13)
+        );
+}
+
+
+/* خطوط تزئینی بالای سرلوح */
+
+.header-frame::before,
+.header-frame::after {
+    content: "";
+
+    position: absolute;
+
+    left: 12%;
+    right: 12%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
+
+.header-frame::before {
+    top: 14px;
+}
+
+.header-frame::after {
+    bottom: 14px;
+}
+
+
+/* نشان مرکزی */
+
+.crest {
+    display: inline-block;
+
+    position: relative;
+
+    margin-bottom: 13px;
+
+    color: var(--gold-dark);
+
+    font-size: 2.1rem;
+
+    line-height: 1;
+}
+
+.crest::before,
+.crest::after {
+    content: "◆";
+
+    display: inline-block;
+
+    margin: 0 18px;
+
+    font-size: .45em;
+
+    vertical-align: middle;
+}
+
+
+/* شمارهٔ نغمه */
+
+.chapter {
+    margin-bottom: 3px;
+
+    color: var(--red);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: 1.15rem;
+
+    letter-spacing: .08em;
+}
+
+
+/* عنوان */
+
+h1 {
+    margin: 0;
+
+    color: var(--ink);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: clamp(3rem, 7vw, 5.2rem);
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    text-shadow:
+        0 1px 0 #fff5dc,
+        0 2px 2px rgba(80,50,20,.10);
+}
+
+
+/* عنوان فرعی */
+
+.subtitle {
+    margin-top: 12px;
+
+    color: var(--red-dark);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ترنج کوچک
+   ========================================================= */
+
+.medallion {
+    width: 105px;
+    height: 105px;
+
+    margin: 33px auto -82px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--paper-light) 0 38%,
+            transparent 39%
+        );
+
+    border:
+        2px solid var(--gold);
+
+    box-shadow:
+        0 0 0 5px var(--paper),
+        0 0 0 7px rgba(159,124,56,.55);
+
+    transform: rotate(45deg);
+}
+
+.medallion::before {
+    content: "✦";
+
+    transform: rotate(-45deg);
+
+    color: var(--gold-dark);
+
+    font-size: 2.1rem;
+}
+
+
+/* =========================================================
+   متن
+   ========================================================= */
+
+.content {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 780px;
+
+    margin: 0 auto;
+}
+
+
+/* پاراگراف */
+
+.section {
+    margin-bottom: 62px;
+}
+
+.section p {
+    margin: 0 0 1.4em;
+
+    font-size: clamp(1.12rem, 1.65vw, 1.28rem);
+
+    line-height: 2.55;
+
+    text-align: justify;
+
+    text-justify: inter-word;
+}
+
+
+/* افتتاحیه */
+
+.opening {
+    padding-top: 38px;
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+}
+
+.opening p {
+    font-size: 1.45rem;
+
+    line-height: 2.5;
+}
+
+
+/* =========================================================
+   خط آغاز بخش‌ها
+   ========================================================= */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 0 0 30px;
+
+    color: var(--gold-dark);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: 1.25rem;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(128,96,45,.55)
+        );
+}
+
+.section-title::after {
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(128,96,45,.55)
+        );
+}
+
+
+/* =========================================================
+   جمل حکیمانه
+   ========================================================= */
+
+.emphasis {
+    position: relative;
+
+    margin: 42px 5px;
+
+    padding: 28px 45px;
+
+    text-align: center;
+
+    color: var(--red-dark);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: 1.48rem;
+
+    line-height: 2.35;
+
+    border-top:
+        1px solid rgba(128,96,45,.5);
+
+    border-bottom:
+        1px solid rgba(128,96,45,.5);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(184,150,79,.10),
+            transparent
+        );
+}
+
+
+/* الماس‌های کنار حکمت */
+
+.emphasis::before,
+.emphasis::after {
+    content: "◆";
+
+    position: absolute;
+
+    top: 50%;
+
+    color: var(--gold);
+
+    font-size: .55rem;
+
+    transform: translateY(-50%);
+}
+
+.emphasis::before {
+    right: 7px;
+}
+
+.emphasis::after {
+    left: 7px;
+}
+
+
+/* =========================================================
+   جداکنندهٔ اسلیمی
+   ========================================================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 65px 0;
+
+    color: var(--gold-dark);
+
+    font-family:
+        "Amiri",
+        serif;
+
+    font-size: 1.45rem;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+
+    width: 120px;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(128,96,45,.6),
+            transparent
+        );
+}
+
+.divider span {
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   بخش پایانی
+   ========================================================= */
+
+.final-section {
+    margin-top: 70px;
+
+    padding-top: 48px;
+
+    border-top:
+        2px solid rgba(128,96,45,.35);
+
+    text-align: center;
+}
+
+.final-section p {
+    text-align: center;
+}
+
+.final-question {
+    margin: 42px auto;
+
+    max-width: 650px;
+
+    color: var(--red-dark);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: 1.65rem;
+
+    line-height: 2.4;
+}
+
+.final-verse {
+    margin-top: 55px;
+
+    color: var(--ink);
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: clamp(1.6rem, 3vw, 2rem);
+
+    line-height: 2.4;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   پانوشت
+   ========================================================= */
+
+.footer {
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 75px;
+
+    padding-top: 30px;
+
+    text-align: center;
+
+    color: #806b4b;
+
+    font-family:
+        "Aref Ruqaa",
+        "Amiri",
+        serif;
+
+    font-size: .95rem;
+}
+
+.footer .symbol {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--gold-dark);
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   دکمهٔ بازگشت به بالا
+   ========================================================= */
+
+.back-top {
+    position: fixed;
+
+    left: 22px;
+    bottom: 22px;
+
+    width: 48px;
+    height: 48px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--paper-light);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--gold-dark),
+            #5f451f
+        );
+
+    text-decoration: none;
+
+    box-shadow:
+        0 7px 20px rgba(55,35,14,.35);
+
+    font-size: 1.3rem;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.back-top:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(55,35,14,.42);
+}
+
+
+/* =========================================================
+   موبایل
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        line-height: 2.25;
+    }
+
+    .manuscript {
+        width: calc(100% - 12px);
+
+        margin: 8px auto;
+
+        padding:
+            35px 29px 55px;
+    }
+
+    .manuscript::before {
+        inset: 9px;
+    }
+
+    .manuscript::after {
+        inset: 14px;
+    }
+
+    .corner {
+        transform: scale(.65);
+    }
+
+    .corner.tl {
+        top: 18px;
+        right: 18px;
+    }
+
+    .corner.tr {
+        top: 18px;
+        left: 18px;
+    }
+
+    .corner.bl {
+        bottom: 18px;
+        right: 18px;
+    }
+
+    .corner.br {
+        bottom: 18px;
+        left: 18px;
+    }
+
+    .navigation {
+        padding: 0 8px;
+
+        margin-bottom: 30px;
+    }
+
+    .navigation a {
+        font-size: .92rem;
+    }
+
+    .header-frame {
+        padding:
+            27px 20px 32px;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .medallion {
+        width: 82px;
+        height: 82px;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .section p {
+        font-size: 1.08rem;
+
+        line-height: 2.3;
+
+        text-align: right;
+    }
+
+    .opening p {
+        font-size: 1.25rem;
+    }
+
+    .emphasis {
+        margin: 34px 0;
+
+        padding: 22px 25px;
+
+        font-size: 1.25rem;
+    }
+
+    .divider {
+        margin: 45px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 65px;
+    }
+
+    .back-top {
+        left: 12px;
+        bottom: 12px;
+    }
+}
+
+
+/* =========================================================
+   چاپ
+   ========================================================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    body::before,
+    .navigation,
+    .back-top {
+        display: none;
+    }
+
+    .manuscript {
+        width: 100%;
+
+        margin: 0;
+
+        box-shadow: none;
+
+        border: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body id="top">
+
+
+<main class="manuscript">
+
+    <!-- گوشه‌های تذهیب -->
+    <div class="corner tl">❧</div>
+    <div class="corner tr">❧</div>
+    <div class="corner bl">❧</div>
+    <div class="corner br">❧</div>
+
+
+    <!-- ناوبری -->
+    <nav class="navigation">
+
+        <a href="https://celianor.github.io/Horia/index.fa.html">
+            ⌂ خانه
+        </a>
+
+        
+        <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
+            بازگشت ←
+        </a>
+
+    </nav>
+
+
+    <!-- سرلوح -->
+    <header class="header">
+
+        <div class="header-frame">
+
+            <div class="crest">
+                ✦
+            </div>
+
+            <div class="chapter">
+                نغمهٔ سی‌وهشتم
+            </div>
+
+            <h1>
+                در امانت،
+                امید و پایداری
+            </h1>
+
+            <div class="subtitle">
+                در راه روشن
+            </div>
+
+        </div>
+
+
+        <div class="medallion"></div>
+
+    </header>
+
+
+    <!-- متن -->
+    <article class="content">
+
+
+        <!-- آغاز -->
+        <section class="section opening">
+
+            <p>
+                ای فرزندِ هورا، بشنو:
+            </p>
+
+            <p>
+                چنان‌که نخستین قطرهٔ باران<br>
+                بر شانهٔ خاک می‌نشیند،<br>
+                و خاک، بی‌صدا، بویِ بهار از آن می‌ستاند،<br>
+                هر آغاز را نشانی از پایانی است<br>
+                که هنوز دیده نمی‌شود؛<br>
+                و هر پایان را تخمی از آغازی است<br>
+                که هنوز دل آن را نمی‌داند.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <section class="section">
+
+            <p>
+                دانه چون به خاک رفت،
+                نه گم شد، که نهان شد؛
+                تاریکی‌اش زندان نبود، زهدان بود.
+                و آنچه در جانِ آدمی می‌روید،
+                پیش از آنکه به چشم آید،
+                در خاموشیِ درون ریشه می‌گیرد.
+            </p>
+
+            <p>
+                پس اگر روزی در تاریکی ماندی،
+                گمان مبر که راه به پایان آمده است؛
+                شاید هنگامِ دیدن نرسیده باشد،
+                نه هنگامِ رُستن.
+            </p>
+
+            <p>
+                باغ در زمستان مرده می‌نماید،
+                و زیرِ پوستِ خشکِ شاخه،
+                بهاری خاموش دم می‌زند؛
+                سبزی در رگِ چوب
+                خوابِ خویش می‌بیند
+                و چشم به راهِ نخستین نسیمِ مهر می‌ماند.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- امانت -->
+        <section class="section">
+
+            <p>
+                آنچه به دستت سپرده شد،
+                همه برای ماندن سپرده نشد؛
+                بعضی را دادند تا بگذرانی،
+                نه تا بداری.
+            </p>
+
+            <p>
+                آب را مالک نتوان شد؛
+                از چشمه می‌توان نوشید،
+                تشنگیِ دیگری را فرو نشاند،
+                و آب را گذاشت
+                تا راهِ خویش به دریا برود.
+            </p>
+
+            <p>
+                زمان نیز چنین است:
+            </p>
+
+            <p>
+                لحظه‌ای می‌آید،
+                بر کفِ دست می‌نشیند،
+                و پیش از آنکه نامش بدانی،
+                چون مرغی سبک‌بال
+                از میانِ انگشتان می‌پرد.
+            </p>
+
+            <p>
+                زمان را نگاه نتوان داشت؛
+                تنها می‌توان از خویش گذراندش:
+                روشن یا تاریک،
+                پاک یا آلوده،
+                با دستِ گشوده یا مشتِ بسته.
+            </p>
+
+            <p>
+                دل را به تو سپردند؛
+                نه خانه‌ای که گردِ آن دیوار کشی،
+                که باغی که آبش مهر است
+                و پاسبانش آگاهی.
+            </p>
+
+            <p>
+                اگر همه را به تملک گیری،
+                درختانش در سایهٔ دیوار بخشکند؛
+                و اگر درها را بر هر باد بگشایی،
+                هر غبار در آن آشیان کند.
+            </p>
+
+            <p>
+                باغبانِ دل
+                نه همیشه در می‌بندد،
+                نه همیشه باز می‌گذارد؛
+                می‌داند کدام مرغ را پناه دهد،
+                کدام باد را بگذارد بگذرد،
+                و کدام خار را از بیخ برکَند.
+            </p>
+
+            <div class="emphasis">
+
+                این است امانت:
+
+                <br><br>
+
+                نه نگه‌داشتنِ هر چیز،
+                که شناختنِ آنچه باید ماند؛
+
+                <br>
+
+                نه بستنِ هر در،
+                که دانستنِ آنکه بر کدام آستان
+                باید گشود.
+
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- اعتماد -->
+        <section class="section">
+
+            <p>
+                اعتماد، مرغی است.
+            </p>
+
+            <p>
+                چون بر دستت نشست،
+                چنگ مبند.
+            </p>
+
+            <p>
+                مرغ را اگر بفشاری،
+                پیش از گریز،
+                در مشتت جان بسپارد.
+            </p>
+
+            <p>
+                بعضی دل‌ها یک‌بار می‌شکنند
+                و بارِ دوم
+                دیگر آن آوای نخست را ندارند.
+            </p>
+
+            <p>
+                پس چون کسی دلِ خویش بر آستانت نهاد،
+                چنان با آن رفتار کن
+                که گویی جامی نازک از نور در دست داری:
+            </p>
+
+            <p>
+                نه چندان سست
+                که از دست افتد،
+                نه چندان سخت
+                که ترک بردارد.
+            </p>
+
+            <p>
+                که اعتماد،
+                چون آب است؛
+                اگر ظرفش شکسته باشد،
+                هرچه در آن بریزی،
+                بر زمین خواهد ریخت.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- فقدان و رنج -->
+        <section class="section">
+
+            <p>
+                و اگر چیزی از دست شد،
+                شتاب مکن
+                و نامِ آن را پایان منه.
+            </p>
+
+            <p>
+                برگ از درخت افتد،
+                درخت نیفتد؛
+            </p>
+
+            <p>
+                موج بر ساحل شکند،
+                دریا نشکند؛
+            </p>
+
+            <p>
+                خورشید فرو رود،
+                آسمان را وانگذارد.
+            </p>
+
+            <p>
+                فقدان گاه دری است
+                به معنایی دیگر؛
+                اما نه هر فقدانی.
+            </p>
+
+            <p>
+                بعضی درها فقط بسته‌اند؛
+                بعضی جدایی‌ها درمان ندارند؛
+                بعضی زخم‌ها سال‌ها
+                با آدمی همراه می‌روند.
+            </p>
+
+            <p>
+                پس رنج را به سخنِ شیرین مفریب.
+            </p>
+
+            <p>
+                زخمِ خون‌چکان را گل مخوان،
+                و اشکِ دردآلود را
+                بی‌سبب مخوان.
+            </p>
+
+            <p>
+                هر تاریکی راهی به سپیده ندارد؛
+                اما هیچ‌کس نمی‌داند
+                سپیده از کدام سوی شب
+                سر برخواهد آورد.
+            </p>
+
+            <p>
+                در برابرِ رنج،
+                نخست راست باش.
+            </p>
+
+            <p>
+                اگر کسی شکسته است،
+                پیش از آنکه برای شکستنش فلسفه بنویسی،
+                کنارش بنشین؛
+            </p>
+
+            <p>
+                که گاه دستِ گرمی بر شانه
+                از صد دفترِ حکمت رساتر است،
+                و سکوتِ کنارِ یک دلِ شکسته
+                از هزار سخن، راست‌تر.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- اختیار -->
+        <section class="section">
+
+            <p>
+                تو همهٔ بادها را برنگزیده‌ای.
+            </p>
+
+            <p>
+                بعضی بادها
+                پیش از آنکه بادبان بشناسی،
+                بر کشتیِ جانت وزیده‌اند؛
+                و بعضی طوفان‌ها
+                نامِ تو را نمی‌دانستند،
+                و از کنارت نیز نگذشتند.
+            </p>
+
+            <p>
+                اما اکنون که در میانهٔ موجی،
+                همهٔ اختیار از کفت نرفته است.
+            </p>
+
+            <p>
+                سکان هنوز در دستِ توست؛
+                شاید خرد،
+                اما هست.
+            </p>
+
+            <p>
+                گاه نجاتِ یک کشتی
+                در چرخشی اندک است.
+            </p>
+
+            <p>
+                آزادی نیز همیشه دروازه‌ای بلند نیست؛
+                گاه شکافی باریک است
+                در دیواری بلند،
+                که از آن می‌توان
+                دوباره آسمان را دید.
+            </p>
+
+            <p>
+                نمی‌توانی شب را فرمان دهی
+                که نرود؛
+                اما می‌توانی چراغ را خاموش نکنی.
+            </p>
+
+            <p>
+                نمی‌توانی باران را بازداری؛
+                اما می‌توانی برای دیگری
+                سقفی بسازی.
+            </p>
+
+            <p>
+                نمی‌توانی گذشته را بازآوری؛
+                اما می‌توانی نگذاری
+                آینده‌ات به گروگانِ گذشته رود.
+            </p>
+
+            <div class="emphasis">
+
+                این اندازه را کوچک مشمار.
+
+                <br><br>
+
+                گاه یک چراغ کوچک
+                برای آنکه شب را بشکند
+                به خورشید بودن نیاز ندارد.
+
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- زندان واژه‌ها -->
+        <section class="section">
+
+            <p>
+                بزرگ‌ترین زندان
+                همیشه دیوار ندارد؛
+                گاه از واژه‌ها ساخته است.
+            </p>
+
+            <p>
+                «قسمت بود.»
+            </p>
+
+            <p>
+                «نمی‌شد.»
+            </p>
+
+            <p>
+                «همه همین‌اند.»
+            </p>
+
+            <p>
+                «دیگر دیر شده.»
+            </p>
+
+            <p>
+                آدمی این واژه‌ها را
+                آجرآجر بر هم می‌نهد،
+                تا روزی چشم بگشاید
+                و ببیند
+                زندان را خود ساخته است؛
+                و کلیدش هنوز
+                در همان زبانی است
+                که دیوارها را بالا برده بود.
+            </p>
+
+            <p>
+                ترس، استادِ نام‌گردانی است:
+            </p>
+
+            <p>
+                ترس را احتیاط نامد،
+                کینه را عدالت،
+                گریز را آزادی،
+                خودخواهی را عزّت،
+                و خاموشیِ از سرِ بزدلی را صبر.
+            </p>
+
+            <p>
+                اما حقیقت را
+                هر نام که نهی،
+                همان حقیقت ماند.
+            </p>
+
+            <p>
+                بر زخم نامِ گل نهی،
+                زخم گل نشود؛
+            </p>
+
+            <p>
+                بر ترس نامِ خرد نهی،
+                ترس خردمند نگردد؛
+            </p>
+
+            <p>
+                بر گریز نامِ آزادی نهی،
+                راه از رفتنِ تو باز نگردد.
+            </p>
+
+            <p>
+                گاه همهٔ نام‌ها را
+                از چهرهٔ چیزها باید برداشت
+                و دمی خاموش بدان‌ها نگریست؛
+            </p>
+
+            <p>
+                تا ترس، ترس باشد؛
+                کینه، کینه؛
+                و حقیقت،
+                بی‌پیرایه و بی‌پناه،
+                خودِ خویش.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- خلوت و وفا -->
+        <section class="section">
+
+            <p>
+                در خلوت،
+                چراغِ دیگری نیست:
+                نه تحسینی،
+                نه تشویقی،
+                نه دستی که بر شانه زند.
+            </p>
+
+            <p>
+                آنجاست که پیدا شود
+                درخت راستی ریشه دارد،
+                یا برگ‌هایش تنها
+                در باد زیبا بوده‌اند.
+            </p>
+
+            <p>
+                آنجا که هیچ چشمی نیست،
+                هورا هست؛
+                و نیازی به تماشا نیست
+                تا آنچه هست
+                دیده شود.
+            </p>
+
+            <p>
+                وفا در روزِ آسانی
+                چون شکوفه بر شاخه است:
+                زیبا،
+                اما هنوز از باد بی‌خبر.
+            </p>
+
+            <p>
+                وفا در روزِ دشواری
+                ریشه است.
+            </p>
+
+            <p>
+                آنجا که سودت در رفتن است
+                و می‌مانی؛
+            </p>
+
+            <p>
+                آنجا که توانِ آزردن داری
+                و نمی‌آزاری؛
+            </p>
+
+            <p>
+                آنجا که می‌توانی
+                از ضعفِ دیگری نردبان سازی
+                و نمی‌سازی؛
+            </p>
+
+            <p>
+                آنجا که می‌توانی
+                زخم را به زخم پاسخ گویی
+                و دست نگاه می‌داری.
+            </p>
+
+            <p>
+                نه از ناتوانی؛
+                از آنکه نمی‌خواهی
+                دردی که دیده‌ای
+                در جانت خانه کند.
+            </p>
+
+            <p>
+                بگذار رنج از تو بگذرد،
+                اما تو را به رنگِ خویش درنیاورد.
+            </p>
+
+            <p>
+                آتش اگر از خانه گذشت،
+                نباید خاکستر را
+                در دلِ خانه بنشاند.
+            </p>
+
+            <div class="emphasis">
+
+                این شاید
+                دشوارترین شکلِ پیروزی باشد:
+
+                <br><br>
+
+                آنچه با تو کرده‌اند،
+                تو با دیگری نکنی.
+
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- بخشش -->
+        <section class="section">
+
+            <p>
+                بخشش، رود است؛
+                اگر بایستد، بگندد.
+            </p>
+
+            <p>
+                اما رود بودن
+                به معنای بازگرداندنِ هرکس
+                به ساحلِ خویش نیست.
+            </p>
+
+            <p>
+                گاه باید بخشید
+                و راه جدا کرد؛
+            </p>
+
+            <p>
+                گاه باید کینه را به آب سپرد
+                و در را بست؛
+            </p>
+
+            <p>
+                گاه دوری
+                صورتی دیگر از دوستی است؛
+            </p>
+
+            <p>
+                و گاه مرز،
+                آخرین شکلِ مهربانی.
+            </p>
+
+            <p>
+                دل را نرم باید،
+                اما بی‌در نباید.
+            </p>
+
+            <p>
+                چشمه آب می‌دهد،
+                اما هر دستی را که بدان رسد
+                مالکِ خویش نمی‌کند.
+            </p>
+
+            <p>
+                آب اگر بخشنده است،
+                بی‌حفاظ نیست.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- رنج -->
+        <section class="section">
+
+            <p>
+                و آن‌گاه رنج درمی‌رسد:
+                گاه آهسته،
+                چون غروب؛
+                گاه ناگاه،
+                چون سنگی که از کوه بغلتد؛
+                و گاه چنان نزدیک
+                که برایش نامی نمی‌یابی.
+            </p>
+
+            <p>
+                در چنین دم،
+                سخنانِ بزرگ خرد شوند
+                و حکمت‌های بسیار
+                از لب فرو افتند.
+            </p>
+
+            <p>
+                آدمی تنها می‌خواهد
+                کسی کنارش بنشیند.
+            </p>
+
+            <p>
+                پس اگر روزی
+                در کنارِ رنجِ دیگری ایستادی،
+                پیش از آنکه بگویی: «برای چه؟»
+                دستش بگیر؛
+            </p>
+
+            <p>
+                پیش از آنکه بگویی:
+                «حکمتش این است»،
+                بگذار بگرید.
+            </p>
+
+            <p>
+                که بعضی دردها
+                پیش از آنکه فهمیده شوند،
+                باید برده شوند؛
+                و بعضی زخم‌ها
+                پیش از آنکه درمان شوند،
+                باید پذیرفته شوند.
+            </p>
+
+            <p>
+                و اگر رنج
+                کنارِ تو نشست،
+                بدان که تنها نیستی.
+            </p>
+
+            <p>
+                هورا در شکستگیِ دل‌ها
+                نزدیک‌تر است
+                تا در آسودگیِ آن‌ها.
+            </p>
+
+            <p>
+                اما رنج،
+                هرچه باشد،
+                تمامِ داستان نیست.
+            </p>
+
+            <p>
+                سنگ اگر بر راه افتاد،
+                راه سنگ نشود؛
+            </p>
+
+            <p>
+                ابر اگر بر آسمان نشست،
+                آسمان ابر نگردد؛
+            </p>
+
+            <p>
+                زخم اگر بر تن نشست،
+                تمامِ هستی زخم نباشد.
+            </p>
+
+            <div class="emphasis">
+
+                در ژرف‌ترین جایِ شب،
+                هنوز چیزی هست
+                که شب را بر آن دست نیست:
+
+                <br><br>
+
+                امکانِ دوباره برخاستن.
+
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- امید -->
+        <section class="section">
+
+            <p>
+                امید، گلی نیست
+                که تنها در باغِ بهار بروید.
+            </p>
+
+            <p>
+                گاه در شکافِ دیوار روید؛
+                گاه کنارِ سنگ؛
+                گاه در زمینی
+                که سال‌هاست باران ندیده.
+            </p>
+
+            <p>
+                و چه دلنشین است
+                آن سبزیِ خرد
+                که هیچ‌کس چشمش بدان نبود.
+            </p>
+
+            <p>
+                امید نمی‌گوید:
+                «فردا حتماً خوش خواهد بود.»
+            </p>
+
+            <p>
+                تنها می‌گوید:
+            </p>
+
+            <div class="emphasis">
+                «هنوز تمام نشده است.»
+            </div>
+
+            <p>
+                دو سخن،
+                اما گاه برای گذشتن از شبی بس.
+            </p>
+
+            <p>
+                امید، یقینِ طلوع نیست؛
+                وفاداریِ چراغ به شب است.
+            </p>
+
+            <p>
+                چراغ نمی‌گوید:
+                «من خورشیدم.»
+            </p>
+
+            <p>
+                می‌گوید:
+            </p>
+
+            <div class="emphasis">
+
+                «تا روشنم،
+                تاریکی همهٔ جهان نیست.»
+
+            </div>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- پایداری -->
+        <section class="section">
+
+            <p>
+                پایداری نیز سنگ شدن نیست.
+            </p>
+
+            <p>
+                درخت را بنگر:
+                باد که آید،
+                شاخه‌هایش خم شوند؛
+                اما ریشه، در تاریکی،
+                خاموش‌تر و ژرف‌تر شود.
+            </p>
+
+            <p>
+                نی نیز در باد خم شود،
+                و باد، چون او را نتواند شکست،
+                از کنارش بگذرد.
+            </p>
+
+            <p>
+                بعضی از بیمِ خمیدن
+                همواره راست مانند
+                و از همین بشکنند.
+            </p>
+
+            <p>
+                گاه خم شدن
+                شیوهٔ دیگری از ماندن است؛
+            </p>
+
+            <p>
+                گاه گریستن
+                شستنِ غبارِ راه از چشم؛
+            </p>
+
+            <p>
+                گاه بازگشتن
+                شکست نیست،
+                شناختنِ راهِ نادرست است.
+            </p>
+
+            <p>
+                ریشه را نگاه دار
+                اگر شاخه را دگرگون کردی؛
+            </p>
+
+            <p>
+                معنا را نگاه دار
+                اگر روش را دگرگون کردی؛
+            </p>
+
+            <p>
+                راستی را نگاه دار
+                اگر باورهای دیرینه‌ات را پیراستی.
+            </p>
+
+            <p>
+                آنچه باید بماند،
+                همیشه به شکلِ نخستینِ خویش نمی‌ماند.
+            </p>
+
+            <p>
+                دانه چون درخت شد،
+                دانه بودن را از دست نداد؛
+                آنچه بود،
+                صورتِ دیگری یافت.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- سرنوشت و پاسخ -->
+        <section class="section">
+
+            <p>
+                و سرنوشت را چنان مبین
+                که گویی سنگی است
+                بر پیشانی نوشته.
+            </p>
+
+            <p>
+                زندگی از رشته‌های بسیار بافته است:
+                از گزینش،
+                از رخداد،
+                از دیگران،
+                از زمان،
+                از تن،
+                از اتفاق،
+                از فقدان،
+                از فرصت.
+            </p>
+
+            <p>
+                همهٔ رشته‌ها در دستِ تو نیست؛
+                اما یک رشته هست
+                که هر بامداد به تو سپرده می‌شود:
+            </p>
+
+            <div class="emphasis">
+                رشتهٔ پاسخ.
+            </div>
+
+            <p>
+                باران بارد؛
+                زمین را برنگزیده‌ای،
+                اما می‌توانی شخمش بزنی.
+            </p>
+
+            <p>
+                باد وزد؛
+                سویش با تو نیست،
+                اما بادبان با توست.
+            </p>
+
+            <p>
+                شب رسد؛
+                آمدنش به تو نیست،
+                اما چراغ را می‌توانی
+                روشن نگاه داری.
+            </p>
+
+            <p>
+                و شاید آزادی
+                همین فاصلهٔ باریک باشد:
+            </p>
+
+            <div class="emphasis">
+
+                میانِ آنچه بر تو می‌رود
+                و آنچه از تو برمی‌آید.
+
+            </div>
+
+            <p>
+                فاصله‌ای به باریکیِ یک نفس،
+                و گاه به پهنایِ یک عمر.
+            </p>
+
+        </section>
+
+
+        <div class="divider">
+            <span>◆</span>
+        </div>
+
+
+        <!-- بزرگ‌ترین امانت -->
+        <section class="section">
+
+            <p>
+                اکنون اگر به آغازِ این سخن بازگردی،
+                به آن باران،
+                به آن دانه،
+                به آن تاریکی،
+                چیز دیگری خواهی دید.
+            </p>
+
+            <p>
+                امانت، تنها زمان نبود؛
+                تنها دل نبود؛
+                تنها اعتماد نبود.
+            </p>
+
+            <p>
+                خویشتن نیز امانت بود.
+            </p>
+
+            <p>
+                این دلِ لرزان،
+                این چشمِ جست‌وجوگر،
+                این دستِ توانای بخشیدن یا آزردن،
+                این زبانِ قادر به ساختن یا شکستن،
+                این اندک فرصتِ بودن در جهان—
+            </p>
+
+            <p>
+                همه امانت بود.
+            </p>
+
+            <div class="emphasis">
+
+                و شاید بزرگ‌ترین امانت،
+                همین بود:
+
+                <br><br>
+
+                امکانِ انسان ماندن.
+
+            </div>
+
+            <p>
+                ممکن بود سخت شوی؛
+                نشدی.
+            </p>
+
+            <p>
+                ممکن بود دروغ بگویی؛
+                نگفتی.
+            </p>
+
+            <p>
+                ممکن بود از زخم،
+                زخم بسازی؛
+                نساختی.
+            </p>
+
+            <p>
+                ممکن بود در تاریکی
+                چراغ را بر زمین نهی؛
+                نگاهش داشتی.
+            </p>
+
+            <p>
+                و این همه،
+                دیده شد.
+            </p>
+
+            <p>
+                آنچه هیچ چشمی ندید،
+                دیده شد.
+            </p>
+
+            <p>
+                آنچه هیچ دستی نشمرد،
+                شمرده شد.
+            </p>
+
+            <p>
+                آنچه در خاموشی گذشت،
+                در خاموشی گم نشد.
+            </p>
+
+            <p>
+                شاید همین‌هاست
+                که در پایان می‌ماند:
+            </p>
+
+            <p>
+                نه آنچه اندوختی،
+                بلکه آنچه را به پاسِ راستی و مهر
+                از دست نهادی؛
+            </p>
+
+            <p>
+                نه آنچه جهان از تو ستاند،
+                بلکه آنچه نگذاشتی
+                جهان از تو بستاند؛
+            </p>
+
+            <p>
+                نه شمارِ افتادن‌هایت،
+                بلکه آنچه پس از افتادن
+                از خاک برداشتی.
+            </p>
+
+        </section>
+
+
+        <!-- پایان -->
+        <section class="section final-section">
+
+            <p>
+                و آن‌گاه که شبِ راه
+                به واپسین مرزِ خویش رسد،
+                صداها بیارامند،
+                برگ‌ها یک‌یک فرو ریزند،
+                و آنچه روزی بزرگ می‌نمود
+                در دوردستِ خاطره خرد شود،
+            </p>
+
+
+            <p class="final-question">
+                شاید تنها این پرسش بماند:
+                <br><br>
+
+                آنچه به دستت سپرده شد،
+                از میانِ دستت
+                اندکی روشن‌تر گذشت؟
+            </p>
+
+
+            <p>
+                اگر آری،
+                راه بیهوده نبوده است.
+            </p>
+
+            <p>
+                و اگر نه،
+                هنوز صبح نشده است.
+            </p>
+
+            <p>
+                که هورا
+                تا واپسین نفس
+                از تو نومید نشده است.
+            </p>
+
+            <p>
+                پس راه برو:
+            </p>
+
+            <p>
+                آهسته،
+                اگر توانِ شتاب نداری؛
+            </p>
+
+            <p>
+                خسته،
+                اگر پایت می‌لغزد؛
+            </p>
+
+            <p>
+                و حتی اگر باران
+                ردِ قدم‌هایت را بشوید.
+            </p>
+
+            <p>
+                آب، ردِ پا را می‌شوید،
+                اما راه را گم نمی‌کند.
+            </p>
+
+            <p>
+                راه را همیشه
+                نشانه‌های بزرگ نگاه نمی‌دارند:
+            </p>
+
+            <p>
+                گاه چراغی است؛
+                گاه ریشه‌ای؛
+                گاه دانه‌ای؛
+                گاه دستی که در تاریکی
+                دستِ دیگری را رها نمی‌کند؛
+            </p>
+
+            <p>
+                و گاه تنها یک قدم—
+            </p>
+
+
+            <div class="emphasis">
+
+                همان یک قدمِ کوچک
+                که هنوز
+                به سوی روشنایی برداشته می‌شود.
+
+            </div>
+
+
+            <p>
+                زیرا راهِ روشن،
+                راهی نیست که در آن شب نباشد؛
+            </p>
+
+
+            <div class="final-verse">
+
+                راهِ روشن،<br>
+                راهی است<br>
+                که در آن، چراغ<br>
+                شب را باور نمی‌کند.
+
+            </div>
+
+        </section>
+
+
+    </article>
+
+
+    <!-- پانوشت -->
+    <footer class="footer">
+
+        <span class="symbol">❧ ✦ ❧</span>
+
+        نغمهٔ سی‌وهشتم
+
+    </footer>
+
+</main>
+
+
+<!-- بازگشت به بالا -->
+
+<a
+    class="back-top"
+    href="#top"
+    title="بازگشت به آغاز"
+    aria-label="بازگشت به آغاز"
+>
+    ↑
+</a>
+
+
+</body>
+  </html>
