@@ -6,36 +6,37 @@
 
 <title>نغمه سی‌وهشتم | در امانت، امید و پایداری در راه روشن</title>
 
+<!--
+    فونت اصلی:
+    Amiri = نسخ عربی/فارسی با حال‌وهوای متون کلاسیک و مذهبی
+    Noto Naskh Arabic = پشتیبان
+-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   هویت بصری
+   رنگ‌های نسخه
    ========================================================= */
 
 :root {
-    --ink: #302319;
-    --ink-soft: #49382a;
+    --paper: #eee2c5;
+    --paper-light: #f7efd9;
+    --paper-dark: #d8c394;
 
-    --gold-dark: #80602d;
-    --gold: #a8833e;
-    --gold-light: #d4b66f;
-    --gold-pale: #ead9a5;
+    --ink: #30261d;
+    --ink-soft: #4b3b2c;
 
-    --paper: #f1e5c9;
-    --paper-light: #f8f0dc;
-    --paper-dark: #dfcda4;
+    --gold: #a07b36;
+    --gold-dark: #76561f;
+    --gold-light: #d5b86b;
 
-    --red: #753d31;
-    --red-dark: #55271f;
+    --seal-red: #713a2f;
+    --seal-red-dark: #52251f;
 
-    --shadow:
-        rgba(54, 37, 18, .30);
+    --shadow: rgba(55, 38, 20, .34);
 }
 
 
@@ -59,21 +60,23 @@ body {
     background:
         radial-gradient(
             ellipse at center,
-            #d9c9a5 0%,
-            #c8b38a 55%,
-            #a58b61 100%
+            #d8c8a2 0%,
+            #c5b184 55%,
+            #a38a61 100%
         );
 
     font-family:
-        "Noto Naskh Arabic",
         "Amiri",
+        "Noto Naskh Arabic",
         serif;
 
-    line-height: 2.45;
+    font-size: 19px;
+
+    line-height: 2.55;
 }
 
 
-/* بافت کاغذ */
+/* بافت بسیار ظریف کاغذ */
 
 body::before {
     content: "";
@@ -83,132 +86,127 @@ body::before {
 
     pointer-events: none;
 
-    opacity: .23;
+    z-index: 100;
+
+    opacity: .16;
 
     background-image:
         radial-gradient(
-            rgba(72, 48, 22, .18) .65px,
-            transparent .8px
+            rgba(65,45,23,.30) .5px,
+            transparent .7px
         );
 
-    background-size: 8px 8px;
+    background-size: 7px 7px;
 
     mix-blend-mode: multiply;
-
-    z-index: 1000;
 }
 
 
 /* =========================================================
-   ورق نسخه
+   صفحهٔ نسخه
    ========================================================= */
 
 .manuscript {
+    position: relative;
+
     width: min(1040px, calc(100% - 28px));
 
     margin: 45px auto;
 
-    position: relative;
-
-    padding: 48px 58px 80px;
+    padding: 48px 72px 75px;
 
     background:
         radial-gradient(
-            ellipse at 50% 20%,
-            rgba(255,255,255,.42),
-            transparent 58%
+            ellipse at center top,
+            rgba(255,255,255,.35),
+            transparent 55%
         ),
         linear-gradient(
             90deg,
-            rgba(110,76,31,.09),
-            transparent 8%,
-            transparent 92%,
-            rgba(110,76,31,.09)
+            rgba(92,61,24,.08),
+            transparent 9%,
+            transparent 91%,
+            rgba(92,61,24,.08)
         ),
         var(--paper);
 
-    box-shadow:
-        0 30px 75px var(--shadow),
-        inset 0 0 70px rgba(111,76,27,.13);
+    border: 1px solid rgba(110,78,31,.48);
 
-    border: 1px solid rgba(105,73,28,.45);
+    box-shadow:
+        0 28px 75px var(--shadow),
+        inset 0 0 75px rgba(101,71,27,.13);
 }
 
 
-/* حاشیهٔ بیرونی */
+/* قاب اصلی */
 
 .manuscript::before {
     content: "";
 
     position: absolute;
-
     inset: 15px;
 
     border:
-        2px solid rgba(128,96,45,.60);
+        2px solid rgba(139,105,49,.55);
 
     pointer-events: none;
 }
 
 
-/* حاشیهٔ درونی */
+/* قاب داخلی */
 
 .manuscript::after {
     content: "";
 
     position: absolute;
-
-    inset: 23px;
+    inset: 24px;
 
     border:
-        1px solid rgba(128,96,45,.38);
+        1px solid rgba(139,105,49,.34);
 
     pointer-events: none;
 }
 
 
 /* =========================================================
-   حاشیهٔ تزئینی چهارگوش
+   گوشه‌های تذهیب
    ========================================================= */
 
-.corner {
+.ornament {
     position: absolute;
 
-    width: 74px;
-    height: 74px;
-
-    z-index: 4;
+    z-index: 5;
 
     color: var(--gold-dark);
 
-    font-size: 42px;
+    font-size: 45px;
 
     line-height: 1;
 
     text-shadow:
-        0 1px 0 #f8eac2;
+        0 1px 0 #f9efd7;
 }
 
-.corner.tl {
+.ornament.tl {
     top: 27px;
     right: 29px;
 }
 
-.corner.tr {
+.ornament.tr {
     top: 27px;
     left: 29px;
 
     transform: scaleX(-1);
 }
 
-.corner.bl {
+.ornament.bl {
     bottom: 27px;
     right: 29px;
 
     transform: scaleY(-1);
 }
 
-.corner.br {
+.ornament.br {
     bottom: 27px;
     left: 29px;
 
@@ -222,33 +220,28 @@ body::before {
 
 .navigation {
     position: relative;
-
     z-index: 20;
 
     display: flex;
-
     justify-content: space-between;
 
-    padding: 0 28px;
+    padding: 0 25px;
 
-    margin-bottom: 42px;
+    margin-bottom: 38px;
 }
 
 .navigation a {
-    color: var(--red-dark);
+    color: var(--seal-red-dark);
 
     text-decoration: none;
 
     font-family:
-        "Aref Ruqaa",
         "Amiri",
         serif;
 
-    font-size: 1.1rem;
+    font-size: 1rem;
 
-    transition:
-        color .25s ease,
-        transform .25s ease;
+    transition: .25s ease;
 }
 
 .navigation a:hover {
@@ -264,38 +257,32 @@ body::before {
 
 .header {
     position: relative;
-
-    z-index: 5;
+    z-index: 10;
 
     text-align: center;
 
-    margin: 20px auto 70px;
-
-    max-width: 850px;
+    margin-bottom: 72px;
 }
-
-
-/* قاب سرلوح */
 
 .header-frame {
     position: relative;
 
-    padding: 32px 50px 38px;
+    padding: 35px 55px 40px;
 
     border:
-        1px solid rgba(128,96,45,.45);
+        1px solid rgba(130,98,45,.48);
 
     background:
         linear-gradient(
             135deg,
-            rgba(211,181,105,.13),
-            rgba(255,255,255,.15),
-            rgba(211,181,105,.13)
+            rgba(205,174,99,.10),
+            rgba(255,255,255,.14),
+            rgba(205,174,99,.10)
         );
 }
 
 
-/* خطوط تزئینی بالای سرلوح */
+/* خطوط سرلوح */
 
 .header-frame::before,
 .header-frame::after {
@@ -303,8 +290,8 @@ body::before {
 
     position: absolute;
 
-    left: 12%;
-    right: 12%;
+    left: 13%;
+    right: 13%;
 
     height: 1px;
 
@@ -318,63 +305,39 @@ body::before {
 }
 
 .header-frame::before {
-    top: 14px;
+    top: 15px;
 }
 
 .header-frame::after {
-    bottom: 14px;
+    bottom: 15px;
 }
 
 
-/* نشان مرکزی */
+/* عبارت بالای عنوان */
 
-.crest {
-    display: inline-block;
-
-    position: relative;
-
-    margin-bottom: 13px;
-
+.header-kufic {
     color: var(--gold-dark);
-
-    font-size: 2.1rem;
-
-    line-height: 1;
-}
-
-.crest::before,
-.crest::after {
-    content: "◆";
-
-    display: inline-block;
-
-    margin: 0 18px;
-
-    font-size: .45em;
-
-    vertical-align: middle;
-}
-
-
-/* شمارهٔ نغمه */
-
-.chapter {
-    margin-bottom: 3px;
-
-    color: var(--red);
-
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
 
     font-size: 1.15rem;
 
-    letter-spacing: .08em;
+    letter-spacing: .13em;
+
+    margin-bottom: 4px;
 }
 
 
-/* عنوان */
+/* شماره */
+
+.chapter-number {
+    color: var(--seal-red);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 3px;
+}
+
+
+/* عنوان اصلی */
 
 h1 {
     margin: 0;
@@ -382,84 +345,136 @@ h1 {
     color: var(--ink);
 
     font-family:
-        "Aref Ruqaa",
         "Amiri",
         serif;
 
-    font-size: clamp(3rem, 7vw, 5.2rem);
+    font-size: clamp(2.9rem, 6vw, 4.6rem);
 
     font-weight: 700;
 
-    line-height: 1.35;
+    line-height: 1.45;
 
     text-shadow:
-        0 1px 0 #fff5dc,
-        0 2px 2px rgba(80,50,20,.10);
+        0 1px 0 #fff4d9;
 }
 
 
-/* عنوان فرعی */
+/* زیرعنوان */
 
 .subtitle {
-    margin-top: 12px;
+    color: var(--seal-red-dark);
 
-    color: var(--red-dark);
-
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
-
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-size: 1.35rem;
 
     line-height: 1.8;
 }
 
 
 /* =========================================================
-   ترنج کوچک
+   مُهر هورا
    ========================================================= */
 
-.medallion {
-    width: 105px;
-    height: 105px;
-
-    margin: 33px auto -82px;
-
+.hora-seal {
     position: relative;
+
+    width: 132px;
+    height: 132px;
+
+    margin: 38px auto -96px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--seal-red);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(247,239,217,.94) 0 53%,
+            transparent 54%
+        );
+
+    border:
+        2px solid var(--seal-red);
+
+    box-shadow:
+        0 0 0 5px var(--paper),
+        0 0 0 7px rgba(113,58,47,.65),
+        inset 0 0 0 2px rgba(113,58,47,.22);
+
+    transform: rotate(-7deg);
+}
+
+
+/* حلقهٔ داخلی مهر */
+
+.hora-seal::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border:
+        1px solid var(--seal-red);
+
+    border-radius: 50%;
+}
+
+
+/* حلقهٔ نقطه‌ها */
+
+.hora-seal::after {
+    content:
+        "•  هــورا  •  هــورا  •  هــورا  •";
+
+    position: absolute;
+
+    inset: 0;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    padding-top: 84px;
 
-    background:
-        radial-gradient(
-            circle,
-            var(--paper-light) 0 38%,
-            transparent 39%
-        );
+    font-size: .48rem;
 
-    border:
-        2px solid var(--gold);
+    letter-spacing: .08em;
 
-    box-shadow:
-        0 0 0 5px var(--paper),
-        0 0 0 7px rgba(159,124,56,.55);
-
-    transform: rotate(45deg);
+    white-space: nowrap;
 }
 
-.medallion::before {
-    content: "✦";
 
-    transform: rotate(-45deg);
+/* نام هورا */
 
-    color: var(--gold-dark);
+.seal-name {
+    position: relative;
 
-    font-size: 2.1rem;
+    z-index: 2;
+
+    margin-top: -9px;
+
+    font-size: 2.25rem;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* نشان کوچک */
+
+.seal-star {
+    position: absolute;
+
+    top: 26px;
+
+    font-size: .85rem;
 }
 
 
@@ -472,7 +487,7 @@ h1 {
 
     z-index: 5;
 
-    max-width: 780px;
+    max-width: 770px;
 
     margin: 0 auto;
 }
@@ -481,13 +496,13 @@ h1 {
 /* پاراگراف */
 
 .section {
-    margin-bottom: 62px;
+    margin-bottom: 60px;
 }
 
 .section p {
-    margin: 0 0 1.4em;
+    margin: 0 0 1.25em;
 
-    font-size: clamp(1.12rem, 1.65vw, 1.28rem);
+    font-size: 1.18rem;
 
     line-height: 2.55;
 
@@ -497,114 +512,115 @@ h1 {
 }
 
 
-/* افتتاحیه */
+/* آغاز نغمه */
 
 .opening {
-    padding-top: 38px;
-
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
+    padding-top: 35px;
 }
 
-.opening p {
-    font-size: 1.45rem;
+.opening p:first-child {
+    color: var(--seal-red-dark);
 
-    line-height: 2.5;
+    font-weight: 700;
+
+    font-size: 1.38rem;
+
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+.opening p:not(:first-child) {
+    font-size: 1.25rem;
 }
 
 
 /* =========================================================
-   خط آغاز بخش‌ها
+   جداکننده
    ========================================================= */
 
-.section-title {
+.divider {
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    gap: 14px;
+    gap: 15px;
 
-    margin: 0 0 30px;
+    margin: 64px 0;
 
     color: var(--gold-dark);
 
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
-
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
-.section-title::before,
-.section-title::after {
+.divider::before,
+.divider::after {
     content: "";
 
-    height: 1px;
+    width: 145px;
 
-    flex: 1;
+    height: 1px;
 
     background:
         linear-gradient(
             to left,
             transparent,
-            rgba(128,96,45,.55)
+            rgba(128,96,45,.58),
+            transparent
         );
 }
 
-.section-title::after {
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(128,96,45,.55)
-        );
+.divider::after {
+    transform: scaleX(-1);
+}
+
+.divider span {
+    display: inline-block;
+
+    transform: rotate(45deg);
+
+    font-size: .8rem;
 }
 
 
 /* =========================================================
-   جمل حکیمانه
+   فرازهای حکمی
    ========================================================= */
 
 .emphasis {
     position: relative;
 
-    margin: 42px 5px;
+    margin: 43px 10px;
 
-    padding: 28px 45px;
+    padding: 27px 43px;
 
     text-align: center;
 
-    color: var(--red-dark);
+    color: var(--seal-red-dark);
 
     font-family:
-        "Aref Ruqaa",
         "Amiri",
         serif;
 
-    font-size: 1.48rem;
+    font-size: 1.38rem;
 
-    line-height: 2.35;
+    line-height: 2.4;
 
     border-top:
-        1px solid rgba(128,96,45,.5);
+        1px solid rgba(126,91,35,.50);
 
     border-bottom:
-        1px solid rgba(128,96,45,.5);
+        1px solid rgba(126,91,35,.50);
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(184,150,79,.10),
+            rgba(178,145,73,.10),
             transparent
         );
 }
-
-
-/* الماس‌های کنار حکمت */
 
 .emphasis::before,
 .emphasis::after {
@@ -614,79 +630,33 @@ h1 {
 
     top: 50%;
 
-    color: var(--gold);
+    font-size: .45rem;
 
-    font-size: .55rem;
+    color: var(--gold);
 
     transform: translateY(-50%);
 }
 
 .emphasis::before {
-    right: 7px;
+    right: 8px;
 }
 
 .emphasis::after {
-    left: 7px;
+    left: 8px;
 }
 
 
 /* =========================================================
-   جداکنندهٔ اسلیمی
-   ========================================================= */
-
-.divider {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    margin: 65px 0;
-
-    color: var(--gold-dark);
-
-    font-family:
-        "Amiri",
-        serif;
-
-    font-size: 1.45rem;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-
-    height: 1px;
-
-    width: 120px;
-
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(128,96,45,.6),
-            transparent
-        );
-}
-
-.divider span {
-    transform: rotate(45deg);
-}
-
-
-/* =========================================================
-   بخش پایانی
+   پایان
    ========================================================= */
 
 .final-section {
     margin-top: 70px;
 
-    padding-top: 48px;
+    padding-top: 50px;
 
     border-top:
-        2px solid rgba(128,96,45,.35);
+        2px solid rgba(126,91,35,.32);
 
     text-align: center;
 }
@@ -696,35 +666,77 @@ h1 {
 }
 
 .final-question {
-    margin: 42px auto;
-
     max-width: 650px;
 
-    color: var(--red-dark);
+    margin: 45px auto;
 
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
+    color: var(--seal-red-dark);
 
-    font-size: 1.65rem;
+    font-size: 1.5rem !important;
 
-    line-height: 2.4;
+    line-height: 2.5 !important;
 }
 
 .final-verse {
-    margin-top: 55px;
+    margin-top: 58px;
 
     color: var(--ink);
 
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
+    font-size: clamp(1.55rem, 3vw, 2rem);
 
-    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
 
-    line-height: 2.4;
+    line-height: 2.5;
+}
+
+
+/* =========================================================
+   مُهر پایانی
+   ========================================================= */
+
+.end-seal {
+    position: relative;
+
+    width: 112px;
+    height: 112px;
+
+    margin: 70px auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        2px solid var(--seal-red);
+
+    color: var(--seal-red);
+
+    box-shadow:
+        0 0 0 4px var(--paper),
+        0 0 0 5px rgba(113,58,47,.55);
+}
+
+.end-seal::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border:
+        1px solid var(--seal-red);
+
+    border-radius: 50%;
+}
+
+.end-seal span {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 1.8rem;
 
     font-weight: 700;
 }
@@ -739,35 +751,28 @@ h1 {
 
     z-index: 5;
 
-    margin-top: 75px;
-
-    padding-top: 30px;
+    margin-top: 40px;
 
     text-align: center;
 
     color: #806b4b;
 
-    font-family:
-        "Aref Ruqaa",
-        "Amiri",
-        serif;
-
-    font-size: .95rem;
+    font-size: .92rem;
 }
 
-.footer .symbol {
+.footer-symbol {
     display: block;
-
-    margin-bottom: 7px;
 
     color: var(--gold-dark);
 
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+
+    margin-bottom: 5px;
 }
 
 
 /* =========================================================
-   دکمهٔ بازگشت به بالا
+   بازگشت به بالا
    ========================================================= */
 
 .back-top {
@@ -776,13 +781,12 @@ h1 {
     left: 22px;
     bottom: 22px;
 
-    width: 48px;
-    height: 48px;
+    z-index: 200;
 
-    z-index: 100;
+    width: 46px;
+    height: 46px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -793,8 +797,8 @@ h1 {
     background:
         linear-gradient(
             145deg,
-            var(--gold-dark),
-            #5f451f
+            var(--seal-red),
+            var(--seal-red-dark)
         );
 
     text-decoration: none;
@@ -802,18 +806,13 @@ h1 {
     box-shadow:
         0 7px 20px rgba(55,35,14,.35);
 
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    transition: .25s ease;
 }
 
 .back-top:hover {
     transform: translateY(-4px);
-
-    box-shadow:
-        0 12px 25px rgba(55,35,14,.42);
 }
 
 
@@ -824,16 +823,16 @@ h1 {
 @media (max-width: 700px) {
 
     body {
-        line-height: 2.25;
+        font-size: 17px;
     }
 
     .manuscript {
-        width: calc(100% - 12px);
+        width: calc(100% - 10px);
 
-        margin: 8px auto;
+        margin: 7px auto;
 
         padding:
-            35px 29px 55px;
+            34px 30px 58px;
     }
 
     .manuscript::before {
@@ -844,28 +843,28 @@ h1 {
         inset: 14px;
     }
 
-    .corner {
-        transform: scale(.65);
+    .ornament {
+        font-size: 31px;
     }
 
-    .corner.tl {
-        top: 18px;
-        right: 18px;
+    .ornament.tl {
+        top: 17px;
+        right: 17px;
     }
 
-    .corner.tr {
-        top: 18px;
-        left: 18px;
+    .ornament.tr {
+        top: 17px;
+        left: 17px;
     }
 
-    .corner.bl {
-        bottom: 18px;
-        right: 18px;
+    .ornament.bl {
+        bottom: 17px;
+        right: 17px;
     }
 
-    .corner.br {
-        bottom: 18px;
-        left: 18px;
+    .ornament.br {
+        bottom: 17px;
+        left: 17px;
     }
 
     .navigation {
@@ -875,25 +874,31 @@ h1 {
     }
 
     .navigation a {
-        font-size: .92rem;
+        font-size: .9rem;
     }
 
     .header-frame {
         padding:
-            27px 20px 32px;
+            28px 18px 34px;
     }
 
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.65rem;
     }
 
     .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
-    .medallion {
-        width: 82px;
-        height: 82px;
+    .hora-seal {
+        width: 105px;
+        height: 105px;
+
+        margin-bottom: -75px;
+    }
+
+    .seal-name {
+        font-size: 1.85rem;
     }
 
     .content {
@@ -901,27 +906,25 @@ h1 {
     }
 
     .section p {
-        font-size: 1.08rem;
+        font-size: 1.12rem;
 
-        line-height: 2.3;
+        line-height: 2.35;
 
         text-align: right;
     }
 
-    .opening p {
-        font-size: 1.25rem;
+    .opening p:not(:first-child) {
+        font-size: 1.18rem;
     }
 
     .emphasis {
-        margin: 34px 0;
+        padding: 22px 28px;
 
-        padding: 22px 25px;
-
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
     .divider {
-        margin: 45px 0;
+        margin: 46px 0;
     }
 
     .divider::before,
@@ -954,12 +957,11 @@ h1 {
 
     .manuscript {
         width: 100%;
-
         margin: 0;
 
-        box-shadow: none;
-
         border: none;
+
+        box-shadow: none;
     }
 }
 
@@ -969,14 +971,13 @@ h1 {
 
 <body id="top">
 
-
 <main class="manuscript">
 
-    <!-- گوشه‌های تذهیب -->
-    <div class="corner tl">❧</div>
-    <div class="corner tr">❧</div>
-    <div class="corner bl">❧</div>
-    <div class="corner br">❧</div>
+    <!-- تذهیب گوشه‌ها -->
+    <div class="ornament tl">❧</div>
+    <div class="ornament tr">❧</div>
+    <div class="ornament bl">❧</div>
+    <div class="ornament br">❧</div>
 
 
     <!-- ناوبری -->
@@ -986,9 +987,8 @@ h1 {
             ⌂ خانه
         </a>
 
-        
         <a href="https://celianor.github.io/Horia/lightbook/Cel/index.fa.html">
-            بازگشت ←
+            بازگشت
         </a>
 
     </nav>
@@ -999,11 +999,11 @@ h1 {
 
         <div class="header-frame">
 
-            <div class="crest">
-                ✦
+            <div class="header-kufic">
+                ✦  هورا  ✦
             </div>
 
-            <div class="chapter">
+            <div class="chapter-number">
                 نغمهٔ سی‌وهشتم
             </div>
 
@@ -1019,16 +1019,29 @@ h1 {
         </div>
 
 
-        <div class="medallion"></div>
+        <!-- مُهر هورا -->
+        <div class="hora-seal">
+
+            <span class="seal-star">✦</span>
+
+            <span class="seal-name">
+                هورا
+            </span>
+
+        </div>
 
     </header>
 
 
-    <!-- متن -->
+    <!-- =====================================================
+         متن نغمه
+         ===================================================== -->
+
     <article class="content">
 
 
         <!-- آغاز -->
+
         <section class="section opening">
 
             <p>
@@ -1036,24 +1049,14 @@ h1 {
             </p>
 
             <p>
-                چنان‌که نخستین قطرهٔ باران<br>
-                بر شانهٔ خاک می‌نشیند،<br>
-                و خاک، بی‌صدا، بویِ بهار از آن می‌ستاند،<br>
-                هر آغاز را نشانی از پایانی است<br>
-                که هنوز دیده نمی‌شود؛<br>
-                و هر پایان را تخمی از آغازی است<br>
+                چنان‌که نخستین قطرهٔ باران
+                بر شانهٔ خاک می‌نشیند،
+                و خاک، بی‌صدا، بویِ بهار از آن می‌ستاند،
+                هر آغاز را نشانی از پایانی است
+                که هنوز دیده نمی‌شود؛
+                و هر پایان را تخمی از آغازی است
                 که هنوز دل آن را نمی‌داند.
             </p>
-
-        </section>
-
-
-        <div class="divider">
-            <span>◆</span>
-        </div>
-
-
-        <section class="section">
 
             <p>
                 دانه چون به خاک رفت،
@@ -1089,6 +1092,7 @@ h1 {
 
 
         <!-- امانت -->
+
         <section class="section">
 
             <p>
@@ -1175,6 +1179,7 @@ h1 {
 
 
         <!-- اعتماد -->
+
         <section class="section">
 
             <p>
@@ -1202,9 +1207,6 @@ h1 {
                 پس چون کسی دلِ خویش بر آستانت نهاد،
                 چنان با آن رفتار کن
                 که گویی جامی نازک از نور در دست داری:
-            </p>
-
-            <p>
                 نه چندان سست
                 که از دست افتد،
                 نه چندان سخت
@@ -1227,7 +1229,8 @@ h1 {
         </div>
 
 
-        <!-- فقدان و رنج -->
+        <!-- فقدان -->
+
         <section class="section">
 
             <p>
@@ -1239,14 +1242,8 @@ h1 {
             <p>
                 برگ از درخت افتد،
                 درخت نیفتد؛
-            </p>
-
-            <p>
                 موج بر ساحل شکند،
                 دریا نشکند؛
-            </p>
-
-            <p>
                 خورشید فرو رود،
                 آسمان را وانگذارد.
             </p>
@@ -1255,9 +1252,6 @@ h1 {
                 فقدان گاه دری است
                 به معنایی دیگر؛
                 اما نه هر فقدانی.
-            </p>
-
-            <p>
                 بعضی درها فقط بسته‌اند؛
                 بعضی جدایی‌ها درمان ندارند؛
                 بعضی زخم‌ها سال‌ها
@@ -1266,9 +1260,6 @@ h1 {
 
             <p>
                 پس رنج را به سخنِ شیرین مفریب.
-            </p>
-
-            <p>
                 زخمِ خون‌چکان را گل مخوان،
                 و اشکِ دردآلود را
                 بی‌سبب مخوان.
@@ -1290,9 +1281,6 @@ h1 {
                 اگر کسی شکسته است،
                 پیش از آنکه برای شکستنش فلسفه بنویسی،
                 کنارش بنشین؛
-            </p>
-
-            <p>
                 که گاه دستِ گرمی بر شانه
                 از صد دفترِ حکمت رساتر است،
                 و سکوتِ کنارِ یک دلِ شکسته
@@ -1308,13 +1296,11 @@ h1 {
 
 
         <!-- اختیار -->
+
         <section class="section">
 
             <p>
                 تو همهٔ بادها را برنگزیده‌ای.
-            </p>
-
-            <p>
                 بعضی بادها
                 پیش از آنکه بادبان بشناسی،
                 بر کشتیِ جانت وزیده‌اند؛
@@ -1326,9 +1312,6 @@ h1 {
             <p>
                 اما اکنون که در میانهٔ موجی،
                 همهٔ اختیار از کفت نرفته است.
-            </p>
-
-            <p>
                 سکان هنوز در دستِ توست؛
                 شاید خرد،
                 اما هست.
@@ -1386,6 +1369,7 @@ h1 {
 
 
         <!-- زندان واژه‌ها -->
+
         <section class="section">
 
             <p>
@@ -1396,17 +1380,11 @@ h1 {
 
             <p>
                 «قسمت بود.»
-            </p>
-
-            <p>
+                <br>
                 «نمی‌شد.»
-            </p>
-
-            <p>
+                <br>
                 «همه همین‌اند.»
-            </p>
-
-            <p>
+                <br>
                 «دیگر دیر شده.»
             </p>
 
@@ -1423,9 +1401,6 @@ h1 {
 
             <p>
                 ترس، استادِ نام‌گردانی است:
-            </p>
-
-            <p>
                 ترس را احتیاط نامد،
                 کینه را عدالت،
                 گریز را آزادی،
@@ -1442,14 +1417,8 @@ h1 {
             <p>
                 بر زخم نامِ گل نهی،
                 زخم گل نشود؛
-            </p>
-
-            <p>
                 بر ترس نامِ خرد نهی،
                 ترس خردمند نگردد؛
-            </p>
-
-            <p>
                 بر گریز نامِ آزادی نهی،
                 راه از رفتنِ تو باز نگردد.
             </p>
@@ -1458,9 +1427,6 @@ h1 {
                 گاه همهٔ نام‌ها را
                 از چهرهٔ چیزها باید برداشت
                 و دمی خاموش بدان‌ها نگریست؛
-            </p>
-
-            <p>
                 تا ترس، ترس باشد؛
                 کینه، کینه؛
                 و حقیقت،
@@ -1477,6 +1443,7 @@ h1 {
 
 
         <!-- خلوت و وفا -->
+
         <section class="section">
 
             <p>
@@ -1507,9 +1474,6 @@ h1 {
                 چون شکوفه بر شاخه است:
                 زیبا،
                 اما هنوز از باد بی‌خبر.
-            </p>
-
-            <p>
                 وفا در روزِ دشواری
                 ریشه است.
             </p>
@@ -1517,20 +1481,11 @@ h1 {
             <p>
                 آنجا که سودت در رفتن است
                 و می‌مانی؛
-            </p>
-
-            <p>
                 آنجا که توانِ آزردن داری
                 و نمی‌آزاری؛
-            </p>
-
-            <p>
                 آنجا که می‌توانی
                 از ضعفِ دیگری نردبان سازی
                 و نمی‌سازی؛
-            </p>
-
-            <p>
                 آنجا که می‌توانی
                 زخم را به زخم پاسخ گویی
                 و دست نگاه می‌داری.
@@ -1575,14 +1530,12 @@ h1 {
 
 
         <!-- بخشش -->
+
         <section class="section">
 
             <p>
                 بخشش، رود است؛
                 اگر بایستد، بگندد.
-            </p>
-
-            <p>
                 اما رود بودن
                 به معنای بازگرداندنِ هرکس
                 به ساحلِ خویش نیست.
@@ -1591,19 +1544,10 @@ h1 {
             <p>
                 گاه باید بخشید
                 و راه جدا کرد؛
-            </p>
-
-            <p>
                 گاه باید کینه را به آب سپرد
                 و در را بست؛
-            </p>
-
-            <p>
                 گاه دوری
                 صورتی دیگر از دوستی است؛
-            </p>
-
-            <p>
                 و گاه مرز،
                 آخرین شکلِ مهربانی.
             </p>
@@ -1617,9 +1561,6 @@ h1 {
                 چشمه آب می‌دهد،
                 اما هر دستی را که بدان رسد
                 مالکِ خویش نمی‌کند.
-            </p>
-
-            <p>
                 آب اگر بخشنده است،
                 بی‌حفاظ نیست.
             </p>
@@ -1633,6 +1574,7 @@ h1 {
 
 
         <!-- رنج -->
+
         <section class="section">
 
             <p>
@@ -1650,9 +1592,6 @@ h1 {
                 سخنانِ بزرگ خرد شوند
                 و حکمت‌های بسیار
                 از لب فرو افتند.
-            </p>
-
-            <p>
                 آدمی تنها می‌خواهد
                 کسی کنارش بنشیند.
             </p>
@@ -1662,9 +1601,6 @@ h1 {
                 در کنارِ رنجِ دیگری ایستادی،
                 پیش از آنکه بگویی: «برای چه؟»
                 دستش بگیر؛
-            </p>
-
-            <p>
                 پیش از آنکه بگویی:
                 «حکمتش این است»،
                 بگذار بگرید.
@@ -1700,14 +1636,8 @@ h1 {
             <p>
                 سنگ اگر بر راه افتاد،
                 راه سنگ نشود؛
-            </p>
-
-            <p>
                 ابر اگر بر آسمان نشست،
                 آسمان ابر نگردد؛
-            </p>
-
-            <p>
                 زخم اگر بر تن نشست،
                 تمامِ هستی زخم نباشد.
             </p>
@@ -1733,14 +1663,12 @@ h1 {
 
 
         <!-- امید -->
+
         <section class="section">
 
             <p>
                 امید، گلی نیست
                 که تنها در باغِ بهار بروید.
-            </p>
-
-            <p>
                 گاه در شکافِ دیوار روید؛
                 گاه کنارِ سنگ؛
                 گاه در زمینی
@@ -1756,9 +1684,6 @@ h1 {
             <p>
                 امید نمی‌گوید:
                 «فردا حتماً خوش خواهد بود.»
-            </p>
-
-            <p>
                 تنها می‌گوید:
             </p>
 
@@ -1779,17 +1704,12 @@ h1 {
             <p>
                 چراغ نمی‌گوید:
                 «من خورشیدم.»
-            </p>
-
-            <p>
                 می‌گوید:
             </p>
 
             <div class="emphasis">
-
                 «تا روشنم،
                 تاریکی همهٔ جهان نیست.»
-
             </div>
 
         </section>
@@ -1801,6 +1721,7 @@ h1 {
 
 
         <!-- پایداری -->
+
         <section class="section">
 
             <p>
@@ -1830,14 +1751,8 @@ h1 {
             <p>
                 گاه خم شدن
                 شیوهٔ دیگری از ماندن است؛
-            </p>
-
-            <p>
                 گاه گریستن
                 شستنِ غبارِ راه از چشم؛
-            </p>
-
-            <p>
                 گاه بازگشتن
                 شکست نیست،
                 شناختنِ راهِ نادرست است.
@@ -1846,14 +1761,8 @@ h1 {
             <p>
                 ریشه را نگاه دار
                 اگر شاخه را دگرگون کردی؛
-            </p>
-
-            <p>
                 معنا را نگاه دار
                 اگر روش را دگرگون کردی؛
-            </p>
-
-            <p>
                 راستی را نگاه دار
                 اگر باورهای دیرینه‌ات را پیراستی.
             </p>
@@ -1878,7 +1787,8 @@ h1 {
         </div>
 
 
-        <!-- سرنوشت و پاسخ -->
+        <!-- سرنوشت -->
+
         <section class="section">
 
             <p>
@@ -1934,10 +1844,8 @@ h1 {
             </p>
 
             <div class="emphasis">
-
                 میانِ آنچه بر تو می‌رود
                 و آنچه از تو برمی‌آید.
-
             </div>
 
             <p>
@@ -1954,6 +1862,7 @@ h1 {
 
 
         <!-- بزرگ‌ترین امانت -->
+
         <section class="section">
 
             <p>
@@ -1980,9 +1889,6 @@ h1 {
                 این دستِ توانای بخشیدن یا آزردن،
                 این زبانِ قادر به ساختن یا شکستن،
                 این اندک فرصتِ بودن در جهان—
-            </p>
-
-            <p>
                 همه امانت بود.
             </p>
 
@@ -2066,6 +1972,7 @@ h1 {
 
 
         <!-- پایان -->
+
         <section class="section final-section">
 
             <p>
@@ -2077,16 +1984,15 @@ h1 {
                 در دوردستِ خاطره خرد شود،
             </p>
 
-
             <p class="final-question">
                 شاید تنها این پرسش بماند:
+
                 <br><br>
 
                 آنچه به دستت سپرده شد،
                 از میانِ دستت
                 اندکی روشن‌تر گذشت؟
             </p>
-
 
             <p>
                 اگر آری،
@@ -2106,19 +2012,10 @@ h1 {
 
             <p>
                 پس راه برو:
-            </p>
-
-            <p>
                 آهسته،
                 اگر توانِ شتاب نداری؛
-            </p>
-
-            <p>
                 خسته،
                 اگر پایت می‌لغزد؛
-            </p>
-
-            <p>
                 و حتی اگر باران
                 ردِ قدم‌هایت را بشوید.
             </p>
@@ -2131,20 +2028,13 @@ h1 {
             <p>
                 راه را همیشه
                 نشانه‌های بزرگ نگاه نمی‌دارند:
-            </p>
-
-            <p>
                 گاه چراغی است؛
                 گاه ریشه‌ای؛
                 گاه دانه‌ای؛
                 گاه دستی که در تاریکی
                 دستِ دیگری را رها نمی‌کند؛
-            </p>
-
-            <p>
                 و گاه تنها یک قدم—
             </p>
-
 
             <div class="emphasis">
 
@@ -2154,12 +2044,10 @@ h1 {
 
             </div>
 
-
             <p>
                 زیرا راهِ روشن،
                 راهی نیست که در آن شب نباشد؛
             </p>
-
 
             <div class="final-verse">
 
@@ -2170,16 +2058,25 @@ h1 {
 
             </div>
 
-        </section>
 
+            <!-- مُهر پایان -->
+
+            <div class="end-seal">
+                <span>هورا</span>
+            </div>
+
+        </section>
 
     </article>
 
 
     <!-- پانوشت -->
+
     <footer class="footer">
 
-        <span class="symbol">❧ ✦ ❧</span>
+        <span class="footer-symbol">
+            ❧ ✦ ❧
+        </span>
 
         نغمهٔ سی‌وهشتم
 
@@ -2193,12 +2090,11 @@ h1 {
 <a
     class="back-top"
     href="#top"
-    title="بازگشت به آغاز"
     aria-label="بازگشت به آغاز"
+    title="بازگشت به آغاز"
 >
     ↑
 </a>
 
-
 </body>
-  </html>
+</html>
