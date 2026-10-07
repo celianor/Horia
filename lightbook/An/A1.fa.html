@@ -4,24 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>در معنای قدرت و حقِ بودن | هورا</title>
+  <title>فرستهٔ در حقِ بودن — شیر | هورای</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #17120f;
-      --paper: #211914;
-      --paper-light: #2a211b;
-      --gold: #c9a96a;
-      --gold-light: #e0c98f;
-      --text: #eadfce;
-      --text-soft: #cbbda8;
-      --muted: #968873;
-      --line: rgba(201, 169, 106, 0.24);
-      --shadow: rgba(0, 0, 0, 0.45);
+      --paper: #f1eadc;
+      --paper-deep: #e7dcc8;
+      --ink: #29231c;
+      --muted: #776b5a;
+      --gold: #9b7737;
+      --gold-light: #c6a665;
+      --line: rgba(125, 94, 43, 0.35);
+      --shadow: rgba(48, 37, 21, 0.18);
     }
 
     * {
@@ -35,16 +33,12 @@
     body {
       margin: 0;
       background:
-        radial-gradient(
-          circle at top,
-          rgba(201, 169, 106, 0.08),
-          transparent 35%
-        ),
-        var(--bg);
-      color: var(--text);
-      font-family: "Noto Naskh Arabic", "Vazirmatn", serif;
-      line-height: 2.25;
-      font-size: 18px;
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.35), transparent 38%),
+        linear-gradient(135deg, #eee5d5 0%, #e6dac4 100%);
+      color: var(--ink);
+      font-family: "Noto Naskh Arabic", "Amiri", serif;
+      line-height: 2.45;
+      font-size: 20px;
       min-height: 100vh;
     }
 
@@ -53,324 +47,324 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.035;
+      opacity: .10;
       background-image:
-        radial-gradient(circle at 20% 20%, #fff 0 1px, transparent 1px),
-        radial-gradient(circle at 80% 60%, #fff 0 1px, transparent 1px);
-      background-size: 7px 7px, 11px 11px;
+        radial-gradient(circle at 20% 30%, #5b4930 0.6px, transparent 0.8px),
+        radial-gradient(circle at 80% 70%, #5b4930 0.5px, transparent 0.8px);
+      background-size: 17px 17px, 23px 23px;
+      mix-blend-mode: multiply;
     }
 
     .page {
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 38px 0 80px;
+      width: min(1000px, calc(100% - 36px));
+      margin: 42px auto;
+      padding: 0 0 55px;
+      position: relative;
     }
 
-    /* ---------- Header ---------- */
-
-    .header {
+    .ornament-top {
       text-align: center;
-      margin-bottom: 42px;
+      color: var(--gold);
+      font-size: 25px;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+      opacity: .9;
     }
 
-    .logo {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 22px;
-      border: 1px solid var(--gold);
+    .top-nav,
+    .bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 17px;
+      margin: 8px 0 25px;
+    }
+
+    .top-nav a,
+    .bottom-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .top-nav a:hover,
+    .bottom-nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-divider {
+      color: var(--gold-light);
+      font-size: 15px;
+    }
+
+    .seal {
+      width: 88px;
+      height: 88px;
+      margin: 5px auto 22px;
+      border: 1.5px solid var(--gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold-light);
-      font-family: "Noto Naskh Arabic", serif;
-      font-size: 25px;
-      font-weight: 600;
-      letter-spacing: 1px;
+      position: relative;
+      color: var(--gold);
+      background:
+        radial-gradient(circle, rgba(255,255,255,.28), transparent 65%);
       box-shadow:
-        0 0 0 6px rgba(201, 169, 106, 0.035),
-        0 8px 30px var(--shadow);
+        0 2px 8px rgba(80, 55, 25, .08),
+        inset 0 0 0 5px rgba(155,119,55,.07);
+    }
+
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(155,119,55,.45);
+    }
+
+    .seal::before {
+      inset: 6px;
+    }
+
+    .seal::after {
+      inset: 11px;
+    }
+
+    .seal-text {
+      position: relative;
+      z-index: 2;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .manuscript {
+      background:
+        linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.10)),
+        var(--paper);
+      border: 1px solid rgba(130, 99, 51, .28);
+      box-shadow:
+        0 14px 45px var(--shadow),
+        inset 0 0 70px rgba(113, 82, 39, .06);
+      padding: 68px clamp(30px, 7vw, 82px) 75px;
       position: relative;
     }
 
-    .logo::before {
+    .manuscript::before {
       content: "";
       position: absolute;
-      inset: 6px;
-      border: 1px solid rgba(201, 169, 106, 0.22);
-      border-radius: 50%;
+      inset: 14px;
+      border: 1px solid rgba(155,119,55,.18);
+      pointer-events: none;
     }
 
-    .eyebrow {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+    .manuscript::after {
+      content: "";
+      position: absolute;
+      inset: 21px;
+      border: 1px solid rgba(155,119,55,.08);
+      pointer-events: none;
     }
 
-    h1 {
+    .title {
+      text-align: center;
       margin: 0;
-      color: var(--gold-light);
-      font-size: clamp(31px, 5vw, 46px);
-      font-weight: 600;
-      line-height: 1.55;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+      color: #4b3821;
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.7;
+      letter-spacing: .2px;
     }
 
-    .subtitle {
-      margin: 5px 0 0;
-      color: var(--text-soft);
-      font-size: 20px;
-    }
-
-    .ornament {
-      width: 150px;
+    .title-rule {
+      width: 180px;
       height: 1px;
+      margin: 17px auto 43px;
       background: linear-gradient(
-        to left,
+        to right,
         transparent,
         var(--gold),
         transparent
       );
-      margin: 25px auto 0;
       position: relative;
     }
 
-    .ornament::after {
+    .title-rule::after {
       content: "◆";
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -52%);
+      background: var(--paper);
       color: var(--gold);
-      background: var(--bg);
-      padding: 0 9px;
-      font-size: 8px;
+      padding: 0 10px;
+      font-size: 10px;
     }
 
-    /* ---------- Navigation ---------- */
-
-    .navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 35px;
-      padding: 11px 16px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      font-family: "Vazirmatn", sans-serif;
-      font-size: 13px;
-    }
-
-    .navigation a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.25s ease;
-    }
-
-    .navigation a:hover {
-      color: var(--gold-light);
-    }
-
-    .navigation .center {
-      color: rgba(201, 169, 106, 0.55);
-    }
-
-    /* ---------- Main manuscript ---------- */
-
-    .manuscript {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.015),
-          transparent 45%
-        ),
-        var(--paper);
-      border: 1px solid rgba(201, 169, 106, 0.16);
-      box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35),
-        inset 0 0 80px rgba(0, 0, 0, 0.08);
-      padding: clamp(28px, 5vw, 66px);
-      position: relative;
-    }
-
-    .manuscript::before,
-    .manuscript::after {
-      content: "";
-      position: absolute;
-      width: 42px;
-      height: 42px;
-      border-color: rgba(201, 169, 106, 0.3);
-      pointer-events: none;
-    }
-
-    .manuscript::before {
-      top: 18px;
-      right: 18px;
-      border-top: 1px solid;
-      border-right: 1px solid;
-    }
-
-    .manuscript::after {
-      bottom: 18px;
-      left: 18px;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
-    }
-
-    .opening {
-      color: var(--gold-light);
-      font-size: 19px;
-      line-height: 2.35;
-      margin-bottom: 48px;
-    }
-
-    .opening p {
-      margin: 0 0 5px;
-    }
-
-    .section-break {
-      text-align: center;
-      color: var(--gold);
-      font-size: 14px;
-      letter-spacing: 8px;
-      margin: 38px 0;
-      opacity: 0.75;
-    }
-
-    .paragraph {
-      margin: 0 0 20px;
+    .invocation {
+      margin: 0 auto 45px;
+      max-width: 850px;
       text-align: justify;
       text-justify: inter-word;
-      color: var(--text);
-      font-weight: 400;
+      font-size: 21px;
+      line-height: 2.55;
+      color: #3d3327;
     }
 
-    .paragraph.emphasis {
-      color: var(--text-soft);
+    .invocation p {
+      margin: 0 0 3px;
+    }
+
+    .prose {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .prose p {
+      margin: 0 0 24px;
+      text-align: justify;
+      text-justify: inter-word;
+      text-align-last: right;
+      hanging-punctuation: first;
+    }
+
+    .prose p:first-of-type::first-letter {
+      float: right;
+      font-family: "Amiri", serif;
+      font-size: 3.5em;
+      line-height: .8;
+      padding-left: 8px;
+      padding-top: 7px;
+      color: var(--gold);
+    }
+
+    .scene-break {
+      text-align: center;
+      margin: 42px 0;
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 8px;
+    }
+
+    .scene-break span {
+      display: inline-block;
+      transform: scale(.8);
     }
 
     .dialogue {
-      margin: 15px 4px;
-      padding-right: 19px;
-      border-right: 1px solid rgba(201, 169, 106, 0.32);
-      color: var(--text);
+      margin-right: 1.4em;
+      margin-left: 1.4em;
+      color: #332b22;
     }
 
     .dialogue p {
-      margin: 8px 0;
+      margin-bottom: 11px;
     }
 
-    .dialogue p:first-child {
-      color: var(--gold-light);
+    .emphasis {
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
+      line-height: 2.4;
+      color: #4c3922;
+      margin: 35px auto !important;
     }
 
     .question {
-      text-align: center;
-      color: var(--gold-light);
-      font-size: 21px;
-      line-height: 2.2;
-      margin: 34px auto;
-      max-width: 720px;
+      margin: 48px auto;
+      padding: 25px 30px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
+      line-height: 2.4;
+      color: #493820;
     }
 
     .closing {
-      margin-top: 54px;
-      padding-top: 35px;
-      border-top: 1px solid var(--line);
+      margin-top: 52px;
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      line-height: 2.55;
+      color: #493820;
     }
 
-    .closing p {
-      margin-bottom: 21px;
+    .closing strong {
+      font-weight: 700;
+      color: #715326;
     }
 
-    .final-line {
+    .bottom-ornament {
       text-align: center;
-      color: var(--gold-light);
-      font-size: 22px;
-      line-height: 2.4;
-      margin-top: 42px;
-    }
-
-    .final-line::before {
-      content: "◆";
-      display: block;
-      font-size: 9px;
+      margin: 48px 0 24px;
       color: var(--gold);
-      margin-bottom: 18px;
+      font-size: 19px;
+      letter-spacing: 9px;
     }
 
-    /* ---------- Footer ---------- */
+    .bottom-nav {
+      margin-top: 28px;
+      margin-bottom: 0;
+    }
 
-    footer {
+    .copyright {
       text-align: center;
-      margin-top: 38px;
-      color: #716758;
-      font-size: 12px;
-      font-family: "Vazirmatn", sans-serif;
+      color: #8c806e;
+      font-size: 14px;
+      margin-top: 20px;
     }
-
-    /* ---------- Responsive ---------- */
 
     @media (max-width: 700px) {
       body {
-        font-size: 17px;
-        line-height: 2.15;
+        font-size: 18px;
+        line-height: 2.3;
       }
 
       .page {
-        width: min(100% - 18px, 920px);
-        padding-top: 22px;
-      }
-
-      .header {
-        margin-bottom: 28px;
-      }
-
-      .logo {
-        width: 65px;
-        height: 65px;
-        font-size: 22px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-      }
-
-      .navigation {
-        padding: 9px 7px;
+        width: min(100% - 18px, 1000px);
+        margin: 18px auto;
       }
 
       .manuscript {
-        padding: 28px 21px;
+        padding: 48px 25px 55px;
       }
 
-      .opening {
-        font-size: 18px;
+      .manuscript::before {
+        inset: 9px;
       }
 
-      .paragraph {
-        text-align: right;
+      .manuscript::after {
+        inset: 14px;
+      }
+
+      .invocation {
+        font-size: 19px;
+        line-height: 2.4;
       }
 
       .dialogue {
-        padding-right: 13px;
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: .4em;
+        margin-left: .4em;
       }
 
-      .question {
-        font-size: 19px;
+      .question,
+      .closing {
+        font-size: 21px;
       }
 
-      .manuscript::before,
-      .manuscript::after {
-        width: 27px;
-        height: 27px;
+      .top-nav,
+      .bottom-nav {
+        gap: 18px;
+        font-size: 16px;
       }
     }
   </style>
@@ -378,1326 +372,950 @@
 
 <body>
 
-  <div class="page">
+  <main class="page">
 
-    <header class="header">
+    <!-- نشان هورای -->
+    <div class="seal" aria-label="هورا">
+      <span class="seal-text">هورا</span>
+    </div>
 
-      <div class="logo">هورا</div>
-
-      <div class="eyebrow"> در معنای توانایی، اختیار و حقِ بودن</div>
-
-      <h1>در حقِ بودن</h1>
-
-      <div class="subtitle">شیر</div>
-
-      <div class="ornament"></div>
-
-    </header>
-
-
-    <nav class="navigation">
-      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
-      <span class="center">هــورا</span>
+    <!-- ناوبری بالا -->
+    <nav class="top-nav" aria-label="ناوبری">
       <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+      <span class="nav-divider">◆</span>
+      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
     </nav>
 
+    <div class="ornament-top">✦　✧　✦</div>
 
-    <main class="manuscript">
+    <article class="manuscript">
 
-      <section class="opening">
+      <h1 class="title">در حقِ بودن </h1>
 
-        <p>
-          به نام آن‌که رازِ بودن را در پردهٔ خاک پوشانید، و بر هر جاندار، بهره‌ای از نفسِ خویش ارزانی داشت؛
-        </p>
+      <div class="title-rule"></div>
 
-        <p>
-          آن‌که شیر را به یال آراست و آهو را به پایِ گریز؛
-        </p>
+      <section class="invocation">
 
-        <p>
-          آن‌که کوه را به سنگینی و باد را به بی‌قراری سرشت؛
-        </p>
+        <p>به نام آن‌که رازِ بودن را در پردهٔ خاک پوشانید، و بر هر جاندار، بهره‌ای از نفسِ خویش ارزانی داشت؛</p>
 
-        <p>
-          آن‌که دانه را در دلِ خاک نهفت و جنگل را در دلِ دانه؛
-        </p>
+        <p>آن‌که شیر را به یال آراست و آهو را به پایِ گریز؛</p>
 
-        <p>
-          و در میانِ این همه، آدمی را هم توانِ گَزیدن داد و هم درمانِ گُزیدن.
+        <p>آن‌که کوه را به سنگینی و باد را به بی‌قراری سرشت؛</p>
+
+        <p>آن‌که دانه را در دلِ خاک نهفت و جنگل را در دلِ دانه؛</p>
+
+        <p>و در میانِ این همه، آدمی را هم توانِ گَزیدن داد و هم درمانِ گُزیدن.</p>
+
+      </section>
+
+      <section class="prose">
+
+        <p>چنین آورده‌اند ــ و حقیقتِ آن را جز خاک و باد، کسی به تمامی نداند ــ که در روزگارانِ نخستین، هنوز میانِ «خویش» و «دیگری» پرده‌ای نبود.</p>
+
+        <p>رود، رود بود و تشنگیِ درخت را می‌شناخت؛ درخت، درخت بود و سایه از رهگذر دریغ نمی‌داشت؛ کوه، کوه بود و سنگینیِ خویش بر دوشِ هیچ جانداری نمی‌نهاد.</p>
+
+        <p>هر چیز در جایِ خویش می‌زیست؛ نه دفترِ مالکیتی بود و نه دیوانِ فرمانی؛ نه مُهری بر سنگ زده بودند و نه خطی بر خاک کشیده که:</p>
+
+        <p class="emphasis">«این از آنِ من است.»</p>
+
+        <p>آدمی چون دست یافت، نام نهاد؛ و چون نام نهاد، اندازه گرفت؛ و چون اندازه گرفت، مرز کشید؛ و چون مرز کشید، یکی را «خویش» خواند و دیگری را «بیگانه».</p>
+
+        <p>از آن روز، حکایتی در جهان آغاز شد که هنوز آخرِ آن را کسی نخوانده است.</p>
+
+        <p>که دشوارترین پرسش این نبود که: «چه چیز از آنِ من است؟»</p>
+
+        <p>بلکه این بود:</p>
+
+        <p class="question">«اگر چیزی از آنِ من نیست، آیا می‌توانم بودنِ او را بی‌آنکه به سودِ خویش بسنجم، به رسمِ بودن بشناسم؟»</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>در یکی از روزهای نخستینِ بهار، چون شبنم بر تیغِ علف نشسته بود و آفتاب از پسِ کوه، چون زرِ گداخته، سر برمی‌کشید، چوپانی جوان گله را به دامنه برد.</p>
+
+        <p>چوبدست بر دوش داشت و نیزه در دست.</p>
+
+        <p>ناگاه شیر را دید.</p>
+
+        <p>شیر بر بلندای صخره ایستاده بود؛ خاموش و استوار، چنان‌که گویی پاره‌ای از کوه جان گرفته و بر پای ایستاده است.</p>
+
+        <p>نه غرید و نه دندان نمود.</p>
+
+        <p>چوپان نیزه را بالا آورد.</p>
+
+        <p>سکوتی میانِ آن دو افتاد؛ سکوتی که از بسیار سخن، رساتر بود.</p>
+
+        <div class="dialogue">
+
+          <p>شیر گفت:</p>
+          <p>ـ آن نیزه را از بهرِ چه برداشته‌ای؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ تا اگر به گله نزدیک شوی، بازت دارم.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ و اگر نزدیک نشوم؟</p>
+
+          <p>ـ باز هم آماده باشم.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ پس بیم، پیش از خطر، بر تو وارد آمده است.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ و گرسنگی، پیش از شکار، بر تو.</p>
+
+          <p>شیر سر فرود آورد.</p>
+
+          <p>ـ راست گفتی.</p>
+
+          <p>آنگاه دیده بر گله افکند و گفت:</p>
+
+          <p>ـ این همه از آنِ توست؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ از آنِ من نیست؛ به من سپرده‌اند.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ میانِ داشتن و نگاهبانی چه فرق است؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ آن‌که صاحب، برای خویش نگاه دارد؛ نگاهبان، برای دیگری.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ اگر فردا صاحبانِ گله آیند و فرمایند که همه را بفروشی؟</p>
+
+          <p>ـ می‌فروشم.</p>
+
+          <p>ـ و اگر فرمایند که همه را بکشی؟</p>
+
+          <p>چوپان خاموش ماند.</p>
+
+          <p>پس از اندکی گفت:</p>
+
+          <p>ـ آن دیگر نگاهبانی نیست.</p>
+
+          <p>شیر گفت:</p>
+
+          <p>ـ پس هر فرمانی که از صاحب آید، حق نمی‌شود؟</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ گمان ندارم.</p>
+
+          <p>شیر گفت:</p>
+
+          <p>ـ «گمان ندارم» سخنی نیکوست.</p>
+
+          <p>چوپان پرسید:</p>
+
+          <p>ـ چرا؟</p>
+
+          <p>شیر گفت:</p>
+
+          <p>ـ زیرا بسیار ستم‌ها از آنجا برخیزد که مرد، پندارِ خویش را حقیقت انگارد.</p>
+
+          <p>چوپان نیزه را استوارتر گرفت.</p>
+
+          <p>ـ تو از ستم چه دانی؟</p>
+
+          <p>شیر گفت:</p>
+
+          <p>ـ به قدرِ گرسنگی.</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ گرسنگی را چه کار با ستم؟</p>
+
+          <p>شیر گفت:</p>
+
+          <p>ـ هر دو، اگر مهار نشوند، نخست عذر آرند و پس از آن، قربانی خواهند.</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ و تو خود گرسنه نیستی؟</p>
+
+          <p>ـ چرا.</p>
+
+          <p>ـ پس چه چیزت از کشتن بازدارد؟</p>
+
+          <p>شیر خاموش ماند.</p>
+
+          <p>پس گفت:</p>
+
+          <p>ـ هنوز نمی‌دانم.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>در همان ساعت، بره‌ای از گله جدا شد.</p>
+
+        <p>سپید و کوچک بود و بی‌خبر از غوغای جهان، سر در علف داشت.</p>
+
+        <p>شیر یک گام فرود آمد.</p>
+
+        <p>چوپان نیزه را بالا برد.</p>
+
+        <p>شیر گامِ دیگر برداشت.</p>
+
+        <p>بره سر برداشت.</p>
+
+        <p>چشمش بر شیر افتاد و گریخت.</p>
+
+        <p>شیر جست.</p>
+
+        <p>سنگی از زیر پنجه‌اش لغزید.</p>
+
+        <p>بره از میانِ بوته‌ها گذشت.</p>
+
+        <p>شیر به او رسید.</p>
+
+        <p>پنجه برکشید.</p>
+
+        <p>و در همان دم، پنجه فرود نیامد.</p>
+
+        <p>شیر ایستاد.</p>
+
+        <p>بره گریخت و در میانِ گله ناپدید شد.</p>
+
+        <div class="dialogue">
+
+          <p>چوپان گفت:</p>
+          <p>ـ چرا ایستادی؟</p>
+
+          <p>شیر نفس‌زنان گفت:</p>
+          <p>ـ گرسنه بودم.</p>
+
+          <p>ـ پس چرا نخوردی؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ زیرا گرسنگی، فرمان نیست.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ مگر گرسنگی، دلیل نیست؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ دلیل هست؛ فرمان نیست.</p>
+
+          <p>ـ فرقِ این دو چیست؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ دلیل، راهِ اندیشه گشاید؛ فرمان، راهِ دست.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ و اگر گرسنگی تو را به مرگ کشاند؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آن بهایِ گُزیدنِ من باشد.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ و اگر بره را می‌کشتی؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آن نیز بهایی داشت.</p>
+
+          <p>ـ چه بها؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آنکه هر بار گرسنه شوم، چنین پندارم که هرچه توانستم بستانم، حقِ من است.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ و این پندار چه زیان دارد؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ نخست بره را کشد؛ سپس دیدهٔ مرا. و آنگاه روزی رسد که جهان را جز شکار نبینم و خویشتن را جز شکارچی.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>چون شب درآمد، چوپان حکایتِ روز با پیرمردی بازگفت که کنارِ آتش نشسته بود.</p>
+
+        <div class="dialogue">
+
+          <p>پیرمرد چوبی در اخگر افکند و گفت:</p>
+          <p>ـ شیر است دیگر.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ نه؛ سخن در همین است.</p>
+
+          <p>پیرمرد سر برداشت.</p>
+          <p>ـ چه دیدی؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ توانست و نکرد.</p>
+
+          <p>پیرمرد لبخندی زد.</p>
+          <p>ـ این هنوز نشانِ نیکی نیست.</p>
+
+          <p>ـ چرا؟</p>
+
+          <p>ـ چه بسا مردی که دست از زدن بازدارد، نه از بخشایش، که از حسابِ ضربه بازداشته باشد.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ پس مرد را چگونه باید شناخت؟</p>
+
+          <p>پیرمرد گفت:</p>
+
+          <p>ـ نه در ناتوانی؛ که ناتوان، خواه نیک باشد و خواه بد، مجالِ بسیار ندارد.<br>
+          نه در هنگامِ نیاز؛ که نیاز، زبانِ عذر را نیک می‌آموزد.<br>
+          مرد را آن ساعت بشناس که دستش گشاده باشد و هیچ دستی بر دستِ او نباشد.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ و اگر در آن ساعت دست نگه دارد؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ باز بنگر که از چه نگه داشته است.</p>
+
+          <p>ـ و اگر ندانیم؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ کردار، دیرتر از زبان راست شود؛ لیکن چون راست شد، زبان را از گواهی بی‌نیاز کند.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>بامدادِ دیگر، چوپان شیر را در دام دید.</p>
+
+        <p>آهن، پنجه‌اش را گرفته بود و خاکِ زیر آن از خون تیره شده.</p>
+
+        <p>شیر خاموش بود؛ نه ناله می‌کرد و نه می‌غرید.</p>
+
+        <p>چوپان نزدیک شد.</p>
+
+        <p>نیزه در دست داشت.</p>
+
+        <p>یک ضربت بس بود.</p>
+
+        <p>هیچ‌کس نبود که او را بازپرسد.</p>
+
+        <p>شیر دشمنِ گله بود.</p>
+
+        <p>شیر نیرومند بود.</p>
+
+        <p>و اکنون ناتوان افتاده بود.</p>
+
+        <p>چوپان نیزه را بالا برد.</p>
+
+        <p>لحظه‌ای بدان نگریست.</p>
+
+        <p>سپس فرود نیاورد.</p>
+
+        <p>زانو زد.</p>
+
+        <p>آهن را شکست.</p>
+
+        <p>پنجه آزاد شد.</p>
+
+        <p>شیر توانِ رفتن نداشت.</p>
+
+        <p>چوپان آب آورد و پیشِ او نهاد.</p>
+
+        <p>شیر نوشید.</p>
+
+        <div class="dialogue">
+
+          <p>پس از ساعتی گفت:</p>
+          <p>ـ چرا؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ نمی‌دانم.</p>
+
+          <p>ـ می‌توانستی مرا بکشی.</p>
+          <p>ـ آری.</p>
+
+          <p>ـ و اگر می‌کشتی، سخنت نیز پذیرفته بود.</p>
+          <p>ـ شاید.</p>
+
+          <p>ـ می‌توانستی بگویی دشمنِ گله بودم.</p>
+          <p>ـ شاید.</p>
+
+          <p>ـ پس چرا؟</p>
+
+          <p>چوپان به خونِ خشکیده بر خاک نگریست و گفت:</p>
+
+          <p>ـ نخواستم ناتوانیِ تو، حجتِ مرگت شود.</p>
+
+          <p>شیر چشم بر او دوخت.</p>
+
+          <p>ـ پس اگر دیگری نتواند از بودنِ خویش دفاع کند، آیا این بر عهدهٔ نیرومند است که از بودنِ او دفاع کند؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ نمی‌دانم.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ ندانستنِ تو از بسیار دانستن‌ها راست‌تر است.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ چرا؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آن‌که پاسخ را پیش از پرسش آماده دارد، چه بسا نامِ جهلِ خویش را عوض کرده باشد.</p>
+
+          <p>سپس گفت:</p>
+          <p>ـ لیکن این سخن را از من مگیر.</p>
+
+          <p>ـ چرا؟</p>
+
+          <p>ـ زیرا اگر فردا نیزه در دستت بود، شاید سخنِ امروز را فراموش کنی.</p>
+
+          <p>چوپان برخاست و نیزه را بر زمین نهاد.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ و این؟</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ شاید آدمی باید گاه سلاحِ خویش را بر زمین نهد تا بداند هنوز صاحبِ دستِ خویش است، نه بندهٔ سلاحِ خویش.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>چند شب پس از آن، گرگ‌ها از گردنه فرود آمدند.</p>
+
+        <p>ماه باریک بود و شب، تیره.</p>
+
+        <p>گله رمید.</p>
+
+        <p>چوپان بانگ زد.</p>
+
+        <p>گرگ‌ها نزدیک شدند.</p>
+
+        <p>ناگاه شیر از تاریکی برآمد.</p>
+
+        <p>غرید؛ چنان‌که گویی صخره‌ای شکافته شد.</p>
+
+        <p>یکی را پس زد، دیگری را دنبال کرد و سومی را تا دوردست راند.</p>
+
+        <p>گرگ‌ها گریختند.</p>
+
+        <p>شیر بازآمد و میانِ گله بایستاد.</p>
+
+        <div class="dialogue">
+
+          <p>چوپان گفت:</p>
+          <p>ـ چرا آمدی؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آمدند.</p>
+
+          <p>ـ و چرا گله را نخوردی؟</p>
+
+          <p>شیر به بره‌ها نگریست.</p>
+
+          <p>ـ زیرا امشب، اینان شکارِ من نبودند.</p>
+
+          <p>ـ پس چه بودند؟</p>
+
+          <p>ـ چیزی که می‌بایست بماند.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ از گله دفاع کردی.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ نه.</p>
+
+          <p>ـ پس از چه دفاع کردی؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ از این لحظه.</p>
+
+          <p>چوپان خاموش ماند.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ اگر هر نیرومند، هرچه را توانست بگیرد، جهان جز شمارِ دندان‌ها و پنجه‌ها نبود.</p>
+
+          <p>چوپان گفت:</p>
+          <p>ـ مگر جهان چنین نیست؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ هست؛ لیکن همهٔ آنچه هست، همهٔ آنچه می‌تواند باشد، نیست.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>کلاغی بر شاخِ خشکِ بلوط نشست.</p>
+
+        <div class="dialogue">
+
+          <p>گفت:</p>
+          <p>ـ دیروز نخوردی.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ گرسنه بودم.</p>
+
+          <p>ـ امروز می‌خوری.</p>
+
+          <p>ـ گرسنه‌ام.</p>
+
+          <p>کلاغ خندید.</p>
+
+          <p>ـ پس گرسنگی دیروز سببِ نخوردن بود و امروز سببِ خوردن؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ تو بسیار می‌پرسی.</p>
+
+          <p>کلاغ گفت:</p>
+          <p>ـ و تو بسیار دیر پاسخ می‌دهی.</p>
+
+        </div>
+
+        <p>در پایینِ صخره، آهویی مرده افتاده بود.</p>
+
+        <div class="dialogue">
+
+          <p>شیر گفت:</p>
+          <p>ـ دیروز پیشِ من، جانداری بود که هنوز راهِ خویش داشت؛ امروز پیشِ من، مرگی است که دیگر از من چیزی نمی‌خواهد.</p>
+
+          <p>کلاغ گفت:</p>
+          <p>ـ پس اخلاقِ تو با شکمِ تو دگرگون شود؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ اخلاقی که شکم را نشناسد، از خاک و خونِ جهان بی‌خبر است.</p>
+
+          <p>کلاغ گفت:</p>
+          <p>ـ و اخلاقی که جز شکم را نشناسد؟</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ آن دیگر اخلاق نیست؛ حساب است.</p>
+
+        </div>
+
+        <p>کلاغ فرود آمد.</p>
+
+        <p>شیر کنار رفت.</p>
+
+        <p>کلاغ خورد.</p>
+
+        <p>شیر دیده برگردانید.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>روزی پسرِ چوپان بره‌ای را در آغوش گرفت.</p>
+
+        <div class="dialogue">
+
+          <p>گفت:</p>
+          <p>ـ این از آنِ من است.</p>
+
+          <p>پدر گفت:</p>
+          <p>ـ چرا؟</p>
+
+          <p>ـ چون دوستش دارم.</p>
+
+          <p>پدر گفت:</p>
+          <p>ـ و چون دوستش داری، می‌خواهی از تو دور نشود؟</p>
+
+          <p>ـ آری.</p>
+
+          <p>ـ اگر ماندنِ او نزد تو، راهِ رفتنش را ببندد، باز آن را دوست داشتن نامی؟</p>
+
+        </div>
+
+        <p>کودک خاموش ماند.</p>
+
+        <div class="dialogue">
+
+          <p>پدر گفت:</p>
+          <p>ـ دستت را شل کن.</p>
+
+        </div>
+
+        <p>کودک دست شل کرد.</p>
+
+        <p>بره جست و گریخت.</p>
+
+        <p>کودک خواست در پیِ او رود.</p>
+
+        <div class="dialogue">
+
+          <p>پدر گفت:</p>
+          <p>ـ بگذار برود.</p>
+
+          <p>کودک گفت:</p>
+          <p>ـ اما دوستش دارم.</p>
+
+          <p>پدر گفت:</p>
+          <p>ـ پس نخست بنگر که دوست داشتنِ تو، جایِ زیستنِ او را تنگ نکند.</p>
+
+        </div>
+
+        <p>بره به گله پیوست.</p>
+
+        <p>کودک نشست.</p>
+
+        <p>و آن روز دانست که گاه محبت در نزدیک شدن نیست؛ در کنار رفتن است.</p>
+
+        <p>و گاه وفا در نگاه داشتن نیست؛ در مجالِ ماندن دادن است.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>زمستان درآمد.</p>
+
+        <p>هیزم کم شد و آرد به آخر رسید.</p>
+
+        <p>کفشِ کودک از هم شکافته بود.</p>
+
+        <p>سه شکارچی به خانهٔ چوپان آمدند.</p>
+
+        <div class="dialogue">
+
+          <p>گفتند:</p>
+          <p>ـ شیر را یافته‌ایم. جای او را نشان بده.</p>
+
+        </div>
+
+        <p>یکی کیسه‌ای زر بر زمین نهاد.</p>
+
+        <p>چوپان به زر نگریست.</p>
+
+        <p>به کفشِ پارهٔ کودک نگریست.</p>
+
+        <p>به انبارِ تهی نگریست.</p>
+
+        <p>و دروغ گفت.</p>
+
+        <p>شکارچیان رفتند.</p>
+
+        <p>شب، پیرمرد گفت:</p>
+
+        <div class="dialogue">
+
+          <p>ـ دروغ گفتی.</p>
+
+          <p>ـ آری.</p>
+
+          <p>ـ بر کردهٔ خویش می‌بالی؟</p>
+
+          <p>ـ نه.</p>
+
+          <p>ـ پشیمانی؟</p>
+
+          <p>چوپان دیر پاسخ داد.</p>
+
+          <p>ـ نمی‌دانم.</p>
+
+          <p>ـ پس چه می‌دانی؟</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ می‌دانم که زر، زمستانِ مرا آسان می‌کرد.</p>
+
+          <p>ـ دیگر؟</p>
+
+          <p>ـ می‌دانم که نخواستم نانِ خانه‌ام را به بهایِ خونِ آن شیر بخرم.</p>
+
+          <p>پیرمرد گفت:</p>
+
+          <p>ـ پس نیکی کردی؟</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ نمی‌دانم.</p>
+
+          <p>ـ بدی؟</p>
+
+          <p>ـ نمی‌دانم.</p>
+
+          <p>پیرمرد سر فرود آورد.</p>
+
+          <p>ـ پس انتخاب کردی.</p>
+
+          <p>ـ آری.</p>
+
+          <p>ـ و اکنون باید با آن زندگی کنی.</p>
+
+          <p>چوپان گفت:</p>
+
+          <p>ـ مگر هر انتخاب چنین نیست؟</p>
+
+          <p>پیرمرد گفت:</p>
+
+          <p>ـ نه. بعضی انتخاب‌ها را مرد می‌کند و می‌گذرد؛ بعضی انتخاب‌ها مرد را می‌سازند و با او می‌مانند.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>بهارِ دیگر آمد.</p>
+
+        <p>شیر پیرتر شده بود.</p>
+
+        <p>یک روز گوزنی جوان را دنبال کرد.</p>
+
+        <p>گوزن گریخت و به پرتگاه رسید.</p>
+
+        <p>راهش بسته شد.</p>
+
+        <p>شیر نزدیک آمد.</p>
+
+        <p>گوزن ایستاد.</p>
+
+        <p>شیر نیز ایستاد.</p>
+
+        <p>چشم در چشمِ یکدیگر دوختند.</p>
+
+        <p>یک جهش بس بود.</p>
+
+        <p>اما شیر بازگشت.</p>
+
+        <p>رفت.</p>
+
+        <p>ساعتی بعد، در سوی دیگر کوه، بزِ کوهیِ پیری را یافت.</p>
+
+        <p>پاهایش سست بود.</p>
+
+        <p>راهِ گریز نداشت.</p>
+
+        <p>شیر نزدیک شد.</p>
+
+        <p>بز کوشید برخیزد.</p>
+
+        <p>نتوانست.</p>
+
+        <p>شیر او را کشت.</p>
+
+        <p>خورد.</p>
+
+        <p>و چون سیر شد، باقی گذاشت.</p>
+
+        <div class="dialogue">
+
+          <p>کلاغ گفت:</p>
+          <p>ـ یک بار رها کردی و یک بار کشتی.</p>
+
+          <p>شیر گفت:</p>
+          <p>ـ من نگاهبانِ پاکیِ جهان نیستم.</p>
+
+          <p>ـ پس چه هستی؟</p>
+
+          <p>ـ جانداری گرسنه، که هر روز باید اندازهٔ گرسنگیِ خویش بشناسد.</p>
+
+          <p>ـ و اگر خطا کنی؟</p>
+
+          <p>شیر به بز نگریست.</p>
+
+          <p>ـ آن‌گاه باید چنان زیَم که خطا در من عادت نشود.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>سال‌ها گذشت.</p>
+
+        <p>چوپان پیر شد و پسرش مردی.</p>
+
+        <div class="dialogue">
+
+          <p>روزی پسر گفت:</p>
+
+          <p>ـ پدر، آن شیر هنوز زنده است؟</p>
+
+          <p>گفت:</p>
+          <p>ـ شاید.</p>
+
+          <p>ـ همان که در دام افتاده بود؟</p>
+
+          <p>ـ همان.</p>
+
+          <p>ـ چرا نکشتیش؟</p>
+
+          <p>پدر گفت:</p>
+          <p>ـ چون می‌توانستم.</p>
+
+          <p>پسر خندید.</p>
+
+          <p>ـ این پاسخ نیست.</p>
+
+          <p>پدر گفت:</p>
+          <p>ـ برای همین پرسش، پاسخ است.</p>
+
+          <p>ـ چگونه؟</p>
+
+          <p>پدر گفت:</p>
+
+          <p>ـ اگر نمی‌توانستم، نکردنِ آن هنر نبود.</p>
+
+          <p>پس اندکی خاموش ماند و گفت:</p>
+
+          <p>ـ مرد را نه بدانچه در دستش نیست، که بدانچه در دستش هست بشناس.</p>
+
+          <p>پسر گفت:</p>
+
+          <p>ـ و اگر هم قدرت در دستش باشد و هم عذر؟</p>
+
+          <p>پدر گفت:</p>
+
+          <p>ـ آن‌گاه میانِ او و کردارِ خویش، دیگر پرده‌ای نمانده باشد.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>آن شب، شیر بر بلندای کوه ایستاده بود.</p>
+
+        <p>یالِ زرینش به خاکستریِ سالیان درآمده بود.</p>
+
+        <p>ماه بر پشتِ او می‌تابید.</p>
+
+        <p>در پایین، چراغِ خانه‌های آدمیان یکی‌یکی خاموش می‌شد.</p>
+
+        <p>گله‌ها در آغل خفته بودند.</p>
+
+        <p>گرگ‌ها در دره می‌گشتند.</p>
+
+        <p>رود، بی‌خبر از نام‌هایی که آدمی بر او نهاده بود، راهِ خویش می‌رفت.</p>
+
+        <p>و جهان، خاموش و بی‌داور، بر جایِ خویش بود.</p>
+
+        <p>نه کسی بر سنگ نوشته بود که کدام جان سزاوارِ ماندن است؛ نه ترازویی در آسمان آویخته بود که وزنِ بودن‌ها را بسنجد.</p>
+
+        <p>اما هر جاندار، پیش از آنکه سود و زیانِ دیگری باشد، برای خویش جهانی بود.</p>
+
+        <p>آهو، پیش از آنکه شکار باشد، زندگی بود.</p>
+
+        <p>درخت، پیش از آنکه سایه باشد، ریشه بود.</p>
+
+        <p>رود، پیش از آنکه آبِ آسیاب باشد، راهِ خویش داشت.</p>
+
+        <p>و شیر، پیش از آنکه دشمنِ گله باشد، جانداری بود که خواهانِ ماندن بود.</p>
+
+        <p>شاید خطای دیرینِ آدمی از آنجا برخاست که هرچه را از آنِ خویش ندید، از حقِ بودن نیز تهی انگاشت.</p>
+
+        <p>اما حقِ بودن، بخششِ نیرومند به ناتوان نیست.</p>
+
+        <p>آن را کسی عطا نمی‌کند و کسی نمی‌ستاند.</p>
+
+        <p>آدمی تنها می‌تواند در راهِ بودنِ دیگری، مانع شود یا نشود.</p>
+
+        <p>و گاه همین «نشدن»، از هزار بخشش بزرگ‌تر است.</p>
+
+        <p>بخشش آن است که آنچه از آنِ توست به دیگری دهی؛ اما پرهیز آن است که آنچه می‌توانی از دیگری بستانی، تنها از بهرِ توانستن، نستانی.</p>
+
+        <p>اینجاست که قدرت صورتی دیگر گیرد.</p>
+
+        <p>قدرت تنها آن نیست که دستِ تو بر دستِ دیگری چیره باشد.</p>
+
+        <p>قدرت آن است که دستت گشاده باشد و بتوانی آن را ببندی؛ شمشیر برکشیده باشد و بتوانی در نیامش کنی؛ طعمه پیشِ رویت باشد و بتوانی درنگ کنی؛ فرمان بر زبانت آید و بتوانی خاموش بمانی.</p>
+
+        <p>و در آن درنگِ اندک، چیزی پدیدار شود که نه زور باشد و نه بیم.</p>
+
+        <p>اختیار باشد.</p>
+
+        <p>اما اختیار برای آن نیست که آدمی هرچه خواهد برگزیند؛ بلکه برای آن است که میانِ خواستن و کردن، فاصله‌ای پدید آید تا دیگری در آن فاصله مجالِ بودن یابد.</p>
+
+        <p>شاید رازِ گَزیدن و گُزیدن همین باشد:</p>
+
+        <p>آن‌که توانِ گَزیدن دارد، اگر هر بار به اقتضای توانِ خویش بگزد، اندک‌اندک جهان را به اندازهٔ دندانِ خویش درآورد.</p>
+
+        <p>اما آن‌که گُزیدن تواند، پیش از آنکه دندان بر جهان نهد، در خویش بنگرد.</p>
+
+        <p>و گاه، بزرگ‌ترین گُزیدن، برنگزیدن باشد.</p>
+
+        <p>شیر سر فرود آورد.</p>
+
+        <p>ماه از فرازِ کوه گذشت.</p>
+
+        <p>باد بر علف‌ها افتاد.</p>
+
+        <p>و هیچ آوازی از آسمان برنخاست.</p>
+
+        <p>تنها در ژرفای جهان، همان قانونِ خاموشِ بودن جاری بود:</p>
+
+        <p class="emphasis">هرچه زنده است، میلِ ماندن دارد.</p>
+
+        <p>و هرچه نیرومند است، آزمونش در گرفتن نیست؛ در دانستنِ هنگامِ بازداشتن است.</p>
+
+        <p>آدمی می‌تواند دیگری را بکشد و هزار دلیل برای کردهٔ خویش فراهم آورد.</p>
+
+        <p>اما دلیل، همیشه حق نیست.</p>
+
+        <p>می‌تواند چیزی را مالک شود.</p>
+
+        <p>اما مالکیت، همیشه برتریِ بودن نیست.</p>
+
+        <p>می‌تواند نیرومند باشد.</p>
+
+        <p>اما نیرو، به تنهایی داورِ حق نیست.</p>
+
+        <p>و می‌تواند بگزیند.</p>
+
+        <p>گاه میانِ دو راه؛ گاه میانِ دو خواهش؛ و گاه میانِ دو گونه بودن:</p>
+
+        <p>اینکه جهان را سراسر میدانِ غلبه ببیند،</p>
+
+        <p>یا دریابد که دیگری نیز در این جهان، برای خویش، جهانی دارد.</p>
+
+        <p>شاید از همین‌جا بود که حق، نخستین بار از سایهٔ زور جدا شد.</p>
+
+        <p>نه با فرمانی بر سنگ؛ نه با بیمِ کیفر؛ نه با وعدهٔ پاداش؛</p>
+
+        <p>بلکه در یک درنگ.</p>
+
+        <p>در پنجه‌ای که فرود نیامد.</p>
+
+        <p>در نیزه‌ای که بالا نرفت.</p>
+
+        <p>در دستی که گشوده ماند.</p>
+
+        <p>در بره‌ای که گریخت.</p>
+
+        <p>در کودکی که دستِ خویش شل کرد.</p>
+
+        <p>و در مردی که نانِ خویش را به بهایِ مرگِ دیگری نخرید.</p>
+
+        <p>آن روز، شاید آدمی هنوز نیک نشده بود؛</p>
+
+        <p>اما دانست که میانِ «می‌توانم» و «حق دارم»، فاصله‌ای هست.</p>
+
+        <p>فاصله‌ای به باریکیِ یک دم، و به پهنایِ تمامِ اخلاق.</p>
+
+        <p>و هر تمدنی که آن فاصله را از یاد ببرد، دیر یا زود، باز به شمارشِ دندان‌ها بازگردد.</p>
+
+        <p>شیر از کوه فرود آمد.</p>
+
+        <p>چوپان چراغ خاموش کرد.</p>
+
+        <p>رود از میانِ سنگ‌ها گذشت.</p>
+
+        <p>صبح، آرام و بی‌خبر، بر جهان دمید.</p>
+
+        <p class="question">و پرسش بر جای ماند:<br><strong>اگر قدرت از آنِ تو باشد، با بودنِ دیگری چه خواهی کرد؟</strong></p>
+
+        <p>زبان پاسخ نخواهد داد.</p>
+
+        <p>دست خواهد داد.</p>
+
+        <p>کردار خواهد داد.</p>
+
+        <p>درنگ خواهد داد.</p>
+
+        <p>و آن‌گاه که هیچ چشمی بر تو ننگرد، انتخاب خواهد داد.</p>
+
+        <p class="closing">
+          زیرا آدمی را هم توانِ <strong>گَزیدن</strong> داده‌اند،<br>
+          و هم درمانِ <strong>گُزیدن</strong>.
         </p>
 
       </section>
 
+      <div class="bottom-ornament">✦　✧　◆　✧　✦</div>
 
-      <p class="paragraph">
-        چنین آورده‌اند ــ و حقیقتِ آن را جز خاک و باد، کسی به تمامی نداند ــ که در روزگارانِ نخستین، هنوز میانِ «خویش» و «دیگری» پرده‌ای نبود.
-      </p>
+    </article>
 
-      <p class="paragraph">
-        رود، رود بود و تشنگیِ درخت را می‌شناخت؛
-        درخت، درخت بود و سایه از رهگذر دریغ نمی‌داشت؛
-        کوه، کوه بود و سنگینیِ خویش بر دوشِ هیچ جانداری نمی‌نهاد.
-      </p>
+    <!-- ناوبری پایین -->
+    <nav class="bottom-nav" aria-label="ناوبری پایانی">
+      <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+      <span class="nav-divider">◆</span>
+      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
+    </nav>
 
-      <p class="paragraph">
-        هر چیز در جایِ خویش می‌زیست؛ نه دفترِ مالکیتی بود و نه دیوانِ فرمانی؛ نه مُهری بر سنگ زده بودند و نه خطی بر خاک کشیده که:
-      </p>
+    <div class="copyright">
+      هورا
+    </div>
 
-      <p class="question">
-        «این از آنِ من است.»
-      </p>
-
-      <p class="paragraph">
-        آدمی چون دست یافت، نام نهاد؛
-        و چون نام نهاد، اندازه گرفت؛
-        و چون اندازه گرفت، مرز کشید؛
-        و چون مرز کشید، یکی را «خویش» خواند و دیگری را «بیگانه».
-      </p>
-
-      <p class="paragraph">
-        از آن روز، حکایتی در جهان آغاز شد که هنوز آخرِ آن را کسی نخوانده است.
-      </p>
-
-      <p class="paragraph">
-        که دشوارترین پرسش این نبود که: «چه چیز از آنِ من است؟»
-      </p>
-
-      <p class="question">
-        «اگر چیزی از آنِ من نیست، آیا می‌توانم بودنِ او را بی‌آنکه به سودِ خویش بسنجم، به رسمِ بودن بشناسم؟»
-      </p>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        در یکی از روزهای نخستینِ بهار، چون شبنم بر تیغِ علف نشسته بود و آفتاب از پسِ کوه، چون زرِ گداخته، سر برمی‌کشید، چوپانی جوان گله را به دامنه برد.
-      </p>
-
-      <p class="paragraph">
-        چوبدست بر دوش داشت و نیزه در دست.
-      </p>
-
-      <p class="paragraph">
-        ناگاه شیر را دید.
-      </p>
-
-      <p class="paragraph">
-        شیر بر بلندای صخره ایستاده بود؛ خاموش و استوار، چنان‌که گویی پاره‌ای از کوه جان گرفته و بر پای ایستاده است.
-      </p>
-
-      <p class="paragraph">
-        نه غرید و نه دندان نمود.
-      </p>
-
-      <p class="paragraph">
-        چوپان نیزه را بالا آورد.
-      </p>
-
-      <p class="paragraph">
-        سکوتی میانِ آن دو افتاد؛ سکوتی که از بسیار سخن، رساتر بود.
-      </p>
-
-      <div class="dialogue">
-
-        <p>شیر گفت:</p>
-        <p>ـ آن نیزه را از بهرِ چه برداشته‌ای؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ تا اگر به گله نزدیک شوی، بازت دارم.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ و اگر نزدیک نشوم؟</p>
-
-        <p>ـ باز هم آماده باشم.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ پس بیم، پیش از خطر، بر تو وارد آمده است.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و گرسنگی، پیش از شکار، بر تو.</p>
-
-        <p>شیر سر فرود آورد.</p>
-        <p>ـ راست گفتی.</p>
-
-        <p>آنگاه دیده بر گله افکند و گفت:</p>
-        <p>ـ این همه از آنِ توست؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ از آنِ من نیست؛ به من سپرده‌اند.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ میانِ داشتن و نگاهبانی چه فرق است؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ آن‌که صاحب، برای خویش نگاه دارد؛ نگاهبان، برای دیگری.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ اگر فردا صاحبانِ گله آیند و فرمایند که همه را بفروشی؟</p>
-
-        <p>ـ می‌فروشم.</p>
-
-        <p>ـ و اگر فرمایند که همه را بکشی؟</p>
-
-        <p>چوپان خاموش ماند.</p>
-
-        <p>پس از اندکی گفت:</p>
-        <p>ـ آن دیگر نگاهبانی نیست.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ پس هر فرمانی که از صاحب آید، حق نمی‌شود؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ گمان ندارم.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ «گمان ندارم» سخنی نیکوست.</p>
-
-        <p>چوپان پرسید:</p>
-        <p>ـ چرا؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ زیرا بسیار ستم‌ها از آنجا برخیزد که مرد، پندارِ خویش را حقیقت انگارد.</p>
-
-        <p>چوپان نیزه را استوارتر گرفت.</p>
-
-        <p>ـ تو از ستم چه دانی؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ به قدرِ گرسنگی.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ گرسنگی را چه کار با ستم؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ هر دو، اگر مهار نشوند، نخست عذر آرند و پس از آن، قربانی خواهند.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و تو خود گرسنه نیستی؟</p>
-
-        <p>ـ چرا.</p>
-
-        <p>ـ پس چه چیزت از کشتن بازدارد؟</p>
-
-        <p>شیر خاموش ماند.</p>
-
-        <p>پس گفت:</p>
-        <p>ـ هنوز نمی‌دانم.</p>
-
-      </div>
-
-
-      <div class="section-break">◆</div>
-
-
-      <p class="paragraph">
-        در همان ساعت، بره‌ای از گله جدا شد.
-      </p>
-
-      <p class="paragraph">
-        سپید و کوچک بود و بی‌خبر از غوغای جهان، سر در علف داشت.
-      </p>
-
-      <p class="paragraph">
-        شیر یک گام فرود آمد.
-      </p>
-
-      <p class="paragraph">
-        چوپان نیزه را بالا برد.
-      </p>
-
-      <p class="paragraph">
-        شیر گامِ دیگر برداشت.
-      </p>
-
-      <p class="paragraph">
-        بره سر برداشت.
-      </p>
-
-      <p class="paragraph">
-        چشمش بر شیر افتاد و گریخت.
-      </p>
-
-      <p class="paragraph">
-        شیر جست.
-      </p>
-
-      <p class="paragraph">
-        سنگی از زیر پنجه‌اش لغزید.
-      </p>
-
-      <p class="paragraph">
-        بره از میانِ بوته‌ها گذشت.
-      </p>
-
-      <p class="paragraph">
-        شیر به او رسید.
-      </p>
-
-      <p class="paragraph">
-        پنجه برکشید.
-      </p>
-
-      <p class="paragraph">
-        و در همان دم، پنجه فرود نیامد.
-      </p>
-
-      <p class="paragraph">
-        شیر ایستاد.
-      </p>
-
-      <p class="paragraph">
-        بره گریخت و در میانِ گله ناپدید شد.
-      </p>
-
-      <div class="dialogue">
-
-        <p>چوپان گفت:</p>
-        <p>ـ چرا ایستادی؟</p>
-
-        <p>شیر نفس‌زنان گفت:</p>
-        <p>ـ گرسنه بودم.</p>
-
-        <p>ـ پس چرا نخوردی؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ زیرا گرسنگی، فرمان نیست.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ مگر گرسنگی، دلیل نیست؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ دلیل هست؛ فرمان نیست.</p>
-
-        <p>ـ فرقِ این دو چیست؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ دلیل، راهِ اندیشه گشاید؛ فرمان، راهِ دست.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و اگر گرسنگی تو را به مرگ کشاند؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آن بهایِ گُزیدنِ من باشد.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و اگر بره را می‌کشتی؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آن نیز بهایی داشت.</p>
-
-        <p>ـ چه بها؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آنکه هر بار گرسنه شوم، چنین پندارم که هرچه توانستم بستانم، حقِ من است.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و این پندار چه زیان دارد؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ نخست بره را کشد؛ سپس دیدهٔ مرا. و آنگاه روزی رسد که جهان را جز شکار نبینم و خویشتن را جز شکارچی.</p>
-
-      </div>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        چون شب درآمد، چوپان حکایتِ روز با پیرمردی بازگفت که کنارِ آتش نشسته بود.
-      </p>
-
-      <div class="dialogue">
-
-        <p>پیرمرد چوبی در اخگر افکند و گفت:</p>
-        <p>ـ شیر است دیگر.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ نه؛ سخن در همین است.</p>
-
-        <p>پیرمرد سر برداشت.</p>
-        <p>ـ چه دیدی؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ توانست و نکرد.</p>
-
-        <p>پیرمرد لبخندی زد.</p>
-        <p>ـ این هنوز نشانِ نیکی نیست.</p>
-
-        <p>ـ چرا؟</p>
-
-        <p>ـ چه بسا مردی که دست از زدن بازدارد، نه از بخشایش، که از حسابِ ضربه بازداشته باشد.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ پس مرد را چگونه باید شناخت؟</p>
-
-        <p>پیرمرد گفت:</p>
-        <p>ـ نه در ناتوانی؛ که ناتوان، خواه نیک باشد و خواه بد، مجالِ بسیار ندارد.<br>
-        نه در هنگامِ نیاز؛ که نیاز، زبانِ عذر را نیک می‌آموزد.<br>
-        مرد را آن ساعت بشناس که دستش گشاده باشد و هیچ دستی بر دستِ او نباشد.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ و اگر در آن ساعت دست نگه دارد؟</p>
-
-        <p>پیرمرد گفت:</p>
-        <p>ـ باز بنگر که از چه نگه داشته است.</p>
-
-        <p>ـ و اگر ندانیم؟</p>
-
-        <p>پیرمرد گفت:</p>
-        <p>ـ کردار، دیرتر از زبان راست شود؛ لیکن چون راست شد، زبان را از گواهی بی‌نیاز کند.</p>
-
-      </div>
-
-
-      <div class="section-break">◆</div>
-
-
-      <p class="paragraph">
-        بامدادِ دیگر، چوپان شیر را در دام دید.
-      </p>
-
-      <p class="paragraph">
-        آهن، پنجه‌اش را گرفته بود و خاکِ زیر آن از خون تیره شده.
-      </p>
-
-      <p class="paragraph">
-        شیر خاموش بود؛ نه ناله می‌کرد و نه می‌غرید.
-      </p>
-
-      <p class="paragraph">
-        چوپان نزدیک شد.
-      </p>
-
-      <p class="paragraph">
-        نیزه در دست داشت.
-      </p>
-
-      <p class="paragraph">
-        یک ضربت بس بود.
-      </p>
-
-      <p class="paragraph">
-        هیچ‌کس نبود که او را بازپرسد.
-      </p>
-
-      <p class="paragraph">
-        شیر دشمنِ گله بود.
-      </p>
-
-      <p class="paragraph">
-        شیر نیرومند بود.
-      </p>
-
-      <p class="paragraph">
-        و اکنون ناتوان افتاده بود.
-      </p>
-
-      <p class="paragraph">
-        چوپان نیزه را بالا برد.
-      </p>
-
-      <p class="paragraph">
-        لحظه‌ای بدان نگریست.
-      </p>
-
-      <p class="paragraph">
-        سپس فرود نیاورد.
-      </p>
-
-      <p class="paragraph">
-        زانو زد.
-      </p>
-
-      <p class="paragraph">
-        آهن را شکست.
-      </p>
-
-      <p class="paragraph">
-        پنجه آزاد شد.
-      </p>
-
-      <p class="paragraph">
-        شیر توانِ رفتن نداشت.
-      </p>
-
-      <p class="paragraph">
-        چوپان آب آورد و پیشِ او نهاد.
-      </p>
-
-      <p class="paragraph">
-        شیر نوشید.
-      </p>
-
-      <div class="dialogue">
-
-        <p>پس از ساعتی گفت:</p>
-        <p>ـ چرا؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ نمی‌دانم.</p>
-
-        <p>ـ می‌توانستی مرا بکشی.</p>
-        <p>ـ آری.</p>
-
-        <p>ـ و اگر می‌کشتی، سخنت نیز پذیرفته بود.</p>
-        <p>ـ شاید.</p>
-
-        <p>ـ می‌توانستی بگویی دشمنِ گله بودم.</p>
-        <p>ـ شاید.</p>
-
-        <p>ـ پس چرا؟</p>
-
-        <p>چوپان به خونِ خشکیده بر خاک نگریست و گفت:</p>
-        <p>ـ نخواستم ناتوانیِ تو، حجتِ مرگت شود.</p>
-
-        <p>شیر چشم بر او دوخت.</p>
-
-        <p>ـ پس اگر دیگری نتواند از بودنِ خویش دفاع کند، آیا این بر عهدهٔ نیرومند است که از بودنِ او دفاع کند؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ نمی‌دانم.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ ندانستنِ تو از بسیار دانستن‌ها راست‌تر است.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ چرا؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آن‌که پاسخ را پیش از پرسش آماده دارد، چه بسا نامِ جهلِ خویش را عوض کرده باشد.</p>
-
-        <p>سپس گفت:</p>
-        <p>ـ لیکن این سخن را از من مگیر.</p>
-
-        <p>ـ چرا؟</p>
-
-        <p>ـ زیرا اگر فردا نیزه در دستت بود، شاید سخنِ امروز را فراموش کنی.</p>
-
-        <p>چوپان برخاست و نیزه را بر زمین نهاد.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ و این؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ شاید آدمی باید گاه سلاحِ خویش را بر زمین نهد تا بداند هنوز صاحبِ دستِ خویش است، نه بندهٔ سلاحِ خویش.</p>
-
-      </div>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        چند شب پس از آن، گرگ‌ها از گردنه فرود آمدند.
-      </p>
-
-      <p class="paragraph">
-        ماه باریک بود و شب، تیره.
-      </p>
-
-      <p class="paragraph">
-        گله رمید.
-      </p>
-
-      <p class="paragraph">
-        چوپان بانگ زد.
-      </p>
-
-      <p class="paragraph">
-        گرگ‌ها نزدیک شدند.
-      </p>
-
-      <p class="paragraph">
-        ناگاه شیر از تاریکی برآمد.
-      </p>
-
-      <p class="paragraph">
-        غرید؛ چنان‌که گویی صخره‌ای شکافته شد.
-      </p>
-
-      <p class="paragraph">
-        یکی را پس زد، دیگری را دنبال کرد و سومی را تا دوردست راند.
-      </p>
-
-      <p class="paragraph">
-        گرگ‌ها گریختند.
-      </p>
-
-      <p class="paragraph">
-        شیر بازآمد و میانِ گله بایستاد.
-      </p>
-
-      <div class="dialogue">
-
-        <p>چوپان گفت:</p>
-        <p>ـ چرا آمدی؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آمدند.</p>
-
-        <p>ـ و چرا گله را نخوردی؟</p>
-
-        <p>شیر به بره‌ها نگریست.</p>
-        <p>ـ زیرا امشب، اینان شکارِ من نبودند.</p>
-
-        <p>ـ پس چه بودند؟</p>
-
-        <p>ـ چیزی که می‌بایست بماند.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ از گله دفاع کردی.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ نه.</p>
-
-        <p>ـ پس از چه دفاع کردی؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ از این لحظه.</p>
-
-        <p>چوپان خاموش ماند.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ اگر هر نیرومند، هرچه را توانست بگیرد، جهان جز شمارِ دندان‌ها و پنجه‌ها نبود.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ مگر جهان چنین نیست؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ هست؛ لیکن همهٔ آنچه هست، همهٔ آنچه می‌تواند باشد، نیست.</p>
-
-      </div>
-
-
-      <div class="section-break">◆</div>
-
-
-      <p class="paragraph">
-        کلاغی بر شاخِ خشکِ بلوط نشست.
-      </p>
-
-      <div class="dialogue">
-
-        <p>گفت:</p>
-        <p>ـ دیروز نخوردی.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ گرسنه بودم.</p>
-
-        <p>ـ امروز می‌خوری.</p>
-
-        <p>ـ گرسنه‌ام.</p>
-
-        <p>کلاغ خندید.</p>
-        <p>ـ پس گرسنگی دیروز سببِ نخوردن بود و امروز سببِ خوردن؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ تو بسیار می‌پرسی.</p>
-
-        <p>کلاغ گفت:</p>
-        <p>ـ و تو بسیار دیر پاسخ می‌دهی.</p>
-
-      </div>
-
-      <p class="paragraph">
-        در پایینِ صخره، آهویی مرده افتاده بود.
-      </p>
-
-      <div class="dialogue">
-
-        <p>شیر گفت:</p>
-        <p>ـ دیروز پیشِ من، جانداری بود که هنوز راهِ خویش داشت؛ امروز پیشِ من، مرگی است که دیگر از من چیزی نمی‌خواهد.</p>
-
-        <p>کلاغ گفت:</p>
-        <p>ـ پس اخلاقِ تو با شکمِ تو دگرگون شود؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ اخلاقی که شکم را نشناسد، از خاک و خونِ جهان بی‌خبر است.</p>
-
-        <p>کلاغ گفت:</p>
-        <p>ـ و اخلاقی که جز شکم را نشناسد؟</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ آن دیگر اخلاق نیست؛ حساب است.</p>
-
-      </div>
-
-      <p class="paragraph">
-        کلاغ فرود آمد.
-      </p>
-
-      <p class="paragraph">
-        شیر کنار رفت.
-      </p>
-
-      <p class="paragraph">
-        کلاغ خورد.
-      </p>
-
-      <p class="paragraph">
-        شیر دیده برگردانید.
-      </p>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        روزی پسرِ چوپان بره‌ای را در آغوش گرفت.
-      </p>
-
-      <div class="dialogue">
-
-        <p>گفت:</p>
-        <p>ـ این از آنِ من است.</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ چرا؟</p>
-
-        <p>ـ چون دوستش دارم.</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ و چون دوستش داری، می‌خواهی از تو دور نشود؟</p>
-
-        <p>ـ آری.</p>
-
-        <p>ـ اگر ماندنِ او نزد تو، راهِ رفتنش را ببندد، باز آن را دوست داشتن نامی؟</p>
-
-      </div>
-
-      <p class="paragraph">
-        کودک خاموش ماند.
-      </p>
-
-      <div class="dialogue">
-
-        <p>پدر گفت:</p>
-        <p>ـ دستت را شل کن.</p>
-
-      </div>
-
-      <p class="paragraph">
-        کودک دست شل کرد.
-      </p>
-
-      <p class="paragraph">
-        بره جست و گریخت.
-      </p>
-
-      <p class="paragraph">
-        کودک خواست در پیِ او رود.
-      </p>
-
-      <div class="dialogue">
-
-        <p>پدر گفت:</p>
-        <p>ـ بگذار برود.</p>
-
-        <p>کودک گفت:</p>
-        <p>ـ اما دوستش دارم.</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ پس نخست بنگر که دوست داشتنِ تو، جایِ زیستنِ او را تنگ نکند.</p>
-
-      </div>
-
-      <p class="paragraph">
-        بره به گله پیوست.
-      </p>
-
-      <p class="paragraph">
-        کودک نشست.
-      </p>
-
-      <p class="paragraph">
-        و آن روز دانست که گاه محبت در نزدیک شدن نیست؛ در کنار رفتن است.
-      </p>
-
-      <p class="paragraph">
-        و گاه وفا در نگاه داشتن نیست؛ در مجالِ ماندن دادن است.
-      </p>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        زمستان درآمد.
-      </p>
-
-      <p class="paragraph">
-        هیزم کم شد و آرد به آخر رسید.
-      </p>
-
-      <p class="paragraph">
-        کفشِ کودک از هم شکافته بود.
-      </p>
-
-      <p class="paragraph">
-        سه شکارچی به خانهٔ چوپان آمدند.
-      </p>
-
-      <div class="dialogue">
-
-        <p>گفتند:</p>
-        <p>ـ شیر را یافته‌ایم. جای او را نشان بده.</p>
-
-      </div>
-
-      <p class="paragraph">
-        یکی کیسه‌ای زر بر زمین نهاد.
-      </p>
-
-      <p class="paragraph">
-        چوپان به زر نگریست.
-      </p>
-
-      <p class="paragraph">
-        به کفشِ پارهٔ کودک نگریست.
-      </p>
-
-      <p class="paragraph">
-        به انبارِ تهی نگریست.
-      </p>
-
-      <p class="paragraph">
-        و دروغ گفت.
-      </p>
-
-      <p class="paragraph">
-        شکارچیان رفتند.
-      </p>
-
-      <div class="dialogue">
-
-        <p>شب، پیرمرد گفت:</p>
-        <p>ـ دروغ گفتی.</p>
-
-        <p>ـ آری.</p>
-
-        <p>ـ بر کردهٔ خویش می‌بالی؟</p>
-
-        <p>ـ نه.</p>
-
-        <p>ـ پشیمانی؟</p>
-
-        <p>چوپان دیر پاسخ داد.</p>
-        <p>ـ نمی‌دانم.</p>
-
-        <p>ـ پس چه می‌دانی؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ می‌دانم که زر، زمستانِ مرا آسان می‌کرد.</p>
-
-        <p>ـ دیگر؟</p>
-
-        <p>ـ می‌دانم که نخواستم نانِ خانه‌ام را به بهایِ خونِ آن شیر بخرم.</p>
-
-        <p>پیرمرد گفت:</p>
-        <p>ـ پس نیکی کردی؟</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ نمی‌دانم.</p>
-
-        <p>ـ بدی؟</p>
-
-        <p>ـ نمی‌دانم.</p>
-
-        <p>پیرمرد سر فرود آورد.</p>
-        <p>ـ پس انتخاب کردی.</p>
-
-        <p>ـ آری.</p>
-
-        <p>ـ و اکنون باید با آن زندگی کنی.</p>
-
-        <p>چوپان گفت:</p>
-        <p>ـ مگر هر انتخاب چنین نیست؟</p>
-
-        <p>پیرمرد گفت:</p>
-        <p>ـ نه. بعضی انتخاب‌ها را مرد می‌کند و می‌گذرد؛ بعضی انتخاب‌ها مرد را می‌سازند و با او می‌مانند.</p>
-
-      </div>
-
-
-      <div class="section-break">◆</div>
-
-
-      <p class="paragraph">
-        بهارِ دیگر آمد.
-      </p>
-
-      <p class="paragraph">
-        شیر پیرتر شده بود.
-      </p>
-
-      <p class="paragraph">
-        یک روز گوزنی جوان را دنبال کرد.
-      </p>
-
-      <p class="paragraph">
-        گوزن گریخت و به پرتگاه رسید.
-      </p>
-
-      <p class="paragraph">
-        راهش بسته شد.
-      </p>
-
-      <p class="paragraph">
-        شیر نزدیک آمد.
-      </p>
-
-      <p class="paragraph">
-        گوزن ایستاد.
-      </p>
-
-      <p class="paragraph">
-        شیر نیز ایستاد.
-      </p>
-
-      <p class="paragraph">
-        چشم در چشمِ یکدیگر دوختند.
-      </p>
-
-      <p class="paragraph">
-        یک جهش بس بود.
-      </p>
-
-      <p class="paragraph">
-        اما شیر بازگشت.
-      </p>
-
-      <p class="paragraph">
-        رفت.
-      </p>
-
-      <p class="paragraph">
-        ساعتی بعد، در سوی دیگر کوه، بزِ کوهیِ پیری را یافت.
-      </p>
-
-      <p class="paragraph">
-        پاهایش سست بود.
-      </p>
-
-      <p class="paragraph">
-        راهِ گریز نداشت.
-      </p>
-
-      <p class="paragraph">
-        شیر نزدیک شد.
-      </p>
-
-      <p class="paragraph">
-        بز کوشید برخیزد.
-      </p>
-
-      <p class="paragraph">
-        نتوانست.
-      </p>
-
-      <p class="paragraph">
-        شیر او را کشت.
-      </p>
-
-      <p class="paragraph">
-        خورد.
-      </p>
-
-      <p class="paragraph">
-        و چون سیر شد، باقی گذاشت.
-      </p>
-
-      <div class="dialogue">
-
-        <p>کلاغ گفت:</p>
-        <p>ـ یک بار رها کردی و یک بار کشتی.</p>
-
-        <p>شیر گفت:</p>
-        <p>ـ من نگاهبانِ پاکیِ جهان نیستم.</p>
-
-        <p>ـ پس چه هستی؟</p>
-
-        <p>ـ جانداری گرسنه، که هر روز باید اندازهٔ گرسنگیِ خویش بشناسد.</p>
-
-        <p>ـ و اگر خطا کنی؟</p>
-
-        <p>شیر به بز نگریست.</p>
-        <p>ـ آن‌گاه باید چنان زیَم که خطا در من عادت نشود.</p>
-
-      </div>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        سال‌ها گذشت.
-      </p>
-
-      <p class="paragraph">
-        چوپان پیر شد و پسرش مردی.
-      </p>
-
-      <div class="dialogue">
-
-        <p>روزی پسر گفت:</p>
-        <p>ـ پدر، آن شیر هنوز زنده است؟</p>
-
-        <p>گفت:</p>
-        <p>ـ شاید.</p>
-
-        <p>ـ همان که در دام افتاده بود؟</p>
-
-        <p>ـ همان.</p>
-
-        <p>ـ چرا نکشتیش؟</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ چون می‌توانستم.</p>
-
-        <p>پسر خندید.</p>
-        <p>ـ این پاسخ نیست.</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ برای همین پرسش، پاسخ است.</p>
-
-        <p>ـ چگونه؟</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ اگر نمی‌توانستم، نکردنِ آن هنر نبود.</p>
-
-        <p>پس اندکی خاموش ماند و گفت:</p>
-        <p>ـ مرد را نه بدانچه در دستش نیست، که بدانچه در دستش هست بشناس.</p>
-
-        <p>پسر گفت:</p>
-        <p>ـ و اگر هم قدرت در دستش باشد و هم عذر؟</p>
-
-        <p>پدر گفت:</p>
-        <p>ـ آن‌گاه میانِ او و کردارِ خویش، دیگر پرده‌ای نمانده باشد.</p>
-
-      </div>
-
-
-      <div class="section-break">◆ ◆ ◆</div>
-
-
-      <p class="paragraph">
-        آن شب، شیر بر بلندای کوه ایستاده بود.
-      </p>
-
-      <p class="paragraph">
-        یالِ زرینش به خاکستریِ سالیان درآمده بود.
-      </p>
-
-      <p class="paragraph">
-        ماه بر پشتِ او می‌تابید.
-      </p>
-
-      <p class="paragraph">
-        در پایین، چراغِ خانه‌های آدمیان یکی‌یکی خاموش می‌شد.
-      </p>
-
-      <p class="paragraph">
-        گله‌ها در آغل خفته بودند.
-      </p>
-
-      <p class="paragraph">
-        گرگ‌ها در دره می‌گشتند.
-      </p>
-
-      <p class="paragraph">
-        رود، بی‌خبر از نام‌هایی که آدمی بر او نهاده بود، راهِ خویش می‌رفت.
-      </p>
-
-      <p class="paragraph">
-        و جهان، خاموش و بی‌داور، بر جایِ خویش بود.
-      </p>
-
-      <p class="paragraph">
-        نه کسی بر سنگ نوشته بود که کدام جان سزاوارِ ماندن است؛
-        نه ترازویی در آسمان آویخته بود که وزنِ بودن‌ها را بسنجد.
-      </p>
-
-      <p class="paragraph">
-        اما هر جاندار، پیش از آنکه سود و زیانِ دیگری باشد، برای خویش جهانی بود.
-      </p>
-
-      <p class="paragraph">
-        آهو، پیش از آنکه شکار باشد، زندگی بود.
-      </p>
-
-      <p class="paragraph">
-        درخت، پیش از آنکه سایه باشد، ریشه بود.
-      </p>
-
-      <p class="paragraph">
-        رود، پیش از آنکه آبِ آسیاب باشد، راهِ خویش داشت.
-      </p>
-
-      <p class="paragraph">
-        و شیر، پیش از آنکه دشمنِ گله باشد، جانداری بود که خواهانِ ماندن بود.
-      </p>
-
-      <p class="paragraph">
-        شاید خطای دیرینِ آدمی از آنجا برخاست که هرچه را از آنِ خویش ندید، از حقِ بودن نیز تهی انگاشت.
-      </p>
-
-      <p class="paragraph">
-        اما حقِ بودن، بخششِ نیرومند به ناتوان نیست.
-      </p>
-
-      <p class="paragraph">
-        آن را کسی عطا نمی‌کند و کسی نمی‌ستاند.
-      </p>
-
-      <p class="paragraph">
-        آدمی تنها می‌تواند در راهِ بودنِ دیگری، مانع شود یا نشود.
-      </p>
-
-      <p class="paragraph">
-        و گاه همین «نشدن»، از هزار بخشش بزرگ‌تر است.
-      </p>
-
-      <p class="paragraph">
-        بخشش آن است که آنچه از آنِ توست به دیگری دهی؛
-        اما پرهیز آن است که آنچه می‌توانی از دیگری بستانی، تنها از بهرِ توانستن، نستانی.
-      </p>
-
-      <p class="paragraph">
-        اینجاست که قدرت صورتی دیگر گیرد.
-      </p>
-
-      <p class="paragraph">
-        قدرت تنها آن نیست که دستِ تو بر دستِ دیگری چیره باشد.
-      </p>
-
-      <p class="paragraph">
-        قدرت آن است که دستت گشاده باشد و بتوانی آن را ببندی؛
-        شمشیر برکشیده باشد و بتوانی در نیامش کنی؛
-        طعمه پیشِ رویت باشد و بتوانی درنگ کنی؛
-        فرمان بر زبانت آید و بتوانی خاموش بمانی.
-      </p>
-
-      <p class="paragraph">
-        و در آن درنگِ اندک، چیزی پدیدار شود که نه زور باشد و نه بیم.
-      </p>
-
-      <p class="paragraph">
-        اختیار باشد.
-      </p>
-
-      <p class="paragraph">
-        اما اختیار برای آن نیست که آدمی هرچه خواهد برگزیند؛
-        بلکه برای آن است که میانِ خواستن و کردن، فاصله‌ای پدید آید تا دیگری در آن فاصله مجالِ بودن یابد.
-      </p>
-
-      <p class="paragraph">
-        پس شاید رازِ گَزیدن و گُزیدن همین باشد:
-      </p>
-
-      <p class="paragraph">
-        آن‌که توانِ گَزیدن دارد، اگر هر بار به اقتضای توانِ خویش بگزد، اندک‌اندک جهان را به اندازهٔ دندانِ خویش درآورد.
-      </p>
-
-      <p class="paragraph">
-        اما آن‌که گُزیدن تواند، پیش از آنکه دندان بر جهان نهد، در خویش بنگرد.
-      </p>
-
-      <p class="paragraph">
-        و گاه، بزرگ‌ترین گُزیدن، برنگزیدن باشد.
-      </p>
-
-      <p class="paragraph">
-        شیر سر فرود آورد.
-      </p>
-
-      <p class="paragraph">
-        ماه از فرازِ کوه گذشت.
-      </p>
-
-      <p class="paragraph">
-        باد بر علف‌ها افتاد.
-      </p>
-
-      <p class="paragraph">
-        و هیچ آوازی از آسمان برنخاست.
-      </p>
-
-      <p class="paragraph">
-        تنها در ژرفای جهان، همان قانونِ خاموشِ بودن جاری بود:
-      </p>
-
-      <p class="question">
-        هرچه زنده است، میلِ ماندن دارد.
-      </p>
-
-      <p class="paragraph">
-        و هرچه نیرومند است، آزمونش در گرفتن نیست؛
-        در دانستنِ هنگامِ بازداشتن است.
-      </p>
-
-      <p class="paragraph">
-        آدمی می‌تواند دیگری را بکشد و هزار دلیل برای کردهٔ خویش فراهم آورد.
-      </p>
-
-      <p class="paragraph">
-        اما دلیل، همیشه حق نیست.
-      </p>
-
-      <p class="paragraph">
-        می‌تواند چیزی را مالک شود.
-      </p>
-
-      <p class="paragraph">
-        اما مالکیت، همیشه برتریِ بودن نیست.
-      </p>
-
-      <p class="paragraph">
-        می‌تواند نیرومند باشد.
-      </p>
-
-      <p class="paragraph">
-        اما نیرو، به تنهایی داورِ حق نیست.
-      </p>
-
-      <p class="paragraph">
-        و می‌تواند بگزیند.
-      </p>
-
-      <p class="paragraph">
-        گاه میانِ دو راه؛
-        گاه میانِ دو خواهش؛
-        و گاه میانِ دو گونه بودن:
-      </p>
-
-      <p class="paragraph">
-        اینکه جهان را سراسر میدانِ غلبه ببیند،
-      </p>
-
-      <p class="paragraph">
-        یا دریابد که دیگری نیز در این جهان، برای خویش، جهانی دارد.
-      </p>
-
-      <p class="paragraph">
-        شاید از همین‌جا بود که حق، نخستین بار از سایهٔ زور جدا شد.
-      </p>
-
-      <p class="paragraph">
-        نه با فرمانی بر سنگ؛
-        نه با بیمِ کیفر؛
-        نه با وعدهٔ پاداش؛
-      </p>
-
-      <p class="paragraph">
-        بلکه در یک درنگ.
-      </p>
-
-      <p class="paragraph">
-        در پنجه‌ای که فرود نیامد.
-      </p>
-
-      <p class="paragraph">
-        در نیزه‌ای که بالا نرفت.
-      </p>
-
-      <p class="paragraph">
-        در دستی که گشوده ماند.
-      </p>
-
-      <p class="paragraph">
-        در بره‌ای که گریخت.
-      </p>
-
-      <p class="paragraph">
-        در کودکی که دستِ خویش شل کرد.
-      </p>
-
-      <p class="paragraph">
-        و در مردی که نانِ خویش را به بهایِ مرگِ دیگری نخرید.
-      </p>
-
-      <p class="paragraph">
-        آن روز، شاید آدمی هنوز نیک نشده بود؛
-      </p>
-
-      <p class="paragraph">
-        اما دانست که میانِ «می‌توانم» و «حق دارم»، فاصله‌ای هست.
-      </p>
-
-      <p class="paragraph">
-        فاصله‌ای به باریکیِ یک دم،
-        و به پهنایِ تمامِ اخلاق.
-      </p>
-
-      <p class="paragraph">
-        و هر تمدنی که آن فاصله را از یاد ببرد، دیر یا زود، باز به شمارشِ دندان‌ها بازگردد.
-      </p>
-
-      <p class="paragraph">
-        شیر از کوه فرود آمد.
-      </p>
-
-      <p class="paragraph">
-        چوپان چراغ خاموش کرد.
-      </p>
-
-      <p class="paragraph">
-        رود از میانِ سنگ‌ها گذشت.
-      </p>
-
-      <p class="paragraph">
-        صبح، آرام و بی‌خبر، بر جهان دمید.
-      </p>
-
-      <p class="paragraph">
-        و پرسش بر جای ماند:
-      </p>
-
-      <p class="question">
-        اگر قدرت از آنِ تو باشد، با بودنِ دیگری چه خواهی کرد؟
-      </p>
-
-      <p class="paragraph">
-        زبان پاسخ نخواهد داد.
-      </p>
-
-      <p class="paragraph">
-        دست خواهد داد.
-      </p>
-
-      <p class="paragraph">
-        کردار خواهد داد.
-      </p>
-
-      <p class="paragraph">
-        درنگ خواهد داد.
-      </p>
-
-      <p class="paragraph">
-        و آن‌گاه که هیچ چشمی بر تو ننگرد، انتخاب خواهد داد.
-      </p>
-
-      <div class="closing">
-
-        <p class="paragraph">
-          زیرا آدمی را هم توانِ گَزیدن داده‌اند،
-        </p>
-
-        <p class="final-line">
-          و هم درمانِ گُزیدن.
-        </p>
-
-      </div>
-
-    </main>
-
-
-    <footer>
-      
-      هــورا 
-    </footer>
-
-  </div>
+  </main>
 
 </body>
-        </html>
+  </html>
