@@ -8,20 +8,18 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #eee6d5;
-      --paper: #f8f2e5;
-      --paper-deep: #f1e8d5;
-      --ink: #30271e;
-      --muted: #756957;
-      --gold: #9a7741;
-      --gold-dark: #70552d;
-      --line: rgba(112, 85, 45, 0.28);
-      --shadow: rgba(52, 39, 25, 0.16);
+      --paper: #f1eadc;
+      --paper-deep: #e7dcc8;
+      --ink: #29231c;
+      --muted: #776b5a;
+      --gold: #9b7737;
+      --gold-light: #c6a665;
+      --line: rgba(125, 94, 43, 0.35);
+      --shadow: rgba(48, 37, 21, 0.18);
     }
 
     * {
@@ -34,13 +32,13 @@
 
     body {
       margin: 0;
-      padding: 0;
       background:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.55), transparent 42%),
-        linear-gradient(180deg, #e9dfcc 0%, var(--bg) 100%);
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.35), transparent 38%),
+        linear-gradient(135deg, #eee5d5 0%, #e6dac4 100%);
       color: var(--ink);
-      font-family: "Noto Naskh Arabic", "Vazirmatn", serif;
-      line-height: 2.35;
+      font-family: "Noto Naskh Arabic", "Amiri", serif;
+      line-height: 2.45;
+      font-size: 20px;
       min-height: 100vh;
     }
 
@@ -49,323 +47,324 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .18;
+      opacity: .10;
       background-image:
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 3px,
-          rgba(85, 65, 42, .035) 4px
-        );
-      z-index: 10;
+        radial-gradient(circle at 20% 30%, #5b4930 0.6px, transparent 0.8px),
+        radial-gradient(circle at 80% 70%, #5b4930 0.5px, transparent 0.8px);
+      background-size: 17px 17px, 23px 23px;
+      mix-blend-mode: multiply;
     }
 
     .page {
-      width: min(960px, calc(100% - 32px));
-      margin: 40px auto;
-      background: var(--paper);
-      box-shadow:
-        0 20px 55px var(--shadow),
-        0 2px 7px rgba(52,39,25,.10);
-      border: 1px solid rgba(112,85,45,.18);
+      width: min(1000px, calc(100% - 36px));
+      margin: 42px auto;
+      padding: 0 0 55px;
       position: relative;
-      overflow: hidden;
     }
 
-    .page::before,
-    .page::after {
-      content: "";
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--line),
-        transparent
-      );
-    }
-
-    .page::before {
-      top: 24px;
-    }
-
-    .page::after {
-      bottom: 24px;
-    }
-
-    header {
+    .ornament-top {
       text-align: center;
-      padding: 72px 70px 40px;
+      color: var(--gold);
+      font-size: 25px;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+      opacity: .9;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 76px;
-      height: 76px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      color: var(--gold-dark);
-      font-family: "Vazirmatn", sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: .04em;
-      margin-bottom: 28px;
-      position: relative;
-    }
-
-    .brand::before {
-      content: "";
-      position: absolute;
-      inset: 5px;
-      border: 1px solid rgba(154,119,65,.42);
-      border-radius: 50%;
-    }
-
-    .brand span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      color: var(--gold-dark);
-      font-size: 14px;
-      letter-spacing: .08em;
-      margin-bottom: 9px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 52px);
-      font-weight: 600;
-      line-height: 1.5;
-      color: #33281d;
-    }
-
-    .subtitle {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 22px;
-      font-weight: 400;
-    }
-
-    .ornament {
+    .top-nav,
+    .bottom-nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin: 28px auto 0;
+      gap: 28px;
+      font-size: 17px;
+      margin: 8px 0 25px;
+    }
+
+    .top-nav a,
+    .bottom-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .top-nav a:hover,
+    .bottom-nav a:hover {
       color: var(--gold);
     }
 
-    .ornament::before,
-    .ornament::after {
-      content: "";
-      width: 95px;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--line)
-      );
-    }
-
-    .ornament::after {
-      background: linear-gradient(
-        to left,
-        transparent,
-        var(--line)
-      );
-    }
-
-    .ornament span {
+    .nav-divider {
+      color: var(--gold-light);
       font-size: 15px;
     }
 
-    .navigation {
+    .seal {
+      width: 88px;
+      height: 88px;
+      margin: 5px auto 22px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin: 0 55px;
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      font-family: "Vazirmatn", sans-serif;
-      font-size: 13px;
+      position: relative;
+      color: var(--gold);
+      background:
+        radial-gradient(circle, rgba(255,255,255,.28), transparent 65%);
+      box-shadow:
+        0 2px 8px rgba(80, 55, 25, .08),
+        inset 0 0 0 5px rgba(155,119,55,.07);
     }
 
-    .navigation a {
-      color: var(--gold-dark);
-      text-decoration: none;
-      padding: 5px 15px;
-      transition: all .2s ease;
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(155,119,55,.45);
     }
 
-    .navigation a:hover {
-      color: var(--ink);
-      background: rgba(154,119,65,.08);
+    .seal::before {
+      inset: 6px;
     }
 
-    main {
-      padding: 48px 78px 76px;
+    .seal::after {
+      inset: 11px;
     }
 
-    .text {
-      font-size: 19px;
-      font-weight: 400;
-      text-align: justify;
-      text-justify: inter-word;
+    .seal-text {
+      position: relative;
+      z-index: 2;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    .text p {
-      margin: 0 0 25px;
-    }
-
-    .text p:first-child::first-letter {
-      font-size: 1.65em;
-      color: var(--gold-dark);
-    }
-
-    .dialogue {
-      margin: 13px 0;
-      padding-right: 25px;
-      padding-left: 10px;
+    .manuscript {
+      background:
+        linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.10)),
+        var(--paper);
+      border: 1px solid rgba(130, 99, 51, .28);
+      box-shadow:
+        0 14px 45px var(--shadow),
+        inset 0 0 70px rgba(113, 82, 39, .06);
+      padding: 68px clamp(30px, 7vw, 82px) 75px;
       position: relative;
     }
 
-    .dialogue::before {
+    .manuscript::before {
       content: "";
       position: absolute;
-      right: 4px;
-      top: .8em;
-      bottom: .8em;
-      width: 1px;
+      inset: 14px;
+      border: 1px solid rgba(155,119,55,.18);
+      pointer-events: none;
+    }
+
+    .manuscript::after {
+      content: "";
+      position: absolute;
+      inset: 21px;
+      border: 1px solid rgba(155,119,55,.08);
+      pointer-events: none;
+    }
+
+    .title {
+      text-align: center;
+      margin: 0;
+      color: #4b3821;
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.7;
+      letter-spacing: .2px;
+    }
+
+    .title-rule {
+      width: 180px;
+      height: 1px;
+      margin: 17px auto 43px;
       background: linear-gradient(
-        to bottom,
+        to right,
         transparent,
         var(--gold),
         transparent
       );
+      position: relative;
     }
 
-    .speaker {
-      font-weight: 600;
-      color: #574126;
+    .title-rule::after {
+      content: "◆";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%);
+      background: var(--paper);
+      color: var(--gold);
+      padding: 0 10px;
+      font-size: 10px;
     }
 
-    .short-dialogue {
-      margin: 7px 0;
-      padding-right: 25px;
-      color: #3e3327;
+    .invocation {
+      margin: 0 auto 45px;
+      max-width: 850px;
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 21px;
+      line-height: 2.55;
+      color: #3d3327;
+    }
+
+    .invocation p {
+      margin: 0 0 3px;
+    }
+
+    .prose {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .prose p {
+      margin: 0 0 24px;
+      text-align: justify;
+      text-justify: inter-word;
+      text-align-last: right;
+      hanging-punctuation: first;
+    }
+
+    .prose p:first-of-type::first-letter {
+      float: right;
+      font-family: "Amiri", serif;
+      font-size: 3.5em;
+      line-height: .8;
+      padding-left: 8px;
+      padding-top: 7px;
+      color: var(--gold);
+    }
+
+    .scene-break {
+      text-align: center;
+      margin: 42px 0;
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 8px;
+    }
+
+    .scene-break span {
+      display: inline-block;
+      transform: scale(.8);
+    }
+
+    .dialogue {
+      margin-right: 1.4em;
+      margin-left: 1.4em;
+      color: #332b22;
+    }
+
+    .dialogue p {
+      margin-bottom: 11px;
     }
 
     .emphasis {
-      margin: 38px 10px;
-      padding: 24px 28px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      text-align: center;
-      color: #4c3b28;
-      font-size: 20px;
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
       line-height: 2.4;
+      color: #4c3922;
+      margin: 35px auto !important;
     }
 
-    .inner-quote {
-      margin: 35px 25px;
-      padding: 20px 28px;
-      border-right: 2px solid var(--gold);
-      color: #493a29;
-      font-size: 20px;
+    .question {
+      margin: 48px auto;
+      padding: 25px 30px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
       line-height: 2.4;
+      color: #493820;
     }
 
     .closing {
-      margin-top: 55px;
-      padding-top: 38px;
-      border-top: 1px solid var(--line);
+      margin-top: 52px;
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      line-height: 2.55;
+      color: #493820;
+    }
+
+    .closing strong {
+      font-weight: 700;
+      color: #715326;
+    }
+
+    .bottom-ornament {
       text-align: center;
+      margin: 48px 0 24px;
+      color: var(--gold);
+      font-size: 19px;
+      letter-spacing: 9px;
     }
 
-    .closing p {
+    .bottom-nav {
+      margin-top: 28px;
+      margin-bottom: 0;
+    }
+
+    .copyright {
       text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .closing .final-line {
-      margin-top: 36px;
-      font-size: 22px;
-      color: #493822;
-      line-height: 2.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 30px 65px;
-      color: var(--muted);
-      font-family: "Vazirmatn", sans-serif;
-      font-size: 12px;
-    }
-
-    footer .footer-mark {
-      color: var(--gold-dark);
-      font-size: 15px;
-      margin-bottom: 8px;
+      color: #8c806e;
+      font-size: 14px;
+      margin-top: 20px;
     }
 
     @media (max-width: 700px) {
+      body {
+        font-size: 18px;
+        line-height: 2.3;
+      }
+
       .page {
-        width: calc(100% - 14px);
-        margin: 15px auto;
+        width: min(100% - 18px, 1000px);
+        margin: 18px auto;
       }
 
-      header {
-        padding: 55px 25px 32px;
+      .manuscript {
+        padding: 48px 25px 55px;
       }
 
-      .navigation {
-        margin: 0 20px;
-        gap: 2px;
+      .manuscript::before {
+        inset: 9px;
       }
 
-      .navigation a {
-        padding: 5px 10px;
+      .manuscript::after {
+        inset: 14px;
       }
 
-      main {
-        padding: 35px 25px 55px;
-      }
-
-      .text {
-        font-size: 17px;
-        line-height: 2.25;
-        text-align: right;
+      .invocation {
+        font-size: 19px;
+        line-height: 2.4;
       }
 
       .dialogue {
-        padding-right: 20px;
+        margin-right: .4em;
+        margin-left: .4em;
       }
 
-      .inner-quote {
-        margin: 30px 5px;
-        padding: 15px 20px;
-        font-size: 18px;
+      .question,
+      .closing {
+        font-size: 21px;
       }
 
-      .emphasis {
-        margin: 30px 0;
-        padding: 20px 12px;
-        font-size: 18px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .subtitle {
-        font-size: 19px;
+      .top-nav,
+      .bottom-nav {
+        gap: 18px;
+        font-size: 16px;
       }
     }
   </style>
@@ -373,1533 +372,957 @@
 
 <body>
 
-  <div class="page">
+  <main class="page">
 
-    <header id="top">
+    <!-- نشان هورا -->
+    <div class="seal" aria-label="هورا">
+      <span class="seal-text">هورا</span>
+    </div>
 
-      <div class="brand" aria-label="هورا">
-        <span>هورا</span>
-      </div>
-
-      <div class="eyebrow">فرسته‌ای در باب بودن و خرد</div>
-
-      <h1>در معنای جان</h1>
-
-      <div class="subtitle">آهوی پیر</div>
-
-      <div class="ornament">
-        <span>✦</span>
-      </div>
-
-    </header>
-
-    <nav class="navigation" aria-label="ناوبری">
-      <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+    <!-- ناوبری بالا -->
+    <nav class="top-nav" aria-label="ناوبری">
       <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
-      <a href="#top">آغاز</a>
     </nav>
 
-    <main>
+    <div class="ornament-top">✦　✧　✦</div>
 
-      <article class="text">
+    <article class="manuscript">
 
-        <p>
-          بامداد هنوز از پسِ کوهساران سر برنیاورده بود، اما تیرگی شب دیگر آن سیاهی نخستین نداشت. سپیده، چون رشته‌ای سیمین، بر کرانهٔ کوه نشسته بود و هر دم پیش‌تر می‌آمد.
-        </p>
+      <h1 class="title">در معنای جان </h1>
 
-        <p>
-          مه بر سینهٔ دره خفته بود و درختان از میان آن، خاموش و بلند، سر برآورده بودند؛ چنان‌که گویی جنگل در خوابی دیرین فرو رفته و اکنون از خواب خویش چشم می‌گشاید.
-        </p>
+      <div class="title-rule"></div>
 
-        <p>
-          شبنم بر برگ‌ها نشسته بود و هر قطره، آسمانی خرد در خویش داشت. نسیمی که از جانب کوه می‌آمد، برگ‌ها را می‌جنبانید و آن آسمان‌های کوچک را می‌لرزاند.
-        </p>
+      <section class="prose">
 
-        <p>
-          چشمه از میان سنگ‌ها می‌گذشت؛ پیوسته و آرام، بی‌آنکه شتاب کند و بی‌آنکه بازایستد.
-        </p>
+        <p>بامداد هنوز رخ ننموده بود و سپیده، چون خطی باریک از سیم، بر کنارهٔ کوه افتاده؛ لیک شب دیگر آن سیاهی نخستین نداشت.</p>
 
-        <p>
-          بر کنار چشمه، آهویی پیر ایستاده بود.
-        </p>
+        <p>مه، بر سینهٔ دره خفته بود و درختان از میان آن سر برآورده بودند؛ چنان‌که گویی جنگل، شب را به خواب دیده و هنوز رؤیای خویش را به یاد می‌آورد.</p>
 
-        <p>
-          پوزه‌اش سپید شده و شاخ‌هایش، چون شاخه‌های خشکیدهٔ درختی کهنسال، نشان زمستان‌های بسیار بر خود داشت. یکی از شاخ‌ها خراشیده بود و پای راستش اندکی می‌لنگید؛ لیکن چشم‌هایش هنوز زلال و بیدار بود.
-        </p>
+        <p>شبنم بر سر برگ‌ها نشسته بود و هر قطره، آسمانی خرد در خویش داشت. نسیمی که می‌وزید، آن آسمان‌های کوچک را می‌لرزاند و نقششان را در هم می‌شکست.</p>
 
-        <p>
-          پیری بر تنش نشسته بود، نه بر نگاهش.
-        </p>
+        <p>چشمه از میان سنگ‌ها روان بود؛<br>
+        نه شتابان، نه آرام؛<br>
+        راه می‌رفت و راه می‌ساخت.</p>
 
-        <p>
-          سال‌های بسیار دیده بود: برف‌هایی که راه کوه را می‌بستند، تابستان‌هایی که چشمه را کم‌آب می‌کردند، آمدن بهار و رفتن پاییز، زادن بچه‌ها و افتادن پیران، گریختن از شکارچی و بازگشتن به همان دره‌ای که هر سال اندکی دیگر می‌شد.
-        </p>
+        <p>بر کرانهٔ چشمه، آهویی پیر ایستاده بود.</p>
 
-        <p>
-          در آن هنگام، مردی از دامنهٔ کوه فرود آمد.
-        </p>
+        <p>پوزه‌اش سپید شده بود و شاخ‌هایش، چون شاخه‌های کهن‌سال بلوط، نشان زمستان‌های بسیار بر خود داشت. یکی از شاخ‌ها خراشیده بود و پای راستش اندکی می‌لنگید؛ اما چشم‌هایش هنوز زلال بود، چنان‌که گویی پیری بر تن او گذشته بود، نه بر نگاهش.</p>
 
-        <p>
-          جامه‌اش غبار سفر داشت و کیسه‌ای از کتاب بر دوش.
-        </p>
+        <p>سال‌های بسیار دیده بود:<br>
+        برف‌هایی که راه کوه را می‌بستند، تابستان‌هایی که چشمه را لاغر می‌کردند، آمدن بهار، رفتن پاییز، زادن بچه‌ها، افتادن پیران، گریختن از شکارچی و بازگشتن به همان دره‌ای که هر سال اندکی دیگر شده بود.</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «باز آدمی و کتاب.»
-        </p>
+        <p>مرد از دامنه فرود آمد.</p>
 
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و باز آهو و کوه.»
-        </p>
+        <p>جامه‌اش غبار سفر داشت و کیسه‌ای از کتاب بر دوش.</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «کوه را به نام خویش می‌خوانم؛ تو را به نام کتاب‌هایت.»
-        </p>
+        <p>آهو سر برداشت و نخست به مرد نگریست و آنگاه به کتاب‌ها.</p>
 
-        <p>
-          مرد تبسمی کرد و کیسه بر زمین نهاد.
-        </p>
+        <div class="dialogue">
 
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «کتاب را خوار مدار.»
-        </p>
+          <p>گفت:</p>
+          <p>— باز آدمی و کتاب.</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «کتاب را خوار نمی‌دارم. کتاب چراغ است؛ اما چه سود اگر آدمی چراغ را چنان بلند گیرد که سنگ زیر پای خویش نبیند؟»
-        </p>
+          <p>مرد گفت:</p>
+          <p>— و باز آهو و کوه.</p>
 
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «تو را با کتاب چه کار؟»
-        </p>
+          <p>آهو گفت:</p>
+          <p>— کوه را به نام خودش می‌خوانم؛ تو را به نام کتاب‌هایت.</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «با کتاب، اندک؛ با آدمی که کتاب می‌خواند، بسیار.»
-        </p>
+          <p>مرد بخندید و کیسه بر زمین نهاد.</p>
 
-        <p class="short-dialogue">— چه دیده‌ای؟</p>
+          <p>گفت:</p>
+          <p>— کتاب را خوار مدار.</p>
 
-        <p class="short-dialogue">— دیده‌ام یکی کتاب می‌خواند تا دریچه‌ای به جهان بگشاید و دیگری همان کتاب را دیواری می‌کند تا جهان را نبیند.</p>
+          <p>آهو گفت:</p>
+          <p>— کتاب را خوار نمی‌دارم. کتاب چراغ است؛ لیک چه سود اگر چراغ را چنان بلند گیری که سنگ زیر پای خویش نبینی؟</p>
 
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «من از آن دیگر نیستم.»
-        </p>
+          <p>مرد گفت:</p>
+          <p>— تو را با کتاب چه کار؟</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس بپرس.»
-        </p>
+          <p>آهو گفت:</p>
+          <p>— با کتاب، اندک؛ با آدمی که کتاب می‌خواند، بسیار.</p>
 
-        <p>
-          مرد ساعتی خاموش ماند. آواز آب در میان سنگ‌ها می‌پیچید و در سکوت بامداد، چنان می‌نمود که گویی زمین زیر لب سخن می‌گوید.
-        </p>
+          <p>مرد گفت:</p>
+          <p>— چه دیده‌ای؟</p>
 
-        <p class="dialogue">
-          <span class="speaker">آنگاه گفت:</span>
-          «سال‌هاست در معنای جان می‌اندیشم و هرچه بیشتر اندیشیده‌ام، پرسشم دشوارتر شده است.»
-        </p>
+          <p>آهو گفت:</p>
+          <p>— دیده‌ام یکی کتاب می‌خواند تا پنجره‌ای بر جهان بگشاید، و دیگری همان کتاب را سپر می‌کند تا جهان را نبیند.</p>
 
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پرسشت چیست؟»
-        </p>
+          <p>مرد گفت:</p>
+          <p>— من از آن دیگر نیستم.</p>
 
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آیا تو نیز جان داری؟»
-        </p>
-
-        <p>
-          آهو سر فرود آورد و به آب نگریست.
-        </p>
-
-        <p>
-          در آب، صورت مرد و آهو در کنار یکدیگر افتاده بود؛ یکی با چهره‌ای آفتاب‌سوخته و دیگری با پوزه‌ای سپید.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پیش از آنکه پاسخ دهم، مرا نیز در پرسش خویش شریک کن. تو جان را می‌شناسی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «سال‌هاست دربارهٔ آن می‌اندیشم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اندیشیدن را نپرسیدم؛ شناختن را پرسیدم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «جان آن است که زنده را از بی‌جان جدا کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس من زنده‌ام؟»
-        </p>
-
-        <p class="short-dialogue">— آری.</p>
-
-        <p class="short-dialogue">— پس چرا در جان من شک کرده‌ای؟</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «در زنده‌بودنت شک ندارم. در کیفیت جانت پرسش دارم. می‌خواهم بدانم آیا آنچه در آدمی جان می‌خوانیم، در تو نیز همان است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اکنون سخن روشن شد. تو نمی‌پرسی که من زنده‌ام یا نه؛ می‌پرسی که آیا بودن من، از درون نیز چنان است که بودن تو برای خویشتن.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آری.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس نخست باید بپذیری که پرسش تو، بیش از آنکه دربارهٔ من باشد، دربارهٔ اندازهٔ شناخت تو از من است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این سخن را چگونه اثبات می‌کنی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «مگر به درون من راه داری؟»
-        </p>
-
-        <p class="short-dialogue">— نه.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس هرچه دربارهٔ من می‌گویی، از بیرون می‌بینی و به درون نسبت می‌دهی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آدمی دربارهٔ آدمی نیز چنین می‌کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «راست گفتی. پس هرکس در شناخت دیگری، مهمان است، نه صاحب‌خانه.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «سخن‌آرایی می‌کنی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «و تو تعریف می‌کنی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «بگذار از راهی دیگر سخن گوییم. میان آدمی و جانور تفاوت بسیار است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «انکارش نمی‌کنم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آدمی زبان دارد، مفهوم می‌سازد، شمار می‌شناسد، فلسفه می‌نویسد، شهر بنا می‌کند، قانون می‌گذارد، دانش را از نسلی به نسل دیگر می‌سپارد و دربارهٔ آینده‌ای که هنوز نیامده است می‌اندیشد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «همهٔ اینها راست است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس چرا آدمی را برتر ندانیم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «برتر از چه رو؟»
-        </p>
-
-        <p class="short-dialogue">— از حیث توانایی.</p>
-
-        <p class="short-dialogue">— پس بگو تواناتر؛ چرا برتر؟</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «توانایی بیشتر، مرتبهٔ بالاتر می‌آورد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این سخن را باید به ترازوی خرد سنجید؛ زیرا توانستن با ارزشمندبودن یکی نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «مثالی بیاور.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اسب از من نیرومندتر است؛ عقاب دورتر می‌بیند؛ مورچه بارهایی برمی‌دارد که نسبت به تن خویش بس گران است. آیا به هر توانایی تاجی بر سر می‌گذاری؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «نه.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس چرا تاج آدمی را از توانایی‌های خویش می‌سازی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «زیرا آدمی تنها توانایی ندارد؛ می‌تواند توانایی خویش را بشناسد و در راهی که می‌خواهد به کار گیرد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این فضیلتی بزرگ است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس پذیرفتی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پذیرفتم که خرد، فضیلت است؛ نه اینکه هر صاحب خردی، به هرچه تواند دست برد و آن را حق خویش بشمارد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «فرق این دو چیست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «فرق چراغ و راه.»
-        </p>
-
-        <p>
-          مرد خاموش شد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «چراغ هرچه فروزان‌تر باشد، راه را بهتر می‌نمایاند؛ اما اگر صاحب چراغ چشم بر پرتگاه بندد، فروغ چراغ او را از افتادن نگاه نمی‌دارد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس به گمان تو، آدمی باید از توانایی خویش بیمناک باشد؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نه از توانایی؛ از بی‌مهاریِ آن.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و مرز مهار کجاست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «آنجا که «می‌توانم» از «باید» جدا می‌شود.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «سخنی نیکوست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پسندیدن حکمت آسان است؛ زیستن به آن دشوار.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «تو بر آنی که هرچه توانایی بیشتر شود، مسئولیت نیز بیشتر می‌شود؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «مسئولیت سایهٔ قدرت است. هرچه دست درازتر، سایه گسترده‌تر.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اگر آدمی قدرتی نداشت چه؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «بسیاری از آسیب‌هایی را نیز که امروز می‌تواند برساند، نمی‌توانست.»
-        </p>
-
-        <p>
-          مرد سنگی از کنار چشمه برداشت و در آب افکند.
-        </p>
-
-        <p>
-          دایره‌ای بر سطح آب پدید آمد؛ نخست کوچک، سپس بزرگ‌تر شد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «آب از کوچکی سنگ نمی‌پرسد؛ موج را پاسخ می‌دهد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «یعنی هر کنش را پژواکی است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «و گاه پژواک از خود صدا دیرپاتر است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما زندگی بی‌زیان ممکن نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این را من نیز می‌دانم.»
-        </p>
-
-        <p class="short-dialogue">— تو علف می‌خوری.</p>
-        <p class="short-dialogue">— آری.</p>
-        <p class="short-dialogue">— از گیاه بهره می‌بری.</p>
-        <p class="short-dialogue">— آری.</p>
-        <p class="short-dialogue">— جانوران یکدیگر را شکار می‌کنند.</p>
-        <p class="short-dialogue">— آری.</p>
-        <p class="short-dialogue">— پس طبیعت خود آکنده از رنج است.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «طبیعت را نه فرشته باید پنداشت و نه دیو. در آن زادن هست و مردن، گرسنگی هست و سیری، پناه هست و شکار. ما نیز بی‌خطا نیستیم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس از چه دفاع می‌کنی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «از این سخن که چون در جهان ناگزیر از آسیبیم، پس هر آسیبی رواست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و حد میان این دو کجاست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «در ضرورت، در اندازه و در ملاحظه.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «ضرورت را که تعیین کند؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «همان‌که از آن سود می‌برد؛ و درست از همین رو باید در داوری خویش بیشتر احتیاط کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «چرا؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زیرا میل، قاضی خوبی برای منفعت خویش نیست.»
-        </p>
-
-        <p>
-          مرد سر برداشت.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «آن‌کس که چیزی را می‌خواهد، آسان‌تر از دیگران برای خواستن خویش دلیل می‌تراشد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این سخن دربارهٔ آدمی راست است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «دربارهٔ آهو نیز.»
-        </p>
-
-        <p>
-          مرد تبسم کرد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس خویشتن را نیز از داوری معاف نکردی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «هرکه خویشتن را از نقد معاف کند، پیش از آنکه دانا باشد، گرفتار خویش شده است.»
-        </p>
-
-        <p>
-          مرد لحظه‌ای خاموش ماند.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">سپس گفت:</span>
-          «هنوز یک چیز باقی است. تو از درد سخن می‌گویی. از کجا معلوم درد تو همان چیزی است که من درد می‌نامم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «از کجا معلوم درد تو همان چیزی است که من، اگر بدانم، درد خواهم نامید؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این بازی با واژه‌هاست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نه؛ یادآوریِ یک نادانی است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «من نشانه‌های درد را می‌بینم، اما تجربهٔ درونی را نمی‌توانم ببینم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «راست است.»
-        </p>
-
-        <p class="short-dialogue">— پس ممکن است آنچه در تو می‌بینم، تنها واکنش بدن باشد.</p>
-        <p class="short-dialogue">— ممکن است.</p>
-        <p class="short-dialogue">— و ممکن است آنچه تو احساس می‌کنی، با احساس آدمی تفاوت بسیار داشته باشد.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «تفاوت، انکار نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «چگونه؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «باران و رود هر دو آب‌اند، اما یکی از آسمان می‌ریزد و دیگری در بستر خویش روان است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این مثال، تجربهٔ درونی را اثبات نمی‌کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نه. تنها تو را از خطایی دیگر بازمی‌دارد: اینکه چون تجربهٔ دیگری را عین تجربهٔ خویش نمی‌یابی، آن را هیچ بپنداری.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس سخنت این است که ندانستن، دلیل نبودن نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «همین است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما ندانستن، دلیل بودن نیز نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو سر فرود آورد:</span>
-          «راست گفتی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس به کجا رسیدیم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «به مرز شناخت.»
-        </p>
-
-        <p class="short-dialogue">— و پس از آن؟</p>
-        <p class="short-dialogue">— ملاحظه.</p>
-
-        <p>
-          در همان دم، صدای شکستن شاخه‌ای از میان بوته‌ها برخاست.
-        </p>
-
-        <p>
-          بچه‌آهویی پایش در میان شاخه‌ای گیر کرده بود.
-        </p>
-
-        <p>
-          مادر چون تیر از جای جست.
-        </p>
-
-        <p>
-          بچه تقلا می‌کرد.
-        </p>
-
-        <p>
-          مادر با شاخ و پوزه شاخه را کنار زد.
-        </p>
-
-        <p>
-          بچه آزاد شد.
-        </p>
-
-        <p>
-          مادر او را بویید، گردنش را لیسید و چند لحظه در کنارش ماند.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این رفتار را می‌توان با دانش توضیح داد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «توضیح بده.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پیوند مادر و فرزند برای بقای نسل سودمند است. واکنش‌های عصبی و بدنی، چنین رفتاری را پدید می‌آورند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «سخنت درست است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد شگفت‌زده شد و گفت:</span>
-          «درست است؟»
-        </p>
-
-        <p class="short-dialogue">— آری.</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس چرا آن را محبت می‌نامی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زیرا شرح سازوکار، حقیقت تجربه را از میان نمی‌برد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «از کجا می‌دانی این تجربه در تو هست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «از همان‌جا که تو دربارهٔ تجربهٔ آدمی دیگر می‌دانی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «یعنی از نشانه‌ها.»
-        </p>
-
-        <p class="short-dialogue">— آری.</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما نشانه‌ها همیشه قطعی نیستند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس باید احتیاط کرد، نه اینکه چشم بر نشانه‌ها بست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اگر در داوری خطا کنم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «هم باورکردن بی‌دلیل خطاست و هم انکارکردن بی‌دلیل.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس چه می‌ماند؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «فروتنی در برابر آنچه هنوز نمی‌دانی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «فروتنی؟»
-        </p>
-
-        <p class="short-dialogue">— آری. خرد آنجا که نمی‌داند، آواز خویش کوتاه می‌کند.</p>
-
-        <p>
-          مرد به بچه‌آهو نگریست.
-        </p>
-
-        <p>
-          بچه کنار مادر ایستاده بود و هنوز اندکی می‌لنگید.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «خوب. بگذار بگویم آدمی با حیوان برابر نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «من نیز نگفتم برابر است.»
-        </p>
-
-        <p class="short-dialogue">— پس ارزش آدمی بیشتر است.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «از کجا چنین پلی زدی؟»
-        </p>
-
-        <p class="short-dialogue">— از تفاوت.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «تفاوت، دلیل تفاوت است؛ نه لزوماً دلیل ارزش بیشتر.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس ارزش را چگونه می‌سنجی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «چرا باید برای هر بودن، یک ترازو داشته باشیم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «زیرا باید بدانیم کدام زندگی مهم‌تر است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «همیشه لازم نیست مهم‌تر را پیدا کنیم تا دیگری را کم‌ارزش نشماریم.»
-        </p>
-
-        <p>
-          مرد خاموش شد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «خورشید و درخت یکی نیستند؛ رود و پرنده نیز یکی نیستند؛ آدمی و آهو نیز. جهان از همسانی ساخته نشده است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس تفاوت را می‌پذیری.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «تفاوت، زبان بودن است.»
-        </p>
-
-        <p>
-          مرد به جنگل نگریست.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اگر همهٔ درختان یکسان بودند، جنگل دیواری بیش نبود. اگر همهٔ صداها یکی بودند، آواز از معنا می‌افتاد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما ارزش؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «ارزش را نمی‌توان تنها از شباهت گرفت.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس تو می‌گویی زندگی آهو از زندگی آدمی کم‌ارزش‌تر نیست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «می‌گویم نمی‌توانی تنها به سبب آنکه من شبیه تو نیستم، ارزش بودن مرا فروتر بنشانی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و اگر بگویم زندگی من ارزشمندتر است؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «دلیل بیاور.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «انسان می‌اندیشد، می‌آفریند، می‌سازد، می‌آموزد، درمان می‌کند و می‌تواند خطای خویش را بشناسد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اینها همه فضیلت‌هایی بزرگ‌اند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس اگر این فضیلت‌ها راستین باشند، باید در رفتار تو با ناتوان‌تر از خودت نیز آشکار شوند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «یعنی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اگر خرد داری، باید رنج را بهتر بشناسی. اگر توان داری، باید از آن برای کاستن از آسیب بهره بری. اگر زبان داری، باید بتوانی صدای آن را که زبان تو را ندارد بشنوی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این سخن مرا به مسئولیت می‌بندد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «توانایی اگر مسئولیت نیاورد، تنها وسیله‌ای برای گسترش قدرت است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «تو خود را از این مسئولیت بیرون می‌گذاری؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نه. ما نیز می‌گریزیم، می‌جنگیم، می‌رانیم، گاه به یکدیگر آسیب می‌رسانیم. طبیعت را نباید پاک‌تر از آنچه هست نشان داد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس چرا زندگی خود را بهتر می‌دانی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نگفتم بهتر است. گفتم در چیزهایی دیگر است.»
-        </p>
-
-        <p class="short-dialogue">— در چه چیز؟</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «ما کمتر می‌گیریم.»
-        </p>
-
-        <p class="short-dialogue">— چون کمتر می‌توانیم.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این پاسخ نیمی از حقیقت است.»
-        </p>
-
-        <p class="short-dialogue">— نیم دیگر؟</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «توانایی، آدمی را مجبور نمی‌کند که هرچه می‌تواند، بردارد.»
-        </p>
-
-        <p>
-          مرد ساکت شد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «شاید فلسفهٔ ما، اگر فلسفه‌ای برای ما فرض کنی، این باشد: به اندازهٔ نیاز برگیر، نه به اندازهٔ توان.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و اگر بگویم این فلسفه نیست، بلکه ناتوانی است؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «ناتوانی می‌تواند بخشی از آن باشد. اما تو نیز نمی‌توانی ثابت کنی هرچه کمتر انجام می‌دهیم، از سر ناتوانی است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «چگونه؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زیرا انسان نیز هرچه می‌تواند انجام دهد، انجام نمی‌دهد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «از سر اخلاق.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس تو پذیرفتی که نکردن نیز گاه انتخاب است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آری.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پس کم‌کردن نیز می‌تواند انتخاب باشد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما انسان از محدودیت گذشته است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «و همین، هم مایهٔ بزرگی اوست و هم مایهٔ خطرش.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «چگونه؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «چون موجودی که توانش از نیازش فراتر رود، می‌تواند بیش از اندازهٔ نیاز خویش بگیرد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس مشکل انسان، قدرت نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «نه. فاصلهٔ میان قدرت و خرد است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این سخن را می‌پذیرم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پذیرفتنش آسان است؛ سنجیدن خویش با آن دشوار.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «یک امتیاز دیگر برای انسان دارم.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «بگو.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آدمی می‌تواند خطای خویش را بشناسد و آن را اصلاح کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این از بزرگ‌ترین توانایی‌های شماست.»
-        </p>
-
-        <p class="short-dialogue">— پس انسان جایگاهی ویژه دارد.</p>
-        <p class="short-dialogue">— آری.</p>
-        <p class="short-dialogue">— و باز می‌گویی این جایگاه، حق آزار دیگران نیست.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زیرا جایگاه بلند، اگر راستین باشد، باید قامت مسئولیت را نیز بلند کند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «یعنی هرچه تواناتر، مسئول‌تر؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «هرچه دست درازتر، سایه گسترده‌تر.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اگر ناچار به آسیب باشم؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «بپرس: چرا؟ تا کجا؟ به چه اندازه؟ و آیا راهی کم‌آسیب‌تر هست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این راه آسان نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زندگی آسان نیست که اخلاق از آن آسان‌تر باشد.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اخلاق چیست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «هنر گزینش در جهانی که هیچ گزینشی یکسره بی‌هزینه نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «این را از کجا آموختی؟»
-        </p>
-
-        <p>
-          آهو به شاخ‌های پیر خویش نگریست.
-        </p>
-
-        <p class="short-dialogue">— از زمستان.</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «زمستان استاد توست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «برای گوش شنوا، هر فصلی استادی است.»
-        </p>
-
-        <p>
-          باد از میان علف‌ها گذشت.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پرسشی دیگر.»
-        </p>
-
-        <p class="short-dialogue">— بپرس.</p>
-
-        <p class="short-dialogue">
-          — اگر روزی آشکار شود که حیوانات تجربهٔ درونی بسیار کمتر از آن دارند که ما می‌پنداریم، چه؟
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «آنگاه باید داوری خویش را اصلاح کنیم.»
-        </p>
-
-        <p class="short-dialogue">— و اگر آشکار شود که بیشتر است؟</p>
-
-        <p class="short-dialogue">— باز باید اصلاح کنیم.</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس اندیشهٔ تو حکم قطعی نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اندیشه‌ای که از اصلاح بترسد، پیش از آنکه استوار باشد، سخت شده است.»
-        </p>
-
-        <p>
-          مرد به علف‌هایی نگریست که زیر باد خم می‌شدند.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «هرچه خم شود، نمی‌شکند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «و هرچه خم نشود، لزوماً استوار نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «گاه خم‌شدن، تسلیم است.»
-        </p>
-
-        <p class="short-dialogue">— درست.</p>
-
-        <p class="short-dialogue">— پس چه باید کرد؟</p>
-
-        <p class="short-dialogue">— دانستنِ هنگام خم‌شدن و هنگام ایستادن.</p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «تو در برابر چه چیزی می‌ایستی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «در برابر آنکه توانایی را حق بشمارند.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و از چه می‌گریزی؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «از آنکه نادانی را یقین بشمارند.»
-        </p>
-
-        <p>
-          مرد تبسم کرد.
-        </p>
-
-        <p class="short-dialogue">— این سخن را به من گفتی.</p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «زیرا امروز هر دو بدان نیاز داشتیم.»
-        </p>
-
-        <p>
-          مرد به آب نگریست.
-        </p>
-
-        <p>
-          در آب، تصویر هر دو در کنار هم بود.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «اکنون دوباره بپرس.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آیا تو جان داری؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این بار من از تو می‌پرسم: اگر پاسخ من آری باشد، چه چیزی در رفتار تو دگرگون می‌شود؟ و اگر نه باشد، چه چیز به تو حق می‌دهد مرا بی‌ارزش بشماری؟»
-        </p>
-
-        <p>
-          مرد خاموش ماند.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «پرسش نیک آن نیست که تنها پاسخی برای زبان بجوید؛ آن است که صاحب پرسش را نیز به پاسخ خویش مسئول کند.»
-        </p>
-
-        <p>
-          مرد دست پیش برد.
-        </p>
-
-        <p>
-          اما نه برای گرفتن.
-        </p>
-
-        <p>
-          دست خویش را فرود آورد.
-        </p>
-
-        <p>
-          مادر میان او و بچه ایستاده بود.
-        </p>
-
-        <p>
-          مرد این بار نه از بیم، که از ملاحظه، یک گام واپس نشست.
-        </p>
-
-        <p>
-          او هنوز نمی‌دانست در جان آهو چه می‌گذرد.
-        </p>
-
-        <p>
-          اما دریافته بود که ندانستن، مجوز گرفتن نیست.
-        </p>
-
-        <p>
-          کتابی از کیسه بیرون آورد.
-        </p>
-
-        <p>
-          گشود.
-        </p>
-
-        <p>
-          چند سطر خواند.
-        </p>
-
-        <p>
-          بست.
-        </p>
-
-        <p>
-          به چشمه نگریست.
-        </p>
-
-        <p>
-          به درختان.
-        </p>
-
-        <p>
-          به بچه‌آهو.
-        </p>
-
-        <p>
-          به دست خویش.
-        </p>
-
-        <p>
-          و در دل گفت:
-        </p>
-
-        <div class="inner-quote">
-          «این دست که تواند بیشتر بگیرد، آیا باید بیشتر بگیرد؟
-          <br>
-          یا آنکه توان گرفتن بیشتر یافته است، باید توان بازداشتن خویش را نیز بیاموزد؟»
-        </div>
-
-        <p>
-          پاسخی نیامد.
-        </p>
-
-        <p>
-          اما پرسش ماند.
-        </p>
-
-        <p>
-          و پرسشی که در جان بماند، گاه از پاسخی که شتاب‌زده آید، سودمندتر است.
-        </p>
-
-        <p>
-          مادر و بچه‌آهو به راه افتادند.
-        </p>
-
-        <p>
-          بچه چند گام برداشت، لغزید، برخاست و باز به راه افتاد.
-        </p>
-
-        <p>
-          مرد تبسم کرد.
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو پیش از آنکه در میان درختان ناپدید شود، بازگشت و گفت:</span>
-          «اگر فردا از تو پرسند: «آدمی برتر است یا آهو؟» چه خواهی گفت؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «خواهم گفت آدمی در چیزهایی تواناتر است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «و آهو؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «آهو نیز در چیزهایی که من کمتر دیده‌ام، تواناتر است.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «در چه؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «در شناخت اندازهٔ خویش.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو سر فرود آورد.</span>
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «اما اگر بگویند این نیز از ناتوانی اوست؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «بگو هر فضیلتی را نمی‌توان به میزان قدرت سنجید.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و اگر بگویند آهو نیز گاه از اندازهٔ خویش درمی‌گذرد؟»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «بگو درست است. ما نیز خطا می‌کنیم. هیچ موجود زنده‌ای از خطا بیرون نیست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «پس تو نیز کامل نیستی.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «موجود زنده تا زنده است، در معرض خطاست.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">مرد گفت:</span>
-          «و تا زنده است، در معرض آموختن.»
-        </p>
-
-        <p class="dialogue">
-          <span class="speaker">آهو گفت:</span>
-          «این سخن را نیک گفتی.»
-        </p>
-
-        <p>
-          سپس روی بگرداند و در میان درختان فرو رفت.
-        </p>
-
-        <p>
-          مرد دیرزمانی به جای رفتن او نگریست.
-        </p>
-
-        <p>
-          بامداد دیگر برآمده بود.
-        </p>
-
-        <p>
-          مه از کوه کنار رفته و خورشید بر شاخساران نشسته بود.
-        </p>
-
-        <p>
-          مرد به شهر دوردست نگریست؛ به خانه‌ها و راه‌ها و برج‌ها و دودهایی که در افق بالا می‌رفت.
-        </p>
-
-        <p>
-          سپس به جنگل نگاه کرد.
-        </p>
-
-        <div class="emphasis">
-          «کدام‌یک بیشتر ساخته است؟»
-        </div>
-
-        <p>
-          و هنوز پاسخ نیافته، پرسش دیگری برآمد:
-        </p>
-
-        <div class="emphasis">
-          «کدام‌یک کمتر ویران کرده است؟»
-        </div>
-
-        <p>
-          جوابی نداشت.
-        </p>
-
-        <p>
-          راه خویش در پیش گرفت.
-        </p>
-
-        <p>
-          اما پرسشی دیگر در دل او جوانه زد؛ پرسشی که از همه دشوارتر بود:
-        </p>
-
-        <div class="emphasis">
-          اگر آدمی معیار ارزش را به اندازهٔ خویش ساخته باشد، از کجا معلوم که خط‌کش را درست تراشیده است؟
-        </div>
-
-        <p>
-          در آن بامداد، مرد نه آهو را بر آدمی نشاند و نه آدمی را بر آهو.
-        </p>
-
-        <p>
-          تنها دریافت که تفاوت، مجوز تحقیر نیست؛
-          <br>
-          توانایی، حق تصاحب نیست؛
-          <br>
-          دانایی، مالکیت نیست؛
-          <br>
-          و نادانی، دلیل نبودن نیست.
-        </p>
-
-        <p>
-          و دریافت که اگر آدمی را فضیلتی هست، آن فضیلت باید در هنگام قدرت آشکار شود، نه در هنگام ناتوانی.
-        </p>
-
-        <p>
-          چه آسان است دست کشیدن از آزردن، هنگامی که دستت کوتاه است؛
-          <br>
-          و چه دشوار است دست نگه‌داشتن، هنگامی که دستت دراز است.
-        </p>
-
-        <p>
-          شاید بزرگی آدمی نه در آن باشد که بتواند جهان را زیر فرمان خویش آورد؛
-          <br>
-          بلکه در آن باشد که چون توانست، بداند کجا باید درنگ کند.
-        </p>
-
-        <p>
-          چشمه می‌رفت.
-        </p>
-
-        <p>
-          باد در شاخساران می‌پیچید.
-        </p>
-
-        <p>
-          و دوردست، آهوی پیر در میان درختان راه می‌سپرد.
-        </p>
-
-        <p>
-          دو زندگی از دو راه می‌گذشتند؛
-          <br>
-          نه یکی محکوم دیگری،
-          <br>
-          نه یکی داور دیگری.
-        </p>
-
-        <p>
-          و میان آن دو، چیزی بود که از هر دو بزرگ‌تر می‌نمود:
-        </p>
-
-        <div class="emphasis">
-          پرسش.
-        </div>
-
-        <p>
-          زیرا خرد آن نیست که برای هر چیز پاسخی آماده داشته باشی؛
-          <br>
-          خرد آن است که بدانی کدام پاسخ را هنوز حق نداری با یقین بر زبان آوری.
-        </p>
-
-        <p>
-          و مرد، پس از سال‌ها کتاب خواندن، آن بامداد دریافت که گاه نخستین گام خرد این نیست که جهان را اندازه بگیری؛
-        </p>
-
-        <div class="closing">
-
-          <p class="final-line">
-            بلکه آن است که پیش از اندازه‌گیری جهان،
-            <br>
-            خط‌کش خویش را اندازه بگیری.
-          </p>
-
-          <div class="ornament">
-            <span>✦</span>
-          </div>
+          <p>آهو گفت:</p>
+          <p>— پس بپرس.</p>
 
         </div>
 
-      </article>
+        <p>مرد ساعتی خاموش ماند. صدای آب از میان سنگ‌ها می‌آمد و در سکوت بامداد، چنان می‌نمود که گویی زمین زیر لب سخن می‌گوید.</p>
 
-    </main>
+        <div class="dialogue">
 
-    <footer>
-      <div class="footer-mark">هورا</div>
-      <div>در معنای جان</div>
-    </footer>
+          <p>مرد گفت:</p>
+          <p>— سال‌هاست در معنای جان می‌اندیشم؛ و هرچه بیشتر اندیشیده‌ام، پرسشم دشوارتر شده است.</p>
 
-  </div>
+          <p>آهو گفت:</p>
+          <p>— و پرسش چیست؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— آیا تو نیز جان داری؟</p>
+
+          <p>آهو سر فرود آورد و به آب نگریست.</p>
+
+        </div>
+
+        <p>در آب، صورت مرد و آهو در کنار یکدیگر افتاده بود؛ یکی با چهره‌ای آفتاب‌سوخته و دیگری با پوزه‌ای سپید.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— پیش از پاسخ، مرا نیز حقی در پرسش بده. تو جان را می‌شناسی؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— سال‌هاست دربارهٔ آن می‌اندیشم.</p>
+
+          <p>— اندیشیدن را نمی‌پرسم؛ شناختن را می‌پرسم.</p>
+
+          <p>مرد گفت:</p>
+          <p>— جان آن است که زنده را از بی‌جان جدا کند.</p>
+
+          <p>آهو گفت:</p>
+          <p>— پس من زنده‌ام؟</p>
+
+          <p>— آری.</p>
+
+          <p>— پس چرا در جان من شک کرده‌ای؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— در زنده‌بودنت شک ندارم. در کیفیت جانت پرسش دارم. می‌خواهم بدانم آیا آنچه در آدمی جان می‌خوانیم، در تو نیز همان است.</p>
+
+          <p>آهو گفت:</p>
+          <p>— اکنون سخن روشن شد. تو نمی‌پرسی که من زنده‌ام یا نه؛ می‌پرسی که آیا بودن من، به همان اندازه که بودن تو برای خودت آشکار است، برای من نیز درونی و محسوس است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— آری.</p>
+
+          <p>آهو گفت:</p>
+          <p>— پس نخست باید بپذیری که پرسش تو، بیش از آنکه دربارهٔ من باشد، دربارهٔ اندازهٔ شناخت تو از من است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— این سخن را چگونه ثابت می‌کنی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— مگر تو به درون من راه داری؟</p>
+
+          <p>— نه.</p>
+
+          <p>— پس هرچه می‌گویی، از بیرون می‌بینی و به درون نسبت می‌دهی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— انسان نیز دربارهٔ انسان دیگر چنین می‌کند.</p>
+
+          <p>— درست. پس انسان نیز در شناخت دیگری، همیشه مهمان است، نه صاحب‌خانه.</p>
+
+        </div>
+
+        <p>مرد لبخند زد.</p>
+
+        <div class="dialogue">
+
+          <p>مرد گفت:</p>
+          <p>— سخن‌آرایی می‌کنی.</p>
+
+          <p>آهو گفت:</p>
+          <p>— و تو تعریف می‌کنی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— خوب، بگذار از راه دیگری سخن گوییم. میان انسان و حیوان تفاوت بسیار است.</p>
+
+          <p>— انکارش نمی‌کنم.</p>
+
+          <p>— انسان زبان دارد، مفهوم می‌سازد، عدد می‌شناسد، فلسفه می‌نویسد، شهر بنا می‌کند، قانون می‌گذارد، دانش را از نسلی به نسل دیگر می‌سپارد و دربارهٔ آینده‌ای که هنوز نیامده می‌اندیشد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— همهٔ اینها درست است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس چرا انسان را برتر ندانیم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— برتر از چه رو؟</p>
+
+          <p>— از حیث توانایی.</p>
+
+          <p>— پس بگو تواناتر؛ چرا برتر؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— توانایی بیشتر، مرتبهٔ بالاتر می‌آورد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این سخن را باید خوب سنجید. زیرا توانستن، با ارزشمندبودن یکی نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— مثال بزن.</p>
+
+          <p>آهو گفت:</p>
+          <p>— اسب از من نیرومندتر است؛ عقاب از هر دوی ما دورتر می‌بیند؛ مورچه از اندازهٔ خویش بارهایی گران برمی‌دارد. آیا به هر توانایی، تاجی بر سر می‌گذاری؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— نه.</p>
+
+          <p>— پس چرا تاج انسان را از جنس توانایی‌های خودش می‌سازی؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— زیرا توانایی‌های انسان از جنس دیگری است؛ او می‌تواند توانایی خود را بشناسد و به کار گیرد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این، فضیلت است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس پذیرفتی.</p>
+
+          <p>— پذیرفتم که خرد، فضیلت است؛ نه اینکه هر صاحب خردی، به هر کاری که تواند، سزاوارتر باشد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— فرق این دو چیست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— فرق چراغ و راه.</p>
+
+        </div>
+
+        <p>مرد خاموش شد.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— چراغ هرچه فروزان‌تر باشد، راه را بهتر می‌نمایاند؛ اما اگر صاحب چراغ چشم بر پرتگاه ببندد، فروغ چراغ گناه راه نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس به گمان تو، انسان باید از توانایی خویش بترسد؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— نه از توانایی؛ از بی‌مهاریِ توانایی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و مرز مهار کجاست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— آنجا که «می‌توانم» از «باید» جدا می‌شود.</p>
+
+          <p>مرد گفت:</p>
+          <p>— این سخن را بپسندم.</p>
+
+          <p>آهو گفت:</p>
+          <p>— پسندیدن آسان است؛ زیستن دشوار.</p>
+
+          <p>مرد گفت:</p>
+          <p>— تو گمان می‌کنی انسان به سبب قدرت خویش بیشتر از دیگران مسئول است؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— مسئولیت، سایهٔ قدرت است. هرچه دست درازتر، سایه گسترده‌تر.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و اگر انسان قدرتی نداشت؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— آنگاه بسیاری از آسیب‌هایی را نیز که اکنون می‌تواند برساند، نمی‌توانست.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>مرد سنگی از کنار چشمه برداشت و در آب افکند.</p>
+
+        <p>دایره‌ای بر سطح آب پدید آمد؛ نخست کوچک، سپس بزرگ‌تر.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— آب از کوچکی سنگ نمی‌پرسد؛ موج را پاسخ می‌دهد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— یعنی هر کنش، پژواکی دارد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— و گاه پژواک از خودِ صدا دیرپاتر است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اما زندگی بی‌زیان ممکن نیست.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این را من نیز می‌دانم.</p>
+
+          <p>— علف می‌خوری.</p>
+
+          <p>— آری.</p>
+
+          <p>— از گیاه بهره می‌بری.</p>
+
+          <p>— آری.</p>
+
+          <p>— جانوران یکدیگر را شکار می‌کنند.</p>
+
+          <p>— آری.</p>
+
+          <p>— پس طبیعت خود پر از رنج است.</p>
+
+          <p>آهو گفت:</p>
+          <p>— طبیعت را فرشته مکن و دیو نیز مساز. در آن هم زادن هست و هم مردن، هم گرسنگی و هم سیری، هم پناه و هم شکار. ما نیز بی‌خطا نیستیم.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس از چه دفاع می‌کنی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— از این سخن که چون در جهان ناگزیر از آسیبیم، پس هر آسیبی رواست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و حد میان این دو کجاست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— در ضرورت، در اندازه، و در ملاحظه.</p>
+
+          <p>مرد گفت:</p>
+          <p>— ضرورت را چه کسی تعیین کند؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— همان کسی که از آن سود می‌برد؛ و درست به همین سبب، باید بیش از دیگران در داوری خویش احتیاط کند.</p>
+
+          <p>مرد گفت:</p>
+          <p>— چرا؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— زیرا میل، قاضی خوبی برای منفعت خویش نیست.</p>
+
+          <p>مرد سر برداشت.</p>
+
+          <p>آهو ادامه داد:</p>
+          <p>— آن‌کس که چیزی را می‌خواهد، آسان‌تر برای خواستن خویش دلیل می‌تراشد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— این سخن دربارهٔ انسان راست است.</p>
+
+          <p>آهو گفت:</p>
+          <p>— دربارهٔ آهو نیز.</p>
+
+          <p>مرد خندید.</p>
+
+          <p>— پس خودت را هم از داوری معاف نکردی.</p>
+
+          <p>— هرکه خود را از نقد معاف کند، پیش از آنکه دانا باشد، گرفتار خویش شده است.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>مرد لحظه‌ای سکوت کرد.</p>
+
+        <div class="dialogue">
+
+          <p>سپس گفت:</p>
+          <p>— هنوز یک چیز باقی است. تو از درد سخن می‌گویی. از کجا معلوم درد تو همان چیزی است که من درد می‌نامم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— از کجا معلوم درد تو همان چیزی است که من اگر بدانم، درد می‌نامم؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— این بازی با واژه‌هاست.</p>
+
+          <p>— نه. یادآوریِ یک نادانی است.</p>
+
+          <p>مرد گفت:</p>
+          <p>— من نشانه‌های درد را می‌بینم، اما تجربهٔ درونی را نمی‌توانم ببینم.</p>
+
+          <p>آهو گفت:</p>
+          <p>— درست.</p>
+
+          <p>— پس ممکن است آنچه در تو می‌بینم، تنها واکنش بدن باشد.</p>
+
+          <p>— ممکن است.</p>
+
+          <p>— و ممکن است آنچه تو احساس می‌کنی، با احساس انسان تفاوت بسیار داشته باشد.</p>
+
+          <p>— تفاوت، انکار نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— چگونه؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— باران و رود هر دو آب‌اند، اما یکسان نمی‌بارند و یکسان نمی‌روند.</p>
+
+          <p>مرد گفت:</p>
+          <p>— مثال خوبی است؛ اما تجربهٔ درونی را ثابت نمی‌کند.</p>
+
+          <p>— نه. فقط تو را از یک خطای دیگر بازمی‌دارد: اینکه چون تجربهٔ دیگری را عین تجربهٔ خود نمی‌یابی، پس آن را هیچ بپنداری.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس سخن تو این است که ندانستن، دلیل نبودن نیست.</p>
+
+          <p>— همین.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اما ندانستن، دلیل بودن هم نیست.</p>
+
+          <p>آهو سر فرود آورد.</p>
+
+          <p>— درست گفتی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس به کجا رسیدیم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— به جایی که خردمند باید برسد: مرز شناخت.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و پس از آن؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— ملاحظه.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>در همان دم، صدای شکستن شاخه‌ای از میان بوته‌ها برخاست.</p>
+
+        <p>بچه‌آهویی پایش در میان شاخه‌ای گیر کرده بود.</p>
+
+        <p>مادر چون تیر از جای جست.</p>
+
+        <p>بچه تقلا می‌کرد.</p>
+
+        <p>مادر با شاخ و پوزه شاخه را کنار زد.</p>
+
+        <p>بچه آزاد شد.</p>
+
+        <p>مادر او را بویید، گردنش را لیسید و چند لحظه در کنارش ماند.</p>
+
+        <div class="dialogue">
+
+          <p>مرد گفت:</p>
+          <p>— این را می‌توان با علم توضیح داد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— توضیح بده.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پیوند مادر و فرزند برای بقای نسل سودمند است. واکنش‌های عصبی و هورمونی، چنین رفتاری را پدید می‌آورند.</p>
+
+          <p>آهو گفت:</p>
+          <p>— سخنت درست است.</p>
+
+          <p>مرد تعجب کرد.</p>
+
+          <p>— درست است؟</p>
+
+          <p>— آری.</p>
+
+          <p>— پس چرا آن را محبت می‌نامی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— چون توضیحِ سازوکار، حقیقتِ تجربه را از میان نمی‌برد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— از کجا می‌دانی این تجربه واقعاً وجود دارد؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— از همان‌جا که تو دربارهٔ تجربهٔ انسان دیگری می‌دانی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— یعنی از نشانه‌ها.</p>
+
+          <p>— آری.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اما نشانه‌ها همیشه قطعی نیستند.</p>
+
+          <p>— پس باید احتیاط کرد، نه اینکه چشم بر نشانه‌ها بست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اگر اشتباه کنم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— هم باورکردن بی‌دلیل خطاست و هم انکارکردن بی‌دلیل.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس چه می‌ماند؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— فروتنی در برابر آنچه هنوز نمی‌دانی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— فروتنی؟</p>
+
+          <p>— آری. خرد، آنجا که نمی‌داند، صدایش را کوتاه می‌کند.</p>
+
+        </div>
+
+        <p>مرد به بچه‌آهو نگاه کرد.</p>
+
+        <p>بچه کنار مادر ایستاده بود و هنوز اندکی می‌لنگید.</p>
+
+        <div class="dialogue">
+
+          <p>مرد گفت:</p>
+          <p>— خوب. بگذار بگویم انسان با حیوان برابر نیست.</p>
+
+          <p>آهو گفت:</p>
+          <p>— من نیز نگفتم برابر است.</p>
+
+          <p>— پس ارزش انسان بیشتر است.</p>
+
+          <p>— از کجا چنین پلی زدی؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— از تفاوت.</p>
+
+          <p>آهو گفت:</p>
+          <p>— تفاوت، دلیل تفاوت است؛ نه لزوماً دلیل ارزش بیشتر.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس ارزش را چگونه می‌سنجی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— چرا باید یک ترازو باشد؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— چون باید بدانیم کدام زندگی مهم‌تر است.</p>
+
+          <p>آهو گفت:</p>
+          <p>— همیشه لازم نیست مهم‌تر را پیدا کنیم تا دیگری را کم‌ارزش ندانیم.</p>
+
+        </div>
+
+        <p>مرد سکوت کرد.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— خورشید و درخت هم‌ارزش نیستند به یک معنای ساده؛ رود و پرنده نیز چنین نیستند. اما تفاوت میان آنها، به ما حق نمی‌دهد یکی را صرفاً به دلیل تفاوتش بی‌ملاحظه کنیم.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس می‌گویی ارزش، جامه‌ای نیست که فقط بر تن شبیه خود بنشیند.</p>
+
+          <p>آهو گفت:</p>
+          <p>— آری.</p>
+
+          <p>مرد به جنگل نگاه کرد.</p>
+
+          <p>— اما تو نیز مرا موجودی برتر نمی‌دانی.</p>
+
+          <p>آهو گفت:</p>
+          <p>— تو در چیزهایی برتری داری.</p>
+
+          <p>— و تو؟</p>
+
+          <p>— ما نیز در چیزهایی.</p>
+
+          <p>مرد گفت:</p>
+          <p>— مثلاً؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— ما کمتر می‌گیریم.</p>
+
+          <p>مرد خندید.</p>
+
+          <p>— چون کمتر می‌توانیم.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این پاسخ را انتظار داشتم.</p>
+
+          <p>— زیرا درست است.</p>
+
+          <p>— بخشی از آن درست است.</p>
+
+          <p>— بخشی؟</p>
+
+          <p>— آری. ناتوانی می‌تواند انسان را کم‌مصرف کند؛ اما توانایی نیز او را مجبور نمی‌کند که هرچه می‌تواند، بردارد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس کم‌داشتن را فضیلت می‌دانی؟</p>
+
+          <p>— هر کم‌داشتنی فضیلت نیست. اما هر افزونی نیز فضیلت نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس فلسفهٔ آهوان چیست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— اگر بخواهی نامی بر آن بگذاری، چنین بگو: به اندازهٔ نیاز برگیر، نه به اندازهٔ توان.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و فلسفهٔ انسان؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— انسان می‌پرسد: «چه می‌توانم؟»</p>
+
+          <p>مرد گفت:</p>
+          <p>— و تو؟</p>
+
+          <p>— «چه ارزش دارد که بتوانم؟»</p>
+
+        </div>
+
+        <p class="question">
+          «چه می‌توانم؟»<br>
+          یا<br>
+          «چه ارزش دارد که بتوانم؟»
+        </p>
+
+        <div class="dialogue">
+
+          <p>مرد به او نگریست.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این دو پرسش دشمن هم نیستند. اما وای از روزی که اولی، دومی را ببلعد.</p>
+
+          <p>مرد گفت:</p>
+          <p>— تو می‌گویی انسان فلسفه‌اش را بر کاغذ نوشته و شما بر شیوهٔ زندگی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— چنین می‌توان گفت.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اما ردپا پاک می‌شود.</p>
+
+          <p>آهو گفت:</p>
+          <p>— نوشته نیز اگر خوانده نشود، جز نقش مرکب نیست.</p>
+
+          <p>مرد لبخند زد.</p>
+
+          <p>— سخنت بوی حکمت می‌دهد.</p>
+
+          <p>آهو گفت:</p>
+          <p>— حکمت اگر بوی زندگی ندهد، بوی کتابخانه می‌دهد.</p>
+
+          <p>مرد خندید.</p>
+
+          <p>سپس گفت:</p>
+
+          <p>— یک امتیاز دیگر برای انسان.</p>
+
+          <p>— بگو.</p>
+
+          <p>— انسان می‌تواند خطای خود را بشناسد و اصلاح کند.</p>
+
+          <p>آهو گفت:</p>
+          <p>— این یکی از بزرگ‌ترین توانایی‌های شماست.</p>
+
+          <p>— پس پذیرفتی که انسان جایگاهی ویژه دارد.</p>
+
+          <p>— آری.</p>
+
+          <p>— و باز می‌گویی برتری او حق آزار دیگران نیست.</p>
+
+          <p>— زیرا جایگاه بلند، اگر راستین باشد، باید قامت مسئولیت را نیز بلند کند.</p>
+
+          <p>مرد گفت:</p>
+          <p>— یعنی هرچه تواناتر، مسئول‌تر؟</p>
+
+          <p>— هرچه دست درازتر، سایه گسترده‌تر.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و اگر ناچار به آسیب باشم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— بپرس: چرا؟ تا کجا؟ با چه اندازه‌ای؟ و آیا راهی کم‌آسیب‌تر هست؟</p>
+
+          <p>مرد گفت:</p>
+          <p>— این راه آسان نیست.</p>
+
+          <p>— راه درست همیشه آسان نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اخلاق چیست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— هنرِ انتخاب در جهانی که هیچ انتخابی یکسره بی‌هزینه نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— این را از کجا آموختی؟</p>
+
+          <p>آهو به شاخ‌های پیر خود نگریست.</p>
+
+          <p>— از زمستان.</p>
+
+          <p>مرد گفت:</p>
+          <p>— زمستان استاد توست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— برای گوشِ شنوا، هر فصل استادی دارد.</p>
+
+        </div>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>باد از میان علف‌ها گذشت.</p>
+
+        <div class="dialogue">
+
+          <p>مرد گفت:</p>
+          <p>— یک پرسش دیگر.</p>
+
+          <p>— بپرس.</p>
+
+          <p>— اگر روزی معلوم شود که حیوانات تجربهٔ درونی بسیار کمتری از آن دارند که گمان می‌کنیم، چه؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— آنگاه باید سخن خویش را اصلاح کنیم.</p>
+
+          <p>— و اگر معلوم شود بیشتر است؟</p>
+
+          <p>— باز باید اصلاح کنیم.</p>
+
+          <p>مرد گفت:</p>
+          <p>— پس اندیشهٔ تو حکم قطعی نیست.</p>
+
+          <p>آهو گفت:</p>
+          <p>— اندیشه‌ای که از اصلاح بترسد، پیش از آنکه استوار باشد، سخت شده است.</p>
+
+          <p>مرد به علف‌هایی نگاه کرد که زیر باد خم می‌شدند.</p>
+
+          <p>گفت:</p>
+          <p>— هرچه خم شود، نمی‌شکند.</p>
+
+          <p>آهو گفت:</p>
+          <p>— و هرچه خم نشود، لزوماً استوار نیست.</p>
+
+          <p>مرد گفت:</p>
+          <p>— گاه خم‌شدن، تسلیم است.</p>
+
+          <p>— درست.</p>
+
+          <p>— پس چه باید کرد؟</p>
+
+          <p>— دانستنِ هنگام خم‌شدن و هنگام ایستادن.</p>
+
+          <p>مرد گفت:</p>
+          <p>— تو در برابر چه چیزی می‌ایستی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— در برابر اینکه توانایی را حق بگیرند.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و از چه می‌گریزی؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— از آنکه نادانی را یقین بگیرند.</p>
+
+          <p>مرد لبخند زد.</p>
+
+          <p>— این یکی را به من گفتی.</p>
+
+          <p>آهو گفت:</p>
+          <p>— زیرا امروز هر دو به آن نیاز داشتیم.</p>
+
+        </div>
+
+        <p>مرد به آب نگریست.</p>
+
+        <p>در آب، تصویر هر دو کنار هم بود.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— اکنون دوباره بپرس.</p>
+
+          <p>مرد گفت:</p>
+          <p>— آیا تو جان داری؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— این بار من از تو می‌پرسم: اگر پاسخ من «آری» باشد، چه چیزی در رفتار تو دگرگون می‌شود؟ و اگر «نه» باشد، چه چیزی به تو حق می‌دهد مرا بی‌ارزش بشماری؟</p>
+
+        </div>
+
+        <p>مرد خاموش ماند.</p>
+
+        <div class="dialogue">
+
+          <p>آهو گفت:</p>
+          <p>— پرسش نیک آن نیست که تنها پاسخی برای زبان بجوید؛ آن است که صاحب پرسش را نیز به پاسخ خویش مسئول کند.</p>
+
+        </div>
+
+        <p>مرد دست پیش برد.</p>
+
+        <p>اما نه برای گرفتن.</p>
+
+        <p>دستش را پایین آورد.</p>
+
+        <p>مادر میان او و بچه ایستاده بود.</p>
+
+        <p>مرد این بار نه از ترس، که از ملاحظه، یک گام واپس نشست.</p>
+
+        <p>او هنوز نمی‌دانست در جان آهو چه می‌گذرد.</p>
+
+        <p>اما دریافته بود که ندانستن، مجوز گرفتن نیست.</p>
+
+        <p>کتابی از کیسه بیرون آورد.</p>
+
+        <p>گشود.</p>
+
+        <p>چند سطر خواند.</p>
+
+        <p>بست.</p>
+
+        <p>به چشمه نگاه کرد.</p>
+
+        <p>به درختان.</p>
+
+        <p>به بچه‌آهو.</p>
+
+        <p>به دست خویش.</p>
+
+        <p>و با خود گفت:</p>
+
+        <p class="emphasis">
+          «این دست که می‌تواند بیشتر بگیرد، آیا باید بیشتر بگیرد؟<br>
+          یا آنکه توانِ گرفتن بیشتر یافته، باید توانِ نگه‌داشتن خویش را نیز بیاموزد؟»
+        </p>
+
+        <p>پاسخی نیامد.</p>
+
+        <p>اما پرسش ماند.</p>
+
+        <p>و پرسشی که در جان بماند، گاه از پاسخی که زود بیاید، سودمندتر است.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>مادر و بچه‌آهو راه افتادند.</p>
+
+        <p>بچه چند قدم رفت، لغزید، برخاست و باز راه گرفت.</p>
+
+        <p>مرد لبخند زد.</p>
+
+        <div class="dialogue">
+
+          <p>آهو پیش از رفتن بازگشت.</p>
+
+          <p>مرد گفت:</p>
+          <p>— اگر فردا از من بپرسند: «آیا انسان برتر است یا آهو؟» چه پاسخ دهم؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— بگو انسان در چیزهایی تواناتر است.</p>
+
+          <p>— و آهو؟</p>
+
+          <p>— آهو نیز در چیزهایی که تو کمتر دیده‌ای، تواناتر است.</p>
+
+          <p>— در چه؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— در شناخت اندازهٔ خویش.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و اگر بگویند این نیز از ناتوانی اوست؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— بگو هر فضیلتی را نمی‌توان با میزان قدرت سنجید.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و اگر بگویند آهو هم گاهی از اندازهٔ خویش درمی‌گذرد؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— بگو درست است. ما نیز خطا می‌کنیم. هیچ موجود زنده‌ای از خطا بیرون نیست.</p>
+
+          <p>سپس گفت:</p>
+
+          <p>— اما انسان یک امتیاز دیگر دارد.</p>
+
+          <p>— چه؟</p>
+
+          <p>— می‌تواند خطای خود را به فلسفه تبدیل کند.</p>
+
+          <p>مرد گفت:</p>
+          <p>— و اگر نتواند؟</p>
+
+          <p>آهو گفت:</p>
+          <p>— آن‌گاه فلسفه‌اش تنها سخن خواهد بود.</p>
+
+        </div>
+
+        <p>مرد سر فرود آورد.</p>
+
+        <p>آهو در میان درختان گم شد.</p>
+
+        <p>مرد دیرزمانی به جای رفتن او نگریست.</p>
+
+        <p>صبح دیگر برآمده بود.</p>
+
+        <p>مه از کوه کنار رفته و خورشید بر شاخ درختان نشسته بود.</p>
+
+        <p>مرد به شهر دوردست نگریست؛ به خانه‌ها، راه‌ها، برج‌ها و دودهایی که در افق بالا می‌رفت.</p>
+
+        <p>سپس به جنگل نگریست.</p>
+
+        <div class="dialogue">
+
+          <p>برای نخستین بار از خود پرسید:</p>
+          <p>کدام‌یک بیشتر ساخته است؟</p>
+
+          <p>و بی‌درنگ پرسش دیگری آمد:</p>
+          <p>کدام‌یک کمتر ویران کرده است؟</p>
+
+        </div>
+
+        <p>پاسخی نداشت.</p>
+
+        <p>راه افتاد.</p>
+
+        <p>اما در دل او پرسش دیگری نیز جوانه زده بود:</p>
+
+        <p class="question">
+          اگر انسان معیار ارزش را با اندازهٔ خویش ساخته باشد،<br>
+          از کجا معلوم که خط‌کش را درست تراشیده است؟
+        </p>
+
+        <p>و شاید آغاز خرد همین باشد:</p>
+
+        <p>نه آنکه آهو را بر انسان بنشانیم؛<br>
+        نه آنکه انسان را از جای خویش فروکشیم؛<br>
+        بلکه آنکه خط‌کشی را که خود ساخته‌ایم، بر پیشانی جهان نگذاریم.</p>
+
+        <p>چشمه می‌رفت.</p>
+
+        <p>باد در شاخساران می‌پیچید.</p>
+
+        <p>و در جایی دور، میان درختان، آهوی پیر راه می‌سپرد.</p>
+
+        <p>دو زندگی از دو راه می‌رفتند؛<br>
+        نه یکی محکوم دیگری بود،<br>
+        نه یکی داور دیگری.</p>
+
+        <p>و میان آن دو، چیزی باقی مانده بود که از هر دو بزرگ‌تر بود:</p>
+
+        <p class="emphasis">پرسش.</p>
+
+        <p>زیرا دانا آن نیست که برای هر چیز پاسخی آماده دارد؛</p>
+
+        <p>دانا آن است که بداند کدام پاسخ را هنوز حق ندارد با یقین بر زبان آورد.</p>
+
+        <p class="closing">
+          و مرد، پس از سال‌ها کتاب خواندن، آن صبح دریافت که<br>
+          گاهی خرد از آنجا آغاز می‌شود که آدمی،<br>
+          پیش از آنکه جهان را اندازه بگیرد،<br>
+          <strong>خط‌کش خویش را اندازه بگیرد.</strong>
+        </p>
+
+      </section>
+
+      <div class="bottom-ornament">✦　✧　◆　✧　✦</div>
+
+    </article>
+
+    <!-- ناوبری پایین -->
+    <nav class="bottom-nav" aria-label="ناوبری پایانی">
+      <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+      <span class="nav-divider">◆</span>
+      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
+    </nav>
+
+    <div class="copyright">
+      هورا
+    </div>
+
+  </main>
 
 </body>
-  </html>
+        </html>
