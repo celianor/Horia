@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>در آغوش مادر ـ ماده‌فیل | هورای</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f1eadc;
+      --paper-deep: #e7dcc8;
+      --ink: #29231c;
+      --muted: #776b5a;
+      --gold: #9b7737;
+      --gold-light: #c6a665;
+      --line: rgba(125, 94, 43, 0.35);
+      --shadow: rgba(48, 37, 21, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.35), transparent 38%),
+        linear-gradient(135deg, #eee5d5 0%, #e6dac4 100%);
+      color: var(--ink);
+      font-family: "Noto Naskh Arabic", "Amiri", serif;
+      line-height: 2.45;
+      font-size: 20px;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .10;
+      background-image:
+        radial-gradient(circle at 20% 30%, #5b4930 0.6px, transparent 0.8px),
+        radial-gradient(circle at 80% 70%, #5b4930 0.5px, transparent 0.8px);
+      background-size: 17px 17px, 23px 23px;
+      mix-blend-mode: multiply;
+    }
+
+    .page {
+      width: min(1000px, calc(100% - 36px));
+      margin: 42px auto;
+      padding: 0 0 55px;
+      position: relative;
+    }
+
+    .ornament-top {
+      text-align: center;
+      color: var(--gold);
+      font-size: 25px;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+      opacity: .9;
+    }
+
+    .top-nav,
+    .bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 17px;
+      margin: 8px 0 25px;
+    }
+
+    .top-nav a,
+    .bottom-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .top-nav a:hover,
+    .bottom-nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-divider {
+      color: var(--gold-light);
+      font-size: 15px;
+    }
+
+    .seal {
+      width: 88px;
+      height: 88px;
+      margin: 5px auto 22px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: var(--gold);
+      background:
+        radial-gradient(circle, rgba(255,255,255,.28), transparent 65%);
+      box-shadow:
+        0 2px 8px rgba(80, 55, 25, .08),
+        inset 0 0 0 5px rgba(155,119,55,.07);
+    }
+
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(155,119,55,.45);
+    }
+
+    .seal::before {
+      inset: 6px;
+    }
+
+    .seal::after {
+      inset: 11px;
+    }
+
+    .seal-text {
+      position: relative;
+      z-index: 2;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .manuscript {
+      background:
+        linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.10)),
+        var(--paper);
+      border: 1px solid rgba(130, 99, 51, .28);
+      box-shadow:
+        0 14px 45px var(--shadow),
+        inset 0 0 70px rgba(113, 82, 39, .06);
+      padding: 68px clamp(30px, 7vw, 82px) 75px;
+      position: relative;
+    }
+
+    .manuscript::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(155,119,55,.18);
+      pointer-events: none;
+    }
+
+    .manuscript::after {
+      content: "";
+      position: absolute;
+      inset: 21px;
+      border: 1px solid rgba(155,119,55,.08);
+      pointer-events: none;
+    }
+
+    .title {
+      text-align: center;
+      margin: 0;
+      color: #4b3821;
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.7;
+      letter-spacing: .2px;
+    }
+
+    .title-rule {
+      width: 180px;
+      height: 1px;
+      margin: 17px auto 43px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+      );
+      position: relative;
+    }
+
+    .title-rule::after {
+      content: "◆";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%);
+      background: var(--paper);
+      color: var(--gold);
+      padding: 0 10px;
+      font-size: 10px;
+    }
+
+    .prose {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .prose p {
+      margin: 0 0 24px;
+      text-align: justify;
+      text-justify: inter-word;
+      text-align-last: right;
+      hanging-punctuation: first;
+    }
+
+    .prose p:first-of-type::first-letter {
+      float: right;
+      font-family: "Amiri", serif;
+      font-size: 3.5em;
+      line-height: .8;
+      padding-left: 8px;
+      padding-top: 7px;
+      color: var(--gold);
+    }
+
+    .scene-break {
+      text-align: center;
+      margin: 42px 0;
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 8px;
+    }
+
+    .scene-break span {
+      display: inline-block;
+      transform: scale(.8);
+    }
+
+    .dialogue {
+      margin-right: 1.4em;
+      margin-left: 1.4em;
+      color: #332b22;
+    }
+
+    .dialogue p {
+      margin-bottom: 11px;
+    }
+
+    .emphasis {
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
+      line-height: 2.4;
+      color: #4c3922;
+      margin: 35px auto !important;
+    }
+
+    .question {
+      margin: 48px auto;
+      padding: 25px 30px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 23px;
+      line-height: 2.4;
+      color: #493820;
+    }
+
+    .closing {
+      margin-top: 52px;
+      text-align: center !important;
+      text-align-last: center !important;
+      font-family: "Amiri", serif;
+      font-size: 24px;
+      line-height: 2.55;
+      color: #493820;
+    }
+
+    .closing strong {
+      font-weight: 700;
+      color: #715326;
+    }
+
+    .bottom-ornament {
+      text-align: center;
+      margin: 48px 0 24px;
+      color: var(--gold);
+      font-size: 19px;
+      letter-spacing: 9px;
+    }
+
+    .bottom-nav {
+      margin-top: 28px;
+      margin-bottom: 0;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #8c806e;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        font-size: 18px;
+        line-height: 2.3;
+      }
+
+      .page {
+        width: min(100% - 18px, 1000px);
+        margin: 18px auto;
+      }
+
+      .manuscript {
+        padding: 48px 25px 55px;
+      }
+
+      .manuscript::before {
+        inset: 9px;
+      }
+
+      .manuscript::after {
+        inset: 14px;
+      }
+
+      .dialogue {
+        margin-right: .4em;
+        margin-left: .4em;
+      }
+
+      .question,
+      .closing {
+        font-size: 21px;
+      }
+
+      .top-nav,
+      .bottom-nav {
+        gap: 18px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- نشان هورای -->
+    <div class="seal" aria-label="هورای">
+      <span class="seal-text">هورای</span>
+    </div>
+
+    <!-- ناوبری بالا -->
+    <nav class="top-nav" aria-label="ناوبری">
+      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
+    </nav>
+
+    <div class="ornament-top">✦　✧　✦</div>
+
+    <article class="manuscript">
+
+      <h1 class="title">در آغوش مادر ـ</h1>
+
+      <div class="title-rule"></div>
+
+      <section class="prose">
+
+        <p>بامداد هنوز از پسِ کوه سر برنیاورده بود. سپیده، چون رشته‌ای سیمین، بر حاشیهٔ جامهٔ سیاه شب می‌دوخت، و تاریکی، آرام و بی‌صدا، از چهرهٔ دشت دامن برمی‌چید. شبنم بر نوکِ تیغ‌های علف نشسته بود؛ چنان‌که گویی شب، پیش از رفتن، مرواریدهای تاج خویش را بر دامان خاک پراکنده باشد.</p>
+
+        <p>رود، در دوردست، با سنگ‌ها رازی می‌گفت که گوشِ آدمی را بدان راه نبود. باد از میان علفزار می‌گذشت و سرِ هر بوته را به نرمی خم می‌کرد؛ چون دستی نادیده که بر گیسوی جهان کشند. پرندگان، یکی‌یکی، از خواب برمی‌خاستند و آواز خویش را به بامداد می‌سپردند؛ چنان‌که امانتی گران را به دستِ امین بسپارند.</p>
+
+        <p>در آن ساعت، هر چیز به زبان خویش سخنی داشت:</p>
+
+        <p class="emphasis">
+          پرنده، به بال؛<br>
+          رود، به روانی؛<br>
+          درخت، به ایستادگی؛<br>
+          خاک، به شکیبایی.
+        </p>
+
+        <p>و آدمی، که زبان این سخنان را نمی‌دانست، نامشان را خاموشی نهاده بود.</p>
+
+        <p>در میان دشت، ماده‌فیلی با بچهٔ خویش می‌رفت.</p>
+
+        <p>بچه هنوز جهان را به نام نمی‌شناخت. سنگ برای او سنگ نبود؛ گردیِ سرد و بازیگوشی بود که با خرطوم می‌شد غلتاندش. آب، آب نبود؛ خنکای تشنگی بود. علف، علف نبود؛ طعم سبزِ زنده‌بودن بود.</p>
+
+        <p>و مادر، برای او مادر نبود؛</p>
+
+        <p class="emphasis">همهٔ جهان بود.</p>
+
+        <p>هنوز میان «من» و «دیگری» دیواری در جانش برنخاسته بود. نه سایه‌ای را از آنِ خود می‌دانست، نه آبی را سهمِ خویش.</p>
+
+        <p>شاید نخستین آرامش همین باشد: پیش از آن‌که جان، جهان را به «از من» و «جز من» بخش کند.</p>
+
+        <p>مادر هر چند گام درنگ می‌کرد؛ خرطوم بر پشت بچه می‌کشید، بر پیشانی‌اش می‌نهاد و بر گوش‌های بزرگ و چین‌خوردهٔ او می‌لغزاند؛ چنان‌که دست بر نهالِ تازه‌رسته کشند تا بدانند هنوز ریشه در خاک دارد.</p>
+
+        <p>دستِ مادر، کتابی بود بی‌کاغذ و بی‌کاتب:</p>
+
+        <p class="emphasis">
+          هر لمس، سخنی؛<br>
+          هر درنگ، آرامشی؛<br>
+          هر نگاه، پیمانی بی‌زبان.
+        </p>
+
+        <p>مادر برای او پناهگاه نبود.</p>
+
+        <p class="emphasis">مادر، خودِ پناه بود.</p>
+
+        <p>و آدمی پناه را بیشتر آنگاه می‌شناسد که از آن دور افتاده باشد.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>از آن‌سوی دشت، سه مرد پدیدار شدند.</p>
+
+        <p>یکی تفنگی بر دوش داشت، دیگری ریسمانی کلفت در دست، و سومی پسری کم‌سال بود که چشمانش هنوز به سنگینیِ کار مردان خو نگرفته بود.</p>
+
+        <p>پسر نخست به فیلان نگریست و سپس به خاک.</p>
+
+        <p>نقش پای مادر، پهن و ژرف، بر زمین مانده بود؛ و در کنارش، نقش پای کوچک بچه.</p>
+
+        <p>پسر دانست که بعضی راه‌ها را پاها تنها نمی‌پیمایند؛ دل نیز همراهشان می‌رود.</p>
+
+        <div class="dialogue">
+
+          <p>مردِ ریسمان‌به‌دست گفت:</p>
+
+          <p>ـ پیش برو.</p>
+
+        </div>
+
+        <p>پسر پیش رفت.</p>
+
+        <p>مادر ایستاد.</p>
+
+        <p>باد، پیش از چشم، خبر را آورده بود. خرطوم برافراشت و هوا را آزمود؛ گوش‌هایش چون دو بادبان گشوده شد و تنِ سترگش آرام گرفت؛ همان آرامش سنگینی که گاه پیش از توفان بر جهان می‌نشیند.</p>
+
+        <p>بچه به مادر چسبید.</p>
+
+        <p>مادر خرطوم بر گردن او نهاد.</p>
+
+        <p>مردان نزدیک شدند.</p>
+
+        <p>مادر آوازی برکشید؛ نه بلند، اما ژرف و کشیده، گویی چیزی در سینهٔ زمین به حرکت درآمده باشد.</p>
+
+        <p>پسر لرزید.</p>
+
+        <div class="dialogue">
+
+          <p>مرد گفت:</p>
+          <p>ـ ریسمان را بینداز.</p>
+
+          <p>پسر دست برد.</p>
+
+          <p>ریسمان زبر و سنگین بود؛ چون بارِ گناهی که هنوز نامی ندارد.</p>
+
+          <p>مرد گفت:</p>
+          <p>ـ بگیر!</p>
+
+        </div>
+
+        <p>ریسمان از میان انگشتان لرزانش لغزید و بر گردن بچه افتاد.</p>
+
+        <p>مادر یک گام پیش آمد.</p>
+
+        <p>مرد ریسمان را کشید.</p>
+
+        <p>مادر خرطوم خویش را گردِ تنِ بچه پیچید.</p>
+
+        <p>در آن دم، دو کشش روبه‌روی هم ایستاد:</p>
+
+        <p class="emphasis">
+          یکی از دل می‌آمد؛<br>
+          یکی از دست.<br><br>
+          یکی می‌خواست نزدیک کند؛<br>
+          یکی می‌خواست جدا سازد.<br><br>
+          یکی زبان مهر داشت؛<br>
+          یکی زبان زور.
+        </p>
+
+        <p>و زور، زبان مهر را نمی‌فهمید.</p>
+
+        <p>ریسمان نیز گوش نداشت.</p>
+
+        <p>خاک زیر پاها ساییده شد و غبار، چون کفنی خاکستری، بر دشت آویخت.</p>
+
+        <div class="dialogue">
+
+          <p>پسر ناگاه گفت:</p>
+          <p>ـ بس است!</p>
+
+          <p>مرد برگشت.</p>
+          <p>ـ تو را برای دل‌سوزی نیاورده‌ایم.</p>
+
+        </div>
+
+        <p>پسر خاموش شد.</p>
+
+        <p>مادر دوباره آوازی برکشید.</p>
+
+        <p>این بار پسر حس کرد آن آواز چیزی را در او می‌خواند که هنوز نامی نداشت.</p>
+
+        <p class="emphasis">گویی می‌گفت: «او را از من مستان.»</p>
+
+        <p>مگر هر خواهشی باید واژه داشته باشد؟</p>
+
+        <p>مرد تفنگ را به آسمان برداشت و شلیک کرد.</p>
+
+        <p>صدا بر دشت پیچید و پرندگان، چون خاکستر، از شاخه‌ها برخاستند.</p>
+
+        <p>فیلان رمیدند.</p>
+
+        <p>مادر لحظه‌ای سر به آسمان برکشید؛ و همان لحظه کافی بود.</p>
+
+        <p>چون روی بازگرداند، بچه دور می‌شد.</p>
+
+        <p>مادر در پی او رفت.</p>
+
+        <p>یک گام.</p>
+        <p>دو گام.</p>
+        <p>ده گام.</p>
+
+        <p>سپس ایستاد.</p>
+
+        <p>خرطومش در هوا ماند؛ چنان‌که دستی در طلبِ گم‌شده‌ای در تهیِ جهان.</p>
+
+        <p>بچه ناپدید شد؛ چون ستاره‌ای که در مه فرو رود.</p>
+
+        <p>مادر نه گریخت، نه نشست، نه فریاد زد.</p>
+
+        <p>تنها به راهی نگریست که فرزندش را از او برده بود.</p>
+
+        <p>باد وزید.</p>
+
+        <p>اما باد، بوی فرزند را می‌آورد و می‌برد؛ بازگرداندنش در توان او نبود.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>شب، مردان گرد آتش نشستند.</p>
+
+        <p>پسر دورتر، بر سنگی تنها نشسته بود.</p>
+
+        <p>پیرمردی که سال‌ها آن دشت را دیده بود، کنارش نشست.</p>
+
+        <p>مدتی هر دو به آتش نگریستند.</p>
+
+        <div class="dialogue">
+
+          <p>پسر گفت:</p>
+          <p>ـ مگر فیل نیز می‌گرید؟</p>
+
+          <p>پیرمرد چوبی در آتش افکند.</p>
+          <p>ـ شاید.</p>
+
+          <p>ـ پس اشکش کجاست؟</p>
+
+          <p>ـ همهٔ اشک‌ها راهِ چشم نمی‌دانند.</p>
+
+          <p>پسر به تاریکی نگریست.</p>
+
+          <p>ـ پس آنچه در چشم نمی‌آید، از کجا بدانیم که هست؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ همان‌گونه که باد را نمی‌بینی و از خم‌شدنِ درخت درمی‌یابی که گذشته است.</p>
+
+          <p>درنگی کرد.</p>
+
+          <p>ـ بعضی دردها را چشم نمی‌بیند؛ رفتار نشانشان می‌دهد: در بازآمدن، در ماندن، در چشم‌دوختن به راهی که مسافرش دیگر بازنمی‌گردد.</p>
+
+          <p>پسر پس از درنگی گفت:</p>
+          <p>ـ مگر نمی‌داند که او دیگر نیست؟</p>
+
+          <p>ـ می‌داند.</p>
+
+          <p>ـ پس چرا بازمی‌گردد؟</p>
+
+          <p>پیرمرد چشم از آتش برنداشت.</p>
+          <p>ـ بعضی بازگشت‌ها برای یافتن نیست.</p>
+
+          <p>ـ پس برای چیست؟</p>
+
+          <p>ـ برای وفا.</p>
+
+          <p>هیزمی در آتش ترکید و شعله لحظه‌ای لرزید.</p>
+
+          <p>پسر گفت:</p>
+          <p>ـ وفا چه سودی دارد، وقتی آن‌که دوستش داری بازنگردد؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ وفا سود نمی‌جوید؛ که خود، سودِ خویش است.</p>
+
+          <p>پسر به آتش خیره ماند.</p>
+
+          <p>ـ پس یاد چیست؟</p>
+
+          <p>ـ آن است که نبودن را نیز حاضر نگاه داری.</p>
+
+          <p>پیرمرد اندکی خاموش ماند.</p>
+
+          <p>ـ آدمی چیزها را به نام می‌شناسد؛ اما دل، گاه پیش از نام می‌شناسد. آنچه دل بی‌نام شناخته باشد، با نام از میان نمی‌رود.</p>
+
+          <p>پسر گفت:</p>
+          <p>ـ اگر نبودن را فراموش کنی، چه؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ شاید آرام شوی؛ اما اگر دوست‌داشتن را نیز فراموش کنی، آن آرامش دیگر از جنس زندگی نیست.</p>
+
+        </div>
+
+        <p>آتش فرو نشست و شب بر دشت سنگین‌تر شد.</p>
+
+        <p>پسر آن شب در خواب ریسمانی دید که در دست داشت.</p>
+
+        <p>هرچه می‌کشید، درازتر می‌شد.</p>
+
+        <p>کشید.</p>
+
+        <p>باز کشید.</p>
+
+        <p>تا آن‌که ریسمان از میان انگشتانش گذشت و در تاریکی گم شد.</p>
+
+        <p>از آن سوی تاریکی، صدای خرطومی آمد.</p>
+
+        <p>دست از کشیدن برداشت.</p>
+
+        <p>صبح که بیدار شد، کف دستش درد می‌کرد.</p>
+
+        <p>نمی‌دانست چرا.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>روزها گذشتند.</p>
+
+        <p>باران آمد.</p>
+
+        <p>آفتاب آمد.</p>
+
+        <p>باد آمد.</p>
+
+        <p>مردان رفتند.</p>
+
+        <p>اما مادر نرفت.</p>
+
+        <p>هر چند روز یک‌بار به همان جای نخست بازمی‌گشت؛ گاه بامداد، گاه شامگاه، گاه زیر باران، گاه در گرمایی که خاک را چون آهن داغ می‌کرد.</p>
+
+        <p>می‌ایستاد.</p>
+
+        <p>خرطوم بر خاک می‌نهاد.</p>
+
+        <p>و به راهی چشم می‌دوخت که دیگر چیزی در آن نبود.</p>
+
+        <p>باران نقش پا را شست.</p>
+
+        <p>آفتاب خاک را خشک کرد.</p>
+
+        <p>باد، ذره‌ذره، نشان کوچک پا را از زمین برگرفت.</p>
+
+        <p>اما مادر بازمی‌آمد.</p>
+
+        <p>پسر هر بار که از آنجا می‌گذشت، او را می‌دید.</p>
+
+        <div class="dialogue">
+
+          <p>روزی گفت:</p>
+          <p>ـ چرا هنوز بازمی‌آید؟</p>
+
+          <p>پیرمرد گفت:</p>
+          <p>ـ کوه نیز هر بهار به آسمان می‌نگرد، گرچه ابری نیامده باشد.</p>
+
+        </div>
+
+        <p>پسر چیزی نگفت.</p>
+
+        <p>نقش پای کوچک هر روز کم‌رنگ‌تر می‌شد؛</p>
+
+        <p class="emphasis">اما جای خالی‌اش در دل دشت، هر روز پررنگ‌تر.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>سال‌ها گذشت.</p>
+
+        <p>پسر بزرگ شد.</p>
+
+        <p>چهره‌اش دگرگون شد، قامتش بلند شد، صدایش کلفت‌تر گشت؛ اما در گوشه‌ای از جانش، آن کودک هنوز ایستاده بود: همان که ریسمان از دستش لغزیده بود و نمی‌دانست چرا دلش می‌لرزد.</p>
+
+        <p>زمان همیشه خاطره را نمی‌زداید؛ گاه تنها ژرف‌ترش می‌کند؛ چنان‌که آب، نقش سنگ را نمی‌شوید، بلکه با گذر خویش خطوط پنهان آن را آشکارتر می‌سازد.</p>
+
+        <p>روزی، پس از سالیان، مرد بدان دشت بازگشت.</p>
+
+        <p>نمی‌دانست چرا.</p>
+
+        <p>بعضی راه‌ها را آدمی برنمی‌گزیند؛ راه‌ها، پس از سال‌ها، آدمی را فرامی‌خوانند.</p>
+
+        <p>رود هنوز می‌گذشت.</p>
+
+        <p>درختان بلندتر شده بودند.</p>
+
+        <p>زمان بر چهرهٔ جهان نشسته بود؛ اما سنگ‌ها همان سنگ‌ها بودند.</p>
+
+        <p>ناگاه صدایی شنید؛ آرام و سنگین.</p>
+
+        <p>سر برگرداند.</p>
+
+        <p>آن سوی علفزار، فیل جوانی ایستاده بود.</p>
+
+        <p>سر برافراشت و آوازی برکشید؛ ژرف و کشیده، چون پژواکی که سال‌ها در گوشِ مرد مانده باشد.</p>
+
+        <p>مرد یک گام پیش رفت.</p>
+
+        <p>فیل نیز.</p>
+
+        <p>مرد ایستاد.</p>
+
+        <p>فیل ایستاد.</p>
+
+        <p>در آن نگاه، چیزی بود که مرد نتوانست نامش نهد.</p>
+
+        <p>شاید همان کودک بود.</p>
+
+        <p>شاید نبود.</p>
+
+        <p>و این پرسش، چنان‌که گویی خود به پاسخ نیازی نداشت، میان آن دو خاموش ماند.</p>
+
+        <p>فیل جوان به سوی گله بازگشت.</p>
+
+        <p>در میان گله، ماده‌فیلی سالخورده ایستاده بود.</p>
+
+        <p>فیل جوان خرطوم به خرطوم او رساند.</p>
+
+        <p>ماده‌فیل خرطوم خویش را بر پشت او کشید.</p>
+
+        <p>مرد نه دانست مادر کدام است، نه فرزند کدام.</p>
+
+        <p class="emphasis">اما دانست میان آن دو چیزی هست که نه ریسمان بدان راه می‌یابد و نه فاصله از میانش می‌برد.</p>
+
+        <p>به دست‌های خویش نگریست.</p>
+
+        <p>دست‌هایی که روزی ریسمانی را گرفته بودند، اکنون خالی بودند.</p>
+
+        <p>و برای نخستین بار دانست که خالی‌بودن همیشه نداشتن نیست؛ گاه دست خالی می‌شود تا دل بتواند آنچه را دیر فهمیده است، بهتر نگاه دارد.</p>
+
+        <div class="scene-break"><span>✦</span></div>
+
+        <p>آدمی چون چیزی را نام می‌نهد، گاه می‌پندارد آن را شناخته است؛ و چون شناخته پنداشت، گاه گمان می‌برد حقِ تملکش را یافته است.</p>
+
+        <p class="emphasis">
+          نام.<br>
+          سپس ریسمان.<br>
+          و پس از ریسمان، جدایی.
+        </p>
+
+        <p>اما مهر، سند نمی‌خواهد.</p>
+
+        <p>وفا، شاهد نمی‌جوید.</p>
+
+        <p>و بعضی پیوندها را نه حضور استوار می‌کند و نه غیاب می‌گسلد.</p>
+
+        <p>چه بسیار چیزها که آدمی سال‌ها به نام خویش می‌خواند و روزی درمی‌یابد که خود نیز تنها مسافری بر خاک بوده است.</p>
+
+        <p>مرد بر خاک نشست.</p>
+
+        <p>اشک، پس از سالیان، راه خویش را یافت.</p>
+
+        <p>بعضی اشک‌ها دیر می‌رسند؛ نه از آن‌که راه را نمی‌دانند، بلکه از آن‌که دل سال‌ها دروازه بر رویشان بسته بوده است.</p>
+
+        <p>او نه برای آن گریست که بداند آن فیل همان کودک بوده یا نه.</p>
+
+        <p>نه برای آن‌که بداند مادر او را به یاد آورده است یا نه.</p>
+
+        <p>برای چیزی ژرف‌تر گریست:</p>
+
+        <p class="emphasis">برای آن‌که دریافته بود بعضی پیوندها پیش از آن‌که آدمی نامشان کند، در جهان پدید آمده‌اند؛ و پیش از آن‌که بفهمدشان، در جانش ریشه دوانده‌اند.</p>
+
+        <p>مرد سر برداشت.</p>
+
+        <p>باد از میان علف‌ها گذشت.</p>
+
+        <p>در دوردست، فیل جوان به سوی مادر خویش رفت.</p>
+
+        <p>مرد برخاست.</p>
+
+        <p>این بار در پی پاسخ نرفت.</p>
+
+        <p>تنها ایستاد و نگریست.</p>
+
+        <p>شاید آن مادر، همان مادر سال‌های دور بود.</p>
+
+        <p>شاید نه.</p>
+
+        <p>شاید آن فیل جوان، همان کودکی بود که روزی در میان ریسمان و خاک از آغوش مادر ربوده شد.</p>
+
+        <p>شاید نیز فرزندی دیگر بود که تنها همان مهر دیرینه را به میراث برده بود.</p>
+
+        <p>هیچ‌کس نمی‌دانست.</p>
+
+        <p>و شاید دانستن، در آن لحظه، کمترین چیزی بود که اهمیت داشت.</p>
+
+        <p>در خاموشی دشت، پرسشی بر جای ماند:</p>
+
+        <p class="question">
+          اگر مهر را نتوان با ریسمان بست،<br>
+          آیا می‌توان با ریسمان گسست؟
+        </p>
+
+        <p>دشت خاموش ماند.</p>
+
+        <p>رود گذشت.</p>
+
+        <p>و در دوردست، مادری خرطوم خویش بر پشت فرزند نهاد.</p>
+
+        <p class="closing">
+          بعضی پیوندها را نه ریسمان می‌بندد،<br>
+          نه فاصله می‌گسلد؛<br>
+          زیرا آنچه در آغوشِ مهر ریشه دوانده باشد،<br>
+          پیش از نام و پس از غیاب نیز زنده می‌ماند.
+        </p>
+
+      </section>
+
+      <div class="bottom-ornament">✦　✧　◆　✧　✦</div>
+
+    </article>
+
+    <!-- ناوبری پایین -->
+    <nav class="bottom-nav" aria-label="ناوبری پایانی">
+      <a href="https://celianor.github.io/Horia/index.fa.html">خانه</a>
+      <span class="nav-divider">◆</span>
+      <a href="https://celianor.github.io/Horia/lightbook/An/index.fa.html">بازگشت</a>
+    </nav>
+
+    <div class="copyright">
+      هورای
+    </div>
+
+  </main>
+
+</body>
+</html>
